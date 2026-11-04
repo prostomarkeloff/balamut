@@ -11,3 +11,5 @@ build/
 .balamut/
 # A local benchmark harness (its own git repo, venv and measured state); never part of the package.
 examples/inventory/
+# Local profiling/benchmark harness and its outputs.
+perf-local/
