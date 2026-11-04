@@ -21,7 +21,7 @@ dependencies = [
     "pytest>=9.1",
     # The upper bound is real: balamut implements pytest-fast's per-worker hooks (configure/shutdown,
     # annotate) and its env contract, which pluggy validates against the hookspecs of the installed version.
-    "pytest-fast>=0.16,<0.17",
+    "pytest-fast>=0.17,<0.18",
     "coverage>=7.13",
     "pluggy>=1.6",
     "capability>=1.0",
@@ -43,6 +43,7 @@ dev = [
     "hypothesis>=6.151",
     "hypothesmith>=0.3",
     "pyright>=1.1.408",
+    "pyinstrument>=5.0",
     "ruff>=0.16",
 ]
 
