@@ -8,6 +8,8 @@ of facts on the capability fold.
 
 from __future__ import annotations
 
+import hashlib
+import pickle
 import time
 from collections import Counter
 from collections.abc import Mapping, MutableMapping, Sequence
@@ -109,6 +111,39 @@ def _phase_add(phase_timings: PhaseTimings | None, phase: str, started: float) -
         phase_timings[phase] = phase_timings.get(phase, 0.0) + (time.perf_counter() - started)
 
 
+class MutantCache:
+    """Content-addressed enumeration cache: the mutants of a file are stored under the hash of its source and the
+    kind, so an unchanged file re-enumerates from the pickle instead of re-walking the AST.
+
+    The directory is keyed by the campaign's kind configuration (the caller names it): a changed operator set or
+    fact table lands in a fresh directory and never mixes with stale entries."""
+
+    def __init__(self, directory: Path) -> None:
+        self._directory = directory
+
+    def _path(self, rel: str, source_hash: str, kind: str) -> Path:
+        key = hashlib.sha256(f"{rel}\0{source_hash}\0{kind}".encode()).hexdigest()
+        return self._directory / f"{key}.pickle"
+
+    def load(self, rel: str, source_hash: str, kind: str) -> list[Mutant] | None:
+        try:
+            raw = self._path(rel, source_hash, kind).read_bytes()
+        except OSError:
+            return None
+        try:
+            restored: list[Mutant] = pickle.loads(raw)
+        except pickle.PickleError, AttributeError, ImportError, IndexError, ValueError:
+            return None
+        return restored
+
+    def store(self, rel: str, source_hash: str, kind: str, mutants: list[Mutant]) -> None:
+        self._directory.mkdir(parents=True, exist_ok=True)
+        target = self._path(rel, source_hash, kind)
+        temporary = target.with_name(f"{target.name}.tmp")
+        temporary.write_bytes(pickle.dumps(mutants))
+        temporary.replace(target)
+
+
 def enumerate_paths(
     paths: list[str],
     kinds: list[str],
@@ -117,6 +152,7 @@ def enumerate_paths(
     resolved: KindKinds,
     paths_by_kind: PathsByKind | None = None,
     phase_timings: PhaseTimings | None = None,
+    enum_cache: MutantCache | None = None,
 ) -> tuple[list[Mutant], SourceCache, ReexportIndex]:
     """The mutants of ``paths`` (files or directories, relative to the project root), their sources and the
     re-export index ((defining file, name) -> wrapper).
@@ -146,12 +182,21 @@ def enumerate_paths(
                 continue
             source = file.read_text(encoding="utf-8")
             sources[rel] = source
+            source_hash = hashlib.sha256(source.encode("utf-8")).hexdigest()
             for kind in file_kinds:
                 # A file that neither matches the test patterns nor defines re-exported tests collects nothing:
                 # its self-covered mutants would have no node id to run.
                 if kind in self_covered_kinds and not layout.is_test_file(file.name) and rel not in reexport_def_files:
                     continue
-                mutants.extend(enumerate_facts(rel, source, (kind_kinds[kind],), family=kind))
+                if enum_cache is not None:
+                    cached = enum_cache.load(rel, source_hash, kind)
+                    if cached is not None:
+                        mutants.extend(cached)
+                        continue
+                produced = enumerate_facts(rel, source, (kind_kinds[kind],), family=kind)
+                if enum_cache is not None:
+                    enum_cache.store(rel, source_hash, kind, produced)
+                mutants.extend(produced)
     _phase_add(phase_timings, "mutation_enumeration", enumeration_started)
     return mutants, sources, reexport
 

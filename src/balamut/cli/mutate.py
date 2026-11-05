@@ -11,6 +11,7 @@ divergence into its store first, so a test written since the last campaign is a 
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import os
 import sys
@@ -37,6 +38,8 @@ from balamut.diff.scope import DiffScope, ScopeWatch, read_scope
 from balamut.engine.campaign import CampaignOptions, run_campaign
 from balamut.engine.collection import CollectionError, CollectionKey, build_collection_key, collect_test_nodeids
 from balamut.engine.enumeration import (
+    KindKinds,
+    MutantCache,
     PathsByKind,
     UnknownKindError,
     enumerate_paths,
@@ -327,6 +330,12 @@ def _routing(paths: list[str], kinds: list[str], layout: Layout, self_covered_ki
     return {kind: tests if kind in self_covered_kinds else source for kind in kinds}
 
 
+def _enum_cache(profile: Profile, resolved: KindKinds) -> MutantCache:
+    """The content-addressed enumeration cache, keyed by the campaign's kind configuration."""
+    config_hash = hashlib.sha256(repr(resolved).encode()).hexdigest()[:16]
+    return MutantCache(profile.state_dir / "tmp" / "enum" / config_hash)
+
+
 def main(argv: list[str]) -> int:
     try:
         profile = load_profile(Path.cwd())
@@ -519,6 +528,7 @@ def _run(
         resolved=resolved,
         paths_by_kind=paths_by_kind,
         phase_timings=timings,
+        enum_cache=_enum_cache(profile, resolved),
     )
     if args.diff_mode == "fast" and scope is not None:
         mutants = filter_mutants_by_scope(mutants, scope)

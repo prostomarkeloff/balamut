@@ -123,6 +123,9 @@ known-third-party = ["coverage"]
 "src/balamut/**" = ["S404", "S603", "S607"]
 # Table and column names in the store's SQL are internal constants; values are always bound parameters.
 "src/balamut/coverage/store.py" = ["S608"]
+# The enum cache pickles into the project's own state dir; a tampered cache file is within the same trust
+# boundary as the project sources the campaign executes anyway, and any decode error falls back to the walk.
+"src/balamut/engine/enumeration.py" = ["S301"]
 # Database names are quoted identifiers built by the provider itself; psql gets them, never user text.
 "src/balamut/isolation/postgres.py" = ["S608"]
 

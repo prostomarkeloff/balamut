@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import hashlib
 from dataclasses import dataclass, replace
 from pathlib import Path
 
@@ -559,3 +560,38 @@ def test_files_resolves_a_single_source_file_under_the_root(tmp_path: Path) -> N
     write_file(tmp_path / "src/other.py", "def g():\n    return 2\n")
 
     assert enumeration._files(tmp_path, "src/x.py") == [tmp_path / "src/x.py"]
+
+
+def test_mutant_cache_round_trips_the_enumeration_unchanged(tmp_path: Path) -> None:
+    """The content-addressed cache restores the exact mutants (facts included) for the same source and kind."""
+    src = "def f(a, b):\n    return a < b\n"
+    mutants = enumerate_mutants("src/x.py", src)
+    cache = enumeration.MutantCache(tmp_path / "cache")
+    source_hash = hashlib.sha256(src.encode()).hexdigest()
+
+    assert cache.load("src/x.py", source_hash, "src") is None
+    cache.store("src/x.py", source_hash, "src", mutants)
+    assert cache.load("src/x.py", source_hash, "src") == mutants
+
+
+def test_mutant_cache_misses_on_a_changed_source_or_kind(tmp_path: Path) -> None:
+    """A different source hash or kind never returns the stored mutants."""
+    src = "def f(a, b):\n    return a < b\n"
+    mutants = enumerate_mutants("src/x.py", src)
+    cache = enumeration.MutantCache(tmp_path / "cache")
+    source_hash = hashlib.sha256(src.encode()).hexdigest()
+    cache.store("src/x.py", source_hash, "src", mutants)
+
+    assert cache.load("src/x.py", hashlib.sha256(b"changed").hexdigest(), "src") is None
+    assert cache.load("src/x.py", source_hash, "other") is None
+    assert cache.load("other/x.py", source_hash, "src") is None
+
+
+def test_mutant_cache_ignores_a_corrupted_pickle(tmp_path: Path) -> None:
+    """A truncated or foreign file falls back to a miss, never a decode error."""
+    cache = enumeration.MutantCache(tmp_path / "cache")
+    (tmp_path / "cache").mkdir()
+    key = hashlib.sha256(b"x\0y\0z").hexdigest()
+    (tmp_path / "cache" / f"{key}.pickle").write_bytes(b"not a pickle")
+
+    assert cache.load("x", "y", "z") is None
