@@ -996,6 +996,9 @@ def test_campaign_records_the_kill_validity_since_boundary(tmp_path: Path, monke
             captured["support_hash"] = support_hash
             captured["since"] = since
 
+        def warm_layout(self) -> None:
+            pass
+
     monkeypatch.setattr(campaign, "KillValidity", FakeValidity)
     stub_campaign_runtime(monkeypatch, tmp_path, [work(0, item)], [RunResult(0, {}, [])])
     run(tmp_path, [item])

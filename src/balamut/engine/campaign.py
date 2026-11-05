@@ -481,6 +481,7 @@ def run_campaign(
     partition_started = time.perf_counter()
     # One validity per campaign: the cache check and new kills share one parse of the tree and one support hash.
     validity = KillValidity(layout, support_hash=support_corpus_hash(layout, memo), since=files_read_at)
+    validity.warm_layout()  # the parses the cached-verdict checks need, up front and in parallel
     work, results, cache_hits = partition(
         mutants,
         sources,

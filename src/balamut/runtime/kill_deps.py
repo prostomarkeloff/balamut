@@ -30,6 +30,7 @@ import posixpath
 import sys
 import threading
 from collections.abc import Callable, Generator, Iterable, Iterator, Mapping
+from concurrent.futures import ThreadPoolExecutor
 from contextlib import contextmanager
 from pathlib import Path
 from types import CodeType, ModuleType
@@ -395,6 +396,23 @@ class DependencyHasher:
                 self._spans[dep] = "module-scope" if not path else ("absent" if not nodes else _digest(*nodes))
         return self._spans[dep]
 
+    def warm(self, files: Iterable[str]) -> None:
+        """Parse the given files up front, in parallel; the serial first-touch parse dominates the cached prep."""
+        pending = sorted(file for file in files if file not in self._trees)
+        if not pending:
+            return
+        with ThreadPoolExecutor(max_workers=min(8, len(pending))) as executor:
+            executor.map(self._tree, pending)
+
+    def layout_files(self) -> list[str]:
+        """Every source file of the layout, relative to the root (the skeletons and spans come from them)."""
+        candidates: list[str] = []
+        for root_name in self._layout.source:
+            base = self._root / root_name
+            if base.is_dir():
+                candidates.extend(path.relative_to(self._root).as_posix() for path in base.rglob("*.py"))
+        return candidates
+
 
 def _directories(deps: KillDeps) -> list[str]:
     return sorted({file for file, qualname in deps if qualname == DIRECTORY})
@@ -421,6 +439,10 @@ class KillValidity:
         self._support_hash = support_hash
         self._since = since
         self._lock = threading.Lock()
+
+    def warm_layout(self) -> None:
+        """Parse every source and test file of the layout once, in parallel (the campaign's prep warms this)."""
+        self._hasher.warm(self._hasher.layout_files())
 
     def of(self, deps: KillDeps) -> str:
         """Validity of a kill just observed, for recording."""
