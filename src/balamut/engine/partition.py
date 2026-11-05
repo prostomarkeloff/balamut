@@ -34,6 +34,7 @@ from balamut.runtime.plugin import MutantSpec
 type FileHashMemo = dict[str, str]
 type ResultsByIndex = dict[int, MutantResult]
 type SourceCache = dict[str, str]
+type CoveredByCache = dict[tuple[str, ...], AbstractSet[str]]
 
 _EMPTY: frozenset[str] = frozenset()
 
@@ -114,6 +115,7 @@ def partition(
     prefilled: ResultsByIndex = {}
     cache_hits = 0
     identity_cache: IdentityBaseCache = {}
+    covered_by_cache: CoveredByCache = {}
     support_hash = support_corpus_hash(layout, memo)
     if kill_validity is None:
         kill_validity = KillValidity(layout, support_hash=support_hash)
@@ -155,7 +157,12 @@ def partition(
         covering_sorted = tuple(sorted(covering))
         # Source files the covering tests execute are the mutated function's external dependencies (a helper it
         # calls): their edit changes behaviour under the same tests even when the mutant's own file did not change.
-        covered_src = sorted(path for path in cov.files_covered_by(set(covering)) if layout.is_source_path(path))
+        # The set of a site repeats across its mutants: look it up once per distinct covering set.
+        covered = covered_by_cache.get(covering_sorted)
+        if covered is None:
+            covered = cov.files_covered_by(set(covering))
+            covered_by_cache[covering_sorted] = covered
+        covered_src = sorted(path for path in covered if layout.is_source_path(path))
         root = layout.root
         cov_hash = covering_hash(
             [
