@@ -11,6 +11,7 @@ divergence into its store first, so a test written since the last campaign is a 
 from __future__ import annotations
 
 import argparse
+import dataclasses
 import hashlib
 import json
 import os
@@ -21,6 +22,7 @@ from dataclasses import dataclass
 from datetime import datetime
 from functools import partial
 from pathlib import Path
+from typing import cast
 
 from balamut.cli.exit_codes import EXIT_REFRESH_BASELINE_FAILURE, EXIT_SCOPE_CHANGED, EXIT_USAGE
 from balamut.cli.substrate_cmd import SubstrateBuildFailedError, ensure_substrate
@@ -332,8 +334,28 @@ def _routing(paths: list[str], kinds: list[str], layout: Layout, self_covered_ki
 
 def _enum_cache(profile: Profile, resolved: KindKinds) -> MutantCache:
     """The content-addressed enumeration cache, keyed by the campaign's kind configuration."""
-    config_hash = hashlib.sha256(repr(resolved).encode()).hexdigest()[:16]
+    # The facts are frozen dataclasses at runtime, but the kind registry types them as the capability base.
+    canonical = _canonical(cast("Canonical", resolved))
+    config_hash = hashlib.sha256(repr(canonical).encode()).hexdigest()[:16]
     return MutantCache(profile.state_dir / "tmp" / "enum" / config_hash)
+
+
+type JsonValue = bool | int | float | str | list[JsonValue] | dict[str, JsonValue] | None
+type Canonical = JsonValue | frozenset[Canonical] | tuple[Canonical, ...] | list[Canonical] | dict[str, Canonical]
+
+
+def _canonical(value: Canonical) -> Canonical:
+    """A hash-seed-stable serialization of a resolved kind registry: frozensets and dicts sort, dataclasses
+    recurse through their fields, so two processes always fingerprint the same configuration identically."""
+    if isinstance(value, frozenset):
+        return sorted((_canonical(item) for item in value), key=repr)
+    if isinstance(value, dict):
+        return sorted(((key, _canonical(item)) for key, item in value.items()), key=repr)
+    if isinstance(value, (tuple, list)):
+        return [_canonical(item) for item in value]
+    if dataclasses.is_dataclass(value) and not isinstance(value, type):
+        return [type(value).__qualname__, _canonical(dataclasses.asdict(value))]
+    return value
 
 
 def main(argv: list[str]) -> int:
