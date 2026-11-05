@@ -51,6 +51,7 @@ __all__ = [
     "Hang",
     "PhaseMap",
     "RunResult",
+    "adopt_pool",
     "await_pool",
     "campaign_addopts",
     "daemon_process_failure_nodeid",
@@ -122,6 +123,38 @@ class Daemon:
     persist_workers: bool = True
     idle_ttl: int = _IDLE_TTL_S  # a respawn keeps the configured TTL
     respawns: int = 0  # every hard reset gets a new address, so an orphaned thread cannot reconnect
+
+
+class _AdoptedProcess:
+    """The process surface of a daemon adopted from an earlier run: pid-directed, never a Popen handle."""
+
+    def __init__(self, pid: int) -> None:
+        self.pid = pid
+
+    @property
+    def returncode(self) -> int | None:
+        return self.poll()
+
+    def poll(self) -> int | None:
+        try:
+            os.kill(self.pid, 0)
+        except ProcessLookupError:
+            return 1
+        return None
+
+    def terminate(self) -> None:
+        killpg(self)
+
+    def kill(self) -> None:
+        killpg(self)
+
+    def wait(self, timeout: float | None = None) -> int:
+        deadline = math.inf if timeout is None else time.monotonic() + timeout
+        while self.poll() is None:
+            if time.monotonic() >= deadline:
+                raise subprocess.TimeoutExpired("adopted daemon", 0.0 if timeout is None else timeout)
+            time.sleep(0.05)
+        return 0
 
 
 @dataclass(slots=True)
@@ -567,6 +600,39 @@ def await_pool(pool: list[Daemon]) -> None:
                 respawn_daemon(daemon)
             else:
                 raise
+
+
+def adopt_pool(
+    address_base: str, daemons: int, workers: int, env: EnvMap, scratch: Path, *, persist_workers: bool = True
+) -> list[Daemon] | None:
+    """Adopt the daemons of a persisted earlier run at the fixed addresses, or None when any is gone.
+
+    Each adopted daemon must show its pid file, a live pid and its bound socket; the first gap or dead daemon
+    invalidates the whole pool (the caller then spawns fresh). The workers and the environment are the caller's
+    current plan: the daemon answers stale and reloads on its first request when the environment drifted."""
+    run_tag = sha(address_base)[:8]
+    pool: list[Daemon] = []
+    for index in range(daemons):
+        address = f"{address_base}.{index}"
+        pid_file = Path(f"{address}.pid")
+        if not pid_file.exists() or not Path(address).exists():
+            return None
+        raw = pid_file.read_text(encoding="utf-8").strip()
+        if not raw.isdigit():
+            return None
+        pid = int(raw)
+        try:
+            os.kill(pid, 0)
+        except ProcessLookupError:
+            return None
+        except OverflowError:
+            return None  # a pid beyond the range is a corrupt file, not a live daemon
+        except PermissionError:
+            pass  # another user owns the pid: still alive, still adoptable
+        mutant_file = scratch / f"mutant-{run_tag}-{index}.json"
+        log = (scratch / f"daemon-{run_tag}-{index}.log").open("ab")
+        pool.append(Daemon(address, mutant_file, _AdoptedProcess(pid), log, workers, env, persist_workers))
+    return pool
 
 
 def shutdown_pool(pool: list[Daemon]) -> None:

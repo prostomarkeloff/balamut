@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import importlib
 import json
+import os
 import threading
 from collections.abc import Callable
 from collections.abc import Set as AbstractSet
@@ -1668,6 +1669,44 @@ def test_spawn_pool_passes_daemon_arguments_in_order(tmp_path: Path, monkeypatch
     assert [d.env for d in pool] == [{"A": "1"}, {"A": "1"}]
     assert [d.persist_workers for d in pool] == [False, False]
     assert [d.idle_ttl for d in pool] == [600, 600]
+
+
+def test_adopt_pool_adopts_a_live_persisted_pool(tmp_path: Path) -> None:
+    """A persisted pool with pid files, live pids and bound sockets is adopted without a spawn."""
+    scratch = tmp_path / "scratch"
+    scratch.mkdir()
+    base = str(tmp_path / "pool")
+    for index in range(2):
+        Path(f"{base}.{index}").touch()  # the bound socket
+        Path(f"{base}.{index}.pid").write_text(str(os.getpid()), encoding="utf-8")
+
+    pool = daemon.adopt_pool(base, 2, 1, {"A": "1"}, scratch)
+
+    assert pool is not None
+    assert [d.address for d in pool] == [f"{base}.0", f"{base}.1"]
+    assert [d.proc.pid for d in pool] == [os.getpid(), os.getpid()]
+    assert [d.workers for d in pool] == [1, 1]
+    assert [d.env for d in pool] == [{"A": "1"}, {"A": "1"}]
+    run_tag = daemon.sha(base)[:8]
+    assert [d.mutant_file for d in pool] == [scratch / f"mutant-{run_tag}-{index}.json" for index in range(2)]
+    for d in pool:
+        d.log.close()
+
+
+def test_adopt_pool_declines_on_a_gap_or_a_dead_pid(tmp_path: Path) -> None:
+    """A missing socket or pid file, a dead pid and a corrupt pid all decline the whole pool."""
+    scratch = tmp_path / "scratch"
+    scratch.mkdir()
+    base = str(tmp_path / "pool")
+    Path(f"{base}.0").touch()
+    Path(f"{base}.0.pid").write_text(str(os.getpid()), encoding="utf-8")
+
+    assert daemon.adopt_pool(base, 2, 1, {}, scratch) is None  # index 1 absent
+
+    Path(f"{base}.1").touch()
+    Path(f"{base}.1.pid").write_text("999999999999", encoding="utf-8")  # beyond the pid range: corrupt
+
+    assert daemon.adopt_pool(base, 2, 1, {}, scratch) is None
 
 
 def test_fresh_worker_switch_uses_a_bounded_named_pool(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:

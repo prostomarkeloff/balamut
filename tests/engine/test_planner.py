@@ -41,9 +41,10 @@ def test_explicit_daemons_disable_heuristic_but_are_clamped_to_work() -> None:
     assert planner.resolve_execution_plan(
         explicit_daemons=8, workers_per_daemon=1, pending=3, perf_cores=10, isolated=False
     ) == planner.ExecutionPlan(3, 1, 3)
+    # The explicit count overrides the performance-core budget entirely (a larger machine may saturate).
     assert planner.resolve_execution_plan(
         explicit_daemons=20, workers_per_daemon=2, pending=30, perf_cores=10, isolated=False
-    ) == planner.ExecutionPlan(10, 2, 20)
+    ) == planner.ExecutionPlan(20, 2, 40)
 
 
 def test_auto_plan_budgets_total_workers_across_daemons() -> None:
@@ -112,9 +113,9 @@ def test_auto_plan_picks_the_exact_bucket_at_each_pending_boundary() -> None:
 def test_auto_plan_floors_core_limit_and_budget_limit() -> None:
     """A zero core count floors at one daemon, and a worker budget below the floor stays at one daemon."""
     plan = planner.resolve_execution_plan
-    # perf_cores == 0 floors core_limit at 1, clamping the explicit override to one daemon.
+    # The explicit override ignores the core count entirely: it is clamped only to the work.
     assert plan(explicit_daemons=2, workers_per_daemon=1, pending=2, perf_cores=0, isolated=False) == (
-        planner.ExecutionPlan(1, 1, 1)
+        planner.ExecutionPlan(2, 1, 2)
     )
     # workers_per_daemon == 6 with 4 perf cores floors the budget at 1 (6 // 6 == 1), so a huge
     # isolated pool stays at one daemon.

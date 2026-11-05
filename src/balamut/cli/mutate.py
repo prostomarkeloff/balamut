@@ -128,6 +128,11 @@ def _parser(profile: Profile) -> argparse.ArgumentParser:
         help="inject yield points into concurrency mutants",
     )
     parser.add_argument("--cross-kill", action="store_true", help="run every covering test per mutant (kill matrix)")
+    parser.add_argument(
+        "--persist-pool",
+        action="store_true",
+        help="keep the daemons at a fixed address for the next campaign (skips the spawn and the shutdown)",
+    )
     parser.add_argument("--limit", type=int, default=0, help="cap the number of mutants (smoke runs)")
     parser.add_argument("--kind", default=",".join(profile.kinds), help="comma-separated mutant kinds")
     parser.add_argument("--operator", default="", help="keep only operators with this prefix")
@@ -601,6 +606,7 @@ def _run(
         timeout_retries=args.timeout_retries,
         timeout_retry_multiplier=args.timeout_retry_multiplier,
         daemon_ttl=profile.daemon_ttl,
+        persist_pool=args.persist_pool,
         progress_mode=ProgressMode(args.progress),
         stats_path=stats_path,
         detailed=args.detailed,

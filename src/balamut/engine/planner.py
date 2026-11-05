@@ -30,14 +30,15 @@ def resolve_execution_plan(
     with its own collection (its forkserver idles while the worker runs), its own database copy and connection pool,
     while the database, memory and cores are shared. Measured on six performance cores, six daemons against three
     gave the same wall time per gate, but each request ran almost twice as long and peak memory almost doubled. An
-    explicit daemon count is an intentional override, clamped to the work and the performance cores."""
+    explicit daemon count is an intentional override, clamped only to the work: a machine with more cores may
+    saturate beyond the performance-core count."""
     if workers_per_daemon < 1:
         raise ValueError("workers_per_daemon must be positive")
     if pending <= 0:
         return ExecutionPlan(0, workers_per_daemon, 0)
     core_limit = max(1, perf_cores)
     if explicit_daemons > 0:
-        daemons = min(explicit_daemons, pending, core_limit)
+        daemons = min(explicit_daemons, pending)
         return ExecutionPlan(daemons, workers_per_daemon, daemons * workers_per_daemon)
     worker_budget = math.ceil(core_limit * 1.5)
     budget_limit = max(1, worker_budget // workers_per_daemon)

@@ -21,7 +21,7 @@ from balamut.coverage.store import Store
 from balamut.engine import campaign, partition, timeouts
 from balamut.engine.daemon import Daemon, RunResult
 from balamut.engine.progress import CampaignProgress, ProgressMode
-from balamut.engine.results import CampaignExactnessError, MutantResult, MutantStatus
+from balamut.engine.results import CampaignExactnessError, CampaignSetupError, MutantResult, MutantStatus
 from balamut.engine.worker import Timing
 from balamut.isolation import EnvMap, EnvOverlays, Isolation
 from balamut.operators.concurrency import LockDrop
@@ -815,3 +815,26 @@ def test_daemons_collect_only_covering_test_files_with_matching_client_fingerpri
     expected = "-p balamut.runtime.plugin -o faulthandler_timeout=8 tests/a_test.py tests/b/b_test.py"
     assert seen == [(expected, expected)]
     assert os.environ["PYTEST_ADDOPTS"] == "-p balamut.runtime.plugin"
+
+
+def test_persist_pool_adopts_at_a_fixed_address_then_spawns_on_a_miss(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """A persisted campaign probes the fixed pool address first; a miss falls back to the fresh spawn."""
+    item = mutant("src/x.py", 10)
+    record = stub_campaign_runtime(monkeypatch, tmp_path, [work(0, item)], [RunResult(0, {}, [])])
+
+    results = run(tmp_path, [item], opts=options(tmp_path, persist_pool=True))
+
+    assert results[0].status is MutantStatus.SURVIVED
+    assert record.lifecycle[0] == f"adopt:{tmp_path / 'mutate.sock'}.pool"
+    assert record.lifecycle[1].startswith("spawn:")
+
+
+def test_persist_pool_rejects_an_isolated_environment(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    """The persisted daemons would reference slots that die with the campaign: the combination fails loud."""
+    item = mutant("src/x.py", 10)
+    stub_campaign_runtime(monkeypatch, tmp_path, [work(0, item)], [RunResult(0, {}, [])])
+
+    with pytest.raises(CampaignSetupError, match="--persist-pool needs a shared"):
+        run(tmp_path, [item], opts=options(tmp_path, persist_pool=True, isolation=FakeIsolation()))

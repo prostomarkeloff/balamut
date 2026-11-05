@@ -35,6 +35,7 @@ from balamut.diff.scope import ScopeWatch
 from balamut.engine import planner
 from balamut.engine.daemon import (
     Daemon,
+    adopt_pool,
     await_pool,
     campaign_addopts,
     request,
@@ -92,6 +93,7 @@ class CampaignOptions:
     timeout_retries: int = 1
     timeout_retry_multiplier: float = 3.0
     daemon_ttl: int | None = None  # None: the engine's built-in idle TTL
+    persist_pool: bool = False  # keep the daemons at a fixed address for the next campaign instead of shutting down
     progress_mode: ProgressMode = ProgressMode.TTY
     stats_path: Path | None = None
     detailed: bool = False
@@ -469,8 +471,14 @@ def run_campaign(
         raise ValueError(error)
     layout = options.layout
     isolation = options.isolation
-    # A unique run suffix: two concurrent campaigns on one address base never kill each other's daemons.
-    address_base = f"{options.address_base}.run-{uuid.uuid4().hex[:8]}"
+    # A unique run suffix: two concurrent campaigns on one address base never kill each other's daemons. A persisted
+    # pool keeps a fixed address instead, so the next campaign adopts it; concurrent persisted campaigns would
+    # collide on purpose.
+    if options.persist_pool and isolation.isolated:
+        raise CampaignSetupError("--persist-pool needs a shared (non-isolated) environment")
+    address_base = (
+        f"{options.address_base}.pool" if options.persist_pool else f"{options.address_base}.run-{uuid.uuid4().hex[:8]}"
+    )
     t0 = time.monotonic()
     timings: CampaignTimings = empty_campaign_timings()
     if phase_timings is not None:
@@ -664,9 +672,14 @@ def _execute(
         )
         env = dict(os.environ)
         if normal_work:
-            normal_pool = spawn_pool(
-                address_base, daemons, workers, env, overlays, scratch=scratch, idle_ttl=options.daemon_ttl
-            )
+            if options.persist_pool:
+                normal_pool = adopt_pool(address_base, daemons, workers, env, scratch=scratch) or spawn_pool(
+                    address_base, daemons, workers, env, overlays, scratch=scratch, idle_ttl=options.daemon_ttl
+                )
+            else:
+                normal_pool = spawn_pool(
+                    address_base, daemons, workers, env, overlays, scratch=scratch, idle_ttl=options.daemon_ttl
+                )
         startup, runtime = lane(
             normal_work,
             results,
@@ -790,7 +803,8 @@ def _execute(
                 t_run += runtime
     finally:
         shutdown_pool(concurrency_pool)
-        shutdown_pool(normal_pool)
+        if not options.persist_pool:
+            shutdown_pool(normal_pool)
         if previous_addopts is None:
             os.environ.pop("PYTEST_ADDOPTS", None)
         else:

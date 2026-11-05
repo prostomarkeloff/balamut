@@ -312,9 +312,17 @@ def stub_campaign_runtime(
     def switch_to_fresh(pool: list[Daemon]) -> None:
         record.fresh_transitions.append([item.address for item in pool])
 
+    def fake_adopt_pool(
+        address_base: str, daemons: int, workers: int, env: EnvMap, scratch: Path, *, persist_workers: bool = True
+    ) -> list[Daemon] | None:
+        _ = (daemons, workers, env, scratch, persist_workers)
+        record.lifecycle.append(f"adopt:{address_base}")
+        return None
+
     monkeypatch.setattr(campaign, "resolve_workers", workers_count(10))
     monkeypatch.setattr(campaign, "partition", _fake_partition(work_items, prefilled, cache_hits))
     monkeypatch.setattr(campaign, "missing_cost_nodeids", no_missing_costs)
+    monkeypatch.setattr(campaign, "adopt_pool", fake_adopt_pool)
     monkeypatch.setattr(campaign, "spawn_pool", fake_spawn_pool)
     monkeypatch.setattr(campaign, "await_pool", no_pool_action)
     monkeypatch.setattr(campaign, "shutdown_pool", no_pool_action)
