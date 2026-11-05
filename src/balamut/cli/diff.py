@@ -106,6 +106,19 @@ class DiffMode(StrEnum):
     FULL = "full"
 
 
+class FailureStage(StrEnum):
+    """The phase whose failure ended the run: what the report names as the failure stage."""
+
+    SCOPE = "scope"
+    PREFLIGHT = "preflight"
+    SUBSTRATE = "substrate"
+    MUTATION = "mutation"
+    COVERAGE_REFRESH = "coverage_refresh"
+    GATE = "gate"
+    ORCHESTRATION = "orchestration"
+    REPORT = "report"
+
+
 def _empty_environment() -> Environ:
     return {}
 
@@ -167,7 +180,7 @@ class RunState:
     substrate_miss_reason: str | None = None
     substrate_drift_files: int = 0  # diverged outside the diff from the build tree; the refresh re-measures them
     substrate_seeded_from: str | None = None  # the pooled generation taken instead of a build
-    failure_stage: str | None = None
+    failure_stage: FailureStage | None = None
     error_code: str | None = None
     error_detail: str | None = None
     baseline_failure_cached: bool = False
@@ -443,7 +456,7 @@ def failure_report(
     state: RunState,
     status: RunStatus,
     *,
-    stage: str,
+    stage: FailureStage,
     code: str,
     next_action: str,
     findings: Findings | None = None,
@@ -457,7 +470,11 @@ def _scope_changed_report(state: RunState, changes: diff_scope.ScopeChanges) -> 
     state.scope_drift = list(changes.moved_refs)
     state.error_detail = _scope_change_detail(changes)
     return failure_report(
-        state, RunStatus.SCOPE_CHANGED, stage="scope", code="scope_changed", next_action="restart_with_fresh_scope"
+        state,
+        RunStatus.SCOPE_CHANGED,
+        stage=FailureStage.SCOPE,
+        code="scope_changed",
+        next_action="restart_with_fresh_scope",
     )
 
 
@@ -663,7 +680,7 @@ class _Run:
             return failure_report(
                 state,
                 RunStatus.INFRA_FAILURE,
-                stage="preflight",
+                stage=FailureStage.PREFLIGHT,
                 code="isolation_unreachable",
                 next_action="fix_isolation_target_and_rerun",
             )
@@ -682,7 +699,7 @@ class _Run:
                 return failure_report(
                     state,
                     RunStatus.INFRA_FAILURE,
-                    stage="preflight",
+                    stage=FailureStage.PREFLIGHT,
                     code="preflight_error",
                     next_action="fix_preflight_and_rerun",
                 )
@@ -691,7 +708,7 @@ class _Run:
                 return failure_report(
                     state,
                     RunStatus.INFRA_FAILURE,
-                    stage="preflight",
+                    stage=FailureStage.PREFLIGHT,
                     code="preflight_failed",
                     next_action="fix_preflight_and_rerun",
                 )
@@ -755,7 +772,7 @@ class _Run:
             return failure_report(
                 state,
                 RunStatus.INFRA_FAILURE,
-                stage="scope",
+                stage=FailureStage.SCOPE,
                 code="scope_resolve_error",
                 next_action="fix_git_environment_and_rerun",
             )
@@ -778,7 +795,7 @@ class _Run:
             return failure_report(
                 state,
                 RunStatus.INFRA_FAILURE,
-                stage="scope",
+                stage=FailureStage.SCOPE,
                 code="scope_write_error",
                 next_action="fix_artifact_storage_and_rerun",
             )
@@ -845,7 +862,7 @@ class _Run:
                 return failure_report(
                     state,
                     RunStatus.BASELINE_FAILURE,
-                    stage="substrate",
+                    stage=FailureStage.SUBSTRATE,
                     code="baseline_failed",
                     next_action="fix_baseline_tests_and_rebuild_substrate",
                 )
@@ -855,7 +872,7 @@ class _Run:
                 return failure_report(
                     state,
                     RunStatus.INFRA_FAILURE,
-                    stage="substrate",
+                    stage=FailureStage.SUBSTRATE,
                     code="baseline_confirmation_infra_failure",
                     next_action="fix_substrate_infrastructure_and_rerun",
                 )
@@ -935,7 +952,7 @@ class _Run:
                 return failure_report(
                     state,
                     RunStatus.INFRA_FAILURE,
-                    stage="substrate",
+                    stage=FailureStage.SUBSTRATE,
                     code="baseline_artifact_missing",
                     next_action="fix_substrate_infrastructure_and_rerun",
                 )
@@ -948,7 +965,7 @@ class _Run:
             return failure_report(
                 state,
                 RunStatus.BASELINE_FAILURE,
-                stage="substrate",
+                stage=FailureStage.SUBSTRATE,
                 code="baseline_failed",
                 next_action="fix_baseline_tests_and_rebuild_substrate",
             )
@@ -958,7 +975,7 @@ class _Run:
             return failure_report(
                 state,
                 RunStatus.INFRA_FAILURE,
-                stage="substrate",
+                stage=FailureStage.SUBSTRATE,
                 code="substrate_error",
                 next_action="fix_substrate_infrastructure_and_rerun",
             )
@@ -1031,7 +1048,7 @@ class _Run:
             return failure_report(
                 state,
                 RunStatus.INFRA_FAILURE,
-                stage="mutation",
+                stage=FailureStage.MUTATION,
                 code="mutation_command_error",
                 next_action="fix_mutation_infrastructure_and_rerun",
             )
@@ -1048,7 +1065,7 @@ class _Run:
                 return failure_report(
                     state,
                     RunStatus.INFRA_FAILURE,
-                    stage="coverage_refresh",
+                    stage=FailureStage.COVERAGE_REFRESH,
                     code="refresh_failure_artifact_missing",
                     next_action="fix_mutation_infrastructure_and_rerun",
                 )
@@ -1056,7 +1073,7 @@ class _Run:
             return failure_report(
                 state,
                 RunStatus.BASELINE_FAILURE,
-                stage="coverage_refresh",
+                stage=FailureStage.COVERAGE_REFRESH,
                 code="baseline_failed",
                 next_action="fix_baseline_tests_and_rerun",
             )
@@ -1064,7 +1081,7 @@ class _Run:
             return failure_report(
                 state,
                 RunStatus.INFRA_FAILURE,
-                stage="mutation",
+                stage=FailureStage.MUTATION,
                 code="mutation_command_failed",
                 next_action="fix_mutation_infrastructure_and_rerun",
             )
@@ -1090,7 +1107,7 @@ class _Run:
             return failure_report(
                 state,
                 RunStatus.INFRA_FAILURE,
-                stage="gate",
+                stage=FailureStage.GATE,
                 code="artifact_invalid",
                 next_action="fix_mutation_infrastructure_and_rerun",
             )
@@ -1101,7 +1118,7 @@ class _Run:
             return failure_report(
                 state,
                 RunStatus.UNRESOLVED,
-                stage="gate",
+                stage=FailureStage.GATE,
                 code="unresolved_mutants",
                 findings=findings,
                 next_action="investigate_timeouts_and_rerun",
@@ -1110,7 +1127,7 @@ class _Run:
             return failure_report(
                 state,
                 RunStatus.FINDINGS,
-                stage="gate",
+                stage=FailureStage.GATE,
                 code="actionable_findings",
                 findings=findings,
                 next_action="fix_findings_and_rerun",
@@ -1189,7 +1206,7 @@ def render_human(report: JsonMapping) -> str:
             # would promise a fast confirmation the next run will not make.
             if baseline.get("cached") is True:
                 lines.append("baseline-cache: confirmed")
-            elif report.get("failure_stage") == "substrate":
+            elif report.get("failure_stage") == FailureStage.SUBSTRATE.value:
                 lines.append("baseline-cache: recorded")
             named = [nodeid for nodeid in tests if isinstance(nodeid, str)]
             lines.extend(f"BASELINE {nodeid}" for nodeid in named[:10])
@@ -1291,7 +1308,7 @@ def main(
         report = failure_report(
             RunState(invocation=_invocation_report(options)),
             RunStatus.INFRA_FAILURE,
-            stage="orchestration",
+            stage=FailureStage.ORCHESTRATION,
             code="orchestration_error",
             next_action="fix_orchestration_infrastructure_and_rerun",
         )
@@ -1308,7 +1325,7 @@ def _publish(report: JsonObject, options: RunOptions, runtime: DiffRuntime) -> i
             "status": RunStatus.INFRA_FAILURE.value,
             "findings": [],
             "evaluations": [],
-            "failure_stage": "report",
+            "failure_stage": FailureStage.REPORT,
             "error_code": "report_write_error",
             "error_detail": None,
             "next_action": "fix_report_storage_and_rerun",

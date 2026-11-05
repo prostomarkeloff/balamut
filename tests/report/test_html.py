@@ -14,6 +14,7 @@ import pytest
 from balamut.core.mutants import Mutant
 from balamut.engine.results import MutantResult, MutantStatus, VerdictReason
 from balamut.operators.src import enumerate_mutants
+from balamut.report import html
 from balamut.report.html import (
     ReportSummary,
     RunInfo,
@@ -49,7 +50,7 @@ INFO = RunInfo(
     duration_s=42.0,
 )
 
-type Json = dict[str, object]
+type Json = dict[str, html.JsonValue]
 
 
 def _mutants(source: str = SOURCE, path: str = PATH) -> list[Mutant]:

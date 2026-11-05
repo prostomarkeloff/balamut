@@ -55,7 +55,8 @@ _KEYWORDS = frozenset(keyword.kwlist)
 _DEFINERS = frozenset({"def", "class"})
 _SITES_PER_FILE = 6  # site links per file in a survivor group
 
-type _Json = dict[str, object]
+type JsonValue = bool | int | float | str | list[JsonValue] | dict[str, JsonValue] | None
+type _Json = dict[str, JsonValue]
 type _Classes = list[str]
 
 
@@ -87,8 +88,15 @@ class ReportSummary(TypedDict):
     kinds: list[str]
     score: float | None  # killed among covered mutants; None when no covered mutant ran
     counts: VerdictCounts
-    files: dict[str, VerdictCounts]
+    files: VerdictCountsByFile
     history: list[RunPoint]  # the runs before this one, oldest first
+
+
+type VerdictCountsByFile = dict[str, VerdictCounts]
+type SourceByPath = Mapping[str, str]
+type IndexByName = dict[str, int]
+type DeltasByName = dict[str, str]
+type ResultsByPath = dict[str, list[MutantResult]]
 
 
 @dataclass(frozen=True, slots=True)
@@ -133,6 +141,9 @@ class _FileJson(TypedDict):
 class _DataJson(TypedDict):
     files: list[_FileJson]
     tests: list[str]
+
+
+type ScriptPayload = JsonValue | ReportSummary | _DataJson
 
 
 @dataclass(frozen=True, slots=True)
@@ -193,7 +204,7 @@ def _point(summary: ReportSummary) -> RunPoint:
 def build_summary(results: list[MutantResult], info: RunInfo, baseline: ReportSummary | None = None) -> ReportSummary:
     """Totals and per-file counts of the run, with the baseline's history extended by the baseline itself."""
     counts = _empty_counts()
-    files: dict[str, VerdictCounts] = {}
+    files: VerdictCountsByFile = {}
     for result in _judged(results):
         _add(counts, result.status)
         _add(files.setdefault(result.mutant.path, _empty_counts()), result.status)
@@ -213,7 +224,7 @@ def build_summary(results: list[MutantResult], info: RunInfo, baseline: ReportSu
     }
 
 
-def _object(value: object, what: str) -> _Json:
+def _object(value: JsonValue, what: str) -> _Json:
     if not isinstance(value, dict):
         raise ValueError(f"{what} must be an object")
     return cast("_Json", value)
@@ -258,7 +269,7 @@ def _score_field(obj: _Json, key: str, what: str) -> float | None:
     return float(value)
 
 
-def _counts_field(value: object, what: str) -> VerdictCounts:
+def _counts_field(value: JsonValue, what: str) -> VerdictCounts:
     obj = _object(value, what)
     return {
         "killed": _count(obj, "killed", what),
@@ -268,11 +279,11 @@ def _counts_field(value: object, what: str) -> VerdictCounts:
     }
 
 
-def _history_field(value: object) -> list[RunPoint]:
+def _history_field(value: JsonValue) -> list[RunPoint]:
     if not isinstance(value, list):
         raise ValueError("summary.history must be a list")
     points: list[RunPoint] = []
-    for index, item in enumerate(cast("list[object]", value)):
+    for index, item in enumerate(cast("list[JsonValue]", value)):
         what = f"summary.history[{index}]"
         obj = _object(item, what)
         points.append(
@@ -286,7 +297,7 @@ def _history_field(value: object) -> list[RunPoint]:
     return points
 
 
-def parse_summary(raw: object) -> ReportSummary:
+def parse_summary(raw: JsonValue) -> ReportSummary:
     """Validate a decoded summary: an unknown schema or a malformed field is a ValueError."""
     obj = _object(raw, "summary")
     schema = obj.get("schema")
@@ -318,7 +329,7 @@ def read_baseline(path: Path) -> ReportSummary:
     if found is None:
         raise ValueError(f"{path} is not a balamut HTML report: it embeds no summary")
     try:
-        raw: object = json.loads(found.group(1))
+        raw: JsonValue = json.loads(found.group(1))
     except json.JSONDecodeError as exc:
         raise ValueError(f"the summary embedded in {path} is not valid JSON: {exc}") from exc
     return parse_summary(raw)
@@ -430,7 +441,7 @@ class _Tests:
 
     def __init__(self) -> None:
         self.names: list[str] = []
-        self._index: dict[str, int] = {}
+        self._index: IndexByName = {}
 
     def refs(self, nodeids: Iterable[str]) -> list[int]:
         refs: list[int] = []
@@ -485,7 +496,7 @@ def _record(located: _Located, semantic: list[str]) -> MutantRecord:
 
 
 def _breakdown(rows: Iterable[tuple[str, MutantStatus]]) -> list[_Breakdown]:
-    grouped: dict[str, VerdictCounts] = {}
+    grouped: VerdictCountsByFile = {}
     for name, status in rows:
         _add(grouped.setdefault(name, _empty_counts()), status)
     ordered = sorted(grouped.items(), key=lambda item: (-_total(item[1]), item[0]))
@@ -496,7 +507,7 @@ def _breakdown(rows: Iterable[tuple[str, MutantStatus]]) -> list[_Breakdown]:
 class _Model:
     summary: ReportSummary
     data: _DataJson
-    file_ids: dict[str, int]
+    file_ids: IndexByName
     by_kind: list[_Breakdown]
     by_semantic: list[_Breakdown]
     clusters: list[Cluster]
@@ -508,14 +519,14 @@ class _Model:
 
 def _model(
     results: list[MutantResult],
-    sources: Mapping[str, str],
+    sources: SourceByPath,
     *,
     info: RunInfo,
     semantic: SemanticPatterns,
     baseline: ReportSummary | None,
 ) -> _Model:
     judged = _judged(results)
-    by_path: dict[str, list[MutantResult]] = {}
+    by_path: ResultsByPath = {}
     for result in judged:
         by_path.setdefault(result.mutant.path, []).append(result)
     tests = _Tests()
@@ -562,7 +573,7 @@ def _model(
 # --- rendering -----------------------------------------------------------------------------------------------------
 
 
-def _e(text: object) -> str:
+def _e(text: JsonValue) -> str:
     return html.escape(str(text))
 
 
@@ -591,7 +602,7 @@ def _date(value: str) -> str:
     return datetime.fromisoformat(value).strftime("%d %b %Y, %H:%M")
 
 
-def _script_json(value: object) -> str:
+def _script_json(value: ScriptPayload) -> str:
     """JSON safe inside a ``<script>`` element: no ``<`` can close it early."""
     return json.dumps(value, ensure_ascii=False, separators=(",", ":")).replace("<", "\\u003c")
 
@@ -670,7 +681,7 @@ def _hero(model: _Model, baseline: ReportSummary | None) -> str:
     counts = summary["counts"]
     total = _total(counts)
     score_delta = ""
-    deltas: dict[str, str] = {}
+    deltas: DeltasByName = {}
     if baseline is not None:
         then = baseline["counts"]
         if summary["score"] is not None and baseline["score"] is not None:
@@ -1031,7 +1042,7 @@ def _footer(summary: ReportSummary, baseline: ReportSummary | None) -> str:
 
 def render_html(
     results: list[MutantResult],
-    sources: Mapping[str, str],
+    sources: SourceByPath,
     *,
     info: RunInfo,
     semantic: SemanticPatterns = DEFAULT_SEMANTIC,

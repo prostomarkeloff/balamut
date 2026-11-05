@@ -56,7 +56,11 @@ def _read(root: Path) -> baseline_failure.BaselineFailureRecord | None:
 def test_render_lists_attributed_baseline_failures() -> None:
     state = diff.RunState(baseline_failure_cached=True, baseline_failure_tests=["tests/x_test.py::test_regression"])
     report = diff.failure_report(
-        state, diff.RunStatus.BASELINE_FAILURE, stage="substrate", code="baseline_failed", next_action="fix"
+        state,
+        diff.RunStatus.BASELINE_FAILURE,
+        stage=diff.FailureStage.SUBSTRATE,
+        code="baseline_failed",
+        next_action="fix",
     )
 
     rendered = diff.render_human(report)
@@ -68,7 +72,11 @@ def test_render_lists_attributed_baseline_failures() -> None:
 def test_render_announces_the_cache_a_failed_build_records() -> None:
     state = diff.RunState(baseline_failure_tests=["tests/x_test.py::test_regression"])
     report = diff.failure_report(
-        state, diff.RunStatus.BASELINE_FAILURE, stage="substrate", code="baseline_failed", next_action="fix"
+        state,
+        diff.RunStatus.BASELINE_FAILURE,
+        stage=diff.FailureStage.SUBSTRATE,
+        code="baseline_failed",
+        next_action="fix",
     )
 
     assert "baseline-cache: recorded" in diff.render_human(report)

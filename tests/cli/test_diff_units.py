@@ -490,7 +490,11 @@ def _failure_report(
         baseline_failure_tests=baseline_failure_tests if baseline_failure_tests is not None else [],
     )
     return diff.failure_report(
-        state, diff.RunStatus.BASELINE_FAILURE, stage="substrate", code="baseline_failed", next_action="fix"
+        state,
+        diff.RunStatus.BASELINE_FAILURE,
+        stage=diff.FailureStage.SUBSTRATE,
+        code="baseline_failed",
+        next_action="fix",
     )
 
 
