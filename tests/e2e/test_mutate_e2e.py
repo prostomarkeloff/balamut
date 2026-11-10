@@ -99,6 +99,29 @@ def test_a_real_campaign_runs_a_killer_that_starts_a_process_pool(tmp_path: Path
     assert _one(rows, line=3, original="return low", mutated="return None")["status"] == "killed"
 
 
+def test_a_real_campaign_resets_a_cached_caller_between_mutants(tmp_path: Path) -> None:
+    # One persistent worker runs the mutants of `bonus` one after another. The `total` wrapper was built at
+    # collection, before the fork, where `gc` cannot list it: the lease reset must still clear it, or the next lease
+    # reads a total computed under the previous mutant and its verdict needs a fresh fork.
+    root = make_project(
+        tmp_path / "proj",
+        {
+            "src/pkg/calc.py": (
+                "from functools import lru_cache\n\n\n"
+                "def bonus():\n    return 1\n\n\n"
+                "@lru_cache(maxsize=None)\ndef total():\n    return 10 + bonus()\n"
+            ),
+            "tests/test_calc.py": "from pkg.calc import total\n\n\ndef test_total():\n    assert total() == 11\n",
+        },
+    )
+    subprocess.run(["git", "init", "-q"], cwd=root, check=True)
+
+    result = _mutate(root, None, "--daemons", "1")
+
+    assert {str(row["status"]) for row in _rows(result)} == {"killed"}
+    assert "fresh confirmation" not in result.stderr
+
+
 def test_a_real_campaign_kills_survives_and_reuses_its_cache(tmp_path: Path) -> None:
     root = make_project(tmp_path / "proj")
     subprocess.run(["git", "init", "-q"], cwd=root, check=True)

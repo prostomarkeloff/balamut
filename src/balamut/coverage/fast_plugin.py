@@ -19,12 +19,11 @@ import math
 import multiprocessing
 import os
 import re
-import sys
-from collections.abc import Callable, Mapping
+from collections.abc import Callable
 from dataclasses import dataclass, field
 from pathlib import Path
 from types import CodeType
-from typing import Any, Protocol, TypedDict, cast
+from typing import TypedDict
 
 import pytest
 from _pytest.config import Config
@@ -34,7 +33,7 @@ from coverage.exceptions import CoverageException
 
 from balamut.coverage.costs import CostMap, costs_valid, read_costs, write_costs
 from balamut.coverage.failures import FAILURE_FILE_ENV, WORKER_KEY, worker_key
-from balamut.runtime.inmemory import LRU_CACHE_WRAPPER, descriptor_target
+from balamut.runtime.worker_reset import namespace_cache_wrappers, plain_modules
 
 COVERAGE_FILE_ENV = "BALAMUT_COVERAGE_FILE"
 COVERAGE_CONFIG_ENV = "BALAMUT_COVERAGE_CONFIG"
@@ -103,58 +102,30 @@ def _source_roots(instance: Coverage) -> tuple[Path, ...]:
     return tuple(Path(root).resolve() for root in raw)
 
 
-class _CacheWrapper(Protocol):
-    @property
-    def __wrapped__(self) -> Callable[..., object]: ...
-
-    def cache_clear(self) -> None: ...
-
-
 def source_cache_clears(roots: tuple[Path, ...]) -> tuple[Callable[[], None], ...]:
     """The ``cache_clear`` of every ``@lru_cache`` function defined under ``roots``.
 
-    Called once per worker, after the fork: collection has imported the project. The wrappers are found in the
-    namespaces of the imported measured modules and of the classes they define. ``gc`` cannot find them: pytest-fast
-    freezes the collected heap before the fork, and ``gc.get_objects`` skips frozen objects. A wrapper a measured
-    module imports from elsewhere stays warm: no measured line hides behind it, and clearing a library cache before
-    every test only costs time."""
+    Called once per worker, after the fork: collection has imported the project, and the wrappers are found in the
+    namespaces of the measured modules (``namespace_cache_wrappers``). A wrapper a measured module imports from
+    elsewhere stays warm: no measured line hides behind it, and clearing a library cache before every test only
+    costs time."""
     verdicts: dict[str, bool] = {}
 
-    def measured(filename: str) -> bool:
+    def measured(filename: object) -> bool:
+        if not isinstance(filename, str):
+            return False
         if filename not in verdicts:
             path = Path(filename).resolve()
             verdicts[filename] = any(path.is_relative_to(root) for root in roots)
         return verdicts[filename]
 
-    wrappers: dict[int, _CacheWrapper] = {}
-    classes: set[int] = set()
-
-    def walk(namespace: Mapping[str, Any], module_name: str) -> None:
-        for member in tuple(namespace.values()):
-            if isinstance(member, type):
-                if member.__module__ == module_name and id(member) not in classes:
-                    classes.add(id(member))
-                    walk(vars(member), module_name)
-                continue
-            wrapper = _cache_wrapper(member)
-            if wrapper is None:
-                continue
-            code = getattr(inspect.unwrap(wrapper.__wrapped__), "__code__", None)
-            if isinstance(code, CodeType) and measured(code.co_filename):
-                wrappers[id(wrapper)] = wrapper
-
-    for module in tuple(sys.modules.values()):
-        filename = getattr(module, "__file__", None)
-        if isinstance(filename, str) and measured(filename):
-            walk(vars(module), module.__name__)
-    return tuple(wrapper.cache_clear for wrapper in wrappers.values())
-
-
-def _cache_wrapper(member: Any) -> _CacheWrapper | None:
-    """The ``@lru_cache`` wrapper a namespace member binds: itself, a property getter, a static or class method."""
-    target = descriptor_target(member)
-    # The wrapper's type parameter (the cached function's result) is unknown here and irrelevant to the protocol.
-    return cast("_CacheWrapper", target) if isinstance(target, LRU_CACHE_WRAPPER) else None
+    modules = [module for module in plain_modules() if measured(module.__dict__.get("__file__"))]
+    clears: list[Callable[[], None]] = []
+    for wrapper in namespace_cache_wrappers(modules):
+        code = getattr(inspect.unwrap(wrapper.__wrapped__), "__code__", None)
+        if isinstance(code, CodeType) and measured(code.co_filename):
+            clears.append(wrapper.cache_clear)
+    return tuple(clears)
 
 
 # The environment keys this plugin owns: read at worker startup into module state, then removed

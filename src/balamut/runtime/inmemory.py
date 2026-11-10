@@ -198,7 +198,7 @@ def resolve_with_cache_clear(
             return None, _noop_cache_clear
         current = members[key]
         owner = part
-    resolved = descriptor_target(current)
+    resolved = _descriptor_target(current)
     cache_clear = _lru_cache_clear(resolved)
     cache_clear()
     return _unwrap_to_function(resolved), cache_clear
@@ -216,7 +216,7 @@ def _mangled(owner: str, name: str) -> str:
     return f"_{stripped}{name}"
 
 
-def descriptor_target(member: Any) -> _Resolvable:
+def _descriptor_target(member: Any) -> _Resolvable:
     """Unwrap a method descriptor (property, staticmethod, classmethod) down to the callable it holds.
 
     ``member`` comes from ``vars()`` and is untyped by nature. The static/class method test lives in a helper
