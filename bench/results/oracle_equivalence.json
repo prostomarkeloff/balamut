@@ -1,0 +1,45 @@
+{
+ "agreement": 0.998998998998999,
+ "bugs": 230,
+ "discordant": [
+  {
+   "aid": "b16ff7c0933db766a47cfba1",
+   "bug": "rich@0752ff047295",
+   "reason": null,
+   "recorded": "killed",
+   "recorded_code": "ecd9f95dcc8ee860",
+   "recorded_killed_by": [
+    "tests/test_console.py::test_brokenpipeerror"
+   ],
+   "rejudged": "survived: not a witness",
+   "rejudged_killed_by": []
+  }
+ ],
+ "outcome_by_recorded_code": {
+  "6dde30737b28f496": {
+   "same": 12
+  },
+  "ecd9f95dcc8ee860": {
+   "different": 1,
+   "same": 986,
+   "undecided in one judgement": 1
+  }
+ },
+ "population": 222278,
+ "rejudged_code": [
+  "6dde30737b28f496"
+ ],
+ "sampled": 1000,
+ "seed": 20261111,
+ "transitions": {
+  "equivalent_tce -> equivalent_tce": 2,
+  "gated_out -> gated_out": 15,
+  "invalid -> invalid": 14,
+  "killed -> killed": 757,
+  "killed -> survived: not a witness": 1,
+  "killed -> unresolved": 1,
+  "survived: not a witness -> survived: not a witness": 171,
+  "survived: witness -> survived: witness": 37,
+  "unresolved -> unresolved": 2
+ }
+}

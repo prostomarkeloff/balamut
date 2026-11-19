@@ -209,22 +209,24 @@ $ balamut mutate src --html report.html --html-baseline report.html
 ## Benchmark
 
 [PyMutBench](docs/benchmark.md) compares eleven open-source Python mutation tools on 325 validated historical
-bugs from 26 projects (CPython 3.14). For each bug it asks whether a tool generates a mutant that the project's
-tests missed and the bug's own regression test kills: a mutant that asks for the test the bug needed. It also
-checks every tool's own verdicts against an independent oracle and times each tool's own campaign.
+bugs from 26 projects (CPython 3.14). For each bug it asks whether a tool generates a pre-fix witness: a mutant
+that already existed before the fix, that the project's tests missed there, and that the bug's own regression
+test kills in the fixed program. It also checks every tool's own verdicts against an independent oracle and times
+each tool's own campaign.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/images/bench-detection.dark.svg">
-  <img alt="Share of real bugs with a coupling witness, per tool, with 95% intervals" src="docs/images/bench-detection.light.svg">
+  <img alt="Share of real bugs with a pre-fix witness, per tool, with 95% intervals" src="docs/images/bench-detection.light.svg">
 </picture>
 
-The tools witness 25% to 62% of the bugs. balamut's default source kinds witness 40%, ninth of eleven; the
-paired intervals of its differences from deployproof, mutmut, cosmic-ray, irradiate and fest contain zero. With
-the extreme kind, which `balamut diff` adds on changed code, it witnesses 50%. At fixed budgets the tools are
-closer: up to ten random mutants of a tool contain a witness with probability 20% to 30% (balamut 23%). In each
-tool's own campaign on six projects, balamut's engine agrees with the oracle on all 1,567 comparable verdicts, as
-do cosmic-ray, universalmutator and pytest-gremlins on theirs, while the oracle kills up to 92% (fest) of the
-survivors other engines report; balamut gave no verdicts on one of the six projects.
+The tools generate a pre-fix witness for 6.5% (pytest-gremlins) to 23.7% (mutation) of the bugs, balamut's
+default source kinds for 11.4%, with a 95% rank interval of 6–9. Judged on the fixed program alone, the rates are
+24.9% to 61.8% (balamut 40.3%), but 31% to 44% of those detections rest only on lines the fix inserted. Detection
+grows with the number of mutants a tool emits; at fixed budgets the tools are close (ten random mutants contain a
+pre-fix witness with probability 5.3% to 9.4%, balamut's 6.6%), and their order does not repeat between halves
+of the projects. In each tool's own campaign on six projects, balamut's engine agrees with the oracle on all 1,892
+comparable verdicts, as do cosmic-ray, universalmutator and pytest-gremlins on theirs, while the oracle kills up
+to 92% (fest) of the survivors other engines report.
 
 The benchmark is maintained by balamut's authors; the protocol, every judged mutant and the scripts behind every
 number are in [`bench/`](bench), and any tool's maintainers can correct its adapter or configuration.

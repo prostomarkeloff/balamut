@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/prostomarkeloff/balamut/bench/mutant.schema.json",
+  "title": "PyMutBench mutant record",
+  "description": "One native mutant of a tool, one JSON object per line of <bug-id>.jsonl. Every mutant the tool generates for the given files is a record: one with no faithful plain-source form keeps a status that says why, and still counts as an emission.",
+  "type": "object",
+  "required": ["path", "native_id", "status"],
+  "properties": {
+    "path": {
+      "type": "string",
+      "description": "The mutated file, relative to the project root, as in the exported inputs (src/pkg/module.py)."
+    },
+    "native_id": {
+      "type": "string",
+      "description": "The tool's own identity of the mutant, unique within the bug."
+    },
+    "operator": {
+      "type": "string",
+      "description": "The tool's name for the mutation operator, when it has one."
+    },
+    "status": {
+      "type": "string",
+      "description": "\"ok\" when mutated holds the complete mutated file; otherwise the reason no faithful source text exists (the mutant still counts as an emission)."
+    },
+    "mutated": {
+      "type": "string",
+      "description": "The complete text of the mutated file (UTF-8). Required when status is \"ok\"."
+    },
+    "line": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "The line the mutant changes, for a mutant without a text (it then counts in the scope it lies in) or one identical to the original."
+    },
+    "gate_line": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "For a tool that mutates only lines its coverage run executed: the line whose execution the mutant needs. The oracle drops the mutant when the historical suite never runs that line."
+    }
+  },
+  "allOf": [
+    {"if": {"properties": {"status": {"const": "ok"}}}, "then": {"required": ["mutated"]}}
+  ],
+  "additionalProperties": false
+}

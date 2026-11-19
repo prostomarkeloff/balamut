@@ -31,9 +31,10 @@ from typing import Any
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from pymutbench.artifacts import from_mutated  # noqa: E402
-from pymutbench.astmat import materialize  # noqa: E402
-from pymutbench.generate import TOOLS as GEN_TOOLS  # noqa: E402
+from pymutbench.artifacts import from_mutated
+from pymutbench.astmat import materialize
+from pymutbench.generate import TOOLS as GEN_TOOLS
+from pymutbench.registry import REGISTRY
 
 RUN = Path("/work/run")  # rebound by --root
 ADAPTERS = Path(__file__).resolve().parent / "adapters"
@@ -57,7 +58,7 @@ class Ctx:
         return {**os.environ, "PATH": f"{self.bin}:{os.environ['PATH']}", "VIRTUAL_ENV": f"/native/{self.venv}"}
 
     def sh(self, *argv: str, cwd: Path | None = None) -> subprocess.CompletedProcess[str]:
-        proc = subprocess.run(argv, cwd=cwd or RUN, env=self.env(), capture_output=True, text=True,  # noqa: S603
+        proc = subprocess.run(argv, cwd=cwd or RUN, env=self.env(), capture_output=True, text=True,
                               timeout=self.limit, check=False)
         self.log.append(f"$ {' '.join(argv)}\nrc={proc.returncode}\n{proc.stdout[-1500:]}\n{proc.stderr[-2500:]}")
         return proc
@@ -203,7 +204,8 @@ def c_leela(ctx: Ctx) -> list[dict[str, Any]]:
     out = []
     for item in _leela_mutants(data):
         status = str(item.get("status", "")).lower()
-        verdict = {"killed": "killed", "survived": "survived", "error": "error", "timeout": "timeout"}.get(status, "error")
+        verdict = {"killed": "killed", "survived": "survived", "error": "error",
+                   "timeout": "timeout"}.get(status, "error")
         match = [f for f in ctx.files if f == item["path"] or f.endswith("/" + item["path"])]
         out.append({"native_id": item["key"], "native_status": status, "verdict": verdict,
                     "path": match[0] if len(match) == 1 else None})
@@ -213,11 +215,8 @@ def c_leela(ctx: Ctx) -> list[dict[str, Any]]:
 def _leela_mutants(data: dict[str, Any]) -> list[dict[str, Any]]:
     """The per-mutant rows of leela's embedded report data: files keyed by base name, mutants with the engine's
     id (one counter across the target files), line, column, status."""
-    rows = []
-    for name, entry in data.get("files", {}).items():
-        for m in entry.get("mutants", []):
-            rows.append({"key": str(m["id"]), "status": m.get("status"), "path": name})
-    return rows
+    return [{"key": str(m["id"]), "status": m.get("status"), "path": name}
+            for name, entry in data.get("files", {}).items() for m in entry.get("mutants", [])]
 
 
 def c_mutation(ctx: Ctx) -> list[dict[str, Any]]:
@@ -229,8 +228,8 @@ def c_mutation(ctx: Ctx) -> list[dict[str, Any]]:
     db = sqlite3.connect(db_path)
     survivors = {bytes(uid) for (uid,) in db.execute("SELECT uid FROM results WHERE status = 0")}
     out = []
-    for uid, path, diff in db.execute("SELECT uid, path, diff FROM mutations"):
-        uid = bytes(uid)
+    for raw, path, diff in db.execute("SELECT uid, path, diff FROM mutations"):
+        uid = bytes(raw)
         # The tool stores paths relative to the project root it ran in (absolute ones are resolved the same way).
         rel = os.path.relpath(Path(path) if Path(path).is_absolute() else RUN / path, RUN)
         out.append({"native_id": uid.hex(), "native_status": "survived" if uid in survivors else "killed",
@@ -249,10 +248,10 @@ def c_universalmutator(ctx: Ctx) -> list[dict[str, Any]]:
         ctx.sh("analyze_mutants", rel, f"python -m pytest -x -q {tests}", "--mutantDir", str(mutants), cwd=RUN)
         killed = (RUN / "killed.txt").read_text(encoding="utf-8").split() if (RUN / "killed.txt").exists() else []
         alive = (RUN / "notkilled.txt").read_text(encoding="utf-8").split() if (RUN / "notkilled.txt").exists() else []
-        for name in killed:
-            out.append({"native_id": Path(name).name, "native_status": "killed", "verdict": "killed", "path": rel})
-        for name in alive:
-            out.append({"native_id": Path(name).name, "native_status": "notkilled", "verdict": "survived", "path": rel})
+        out += [{"native_id": Path(name).name, "native_status": "killed", "verdict": "killed", "path": rel}
+                for name in killed]
+        out += [{"native_id": Path(name).name, "native_status": "notkilled", "verdict": "survived", "path": rel}
+                for name in alive]
         for name in ("killed.txt", "notkilled.txt"):
             (RUN / name).unlink(missing_ok=True)
     return out
@@ -271,7 +270,8 @@ def c_fest(ctx: Ctx) -> list[dict[str, Any]]:
         status = str(row.get("status"))
         verdict = {"Killed": "killed", "Survived": "survived", "Timeout": "timeout", "NoCoverage": "no_coverage"}.get(
             status, "error")
-        out.append({"native_id": f"{mutant['mutator_name']}@{mutant['line']}:{mutant['column']}", "native_status": status,
+        out.append({"native_id": f"{mutant['mutator_name']}@{mutant['line']}:{mutant['column']}",
+                    "native_status": status,
                     "verdict": verdict, "path": os.path.relpath(mutant["file_path"], RUN),
                     "edit": {"start": mutant["byte_offset"], "end": mutant["byte_offset"] + mutant["byte_length"],
                              "replacement": mutant["mutated_text"]}})
@@ -332,7 +332,7 @@ def _irradiate_offsets(source: str, native_id: str, location: dict[str, Any]) ->
     """(lines, columns) offsets of irradiate's report for an entry of the function its id names
     (``xǁClassǁname__…`` or ``x_name__…``): its indentation for a span in the signature of a method's variant, the
     lines of its decorators for a source-patch mutant."""
-    import ast  # noqa: PLC0415
+    import ast
 
     named = re.fullmatch(r"x(?:ǁ(?P<cls>[^ǁ]+)ǁ|_)(?P<name>.+?)__(?P<kind>irradiate|sp|decrem)_\d+", native_id)
     if named is None:
@@ -392,7 +392,7 @@ CAMPAIGNS: dict[str, Callable[[Ctx], list[dict[str, Any]]]] = {
     "pytest-gremlins": c_gremlins, "pytest-leela": c_leela, "mutation": c_mutation,
     "universalmutator": c_universalmutator, "fest": c_fest, "irradiate": c_irradiate, "deployproof": c_deployproof,
 }
-VENV = {"pytest-gremlins": "gremlins", "pytest-leela": "leela"}
+VENV = {name: tool.venv for name, tool in REGISTRY.items()}  # tool -> its environment under /native
 
 
 # --- mapping native mutants to artifacts -----------------------------------------------------------------------
@@ -430,17 +430,17 @@ def _mutation_aid(row: dict[str, Any], pristine: Path, by_tree: dict[tuple[str, 
     a verified edit of the file. The second path maps the number literals: the tool draws their random values in
     worker processes, which Python reseeds at every fork, so no seed reproduces the adapter's draws. A program
     with no faithful edit stays unmapped."""
-    import ast  # noqa: PLC0415
+    import ast
 
     sys.path.insert(0, "/native/mutation/lib/python3.14/site-packages")
-    import mutation as tool  # noqa: PLC0415
+    import mutation as tool
 
     original = (pristine / row["path"]).read_bytes()
     source = original.decode("utf-8")
     canonical = ast.unparse(ast.parse(source))
     try:
         tree = ast.parse(tool.patch(row["native_diff"], canonical))
-    except Exception:  # noqa: BLE001 - a stale or malformed native diff is an unmapped record
+    except Exception:
         return None
     aid = by_tree.get((row["path"], ast.dump(tree, include_attributes=False)))
     if aid is not None:
@@ -465,7 +465,7 @@ def map_rows(ctx: Ctx, rows: list[dict[str, Any]], pristine: Path) -> None:
         by_id.setdefault(native, []).append((path, aid))
     by_tree: dict[tuple[str, str], str] = {}
     if ctx.tool == "mutation":
-        import ast  # noqa: PLC0415
+        import ast
 
         for aid, data in ARTIFACTS.items():
             original = (pristine / data["path"]).read_bytes()
@@ -564,7 +564,8 @@ def _map_deployproof(rows: list[dict[str, Any]], mapping: dict[tuple[str, str], 
 
 
 def _poodle_aid(mutant: dict[str, Any], pristine: Path) -> str:
-    rel = os.path.relpath(mutant["source_file"], RUN) if os.path.isabs(mutant["source_file"]) else mutant["source_file"]
+    source = Path(mutant["source_file"])
+    rel = os.path.relpath(source, RUN) if source.is_absolute() else mutant["source_file"]
     lines = (pristine / rel).read_text("utf-8").splitlines(keepends=True)
     prefix = lines[mutant["lineno"] - 1][: mutant["col_offset"]]
     suffix = lines[mutant["end_lineno"] - 1][mutant["end_col_offset"] :]
@@ -602,6 +603,16 @@ class PeakMeter:
             return None
         self.handle.seek(0)
         return round(int(self.handle.read().strip()) / 2**20, 1)
+
+
+def _tasks_peak() -> int | None:
+    """The most tasks (processes and threads) the container ever held (cgroup v2 ``pids.peak``, control run
+    included): the parallelism a tool chose, beside the CPUs it could use."""
+    path = Path("/sys/fs/cgroup/pids.peak")
+    try:
+        return int(path.read_text(encoding="utf-8").strip())
+    except (OSError, ValueError):
+        return None
 
 
 def main() -> None:
@@ -643,7 +654,8 @@ def main() -> None:
         # the container's peak over the campaign (see cgroup_peak_scope) bounds the latter.
         "largest_process_rss_mib": round(after.ru_maxrss / 1024, 1), "cgroup_peak_mib": peak,
         "cgroup_peak_scope": meter.scope, "cgroup_peak_before_campaign_mib": control_peak,
-        "cpus_visible": os.cpu_count(), "cpus_usable": len(os.sched_getaffinity(0)), "mutants": rows,
+        "cpus_visible": os.cpu_count(), "cpus_usable": len(os.sched_getaffinity(0)), "tasks_peak": _tasks_peak(),
+        "mutants": rows,
         "mapped": sum(1 for r in rows if r.get("aid")), "log": ctx.log[-12:], "stated_error": ctx.stated_error,
         "control_run": {"returncode": control.returncode, "summary": control_tail},
         "artifacts": [{"aid": aid, **data} for aid, data in sorted(ARTIFACTS.items())],

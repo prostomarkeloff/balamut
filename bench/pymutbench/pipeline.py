@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import random
 import subprocess
 import sys
 from concurrent.futures import ThreadPoolExecutor
@@ -20,11 +21,11 @@ from typing import Any
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from pymutbench.merge import merge_bug  # noqa: E402
-from pymutbench.orchestrate import BENCH, OUT, WORK, docker_run, subject_image  # noqa: E402
-from pymutbench.subjects import SUBJECTS  # noqa: E402
+from pymutbench.merge import merge_bug
+from pymutbench.orchestrate import OUT, TOOLS_IMAGE, WORK, docker_run, subject_image
+from pymutbench.registry import TOOLS
+from pymutbench.subjects import SUBJECTS
 
-TOOLS_IMAGE = "pymutbench-tools:1"
 PER_SUBJECT_CAP = 15  # predeclared: at most this many bugs per project, newest first in mainline order
 
 
@@ -72,7 +73,8 @@ def select(cap: int, validation: str = "validate3", screening: str = "validate",
     for name in sorted(SUBJECTS):
         order = load_jsonl(OUT / screening / f"{name}.candidates.jsonl")
         if not order:
-            raise SystemExit(f"{name}: no candidate list ({screening}/{name}.candidates.jsonl): run validate-all --list")
+            raise SystemExit(f"{name}: no candidate list ({screening}/{name}.candidates.jsonl): "
+                             "run validate-all --list")
         screened = {r["commit"]: r for r in load_jsonl(OUT / screening / f"{name}.jsonl")}
         final = {r["commit"]: r for r in load_jsonl(OUT / validation / f"{name}.jsonl")}
         chosen: list[dict[str, Any]] = []
@@ -109,7 +111,8 @@ def select(cap: int, validation: str = "validate3", screening: str = "validate",
         summary["subjects"][name] = {**counts, "selected": len(chosen), "complete": not open_, "open": open_}
         total += len(chosen)
         state = "complete" if not open_ else f"INCOMPLETE ({len(open_)} open: {', '.join(open_[:3])})"
-        print(f"{name:<18} candidates={len(order):>4} screened={counts['screened']:>4} admitted={counts['admitted']:>3} "
+        print(f"{name:<18} candidates={len(order):>4} screened={counts['screened']:>4} "
+              f"admitted={counts['admitted']:>3} "
               f"bugs={counts['bugs']:>3} readmitted={counts['readmitted']:>3} selected={len(chosen):>3} {state}")
     (out_dir / "selection.json").write_text(json.dumps(summary, indent=1), encoding="utf-8")
     print("total", total)
@@ -166,8 +169,6 @@ def sensitivity(sample: int, jobs: int, parallel: int) -> None:
     bugs at a time: the sample spreads over most bugs, and each needs its own baselines. Only the artifacts of
     the current unions are drawn: a verdict file keeps the kills of artifacts that only an earlier adapter version
     generated, and those cannot be judged again."""
-    import random  # noqa: PLC0415
-
     killed: list[tuple[str, str, str]] = []  # (subject, commit12, aid)
     for name in sorted(SUBJECTS):
         for bug in load_jsonl(OUT / "bugs" / f"{name}.jsonl"):
@@ -200,6 +201,47 @@ def sensitivity(sample: int, jobs: int, parallel: int) -> None:
         list(pool.map(judge_sample, sorted(by_bug.items())))
 
 
+EQUIVALENCE_SEED = 20261111
+
+
+def equivalence(sample: int, jobs: int, parallel: int) -> None:
+    """The current oracle code against the recorded verdicts: a seeded uniform sample of the judged artifacts of
+    the current unions, judged again in bug mode (the staged procedure, then the fail-to-pass tests) into
+    ``oracle.equiv.jsonl``. The report compares every re-judgement with the first judgement of the same artifact
+    (``results/oracle_equivalence.json``): the check behind reading verdicts of older oracle code as the current
+    semantics (``fingerprint.LEGACY_ORACLE``)."""
+    population: list[tuple[str, str, str]] = []  # (subject, commit12, aid)
+    for name in sorted(SUBJECTS):
+        for bug in load_jsonl(OUT / "bugs" / f"{name}.jsonl"):
+            directory = OUT / "gen" / name / bug["commit"][:12]
+            current = {row["aid"] for row in load_jsonl(directory / "union.jsonl")}
+            judged = {row["aid"] for row in load_jsonl(directory / "oracle.jsonl") if "aid" in row}
+            population += sorted((name, bug["commit"][:12], aid) for aid in current & judged)
+    chosen = random.Random(EQUIVALENCE_SEED).sample(population, min(sample, len(population)))
+    manifest = {"seed": EQUIVALENCE_SEED, "population": len(population), "sample": sorted(chosen)}
+    (OUT / "bugs" / "equivalence.json").write_text(json.dumps(manifest), encoding="utf-8")
+    by_bug: dict[tuple[str, str], set[str]] = {}
+    for name, commit12, aid in chosen:
+        by_bug.setdefault((name, commit12), set()).add(aid)
+
+    def judge_sample(item: tuple[tuple[str, str], set[str]]) -> None:
+        (name, commit12), aids = item
+        directory = OUT / "gen" / name / commit12
+        sampled = directory / "equivalence.union.jsonl"
+        sampled.write_text("".join(line + "\n" for line in (directory / "union.jsonl").read_text(encoding="utf-8")
+                                   .splitlines() if line.strip() and json.loads(line)["aid"] in aids), encoding="utf-8")
+        rel = directory.relative_to(OUT)
+        cmd = [*docker_run(subject_image(name)), "python3", "/bench/pymutbench/oracle.py", "--subject", name,
+               "--bug", f"/out/{rel}/bug.json", "--mutants", f"/out/{rel}/equivalence.union.jsonl",
+               "--out", f"/out/{rel}/oracle.equiv.jsonl", "--jobs", str(jobs)]
+        with (directory / "oracle.log").open("a", encoding="utf-8") as log:
+            subprocess.run(cmd, stdout=log, stderr=subprocess.STDOUT, check=False)
+        print(f"equivalence {name}@{commit12}: {len(aids)} mutants", flush=True)
+
+    with ThreadPoolExecutor(parallel) as pool:
+        list(pool.map(judge_sample, sorted(by_bug.items())))
+
+
 def confirm(name: str, jobs: int) -> int:
     """Every witness of a judged bug judged again from fresh trees by the canonical suite alone, then the
     fail-to-pass tests (``oracle.confirm.jsonl``): a witness counts only when this second judgement repeats it."""
@@ -222,16 +264,98 @@ def confirm(name: str, jobs: int) -> int:
     return code
 
 
-NATIVE_TOOLS = ("balamut", "mutmut", "cosmic-ray", "poodle", "pytest-gremlins", "pytest-leela", "mutation",
-                "universalmutator", "fest", "irradiate", "deployproof")
+def prefix(names: list[str], jobs: int, parallel: int, tools: tuple[str, ...] = TOOLS) -> None:
+    """The third condition of a pre-fix witness: every bug's buggy-side counterparts of its witnesses
+    (``prefix.build``: transplanted for untouched code, matched in the buggy-side generation for rewritten lines),
+    then the oracle on the parent tree for every counterpart without a verdict (``oracle.parent.jsonl``)."""
+    from pymutbench import fixes
+    from pymutbench import prefix as stage
+    from pymutbench.report import load
+
+    todo: list[tuple[str, Path]] = []
+    totals: dict[str, int] = {}
+    for result in load(preview=True, tools=tools):
+        if names and result.subject not in names:
+            continue
+        directory = OUT / "gen" / result.subject / result.commit[:12]
+        for key, count in stage.build(directory, fixes.load(directory), result.details["witnesses"]).items():
+            totals[key] = totals.get(key, 0) + count
+        if not _parent_judged(directory):
+            todo.append((result.subject, directory))
+    print("counterparts:", json.dumps(dict(sorted(totals.items()))), flush=True)
+
+    def judge_parent(item: tuple[str, Path]) -> None:
+        name, directory = item
+        rel = directory.relative_to(OUT)
+        cmd = [*docker_run(subject_image(name)), "python3", "/bench/pymutbench/oracle.py", "--subject", name,
+               "--bug", f"/out/{rel}/bug.json", "--mutants", f"/out/{rel}/parent.union.jsonl", "--side", "parent",
+               "--out", f"/out/{rel}/oracle.parent.jsonl", "--jobs", str(jobs)]
+        with (directory / "oracle.log").open("a", encoding="utf-8") as log:
+            code = subprocess.run(cmd, stdout=log, stderr=subprocess.STDOUT, check=False).returncode
+        print(f"parent {name}@{directory.name}: exit {code}", flush=True)
+
+    with ThreadPoolExecutor(parallel) as pool:
+        list(pool.map(judge_parent, todo))
+
+
+def _parent_judged(directory: Path) -> bool:
+    """Every counterpart of the parent union has a verdict, or the parent baseline is ineligible: a historical
+    baseline left without its end record only after BASELINE_ATTEMPTS runs, as on the fixed side (``_complete``)."""
+    union = {row["aid"] for row in load_jsonl(directory / "parent.union.jsonl")}
+    if not union:
+        return True
+    rows = load_jsonl(directory / "oracle.parent.jsonl")
+    metas = [row for row in rows if row.get("kind") == "meta"]
+    if metas and "ineligible" in metas[-1]:
+        unfinished = sum(1 for meta in metas if str(meta.get("ineligible", "")).startswith(UNFINISHED_BASELINE))
+        return not (str(metas[-1]["ineligible"]).startswith(UNFINISHED_BASELINE) and unfinished < BASELINE_ATTEMPTS)
+    return union <= {row["aid"] for row in rows if "aid" in row}
+
+
+def buggy(names: list[str], parallel: int) -> None:
+    """The tools' generation on the buggy files, for every bug and tool with a witness on lines the fix rewrote
+    whose counterpart is still pending (``prefix.json``): ``<bug>/buggy/<tool>.jsonl`` and its ledger."""
+    def run(name: str) -> int:
+        pending = []
+        for bug in load_jsonl(OUT / "bugs" / f"{name}.jsonl"):
+            directory = OUT / "gen" / name / bug["commit"][:12]
+            record = json.loads((directory / "prefix.json").read_text(encoding="utf-8")) \
+                if (directory / "prefix.json").exists() else {"witnesses": {}}
+            tools = sorted({tool for witness in record["witnesses"].values() for tool, entry in witness["tools"].items()
+                            if entry.get("exists") == "pending"
+                            and not (directory / "buggy" / f"{tool}.ledger.json").exists()})
+            if tools:
+                pending.append({**bug, "tools": tools})
+        if not pending:
+            return 0
+        path = OUT / "gen" / name / "pending.buggy.jsonl"
+        path.write_text("".join(json.dumps(bug) + "\n" for bug in pending), encoding="utf-8")
+        repo = WORK / "repos" / name
+        cmd = [*docker_run(TOOLS_IMAGE, f"{repo}:/repos/{name}:ro"), "bash", "-c",
+               f"git clone -q /repos/{name} /work/repo && python3 /bench/pymutbench/generate_buggy.py "
+               f"--bugs /out/gen/{name}/pending.buggy.jsonl --out /out/gen/{name}"]
+        with (OUT / "gen" / name / "generate.log").open("a", encoding="utf-8") as log:
+            return subprocess.run(cmd, stdout=log, stderr=subprocess.STDOUT, check=False).returncode
+
+    targets = names or sorted(SUBJECTS)
+    with ThreadPoolExecutor(parallel) as pool:
+        for name, code in zip(targets, pool.map(run, targets), strict=True):
+            print(f"buggy {name}: exit {code}", flush=True)
+
+
+NATIVE_TOOLS = TOOLS  # every registered tool has a campaign in native.py
 
 
 def native_campaigns(image: str, root: str, files: list[str], tests: list[str], out_dir: Path, tag: str,
                      tools: tuple[str, ...] = NATIVE_TOOLS, limit: int = 7200) -> None:
     """One fresh container per tool campaign, strictly one at a time (the timings must not share the machine);
-    ``limit`` is the seconds one command of a campaign may run."""
+    ``limit`` is the seconds one command of a campaign may run. A repetition (any tag but ``r1``) runs the
+    campaigns in an order shuffled by its tag, so no tool always runs right after the same one."""
     out_dir.mkdir(parents=True, exist_ok=True)
-    for tool in tools:
+    order = list(tools)
+    if tag != "r1":
+        random.Random(tag).shuffle(order)
+    for tool in order:
         target, failed = out_dir / f"{tool}.{tag}.json", out_dir / f"{tool}.{tag}.failed.json"
         # A recorded failure is as final as a report: a rerun of the stage never repeats a campaign (deleting the
         # file does).
@@ -258,7 +382,7 @@ def native_campaigns(image: str, root: str, files: list[str], tests: list[str], 
 
 
 def union_of_native(out_dir: Path, tag: str) -> Path:
-    from pymutbench.artifacts import Artifact, Edit, merge, write_jsonl  # noqa: PLC0415
+    from pymutbench.artifacts import Artifact, Edit, merge, write_jsonl
 
     artifacts = []
     for path in sorted(out_dir.glob(f"*.{tag}.json")):
@@ -292,7 +416,7 @@ ENGINE_SUBJECTS: dict[str, tuple[tuple[str, ...], tuple[str, ...], str]] = {
 
 
 def engine(names: list[str], reps: int, jobs: int) -> None:
-    from pymutbench.orchestrate import native_image  # noqa: PLC0415
+    from pymutbench.orchestrate import native_image
 
     for name in names:
         files, tests, import_root = ENGINE_SUBJECTS[name]
@@ -320,11 +444,10 @@ def engine(names: list[str], reps: int, jobs: int) -> None:
 
 
 def conformance(jobs: int) -> None:
-    from pymutbench.orchestrate import CONFORMANCE_IMAGE, fixtures  # noqa: PLC0415
+    from pymutbench.orchestrate import CONFORMANCE_IMAGE, fixtures, trap_module
 
     for name in fixtures():
-        module = next((BENCH / "conformance" / name / "src" / name).glob("[!_]*.py")).name
-        files = [f"src/{name}/{module}"]
+        files = [f"src/{name}/{trap_module(name).name}"]
         out_dir = OUT / "conformance" / name
         # A trap fixture's suite runs in under a second: a command still running after 10 minutes is hung.
         native_campaigns(CONFORMANCE_IMAGE, f"/work/cf/{name}", files, ["tests"], out_dir, "r1", limit=600)
@@ -383,6 +506,17 @@ def main() -> None:
     p.add_argument("--sample", type=int, default=1000)
     p.add_argument("--jobs", type=int, default=4)
     p.add_argument("--parallel", type=int, default=3, help="bugs judged at a time")
+    p = sub.add_parser("equivalence", help="re-judging of a seeded sample of judged artifacts by the current oracle")
+    p.add_argument("--sample", type=int, default=1000)
+    p.add_argument("--jobs", type=int, default=2)
+    p.add_argument("--parallel", type=int, default=2, help="bugs judged at a time")
+    p = sub.add_parser("prefix", help="buggy-side counterparts of the witnesses, judged on the parent tree")
+    p.add_argument("names", nargs="*")
+    p.add_argument("--jobs", type=int, default=2)
+    p.add_argument("--parallel", type=int, default=2, help="bugs judged at a time")
+    p = sub.add_parser("buggy", help="the tools' generation on the buggy files of witnesses on rewritten lines")
+    p.add_argument("names", nargs="*")
+    p.add_argument("--parallel", type=int, default=2)
     p = sub.add_parser("engine")
     p.add_argument("names", nargs="*")
     p.add_argument("--reps", type=int, default=2)
@@ -408,6 +542,15 @@ def main() -> None:
         return
     if args.cmd == "sensitivity":
         sensitivity(args.sample, args.jobs, args.parallel)
+        return
+    if args.cmd == "equivalence":
+        equivalence(args.sample, args.jobs, args.parallel)
+        return
+    if args.cmd == "prefix":
+        prefix(args.names, args.jobs, args.parallel)
+        return
+    if args.cmd == "buggy":
+        buggy(args.names, args.parallel)
         return
     if args.cmd == "engine":
         engine(args.names or list(ENGINE_SUBJECTS), args.reps, args.jobs)

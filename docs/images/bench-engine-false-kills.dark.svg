@@ -17,7 +17,7 @@
 <text x="640.0" y="418.0" fill="#898781" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">8%</text>
 <line x1="168" y1="64" x2="168" y2="402" stroke="#383835" stroke-width="1"/>
 <text x="156.0" y="87.0" fill="#c3c2b7" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">mutation</text>
-<path d="M168.00,80.00 H543.03 Q547.03,80.00 547.03,84.00 V90.00 Q547.03,94.00 543.03,94.00 H168.00 Z" fill="#6b6a64"><title>mutation: 6%</title></path>
+<path d="M168.00,80.00 H542.99 Q546.99,80.00 546.99,84.00 V90.00 Q546.99,94.00 542.99,94.00 H168.00 Z" fill="#6b6a64"><title>mutation: 6%</title></path>
 <text x="555.0" y="87.0" fill="#c3c2b7" font-size="12" font-weight="400" text-anchor="start" dominant-baseline="middle">6%</text>
 <text x="156.0" y="117.0" fill="#c3c2b7" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">fest</text>
 <path d="M168.00,110.00 H301.21 Q305.21,110.00 305.21,114.00 V120.00 Q305.21,124.00 301.21,124.00 H168.00 Z" fill="#6b6a64"><title>fest: 2%</title></path>
@@ -25,9 +25,9 @@
 <text x="156.0" y="147.0" fill="#c3c2b7" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">poodle</text>
 <path d="M168.00,140.00 H168.00 Q171.75,140.00 171.75,143.75 V150.25 Q171.75,154.00 168.00,154.00 H168.00 Z" fill="#6b6a64"><title>poodle: 0.1%</title></path>
 <text x="179.8" y="147.0" fill="#c3c2b7" font-size="12" font-weight="400" text-anchor="start" dominant-baseline="middle">0.1%</text>
-<text x="156.0" y="177.0" fill="#f0efec" font-size="12" font-weight="600" text-anchor="end" dominant-baseline="middle">balamut</text>
+<text x="156.0" y="177.0" fill="#c3c2b7" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">balamut</text>
 
-<text x="176.0" y="177.0" fill="#f0efec" font-size="12" font-weight="600" text-anchor="start" dominant-baseline="middle">0%</text>
+<text x="176.0" y="177.0" fill="#c3c2b7" font-size="12" font-weight="400" text-anchor="start" dominant-baseline="middle">0%</text>
 <text x="156.0" y="207.0" fill="#c3c2b7" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">mutmut</text>
 
 <text x="176.0" y="207.0" fill="#c3c2b7" font-size="12" font-weight="400" text-anchor="start" dominant-baseline="middle">0%</text>

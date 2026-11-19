@@ -16,6 +16,10 @@ For bug ``b`` with fixed tree ``F`` the protocol per artifact ``m`` is:
 
 Each run verifies that the subject's packages were imported from the judged tree; a run that did not finish
 for a reason the mutant cannot explain is ``unresolved``, never a verdict.
+
+The parent side (``--side parent``) judges mutants of the buggy parent's source with stages 0 to 2 in the parent
+tree (the historical suite against the buggy source): a survivor there is a mutant the historical suite also
+misses before the fix.
 """
 
 from __future__ import annotations
@@ -35,7 +39,7 @@ from typing import Any
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from pymutbench.artifacts import Artifact, compiled_key, edit_lines, read_jsonl  # noqa: E402
-from pymutbench.fingerprint import fingerprint  # noqa: E402
+from pymutbench.fingerprint import current_semantics, fingerprint, oracle_semantics  # noqa: E402
 from pymutbench.gitops import FileChange, add_worktree, remove_worktree, take_files  # noqa: E402
 from pymutbench.pytestrun import RED, PytestEnv, RunResult, run_pytest  # noqa: E402
 from pymutbench.subjects import SUBJECTS, Subject  # noqa: E402
@@ -56,6 +60,24 @@ class Worker:
             write_generated(tree, subject)
         self.env_old = env_for(self.old, subject)
         self.env_fixed = env_for(self.fixed, subject)
+
+    def trees(self) -> list[Path]:
+        return [self.old, self.fixed]
+
+
+class ParentWorker:
+    """A private ``parent`` tree: the historical suite against the buggy source (no fix tree)."""
+
+    def __init__(self, index: int, repo: Path, base: Path, subject: Subject, bug: dict[str, Any]) -> None:
+        self.old = base / f"w{index}" / "parent"
+        self.fixed: Path | None = None
+        add_worktree(repo, self.old, bug["parent"])
+        write_generated(self.old, subject)
+        self.env_old = env_for(self.old, subject)
+        self.env_fixed = self.env_old
+
+    def trees(self) -> list[Path]:
+        return [self.old]
 
 
 FINGERPRINT = fingerprint("oracle")  # the code this process loaded, fixed at start
@@ -86,13 +108,14 @@ class SuiteWorker:
 
 class Oracle:
     def __init__(self, repo: Path, work: Path, subject: Subject | None, bug: dict[str, Any], jobs: int,
-                 suite: tuple[Path, PytestEnv, str, tuple[str, ...]] | None = None) -> None:
+                 suite: tuple[Path, PytestEnv, str, tuple[str, ...]] | None = None, side: str = "fixed") -> None:
         self.repo, self.subject, self.bug = repo, subject, bug
         self.base = work / str(bug["commit"])[:12]
         self.lock = threading.Lock()
         if suite is None:
             assert subject is not None
-            self.workers: list[Any] = [Worker(i, repo, self.base, subject, bug) for i in range(jobs)]
+            kind = ParentWorker if side == "parent" else Worker
+            self.workers: list[Any] = [kind(i, repo, self.base, subject, bug) for i in range(jobs)]
             self.roots = [root for root in subject.tests if (self.workers[0].old / root).exists()]
         else:
             root, env, import_root, roots = suite
@@ -116,9 +139,9 @@ class Oracle:
 
     def close(self) -> None:
         for worker in self.workers:
-            if isinstance(worker, Worker):
-                remove_worktree(self.repo, worker.old)
-                remove_worktree(self.repo, worker.fixed)
+            if isinstance(worker, Worker | ParentWorker):
+                for tree in worker.trees():
+                    remove_worktree(self.repo, tree)
         shutil.rmtree(self.base, ignore_errors=True)
 
     def screen(self, runs: int) -> dict[str, Any]:
@@ -388,6 +411,8 @@ def main() -> None:
     parser.add_argument("--full-only", action="store_true", help="skip stages 0 and 1 (oracle sensitivity runs)")
     parser.add_argument("--witnesses-of", default="",
                         help="judge only the witnesses recorded in this oracle output (their confirmation)")
+    parser.add_argument("--side", choices=("fixed", "parent"), default="fixed",
+                        help="bug mode: mutants of the fixed source (default) or of the buggy parent's source")
     args = parser.parse_args()
     if args.suite_root:
         main_suite(args)
@@ -400,26 +425,29 @@ def main() -> None:
         artifacts = [art for art in artifacts if first.get(art.aid, {}).get("witness")]
     out = Path(args.out)
     previous = _rows(out)
-    stale = {row.get("fingerprint") for row in previous if row.get("kind") == "meta" and "fingerprint" in row} - {FINGERPRINT}
-    if stale:
-        raise SystemExit(f"{out} holds results of other oracle code {sorted(stale)}: remove it to judge again")
+    mode = "parent" if args.side == "parent" else "bug"
+    semantics = current_semantics(mode)
+    other = {oracle_semantics(row) for row in previous if row.get("kind") == "meta"} - {semantics}
+    if other:
+        raise SystemExit(f"{out} holds verdicts of other oracle semantics {sorted(other)}: remove it to judge again")
+    stamp = {"semantics": semantics, "fingerprint": FINGERPRINT, "image": os.environ.get("PMB_IMAGE", "")}
+    if mode == "parent":
+        stamp = {"mode": "parent", **stamp}
     status = {row["aid"]: row["status"] for row in previous if "aid" in row}
-    oracle = Oracle(Path(args.repo), Path(args.work), subject, bug, args.jobs)
+    oracle = Oracle(Path(args.repo), Path(args.work), subject, bug, args.jobs, side=args.side)
     oracle.full_only = args.full_only
     try:
         try:
             meta = oracle.prepare(sorted({art.path for art in artifacts}))
         except Ineligible as exc:
             with out.open("a", encoding="utf-8") as fh:
-                fh.write(json.dumps({"kind": "meta", "bug": bug["commit"], "ineligible": str(exc),
-                                     "fingerprint": FINGERPRINT, "image": os.environ.get("PMB_IMAGE", "")}) + "\n")
+                fh.write(json.dumps({"kind": "meta", "bug": bug["commit"], "ineligible": str(exc), **stamp}) + "\n")
             return
         # A verdict is reused unless it is a coverage gate that no longer applies: the artifact gained an origin.
         todo = [art for art in artifacts if art.aid not in status
                 or (status[art.aid] == "gated_out" and not oracle.gated_out(art))]
         with out.open("a", encoding="utf-8") as fh:
-            fh.write(json.dumps({"kind": "meta", "bug": bug["commit"], "fingerprint": FINGERPRINT,
-                                 "image": os.environ.get("PMB_IMAGE", ""), "full_only": args.full_only,
+            fh.write(json.dumps({"kind": "meta", "bug": bug["commit"], **stamp, "full_only": args.full_only,
                                  "witnesses_of": args.witnesses_of, **meta}) + "\n")
             fh.flush()
             with ThreadPoolExecutor(args.jobs) as pool:
@@ -450,9 +478,9 @@ def main_suite(args: argparse.Namespace) -> None:
         screen = oracle.screen(args.screen_runs)
         meta = oracle.prepare(sorted({art.path for art in artifacts}))
         with out.open("w", encoding="utf-8") as fh:
-            fh.write(json.dumps({"kind": "meta", "mode": "suite", "fingerprint": FINGERPRINT,
-                                 "image": os.environ.get("PMB_IMAGE", ""), "test_roots": list(roots), **screen,
-                                 **meta}) + "\n")
+            fh.write(json.dumps({"kind": "meta", "mode": "suite", "semantics": current_semantics("suite"),
+                                 "fingerprint": FINGERPRINT, "image": os.environ.get("PMB_IMAGE", ""),
+                                 "test_roots": list(roots), **screen, **meta}) + "\n")
             with ThreadPoolExecutor(args.jobs) as pool:
                 for record in pool.map(oracle.judge, artifacts):
                     fh.write(json.dumps(record) + "\n")

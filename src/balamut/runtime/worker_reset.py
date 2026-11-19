@@ -86,7 +86,9 @@ def namespace_cache_wrappers(modules: Iterable[ModuleType]) -> tuple[CacheWrappe
     def walk(namespace: Mapping[str, Any], module_name: str) -> None:
         for member in tuple(namespace.values()):
             if issubclass(type(member), type):
-                if member.__module__ == module_name and id(member) not in classes:
+                # A type built in C can lack ``__module__`` (CPython's ``_testcapi.ManualHeapType``): reading it
+                # raises, and such a type is no class this module defines.
+                if getattr(member, "__module__", None) == module_name and id(member) not in classes:
                     classes.add(id(member))
                     walk(cast("type", member).__dict__, module_name)
                 continue

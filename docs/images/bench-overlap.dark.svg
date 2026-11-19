@@ -1,9 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="680" height="690" viewBox="0 0 680 690" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' role="img" aria-label="Bugs the row tool witnesses and the column tool does not">
-<title>Bugs the row tool witnesses and the column tool does not</title>
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="690" viewBox="0 0 680 690" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' role="img" aria-label="Bugs the row tool detects and the column tool does not">
+<title>Bugs the row tool detects and the column tool does not</title>
 <rect width="680" height="690" fill="#1a1a19" rx="8"/>
-<text x="24.0" y="28.0" fill="#f0efec" font-size="15" font-weight="600" text-anchor="start" dominant-baseline="middle">Bugs the row tool witnesses and the column tool does not</text>
-<text x="24.0" y="48.0" fill="#c3c2b7" font-size="12" font-weight="400" text-anchor="start" dominant-baseline="middle">complementarity of the witnessed bugs</text>
-<text x="173.0" y="150" fill="#f0efec" font-size="11" text-anchor="start" transform="rotate(-40 173.0 150)">balamut</text>
+<text x="24.0" y="28.0" fill="#f0efec" font-size="15" font-weight="600" text-anchor="start" dominant-baseline="middle">Bugs the row tool detects and the column tool does not</text>
+<text x="24.0" y="48.0" fill="#c3c2b7" font-size="12" font-weight="400" text-anchor="start" dominant-baseline="middle">pre-fix witnesses · complementarity of the detected bugs</text>
+<text x="173.0" y="150" fill="#c3c2b7" font-size="11" text-anchor="start" transform="rotate(-40 173.0 150)">balamut</text>
 <text x="219.0" y="150" fill="#c3c2b7" font-size="11" text-anchor="start" transform="rotate(-40 219.0 150)">mutmut</text>
 <text x="265.0" y="150" fill="#c3c2b7" font-size="11" text-anchor="start" transform="rotate(-40 265.0 150)">cosmic-ray</text>
 <text x="311.0" y="150" fill="#c3c2b7" font-size="11" text-anchor="start" transform="rotate(-40 311.0 150)">poodle</text>
@@ -14,235 +14,235 @@
 <text x="541.0" y="150" fill="#c3c2b7" font-size="11" text-anchor="start" transform="rotate(-40 541.0 150)">fest</text>
 <text x="587.0" y="150" fill="#c3c2b7" font-size="11" text-anchor="start" transform="rotate(-40 587.0 150)">irradiate</text>
 <text x="633.0" y="150" fill="#c3c2b7" font-size="11" text-anchor="start" transform="rotate(-40 633.0 150)">deployproof</text>
-<text x="140.0" y="183.0" fill="#f0efec" font-size="11" font-weight="600" text-anchor="end" dominant-baseline="middle">balamut</text>
-<rect x="197" y="161" width="44" height="44" rx="3" fill="#184f95"><title>balamut witnesses, mutmut does not: 26</title></rect>
-<text x="219.0" y="183.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">26</text>
-<rect x="243" y="161" width="44" height="44" rx="3" fill="#184f95"><title>balamut witnesses, cosmic-ray does not: 27</title></rect>
-<text x="265.0" y="183.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">27</text>
-<rect x="289" y="161" width="44" height="44" rx="3" fill="#0d366b"><title>balamut witnesses, poodle does not: 9</title></rect>
-<text x="311.0" y="183.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">9</text>
-<rect x="335" y="161" width="44" height="44" rx="3" fill="#256abf"><title>balamut witnesses, pytest-gremlins does not: 52</title></rect>
-<text x="357.0" y="183.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">52</text>
-<rect x="381" y="161" width="44" height="44" rx="3" fill="#256abf"><title>balamut witnesses, pytest-leela does not: 43</title></rect>
-<text x="403.0" y="183.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">43</text>
-<rect x="427" y="161" width="44" height="44" rx="3" fill="#0d366b"><title>balamut witnesses, mutation does not: 14</title></rect>
-<text x="449.0" y="183.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">14</text>
-<rect x="473" y="161" width="44" height="44" rx="3" fill="#0d366b"><title>balamut witnesses, universalmutator does not: 12</title></rect>
-<text x="495.0" y="183.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">12</text>
-<rect x="519" y="161" width="44" height="44" rx="3" fill="#184f95"><title>balamut witnesses, fest does not: 26</title></rect>
-<text x="541.0" y="183.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">26</text>
-<rect x="565" y="161" width="44" height="44" rx="3" fill="#184f95"><title>balamut witnesses, irradiate does not: 38</title></rect>
-<text x="587.0" y="183.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">38</text>
-<rect x="611" y="161" width="44" height="44" rx="3" fill="#184f95"><title>balamut witnesses, deployproof does not: 22</title></rect>
-<text x="633.0" y="183.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">22</text>
+<text x="140.0" y="183.0" fill="#c3c2b7" font-size="11" font-weight="400" text-anchor="end" dominant-baseline="middle">balamut</text>
+<rect x="197" y="161" width="44" height="44" rx="3" fill="#0d366b"><title>balamut detects, mutmut does not: 6</title></rect>
+<text x="219.0" y="183.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">6</text>
+<rect x="243" y="161" width="44" height="44" rx="3" fill="#184f95"><title>balamut detects, cosmic-ray does not: 13</title></rect>
+<text x="265.0" y="183.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">13</text>
+<rect x="289" y="161" width="44" height="44" rx="3" fill="#184f95"><title>balamut detects, poodle does not: 10</title></rect>
+<text x="311.0" y="183.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">10</text>
+<rect x="335" y="161" width="44" height="44" rx="3" fill="#184f95"><title>balamut detects, pytest-gremlins does not: 19</title></rect>
+<text x="357.0" y="183.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">19</text>
+<rect x="381" y="161" width="44" height="44" rx="3" fill="#184f95"><title>balamut detects, pytest-leela does not: 18</title></rect>
+<text x="403.0" y="183.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">18</text>
+<rect x="427" y="161" width="44" height="44" rx="3" fill="#0d366b"><title>balamut detects, mutation does not: 4</title></rect>
+<text x="449.0" y="183.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">4</text>
+<rect x="473" y="161" width="44" height="44" rx="3" fill="#0d366b"><title>balamut detects, universalmutator does not: 7</title></rect>
+<text x="495.0" y="183.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">7</text>
+<rect x="519" y="161" width="44" height="44" rx="3" fill="#184f95"><title>balamut detects, fest does not: 14</title></rect>
+<text x="541.0" y="183.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">14</text>
+<rect x="565" y="161" width="44" height="44" rx="3" fill="#0d366b"><title>balamut detects, irradiate does not: 8</title></rect>
+<text x="587.0" y="183.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">8</text>
+<rect x="611" y="161" width="44" height="44" rx="3" fill="#184f95"><title>balamut detects, deployproof does not: 14</title></rect>
+<text x="633.0" y="183.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">14</text>
 <text x="140.0" y="229.0" fill="#c3c2b7" font-size="11" font-weight="400" text-anchor="end" dominant-baseline="middle">mutmut</text>
-<rect x="151" y="207" width="44" height="44" rx="3" fill="#184f95"><title>mutmut witnesses, balamut does not: 37</title></rect>
-<text x="173.0" y="229.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">37</text>
-<rect x="243" y="207" width="44" height="44" rx="3" fill="#184f95"><title>mutmut witnesses, cosmic-ray does not: 42</title></rect>
-<text x="265.0" y="229.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">42</text>
-<rect x="289" y="207" width="44" height="44" rx="3" fill="#0d366b"><title>mutmut witnesses, poodle does not: 18</title></rect>
-<text x="311.0" y="229.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">18</text>
-<rect x="335" y="207" width="44" height="44" rx="3" fill="#2a78d6"><title>mutmut witnesses, pytest-gremlins does not: 78</title></rect>
-<text x="357.0" y="229.0" fill="#0b0b0b" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">78</text>
-<rect x="381" y="207" width="44" height="44" rx="3" fill="#2a78d6"><title>mutmut witnesses, pytest-leela does not: 69</title></rect>
-<text x="403.0" y="229.0" fill="#0b0b0b" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">69</text>
-<rect x="427" y="207" width="44" height="44" rx="3" fill="#0d366b"><title>mutmut witnesses, mutation does not: 11</title></rect>
-<text x="449.0" y="229.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">11</text>
-<rect x="473" y="207" width="44" height="44" rx="3" fill="#0d366b"><title>mutmut witnesses, universalmutator does not: 15</title></rect>
-<text x="495.0" y="229.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">15</text>
-<rect x="519" y="207" width="44" height="44" rx="3" fill="#184f95"><title>mutmut witnesses, fest does not: 42</title></rect>
-<text x="541.0" y="229.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">42</text>
-<rect x="565" y="207" width="44" height="44" rx="3" fill="#184f95"><title>mutmut witnesses, irradiate does not: 26</title></rect>
-<text x="587.0" y="229.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">26</text>
-<rect x="611" y="207" width="44" height="44" rx="3" fill="#184f95"><title>mutmut witnesses, deployproof does not: 40</title></rect>
-<text x="633.0" y="229.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">40</text>
+<rect x="151" y="207" width="44" height="44" rx="3" fill="#256abf"><title>mutmut detects, balamut does not: 20</title></rect>
+<text x="173.0" y="229.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">20</text>
+<rect x="243" y="207" width="44" height="44" rx="3" fill="#256abf"><title>mutmut detects, cosmic-ray does not: 24</title></rect>
+<text x="265.0" y="229.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">24</text>
+<rect x="289" y="207" width="44" height="44" rx="3" fill="#184f95"><title>mutmut detects, poodle does not: 19</title></rect>
+<text x="311.0" y="229.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">19</text>
+<rect x="335" y="207" width="44" height="44" rx="3" fill="#2a78d6"><title>mutmut detects, pytest-gremlins does not: 35</title></rect>
+<text x="357.0" y="229.0" fill="#0b0b0b" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">35</text>
+<rect x="381" y="207" width="44" height="44" rx="3" fill="#2a78d6"><title>mutmut detects, pytest-leela does not: 35</title></rect>
+<text x="403.0" y="229.0" fill="#0b0b0b" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">35</text>
+<rect x="427" y="207" width="44" height="44" rx="3" fill="#0d366b"><title>mutmut detects, mutation does not: 8</title></rect>
+<text x="449.0" y="229.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">8</text>
+<rect x="473" y="207" width="44" height="44" rx="3" fill="#184f95"><title>mutmut detects, universalmutator does not: 16</title></rect>
+<text x="495.0" y="229.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">16</text>
+<rect x="519" y="207" width="44" height="44" rx="3" fill="#256abf"><title>mutmut detects, fest does not: 28</title></rect>
+<text x="541.0" y="229.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">28</text>
+<rect x="565" y="207" width="44" height="44" rx="3" fill="#0d366b"><title>mutmut detects, irradiate does not: 8</title></rect>
+<text x="587.0" y="229.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">8</text>
+<rect x="611" y="207" width="44" height="44" rx="3" fill="#256abf"><title>mutmut detects, deployproof does not: 23</title></rect>
+<text x="633.0" y="229.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">23</text>
 <text x="140.0" y="275.0" fill="#c3c2b7" font-size="11" font-weight="400" text-anchor="end" dominant-baseline="middle">cosmic-ray</text>
-<rect x="151" y="253" width="44" height="44" rx="3" fill="#184f95"><title>cosmic-ray witnesses, balamut does not: 35</title></rect>
-<text x="173.0" y="275.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">35</text>
-<rect x="197" y="253" width="44" height="44" rx="3" fill="#184f95"><title>cosmic-ray witnesses, mutmut does not: 39</title></rect>
-<text x="219.0" y="275.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">39</text>
-<rect x="289" y="253" width="44" height="44" rx="3" fill="#0d366b"><title>cosmic-ray witnesses, poodle does not: 16</title></rect>
+<rect x="151" y="253" width="44" height="44" rx="3" fill="#256abf"><title>cosmic-ray detects, balamut does not: 22</title></rect>
+<text x="173.0" y="275.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">22</text>
+<rect x="197" y="253" width="44" height="44" rx="3" fill="#184f95"><title>cosmic-ray detects, mutmut does not: 19</title></rect>
+<text x="219.0" y="275.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">19</text>
+<rect x="289" y="253" width="44" height="44" rx="3" fill="#184f95"><title>cosmic-ray detects, poodle does not: 16</title></rect>
 <text x="311.0" y="275.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">16</text>
-<rect x="335" y="253" width="44" height="44" rx="3" fill="#2a78d6"><title>cosmic-ray witnesses, pytest-gremlins does not: 65</title></rect>
-<text x="357.0" y="275.0" fill="#0b0b0b" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">65</text>
-<rect x="381" y="253" width="44" height="44" rx="3" fill="#256abf"><title>cosmic-ray witnesses, pytest-leela does not: 54</title></rect>
-<text x="403.0" y="275.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">54</text>
-<rect x="427" y="253" width="44" height="44" rx="3" fill="#0d366b"><title>cosmic-ray witnesses, mutation does not: 14</title></rect>
-<text x="449.0" y="275.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">14</text>
-<rect x="473" y="253" width="44" height="44" rx="3" fill="#0d366b"><title>cosmic-ray witnesses, universalmutator does not: 9</title></rect>
+<rect x="335" y="253" width="44" height="44" rx="3" fill="#256abf"><title>cosmic-ray detects, pytest-gremlins does not: 27</title></rect>
+<text x="357.0" y="275.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">27</text>
+<rect x="381" y="253" width="44" height="44" rx="3" fill="#256abf"><title>cosmic-ray detects, pytest-leela does not: 28</title></rect>
+<text x="403.0" y="275.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">28</text>
+<rect x="427" y="253" width="44" height="44" rx="3" fill="#184f95"><title>cosmic-ray detects, mutation does not: 10</title></rect>
+<text x="449.0" y="275.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">10</text>
+<rect x="473" y="253" width="44" height="44" rx="3" fill="#0d366b"><title>cosmic-ray detects, universalmutator does not: 9</title></rect>
 <text x="495.0" y="275.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">9</text>
-<rect x="519" y="253" width="44" height="44" rx="3" fill="#184f95"><title>cosmic-ray witnesses, fest does not: 36</title></rect>
-<text x="541.0" y="275.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">36</text>
-<rect x="565" y="253" width="44" height="44" rx="3" fill="#256abf"><title>cosmic-ray witnesses, irradiate does not: 49</title></rect>
-<text x="587.0" y="275.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">49</text>
-<rect x="611" y="253" width="44" height="44" rx="3" fill="#184f95"><title>cosmic-ray witnesses, deployproof does not: 37</title></rect>
-<text x="633.0" y="275.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">37</text>
+<rect x="519" y="253" width="44" height="44" rx="3" fill="#256abf"><title>cosmic-ray detects, fest does not: 22</title></rect>
+<text x="541.0" y="275.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">22</text>
+<rect x="565" y="253" width="44" height="44" rx="3" fill="#256abf"><title>cosmic-ray detects, irradiate does not: 21</title></rect>
+<text x="587.0" y="275.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">21</text>
+<rect x="611" y="253" width="44" height="44" rx="3" fill="#256abf"><title>cosmic-ray detects, deployproof does not: 20</title></rect>
+<text x="633.0" y="275.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">20</text>
 <text x="140.0" y="321.0" fill="#c3c2b7" font-size="11" font-weight="400" text-anchor="end" dominant-baseline="middle">poodle</text>
-<rect x="151" y="299" width="44" height="44" rx="3" fill="#256abf"><title>poodle witnesses, balamut does not: 56</title></rect>
-<text x="173.0" y="321.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">56</text>
-<rect x="197" y="299" width="44" height="44" rx="3" fill="#256abf"><title>poodle witnesses, mutmut does not: 54</title></rect>
-<text x="219.0" y="321.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">54</text>
-<rect x="243" y="299" width="44" height="44" rx="3" fill="#256abf"><title>poodle witnesses, cosmic-ray does not: 55</title></rect>
-<text x="265.0" y="321.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">55</text>
-<rect x="335" y="299" width="44" height="44" rx="3" fill="#3987e5"><title>poodle witnesses, pytest-gremlins does not: 98</title></rect>
-<text x="357.0" y="321.0" fill="#0b0b0b" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">98</text>
-<rect x="381" y="299" width="44" height="44" rx="3" fill="#3987e5"><title>poodle witnesses, pytest-leela does not: 87</title></rect>
-<text x="403.0" y="321.0" fill="#0b0b0b" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">87</text>
-<rect x="427" y="299" width="44" height="44" rx="3" fill="#0d366b"><title>poodle witnesses, mutation does not: 16</title></rect>
-<text x="449.0" y="321.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">16</text>
-<rect x="473" y="299" width="44" height="44" rx="3" fill="#184f95"><title>poodle witnesses, universalmutator does not: 23</title></rect>
-<text x="495.0" y="321.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">23</text>
-<rect x="519" y="299" width="44" height="44" rx="3" fill="#256abf"><title>poodle witnesses, fest does not: 47</title></rect>
-<text x="541.0" y="321.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">47</text>
-<rect x="565" y="299" width="44" height="44" rx="3" fill="#256abf"><title>poodle witnesses, irradiate does not: 60</title></rect>
-<text x="587.0" y="321.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">60</text>
-<rect x="611" y="299" width="44" height="44" rx="3" fill="#184f95"><title>poodle witnesses, deployproof does not: 37</title></rect>
-<text x="633.0" y="321.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">37</text>
+<rect x="151" y="299" width="44" height="44" rx="3" fill="#256abf"><title>poodle detects, balamut does not: 29</title></rect>
+<text x="173.0" y="321.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">29</text>
+<rect x="197" y="299" width="44" height="44" rx="3" fill="#256abf"><title>poodle detects, mutmut does not: 24</title></rect>
+<text x="219.0" y="321.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">24</text>
+<rect x="243" y="299" width="44" height="44" rx="3" fill="#256abf"><title>poodle detects, cosmic-ray does not: 26</title></rect>
+<text x="265.0" y="321.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">26</text>
+<rect x="335" y="299" width="44" height="44" rx="3" fill="#2a78d6"><title>poodle detects, pytest-gremlins does not: 36</title></rect>
+<text x="357.0" y="321.0" fill="#0b0b0b" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">36</text>
+<rect x="381" y="299" width="44" height="44" rx="3" fill="#2a78d6"><title>poodle detects, pytest-leela does not: 37</title></rect>
+<text x="403.0" y="321.0" fill="#0b0b0b" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">37</text>
+<rect x="427" y="299" width="44" height="44" rx="3" fill="#0d366b"><title>poodle detects, mutation does not: 9</title></rect>
+<text x="449.0" y="321.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">9</text>
+<rect x="473" y="299" width="44" height="44" rx="3" fill="#184f95"><title>poodle detects, universalmutator does not: 19</title></rect>
+<text x="495.0" y="321.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">19</text>
+<rect x="519" y="299" width="44" height="44" rx="3" fill="#256abf"><title>poodle detects, fest does not: 20</title></rect>
+<text x="541.0" y="321.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">20</text>
+<rect x="565" y="299" width="44" height="44" rx="3" fill="#256abf"><title>poodle detects, irradiate does not: 21</title></rect>
+<text x="587.0" y="321.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">21</text>
+<rect x="611" y="299" width="44" height="44" rx="3" fill="#184f95"><title>poodle detects, deployproof does not: 11</title></rect>
+<text x="633.0" y="321.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">11</text>
 <text x="140.0" y="367.0" fill="#c3c2b7" font-size="11" font-weight="400" text-anchor="end" dominant-baseline="middle">pytest-gremlins</text>
-<rect x="151" y="345" width="44" height="44" rx="3" fill="#0d366b"><title>pytest-gremlins witnesses, balamut does not: 2</title></rect>
-<text x="173.0" y="367.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">2</text>
-<rect x="197" y="345" width="44" height="44" rx="3" fill="#0d366b"><title>pytest-gremlins witnesses, mutmut does not: 17</title></rect>
-<text x="219.0" y="367.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">17</text>
-<rect x="243" y="345" width="44" height="44" rx="3" fill="#0d366b"><title>pytest-gremlins witnesses, cosmic-ray does not: 7</title></rect>
-<text x="265.0" y="367.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">7</text>
-<rect x="289" y="345" width="44" height="44" rx="3" fill="#0d366b"><title>pytest-gremlins witnesses, poodle does not: 1</title></rect>
+<rect x="151" y="345" width="44" height="44" rx="3" fill="#0d366b"><title>pytest-gremlins detects, balamut does not: 3</title></rect>
+<text x="173.0" y="367.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">3</text>
+<rect x="197" y="345" width="44" height="44" rx="3" fill="#0d366b"><title>pytest-gremlins detects, mutmut does not: 5</title></rect>
+<text x="219.0" y="367.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">5</text>
+<rect x="243" y="345" width="44" height="44" rx="3" fill="#0d366b"><title>pytest-gremlins detects, cosmic-ray does not: 2</title></rect>
+<text x="265.0" y="367.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">2</text>
+<rect x="289" y="345" width="44" height="44" rx="3" fill="#0d366b"><title>pytest-gremlins detects, poodle does not: 1</title></rect>
 <text x="311.0" y="367.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">1</text>
-<rect x="381" y="345" width="44" height="44" rx="3" fill="#0d366b"><title>pytest-gremlins witnesses, pytest-leela does not: 10</title></rect>
-<text x="403.0" y="367.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">10</text>
-<rect x="427" y="345" width="44" height="44" rx="3" fill="#0d366b"><title>pytest-gremlins witnesses, mutation does not: 9</title></rect>
-<text x="449.0" y="367.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">9</text>
-<rect x="473" y="345" width="44" height="44" rx="3" fill="#0d366b"><title>pytest-gremlins witnesses, universalmutator does not: 4</title></rect>
-<text x="495.0" y="367.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">4</text>
-<rect x="519" y="345" width="44" height="44" rx="3" fill="#0d366b"><title>pytest-gremlins witnesses, fest does not: 7</title></rect>
-<text x="541.0" y="367.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">7</text>
-<rect x="565" y="345" width="44" height="44" rx="3" fill="#184f95"><title>pytest-gremlins witnesses, irradiate does not: 25</title></rect>
-<text x="587.0" y="367.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">25</text>
-<rect x="611" y="345" width="44" height="44" rx="3" fill="#0d366b"><title>pytest-gremlins witnesses, deployproof does not: 5</title></rect>
-<text x="633.0" y="367.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">5</text>
+<rect x="381" y="345" width="44" height="44" rx="3" fill="#0d366b"><title>pytest-gremlins detects, pytest-leela does not: 4</title></rect>
+<text x="403.0" y="367.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">4</text>
+<rect x="427" y="345" width="44" height="44" rx="3" fill="#0d366b"><title>pytest-gremlins detects, mutation does not: 3</title></rect>
+<text x="449.0" y="367.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">3</text>
+<rect x="473" y="345" width="44" height="44" rx="3" fill="#0d366b"><title>pytest-gremlins detects, universalmutator does not: 2</title></rect>
+<text x="495.0" y="367.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">2</text>
+<rect x="519" y="345" width="44" height="44" rx="3" fill="#0d366b"><title>pytest-gremlins detects, fest does not: 3</title></rect>
+<text x="541.0" y="367.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">3</text>
+<rect x="565" y="345" width="44" height="44" rx="3" fill="#0d366b"><title>pytest-gremlins detects, irradiate does not: 6</title></rect>
+<text x="587.0" y="367.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">6</text>
+<rect x="611" y="345" width="44" height="44" rx="3" fill="#0d366b"><title>pytest-gremlins detects, deployproof does not: 2</title></rect>
+<text x="633.0" y="367.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">2</text>
 <text x="140.0" y="413.0" fill="#c3c2b7" font-size="11" font-weight="400" text-anchor="end" dominant-baseline="middle">pytest-leela</text>
-<rect x="151" y="391" width="44" height="44" rx="3" fill="#0d366b"><title>pytest-leela witnesses, balamut does not: 5</title></rect>
-<text x="173.0" y="413.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">5</text>
-<rect x="197" y="391" width="44" height="44" rx="3" fill="#0d366b"><title>pytest-leela witnesses, mutmut does not: 20</title></rect>
-<text x="219.0" y="413.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">20</text>
-<rect x="243" y="391" width="44" height="44" rx="3" fill="#0d366b"><title>pytest-leela witnesses, cosmic-ray does not: 8</title></rect>
-<text x="265.0" y="413.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">8</text>
-<rect x="289" y="391" width="44" height="44" rx="3" fill="#0d366b"><title>pytest-leela witnesses, poodle does not: 2</title></rect>
-<text x="311.0" y="413.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">2</text>
-<rect x="335" y="391" width="44" height="44" rx="3" fill="#184f95"><title>pytest-leela witnesses, pytest-gremlins does not: 22</title></rect>
-<text x="357.0" y="413.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">22</text>
-<rect x="427" y="391" width="44" height="44" rx="3" fill="#0d366b"><title>pytest-leela witnesses, mutation does not: 8</title></rect>
-<text x="449.0" y="413.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">8</text>
-<rect x="473" y="391" width="44" height="44" rx="3" fill="#0d366b"><title>pytest-leela witnesses, universalmutator does not: 5</title></rect>
-<text x="495.0" y="413.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">5</text>
-<rect x="519" y="391" width="44" height="44" rx="3" fill="#0d366b"><title>pytest-leela witnesses, fest does not: 7</title></rect>
-<text x="541.0" y="413.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">7</text>
-<rect x="565" y="391" width="44" height="44" rx="3" fill="#184f95"><title>pytest-leela witnesses, irradiate does not: 28</title></rect>
-<text x="587.0" y="413.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">28</text>
-<rect x="611" y="391" width="44" height="44" rx="3" fill="#0d366b"><title>pytest-leela witnesses, deployproof does not: 7</title></rect>
-<text x="633.0" y="413.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">7</text>
+<rect x="151" y="391" width="44" height="44" rx="3" fill="#0d366b"><title>pytest-leela detects, balamut does not: 3</title></rect>
+<text x="173.0" y="413.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">3</text>
+<rect x="197" y="391" width="44" height="44" rx="3" fill="#0d366b"><title>pytest-leela detects, mutmut does not: 6</title></rect>
+<text x="219.0" y="413.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">6</text>
+<rect x="243" y="391" width="44" height="44" rx="3" fill="#0d366b"><title>pytest-leela detects, cosmic-ray does not: 4</title></rect>
+<text x="265.0" y="413.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">4</text>
+<rect x="289" y="391" width="44" height="44" rx="3" fill="#0d366b"><title>pytest-leela detects, poodle does not: 3</title></rect>
+<text x="311.0" y="413.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">3</text>
+<rect x="335" y="391" width="44" height="44" rx="3" fill="#0d366b"><title>pytest-leela detects, pytest-gremlins does not: 5</title></rect>
+<text x="357.0" y="413.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">5</text>
+<rect x="427" y="391" width="44" height="44" rx="3" fill="#0d366b"><title>pytest-leela detects, mutation does not: 2</title></rect>
+<text x="449.0" y="413.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">2</text>
+<rect x="473" y="391" width="44" height="44" rx="3" fill="#0d366b"><title>pytest-leela detects, universalmutator does not: 2</title></rect>
+<text x="495.0" y="413.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">2</text>
+<rect x="519" y="391" width="44" height="44" rx="3" fill="#0d366b"><title>pytest-leela detects, fest does not: 3</title></rect>
+<text x="541.0" y="413.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">3</text>
+<rect x="565" y="391" width="44" height="44" rx="3" fill="#0d366b"><title>pytest-leela detects, irradiate does not: 7</title></rect>
+<text x="587.0" y="413.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">7</text>
+<rect x="611" y="391" width="44" height="44" rx="3" fill="#0d366b"><title>pytest-leela detects, deployproof does not: 3</title></rect>
+<text x="633.0" y="413.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">3</text>
 <text x="140.0" y="459.0" fill="#c3c2b7" font-size="11" font-weight="400" text-anchor="end" dominant-baseline="middle">mutation</text>
-<rect x="151" y="437" width="44" height="44" rx="3" fill="#2a78d6"><title>mutation witnesses, balamut does not: 84</title></rect>
-<text x="173.0" y="459.0" fill="#0b0b0b" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">84</text>
-<rect x="197" y="437" width="44" height="44" rx="3" fill="#2a78d6"><title>mutation witnesses, mutmut does not: 70</title></rect>
-<text x="219.0" y="459.0" fill="#0b0b0b" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">70</text>
-<rect x="243" y="437" width="44" height="44" rx="3" fill="#2a78d6"><title>mutation witnesses, cosmic-ray does not: 76</title></rect>
-<text x="265.0" y="459.0" fill="#0b0b0b" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">76</text>
-<rect x="289" y="437" width="44" height="44" rx="3" fill="#184f95"><title>mutation witnesses, poodle does not: 39</title></rect>
-<text x="311.0" y="459.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">39</text>
-<rect x="335" y="437" width="44" height="44" rx="3" fill="#9ec5f4"><title>mutation witnesses, pytest-gremlins does not: 129</title></rect>
-<text x="357.0" y="459.0" fill="#0b0b0b" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">129</text>
-<rect x="381" y="437" width="44" height="44" rx="3" fill="#6da7ec"><title>mutation witnesses, pytest-leela does not: 116</title></rect>
-<text x="403.0" y="459.0" fill="#0b0b0b" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">116</text>
-<rect x="473" y="437" width="44" height="44" rx="3" fill="#184f95"><title>mutation witnesses, universalmutator does not: 34</title></rect>
-<text x="495.0" y="459.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">34</text>
-<rect x="519" y="437" width="44" height="44" rx="3" fill="#2a78d6"><title>mutation witnesses, fest does not: 79</title></rect>
-<text x="541.0" y="459.0" fill="#0b0b0b" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">79</text>
-<rect x="565" y="437" width="44" height="44" rx="3" fill="#2a78d6"><title>mutation witnesses, irradiate does not: 72</title></rect>
-<text x="587.0" y="459.0" fill="#0b0b0b" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">72</text>
-<rect x="611" y="437" width="44" height="44" rx="3" fill="#2a78d6"><title>mutation witnesses, deployproof does not: 70</title></rect>
-<text x="633.0" y="459.0" fill="#0b0b0b" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">70</text>
+<rect x="151" y="437" width="44" height="44" rx="3" fill="#3987e5"><title>mutation detects, balamut does not: 44</title></rect>
+<text x="173.0" y="459.0" fill="#0b0b0b" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">44</text>
+<rect x="197" y="437" width="44" height="44" rx="3" fill="#2a78d6"><title>mutation detects, mutmut does not: 34</title></rect>
+<text x="219.0" y="459.0" fill="#0b0b0b" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">34</text>
+<rect x="243" y="437" width="44" height="44" rx="3" fill="#3987e5"><title>mutation detects, cosmic-ray does not: 41</title></rect>
+<text x="265.0" y="459.0" fill="#0b0b0b" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">41</text>
+<rect x="289" y="437" width="44" height="44" rx="3" fill="#2a78d6"><title>mutation detects, poodle does not: 30</title></rect>
+<text x="311.0" y="459.0" fill="#0b0b0b" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">30</text>
+<rect x="335" y="437" width="44" height="44" rx="3" fill="#9ec5f4"><title>mutation detects, pytest-gremlins does not: 59</title></rect>
+<text x="357.0" y="459.0" fill="#0b0b0b" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">59</text>
+<rect x="381" y="437" width="44" height="44" rx="3" fill="#6da7ec"><title>mutation detects, pytest-leela does not: 57</title></rect>
+<text x="403.0" y="459.0" fill="#0b0b0b" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">57</text>
+<rect x="473" y="437" width="44" height="44" rx="3" fill="#256abf"><title>mutation detects, universalmutator does not: 27</title></rect>
+<text x="495.0" y="459.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">27</text>
+<rect x="519" y="437" width="44" height="44" rx="3" fill="#3987e5"><title>mutation detects, fest does not: 41</title></rect>
+<text x="541.0" y="459.0" fill="#0b0b0b" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">41</text>
+<rect x="565" y="437" width="44" height="44" rx="3" fill="#2a78d6"><title>mutation detects, irradiate does not: 31</title></rect>
+<text x="587.0" y="459.0" fill="#0b0b0b" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">31</text>
+<rect x="611" y="437" width="44" height="44" rx="3" fill="#2a78d6"><title>mutation detects, deployproof does not: 37</title></rect>
+<text x="633.0" y="459.0" fill="#0b0b0b" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">37</text>
 <text x="140.0" y="505.0" fill="#c3c2b7" font-size="11" font-weight="400" text-anchor="end" dominant-baseline="middle">universalmutator</text>
-<rect x="151" y="483" width="44" height="44" rx="3" fill="#2a78d6"><title>universalmutator witnesses, balamut does not: 65</title></rect>
-<text x="173.0" y="505.0" fill="#0b0b0b" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">65</text>
-<rect x="197" y="483" width="44" height="44" rx="3" fill="#256abf"><title>universalmutator witnesses, mutmut does not: 57</title></rect>
-<text x="219.0" y="505.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">57</text>
-<rect x="243" y="483" width="44" height="44" rx="3" fill="#256abf"><title>universalmutator witnesses, cosmic-ray does not: 54</title></rect>
-<text x="265.0" y="505.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">54</text>
-<rect x="289" y="483" width="44" height="44" rx="3" fill="#184f95"><title>universalmutator witnesses, poodle does not: 29</title></rect>
-<text x="311.0" y="505.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">29</text>
-<rect x="335" y="483" width="44" height="44" rx="3" fill="#3987e5"><title>universalmutator witnesses, pytest-gremlins does not: 107</title></rect>
-<text x="357.0" y="505.0" fill="#0b0b0b" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">107</text>
-<rect x="381" y="483" width="44" height="44" rx="3" fill="#3987e5"><title>universalmutator witnesses, pytest-leela does not: 96</title></rect>
-<text x="403.0" y="505.0" fill="#0b0b0b" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">96</text>
-<rect x="427" y="483" width="44" height="44" rx="3" fill="#0d366b"><title>universalmutator witnesses, mutation does not: 17</title></rect>
-<text x="449.0" y="505.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">17</text>
-<rect x="519" y="483" width="44" height="44" rx="3" fill="#256abf"><title>universalmutator witnesses, fest does not: 64</title></rect>
-<text x="541.0" y="505.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">64</text>
-<rect x="565" y="483" width="44" height="44" rx="3" fill="#256abf"><title>universalmutator witnesses, irradiate does not: 61</title></rect>
-<text x="587.0" y="505.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">61</text>
-<rect x="611" y="483" width="44" height="44" rx="3" fill="#256abf"><title>universalmutator witnesses, deployproof does not: 62</title></rect>
-<text x="633.0" y="505.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">62</text>
+<rect x="151" y="483" width="44" height="44" rx="3" fill="#2a78d6"><title>universalmutator detects, balamut does not: 32</title></rect>
+<text x="173.0" y="505.0" fill="#0b0b0b" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">32</text>
+<rect x="197" y="483" width="44" height="44" rx="3" fill="#256abf"><title>universalmutator detects, mutmut does not: 27</title></rect>
+<text x="219.0" y="505.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">27</text>
+<rect x="243" y="483" width="44" height="44" rx="3" fill="#256abf"><title>universalmutator detects, cosmic-ray does not: 25</title></rect>
+<text x="265.0" y="505.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">25</text>
+<rect x="289" y="483" width="44" height="44" rx="3" fill="#256abf"><title>universalmutator detects, poodle does not: 25</title></rect>
+<text x="311.0" y="505.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">25</text>
+<rect x="335" y="483" width="44" height="44" rx="3" fill="#3987e5"><title>universalmutator detects, pytest-gremlins does not: 43</title></rect>
+<text x="357.0" y="505.0" fill="#0b0b0b" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">43</text>
+<rect x="381" y="483" width="44" height="44" rx="3" fill="#3987e5"><title>universalmutator detects, pytest-leela does not: 42</title></rect>
+<text x="403.0" y="505.0" fill="#0b0b0b" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">42</text>
+<rect x="427" y="483" width="44" height="44" rx="3" fill="#184f95"><title>universalmutator detects, mutation does not: 12</title></rect>
+<text x="449.0" y="505.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">12</text>
+<rect x="519" y="483" width="44" height="44" rx="3" fill="#2a78d6"><title>universalmutator detects, fest does not: 32</title></rect>
+<text x="541.0" y="505.0" fill="#0b0b0b" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">32</text>
+<rect x="565" y="483" width="44" height="44" rx="3" fill="#256abf"><title>universalmutator detects, irradiate does not: 25</title></rect>
+<text x="587.0" y="505.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">25</text>
+<rect x="611" y="483" width="44" height="44" rx="3" fill="#2a78d6"><title>universalmutator detects, deployproof does not: 32</title></rect>
+<text x="633.0" y="505.0" fill="#0b0b0b" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">32</text>
 <text x="140.0" y="551.0" fill="#c3c2b7" font-size="11" font-weight="400" text-anchor="end" dominant-baseline="middle">fest</text>
-<rect x="151" y="529" width="44" height="44" rx="3" fill="#184f95"><title>fest witnesses, balamut does not: 29</title></rect>
-<text x="173.0" y="551.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">29</text>
-<rect x="197" y="529" width="44" height="44" rx="3" fill="#184f95"><title>fest witnesses, mutmut does not: 34</title></rect>
-<text x="219.0" y="551.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">34</text>
-<rect x="243" y="529" width="44" height="44" rx="3" fill="#184f95"><title>fest witnesses, cosmic-ray does not: 31</title></rect>
-<text x="265.0" y="551.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">31</text>
-<rect x="289" y="529" width="44" height="44" rx="3" fill="#0d366b"><title>fest witnesses, poodle does not: 3</title></rect>
-<text x="311.0" y="551.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">3</text>
-<rect x="335" y="529" width="44" height="44" rx="3" fill="#256abf"><title>fest witnesses, pytest-gremlins does not: 60</title></rect>
-<text x="357.0" y="551.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">60</text>
-<rect x="381" y="529" width="44" height="44" rx="3" fill="#256abf"><title>fest witnesses, pytest-leela does not: 48</title></rect>
-<text x="403.0" y="551.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">48</text>
-<rect x="427" y="529" width="44" height="44" rx="3" fill="#0d366b"><title>fest witnesses, mutation does not: 12</title></rect>
-<text x="449.0" y="551.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">12</text>
-<rect x="473" y="529" width="44" height="44" rx="3" fill="#0d366b"><title>fest witnesses, universalmutator does not: 14</title></rect>
-<text x="495.0" y="551.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">14</text>
-<rect x="565" y="529" width="44" height="44" rx="3" fill="#256abf"><title>fest witnesses, irradiate does not: 43</title></rect>
-<text x="587.0" y="551.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">43</text>
-<rect x="611" y="529" width="44" height="44" rx="3" fill="#0d366b"><title>fest witnesses, deployproof does not: 12</title></rect>
-<text x="633.0" y="551.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">12</text>
+<rect x="151" y="529" width="44" height="44" rx="3" fill="#184f95"><title>fest detects, balamut does not: 18</title></rect>
+<text x="173.0" y="551.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">18</text>
+<rect x="197" y="529" width="44" height="44" rx="3" fill="#184f95"><title>fest detects, mutmut does not: 18</title></rect>
+<text x="219.0" y="551.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">18</text>
+<rect x="243" y="529" width="44" height="44" rx="3" fill="#184f95"><title>fest detects, cosmic-ray does not: 17</title></rect>
+<text x="265.0" y="551.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">17</text>
+<rect x="289" y="529" width="44" height="44" rx="3" fill="#0d366b"><title>fest detects, poodle does not: 5</title></rect>
+<text x="311.0" y="551.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">5</text>
+<rect x="335" y="529" width="44" height="44" rx="3" fill="#256abf"><title>fest detects, pytest-gremlins does not: 23</title></rect>
+<text x="357.0" y="551.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">23</text>
+<rect x="381" y="529" width="44" height="44" rx="3" fill="#256abf"><title>fest detects, pytest-leela does not: 22</title></rect>
+<text x="403.0" y="551.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">22</text>
+<rect x="427" y="529" width="44" height="44" rx="3" fill="#0d366b"><title>fest detects, mutation does not: 5</title></rect>
+<text x="449.0" y="551.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">5</text>
+<rect x="473" y="529" width="44" height="44" rx="3" fill="#184f95"><title>fest detects, universalmutator does not: 11</title></rect>
+<text x="495.0" y="551.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">11</text>
+<rect x="565" y="529" width="44" height="44" rx="3" fill="#184f95"><title>fest detects, irradiate does not: 19</title></rect>
+<text x="587.0" y="551.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">19</text>
+<rect x="611" y="529" width="44" height="44" rx="3" fill="#0d366b"><title>fest detects, deployproof does not: 5</title></rect>
+<text x="633.0" y="551.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">5</text>
 <text x="140.0" y="597.0" fill="#c3c2b7" font-size="11" font-weight="400" text-anchor="end" dominant-baseline="middle">irradiate</text>
-<rect x="151" y="575" width="44" height="44" rx="3" fill="#256abf"><title>irradiate witnesses, balamut does not: 46</title></rect>
-<text x="173.0" y="597.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">46</text>
-<rect x="197" y="575" width="44" height="44" rx="3" fill="#184f95"><title>irradiate witnesses, mutmut does not: 23</title></rect>
-<text x="219.0" y="597.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">23</text>
-<rect x="243" y="575" width="44" height="44" rx="3" fill="#256abf"><title>irradiate witnesses, cosmic-ray does not: 49</title></rect>
-<text x="265.0" y="597.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">49</text>
-<rect x="289" y="575" width="44" height="44" rx="3" fill="#0d366b"><title>irradiate witnesses, poodle does not: 21</title></rect>
-<text x="311.0" y="597.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">21</text>
-<rect x="335" y="575" width="44" height="44" rx="3" fill="#2a78d6"><title>irradiate witnesses, pytest-gremlins does not: 83</title></rect>
-<text x="357.0" y="597.0" fill="#0b0b0b" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">83</text>
-<rect x="381" y="575" width="44" height="44" rx="3" fill="#2a78d6"><title>irradiate witnesses, pytest-leela does not: 74</title></rect>
-<text x="403.0" y="597.0" fill="#0b0b0b" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">74</text>
-<rect x="427" y="575" width="44" height="44" rx="3" fill="#0d366b"><title>irradiate witnesses, mutation does not: 10</title></rect>
-<text x="449.0" y="597.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">10</text>
-<rect x="473" y="575" width="44" height="44" rx="3" fill="#0d366b"><title>irradiate witnesses, universalmutator does not: 16</title></rect>
-<text x="495.0" y="597.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">16</text>
-<rect x="519" y="575" width="44" height="44" rx="3" fill="#256abf"><title>irradiate witnesses, fest does not: 48</title></rect>
-<text x="541.0" y="597.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">48</text>
-<rect x="611" y="575" width="44" height="44" rx="3" fill="#256abf"><title>irradiate witnesses, deployproof does not: 47</title></rect>
-<text x="633.0" y="597.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">47</text>
+<rect x="151" y="575" width="44" height="44" rx="3" fill="#256abf"><title>irradiate detects, balamut does not: 23</title></rect>
+<text x="173.0" y="597.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">23</text>
+<rect x="197" y="575" width="44" height="44" rx="3" fill="#0d366b"><title>irradiate detects, mutmut does not: 9</title></rect>
+<text x="219.0" y="597.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">9</text>
+<rect x="243" y="575" width="44" height="44" rx="3" fill="#256abf"><title>irradiate detects, cosmic-ray does not: 27</title></rect>
+<text x="265.0" y="597.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">27</text>
+<rect x="289" y="575" width="44" height="44" rx="3" fill="#184f95"><title>irradiate detects, poodle does not: 17</title></rect>
+<text x="311.0" y="597.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">17</text>
+<rect x="335" y="575" width="44" height="44" rx="3" fill="#2a78d6"><title>irradiate detects, pytest-gremlins does not: 37</title></rect>
+<text x="357.0" y="597.0" fill="#0b0b0b" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">37</text>
+<rect x="381" y="575" width="44" height="44" rx="3" fill="#2a78d6"><title>irradiate detects, pytest-leela does not: 37</title></rect>
+<text x="403.0" y="597.0" fill="#0b0b0b" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">37</text>
+<rect x="427" y="575" width="44" height="44" rx="3" fill="#0d366b"><title>irradiate detects, mutation does not: 6</title></rect>
+<text x="449.0" y="597.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">6</text>
+<rect x="473" y="575" width="44" height="44" rx="3" fill="#184f95"><title>irradiate detects, universalmutator does not: 15</title></rect>
+<text x="495.0" y="597.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">15</text>
+<rect x="519" y="575" width="44" height="44" rx="3" fill="#2a78d6"><title>irradiate detects, fest does not: 30</title></rect>
+<text x="541.0" y="597.0" fill="#0b0b0b" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">30</text>
+<rect x="611" y="575" width="44" height="44" rx="3" fill="#256abf"><title>irradiate detects, deployproof does not: 24</title></rect>
+<text x="633.0" y="597.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">24</text>
 <text x="140.0" y="643.0" fill="#c3c2b7" font-size="11" font-weight="400" text-anchor="end" dominant-baseline="middle">deployproof</text>
-<rect x="151" y="621" width="44" height="44" rx="3" fill="#184f95"><title>deployproof witnesses, balamut does not: 34</title></rect>
-<text x="173.0" y="643.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">34</text>
-<rect x="197" y="621" width="44" height="44" rx="3" fill="#184f95"><title>deployproof witnesses, mutmut does not: 41</title></rect>
-<text x="219.0" y="643.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">41</text>
-<rect x="243" y="621" width="44" height="44" rx="3" fill="#184f95"><title>deployproof witnesses, cosmic-ray does not: 41</title></rect>
-<text x="265.0" y="643.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">41</text>
-<rect x="289" y="621" width="44" height="44" rx="3" fill="#0d366b"><title>deployproof witnesses, poodle does not: 2</title></rect>
-<text x="311.0" y="643.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">2</text>
-<rect x="335" y="621" width="44" height="44" rx="3" fill="#2a78d6"><title>deployproof witnesses, pytest-gremlins does not: 67</title></rect>
-<text x="357.0" y="643.0" fill="#0b0b0b" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">67</text>
-<rect x="381" y="621" width="44" height="44" rx="3" fill="#256abf"><title>deployproof witnesses, pytest-leela does not: 57</title></rect>
-<text x="403.0" y="643.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">57</text>
-<rect x="427" y="621" width="44" height="44" rx="3" fill="#0d366b"><title>deployproof witnesses, mutation does not: 12</title></rect>
-<text x="449.0" y="643.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">12</text>
-<rect x="473" y="621" width="44" height="44" rx="3" fill="#0d366b"><title>deployproof witnesses, universalmutator does not: 21</title></rect>
-<text x="495.0" y="643.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">21</text>
-<rect x="519" y="621" width="44" height="44" rx="3" fill="#0d366b"><title>deployproof witnesses, fest does not: 21</title></rect>
-<text x="541.0" y="643.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">21</text>
-<rect x="565" y="621" width="44" height="44" rx="3" fill="#256abf"><title>deployproof witnesses, irradiate does not: 51</title></rect>
-<text x="587.0" y="643.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">51</text>
+<rect x="151" y="621" width="44" height="44" rx="3" fill="#256abf"><title>deployproof detects, balamut does not: 23</title></rect>
+<text x="173.0" y="643.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">23</text>
+<rect x="197" y="621" width="44" height="44" rx="3" fill="#184f95"><title>deployproof detects, mutmut does not: 18</title></rect>
+<text x="219.0" y="643.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">18</text>
+<rect x="243" y="621" width="44" height="44" rx="3" fill="#256abf"><title>deployproof detects, cosmic-ray does not: 20</title></rect>
+<text x="265.0" y="643.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">20</text>
+<rect x="289" y="621" width="44" height="44" rx="3" fill="#0d366b"><title>deployproof detects, poodle does not: 1</title></rect>
+<text x="311.0" y="643.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">1</text>
+<rect x="335" y="621" width="44" height="44" rx="3" fill="#256abf"><title>deployproof detects, pytest-gremlins does not: 27</title></rect>
+<text x="357.0" y="643.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">27</text>
+<rect x="381" y="621" width="44" height="44" rx="3" fill="#256abf"><title>deployproof detects, pytest-leela does not: 27</title></rect>
+<text x="403.0" y="643.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">27</text>
+<rect x="427" y="621" width="44" height="44" rx="3" fill="#0d366b"><title>deployproof detects, mutation does not: 6</title></rect>
+<text x="449.0" y="643.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">6</text>
+<rect x="473" y="621" width="44" height="44" rx="3" fill="#184f95"><title>deployproof detects, universalmutator does not: 16</title></rect>
+<text x="495.0" y="643.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">16</text>
+<rect x="519" y="621" width="44" height="44" rx="3" fill="#184f95"><title>deployproof detects, fest does not: 10</title></rect>
+<text x="541.0" y="643.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">10</text>
+<rect x="565" y="621" width="44" height="44" rx="3" fill="#184f95"><title>deployproof detects, irradiate does not: 18</title></rect>
+<text x="587.0" y="643.0" fill="#ffffff" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">18</text>
 </svg>

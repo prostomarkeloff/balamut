@@ -13,35 +13,24 @@ import argparse
 import json
 import os
 import subprocess
-from concurrent.futures import ThreadPoolExecutor
 import sys
 import tempfile
 import time
 from collections.abc import Iterator
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 from typing import Any
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from pymutbench.artifacts import Artifact, Edit, artifact_id, edit_lines, from_mutated  # noqa: E402
-from pymutbench.fingerprint import generation_fingerprint  # noqa: E402
-from pymutbench.gitops import FileChange, add_worktree, git, remove_worktree, take_files  # noqa: E402
-from pymutbench.scope import changed_lines, in_scope, regions  # noqa: E402
+from pymutbench.artifacts import Artifact, Edit, artifact_id, edit_lines, from_mutated
+from pymutbench.fingerprint import generation_fingerprint
+from pymutbench.gitops import FileChange, add_worktree, git, remove_worktree, take_files
+from pymutbench.registry import REGISTRY
+from pymutbench.scope import changed_lines, in_scope, regions
 
 ADAPTERS = Path(__file__).resolve().parent / "adapters"
-TOOLS: dict[str, tuple[str, str]] = {  # tool -> (interpreter, adapter)
-    "balamut": ("/tools/balamut/bin/python", "ad_balamut.py"),
-    "mutmut": ("/tools/mutmut/bin/python", "ad_mutmut.py"),
-    "cosmic-ray": ("/tools/cosmic-ray/bin/python", "ad_cosmic_ray.py"),
-    "poodle": ("/tools/poodle/bin/python", "ad_poodle.py"),
-    "pytest-gremlins": ("/tools/gremlins/bin/python", "ad_gremlins.py"),
-    "pytest-leela": ("/tools/leela/bin/python", "ad_leela.py"),
-    "mutation": ("/tools/mutation/bin/python", "ad_mutation.py"),
-    "universalmutator": ("/tools/universalmutator/bin/python", "ad_universalmutator.py"),
-    "fest": ("/tools/fest/bin/python", "ad_fest.py"),
-    "irradiate": ("/tools/irradiate/bin/python", "ad_irradiate.py"),
-    "deployproof": ("/tools/deployproof/bin/python", "ad_deployproof.py"),
-}
+TOOLS: dict[str, tuple[str, str]] = {name: (tool.python, tool.adapter) for name, tool in REGISTRY.items()}
 # The code this process loaded, fixed at start: one fingerprint per tool (shared files and its adapter).
 FINGERPRINTS = {tool: generation_fingerprint(script) for tool, (_python, script) in TOOLS.items()}
 
@@ -51,7 +40,8 @@ ATTEMPTS = 2
 ADAPTER_TIMEOUT = 3600
 
 
-def run_adapter(tool: str, root: Path, files: list[str], out: Path, scope: dict[str, list[list[int]]]) -> dict[str, Any]:
+def run_adapter(tool: str, root: Path, files: list[str], out: Path,
+                scope: dict[str, list[list[int]]]) -> dict[str, Any]:
     python, script = TOOLS[tool]
     started = time.monotonic()
     argv = [python, str(ADAPTERS / script), "--root", str(root), "--files", ",".join(files), "--out", str(out),
@@ -60,7 +50,7 @@ def run_adapter(tool: str, root: Path, files: list[str], out: Path, scope: dict[
         # The adapter is deterministic and rewrites its output file, so a killed run is repeated as a whole.
         with tempfile.TemporaryDirectory() as cwd:
             try:
-                proc = subprocess.run(argv, cwd=cwd, capture_output=True, text=True, timeout=ADAPTER_TIMEOUT,  # noqa: S603
+                proc = subprocess.run(argv, cwd=cwd, capture_output=True, text=True, timeout=ADAPTER_TIMEOUT,
                                       check=False)
             except subprocess.TimeoutExpired as exc:
                 stderr = exc.stderr.decode("utf-8", "replace") if isinstance(exc.stderr, bytes) else exc.stderr or ""
@@ -80,7 +70,8 @@ def _records(raw: Path) -> Iterator[dict[str, Any]]:
                 yield json.loads(line)
 
 
-def normalize(tool: str, root: Path, raw: Path, bug_regions: dict[str, list[Any]]) -> tuple[list[Artifact], dict[str, Any]]:
+def normalize(tool: str, root: Path, raw: Path,
+              bug_regions: dict[str, list[Any]]) -> tuple[list[Artifact], dict[str, Any]]:
     ledger: dict[str, Any] = {"emitted": 0, "materialized": 0, "unmaterializable": {}, "in_scope": 0,
                               "out_of_scope": 0, "identical": 0, "unmaterializable_in_scope": 0}
     artifacts: list[Artifact] = []

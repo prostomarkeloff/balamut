@@ -201,6 +201,22 @@ def test_namespace_cache_wrappers_never_evaluate_a_lazy_proxy(monkeypatch: pytes
     assert [wrapper.cache_clear for wrapper in wrappers] == [module.rate.cache_clear]
 
 
+def test_namespace_cache_wrappers_skip_a_type_without_a_module(monkeypatch: pytest.MonkeyPatch, tmp_path: Path) -> None:
+    # CPython's _testcapi.ManualHeapType has no __module__: reading it raises AttributeError, as here.
+    module = _register_module(
+        monkeypatch,
+        tmp_path / "nomodule.py",
+        "from functools import cache\n\n\n"
+        "class NoModule(type):\n    def __getattribute__(cls, name):\n        if name == '__module__':\n"
+        "            raise AttributeError(name)\n        return super().__getattribute__(name)\n\n\n"
+        "Bare = NoModule('Bare', (), {})\n\n\n@cache\ndef rate():\n    return 1\n",
+    )
+
+    wrappers = namespace_cache_wrappers([module])
+
+    assert [wrapper.cache_clear for wrapper in wrappers] == [module.rate.cache_clear]
+
+
 def test_plain_modules_skip_a_lazy_module_subclass(monkeypatch: pytest.MonkeyPatch) -> None:
     class LazyModule(types.ModuleType):
         pass

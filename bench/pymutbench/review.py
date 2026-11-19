@@ -1,13 +1,19 @@
 """Adjudication of the auto-admitted candidates: is each one a fault fix, by a written rubric?
 
-Two raters label every candidate independently and blind to every tool result: one run of a GPT model through
-the codex CLI and one Claude agent. Each sees the same packet per candidate — the commit message, the source
-diff, the test diff and how the fail-to-pass tests fail on the buggy tree — and the rubric below. Agreement on
-``bug`` admits; agreement on anything else rejects; disagreements go to a third, recorded adjudication.
+Two raters label every candidate independently and blind to every tool result and to each other: rater B (Claude
+Opus agents) and rater C (Claude Sonnet agents). Each sees the same packet per candidate — the commit message, the
+source diff, the test diff and how the fail-to-pass tests fail on the buggy tree — and the rubric below. Agreement
+on ``bug`` admits; agreement on anything else rejects; a disagreement goes to a third rater of another model
+family (a GPT model through the codex CLI), whose vote decides. For every selected bug a Claude agent marks, under a
+second rubric, which fail-to-pass tests check the fault itself (the purity labels).
 
     python3 -m pymutbench.review build --per-subject 25     # packets in batches
     python3 -m pymutbench.review kappa                      # agreement of the two raters
     python3 -m pymutbench.review finalize                   # final.jsonl (rater agreement + adjudications)
+
+A human audit of the labels samples the corpus (``human-sample``: every bug the third rater decided, the rest
+drawn per project), gives two people the same packets without any model label or tool result, and compares
+their labels with each other and with the models' (``human-agreement``).
 """
 
 from __future__ import annotations
@@ -15,15 +21,15 @@ from __future__ import annotations
 import argparse
 import json
 import subprocess
-from collections import Counter
 import sys
+from collections import Counter
 from pathlib import Path
 from typing import Any
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from pymutbench.orchestrate import OUT, WORK  # noqa: E402
-from pymutbench.subjects import SUBJECTS  # noqa: E402
+from pymutbench.orchestrate import OUT, WORK
+from pymutbench.subjects import SUBJECTS
 
 FAULT_CLASSES = (
     "comparison_or_boundary",
@@ -159,7 +165,8 @@ def build(per_subject: int, batch_size: int, validate_dir: Path, inputs_dir: str
         if not listing.exists():
             raise SystemExit(f"{name}: no candidate list ({listing}): run validate-all --list")
         # Mainline order, newest first: the order of validation and of the corpus selection.
-        order = {json.loads(line)["commit"]: i for i, line in enumerate(listing.read_text(encoding="utf-8").splitlines())}
+        lines = listing.read_text(encoding="utf-8").splitlines()
+        order = {json.loads(line)["commit"]: i for i, line in enumerate(lines)}
         admitted = [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
         admitted = sorted((r for r in admitted if r.get("admitted")), key=lambda r: order[r["commit"]])
         rows += admitted[:per_subject]
@@ -221,20 +228,20 @@ def rate_codex(model: str, effort: str, parallel: int, inputs: str, rater: str =
             prompt = (RUBRIC + "\n\nLabel every candidate below by the rubric, one entry per candidate id, in the "
                       "given JSON schema. Use only these packet contents; do not run commands, browse or look up "
                       "repositories.\n\nCANDIDATES (JSON):\n" + batch.read_text(encoding="utf-8"))
-            proc = subprocess.run([*base, "-"], input=prompt, capture_output=True, text=True, check=False,  # noqa: S603
+            proc = subprocess.run([*base, "-"], input=prompt, capture_output=True, text=True, check=False,
                                   timeout=3600)
         else:
             prompt = (f"Read rubric.md and {inputs}/{batch.name} in the working directory. Label every candidate of "
                       "that batch by the rubric, one entry per candidate id, in the given JSON schema. Use only the "
                       "packet contents; do not browse, run code or look up the repositories.")
-            proc = subprocess.run(  # noqa: S603
+            proc = subprocess.run(
                 [*base, prompt],
                 stdin=subprocess.DEVNULL,  # codex exec appends a non-terminal stdin to the prompt, waiting for EOF
                 capture_output=True, text=True, check=False, timeout=3600,
             )
         return f"{batch.name}: rc={proc.returncode}"
 
-    from concurrent.futures import ThreadPoolExecutor  # noqa: PLC0415
+    from concurrent.futures import ThreadPoolExecutor
 
     with ThreadPoolExecutor(parallel) as pool:
         for line in pool.map(one, sorted((review / inputs).glob("batch-*.json"))):
@@ -352,6 +359,159 @@ def _class_agreement(x: dict[str, dict[str, Any]], y: dict[str, dict[str, Any]])
     return {"n": len(both), "same_class": same}
 
 
+HUMAN_SEED = 20261111
+
+
+def human_sample(size: int) -> None:
+    """The audit sample: every corpus bug the third rater decided, then bugs drawn per project in proportion to
+    its share of the corpus (seeded) until ``size``; per bug the rater packet and the fail-to-pass tests, without any
+    model label or tool result (``review/human/packets``), and an empty label file per rater."""
+    import random
+
+    final = {row["id"]: row for row in _jsonl(OUT / "review" / "final.jsonl")}
+    corpus: dict[str, dict[str, Any]] = {}
+    for name in sorted(SUBJECTS):
+        for row in _jsonl(OUT / "bugs" / f"{name}.jsonl"):
+            corpus[f"{name}@{row['commit'][:12]}"] = row
+    decided = sorted(i for i in corpus if final[i]["votes"].get("B") != final[i]["votes"].get("C"))
+    rng = random.Random(HUMAN_SEED)
+    rest = sorted(set(corpus) - set(decided))
+    by_project: dict[str, list[str]] = {}
+    for bug in rest:
+        by_project.setdefault(bug.split("@")[0], []).append(bug)
+    quota = max(0, size - len(decided))
+    chosen = list(decided)
+    shares = {p: len(v) / len(rest) * quota for p, v in by_project.items()}
+    for project, bugs in sorted(by_project.items()):
+        chosen += rng.sample(bugs, min(len(bugs), int(shares[project])))
+    remaining = sorted(set(rest) - set(chosen))
+    chosen += rng.sample(remaining, max(0, size - len(chosen)))
+    human = OUT / "review" / "human"
+    (human / "packets").mkdir(parents=True, exist_ok=True)
+    for bug in sorted(chosen):
+        packet_ = packet(corpus[bug])
+        packet_["fail_to_pass_tests"] = sorted(corpus[bug].get("t_fix", []))
+        (human / "packets" / f"{bug}.json").write_text(json.dumps(packet_, indent=1), encoding="utf-8")
+    (human / "rubric.md").write_text(RUBRIC + "\n\n" + PURITY_RUBRIC, encoding="utf-8")
+    (human / "sample.json").write_text(json.dumps({"seed": HUMAN_SEED, "size": len(chosen), "third_rater": decided,
+                                                   "bugs": sorted(chosen)}, indent=1), encoding="utf-8")
+    for rater in ("human_1", "human_2"):
+        (human / rater).mkdir(exist_ok=True)
+        (human / rater / "labels.jsonl").touch()
+    print(f"{len(chosen)} bugs ({len(decided)} decided by the third rater) in {human}")
+
+
+def human_agreement() -> dict[str, Any]:
+    """Agreement of the two people with each other and with the final model labels on bug versus not-bug, with
+    Wilson intervals of the raw agreement and the confusion matrix against the final labels; and, for the fault
+    tests, the share of bugs whose two human sets equal the purity label's."""
+    from pymutbench.stats import wilson
+
+    human = OUT / "review" / "human"
+    raters = {rater: {row["id"]: row for row in _jsonl(human / rater / "labels.jsonl")}
+              for rater in ("human_1", "human_2")}
+    final = {row["id"]: row for row in _jsonl(OUT / "review" / "final.jsonl")}
+    batches = sorted((OUT / "review" / "purity").glob("batch-*.json"))
+    purity = {item["id"]: set(item.get("fault_tests", [])) for path in batches
+              for item in json.loads(path.read_text(encoding="utf-8")).get("items", [])}
+    out: dict[str, Any] = {"labelled": {r: len(v) for r, v in raters.items()}}
+    pairs = {"human_1 vs human_2": (raters["human_1"], raters["human_2"]),
+             "human_1 vs models": (raters["human_1"], final), "human_2 vs models": (raters["human_2"], final)}
+    for name, (x, y) in pairs.items():
+        result = _kappa(x, y)
+        if result["n"]:
+            agree = round(result["agreement"] * result["n"])
+            result["agreement_ci"] = [round(v, 3) for v in wilson(agree, result["n"])]
+        out[name] = result
+    for rater, labels in raters.items():
+        matrix = Counter(f"{labels[i]['label'] == 'bug'} / {final[i]['label'] == 'bug'}" for i in labels if i in final)
+        out[f"{rater} (human / models: is a bug)"] = dict(matrix)
+        same = [i for i in labels if i in purity and "fault_tests" in labels[i]]
+        out[f"{rater} fault tests equal to the purity label"] = (
+            f"{sum(1 for i in same if set(labels[i]['fault_tests']) == purity[i])}/{len(same)}")
+    (human / "agreement.json").write_text(json.dumps(out, indent=1), encoding="utf-8")
+    print(json.dumps(out, indent=1))
+    return out
+
+
+SURVIVOR_RUBRIC = """Each packet is a mutant of a Python library's fixed source that the project's historical test suite
+does not kill and that no test of the bug's fix kills either (a survivor that is not a witness). Label it:
+
+* equivalent: no input can tell the mutant from the original program (the change has no observable effect);
+* test_gap: a test could kill it, and a developer would want that test (a real gap of the suite);
+* uninteresting: a test could kill it, but the behaviour it changes is not worth a test (logging, messages,
+  defensive branches, performance-only code).
+
+Write one JSON line per packet: {"id": "<packet id>", "label": "<label>", "note": "<one sentence>"}.
+"""
+
+
+def survivor_sample(per_tool: int) -> None:
+    """Per tool, ``per_tool`` of its unique survivors that are not witnesses, drawn with a seed over the corpus;
+    each packet shows the mutant as a diff of its file, without the tool's name or any verdict but survival, for a
+    person to label (``SURVIVOR_RUBRIC``): the share of noise among the survivors S(k) draws from."""
+    import difflib
+    import random
+
+    from pymutbench import fixes
+    from pymutbench.metrics import TOOLS
+
+    by_tool: dict[str, list[tuple[str, dict[str, Any]]]] = {tool: [] for tool in TOOLS}
+    for name in sorted(SUBJECTS):
+        for bug in _jsonl(OUT / "bugs" / f"{name}.jsonl"):
+            directory = OUT / "gen" / name / bug["commit"][:12]
+            verdicts = {r["aid"]: r for r in _jsonl(directory / "oracle.jsonl") if "aid" in r}
+            for tool in TOOLS:
+                seen = set()
+                for row in _jsonl(directory / f"{tool}.jsonl"):
+                    verdict = verdicts.get(row["aid"], {})
+                    if row["aid"] in seen or verdict.get("status") != "survived" or verdict.get("witness") is not False:
+                        continue
+                    seen.add(row["aid"])
+                    by_tool[tool].append((f"{name}@{bug['commit'][:12]}", row))
+    rng = random.Random(HUMAN_SEED)
+    folder = OUT / "review" / "survivors"
+    (folder / "packets").mkdir(parents=True, exist_ok=True)
+    key: dict[str, dict[str, Any]] = {}  # packet -> the tools whose sample drew it, and the artifact
+    for tool, items in by_tool.items():
+        for bug, row in rng.sample(sorted(items, key=lambda x: (x[0], x[1]["aid"])), min(per_tool, len(items))):
+            subject, commit12 = bug.split("@")
+            fixed = fixes.load(OUT / "gen" / subject / commit12)["files"][row["path"]]["fixed"]
+            edit = row["edit"]
+            raw = fixed.encode("utf-8")
+            mutated = (raw[: edit["start"]] + edit["replacement"].encode("utf-8") + raw[edit["end"] :]).decode("utf-8")
+            diff = "".join(difflib.unified_diff(fixed.splitlines(keepends=True), mutated.splitlines(keepends=True),
+                                                row["path"], row["path"] + " (mutant)", n=6))
+            packet_id = f"{bug}#{row['aid'][:12]}"
+            key.setdefault(packet_id, {"tools": [], "aid": row["aid"]})["tools"].append(tool)
+            packet_ = {"id": packet_id, "bug": bug, "path": row["path"], "diff": diff}
+            (folder / "packets" / f"{packet_id.replace('/', '_')}.json").write_text(json.dumps(packet_, indent=1),
+                                                                                   encoding="utf-8")
+    (folder / "rubric.md").write_text(SURVIVOR_RUBRIC, encoding="utf-8")
+    (folder / "key.json").write_text(json.dumps(key, indent=1, sort_keys=True), encoding="utf-8")
+    print(f"{len(key)} packets in {folder}")
+
+
+def survivor_labels() -> dict[str, Any]:
+    """The labelled survivors per tool: counts of each label (``review/survivors/labels.jsonl``)."""
+    folder = OUT / "review" / "survivors"
+    key = json.loads((folder / "key.json").read_text(encoding="utf-8"))
+    out: dict[str, Counter[str]] = {}
+    for row in _jsonl(folder / "labels.jsonl"):
+        for tool in key[row["id"]]["tools"]:
+            out.setdefault(tool, Counter())[row["label"]] += 1
+    summary = {tool: dict(sorted(counts.items())) for tool, counts in sorted(out.items())}
+    (folder / "summary.json").write_text(json.dumps(summary, indent=1), encoding="utf-8")
+    print(json.dumps(summary, indent=1))
+    return summary
+
+
+def _jsonl(path: Path) -> list[dict[str, Any]]:
+    if not path.exists():
+        return []
+    return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = parser.add_subparsers(dest="cmd", required=True)
@@ -373,6 +533,12 @@ def main() -> None:
     p = sub.add_parser("build-purity", help="purity packets for the selected bugs not labelled yet")
     p.add_argument("--batch-size", type=int, default=20)
     sub.add_parser("kappa")
+    p = sub.add_parser("human-sample", help="the sample and blind packets of the human label audit")
+    p.add_argument("--size", type=int, default=100)
+    sub.add_parser("human-agreement", help="the human audit's agreement with each other and with the models")
+    p = sub.add_parser("survivor-sample", help="packets of surviving non-witness mutants for a manual noise label")
+    p.add_argument("--per-tool", type=int, default=50)
+    sub.add_parser("survivor-labels", help="the labelled survivors per tool")
     sub.add_parser("finalize")
     args = parser.parse_args()
     match args.cmd:
@@ -389,6 +555,14 @@ def main() -> None:
             kappa()
         case "finalize":
             finalize()
+        case "human-sample":
+            human_sample(args.size)
+        case "human-agreement":
+            human_agreement()
+        case "survivor-sample":
+            survivor_sample(args.per_tool)
+        case "survivor-labels":
+            survivor_labels()
         case _:
             raise AssertionError(args.cmd)
 

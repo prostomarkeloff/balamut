@@ -1,0 +1,569 @@
+[
+ {
+  "bug": "attrs@000c56347340",
+  "path": "src/attr/_make.py",
+  "lines": [
+   23,
+   31
+  ],
+  "reason": "import"
+ },
+ {
+  "bug": "attrs@75723b772095",
+  "path": "src/attr/_make.py",
+  "lines": [
+   16,
+   16
+  ],
+  "reason": "import"
+ },
+ {
+  "bug": "cattrs@354a1419f116",
+  "path": "src/cattrs/preconf/msgspec.py",
+  "lines": [
+   14,
+   14
+  ],
+  "reason": "import"
+ },
+ {
+  "bug": "cattrs@354a1419f116",
+  "path": "src/cattrs/preconf/msgspec.py",
+  "lines": [
+   15,
+   15
+  ],
+  "reason": "import"
+ },
+ {
+  "bug": "cattrs@354a1419f116",
+  "path": "src/cattrs/preconf/msgspec.py",
+  "lines": [
+   19,
+   29
+  ],
+  "reason": "import"
+ },
+ {
+  "bug": "cattrs@39a4d6ebe1ab",
+  "path": "src/cattrs/gen/__init__.py",
+  "lines": [
+   7,
+   7
+  ],
+  "reason": "import"
+ },
+ {
+  "bug": "cattrs@ea4c31139981",
+  "path": "src/cattrs/strategies/_subclasses.py",
+  "lines": [
+   5,
+   5
+  ],
+  "reason": "import"
+ },
+ {
+  "bug": "cattrs@308c37a4d953",
+  "path": "src/cattrs/converters.py",
+  "lines": [
+   15,
+   53
+  ],
+  "reason": "import"
+ },
+ {
+  "bug": "click@fe3ad76e5807",
+  "path": "src/click/termui.py",
+  "lines": [
+   14,
+   14
+  ],
+  "reason": "import"
+ },
+ {
+  "bug": "click@2468b70997a6",
+  "path": "src/click/termui.py",
+  "lines": [
+   10,
+   10
+  ],
+  "reason": "import"
+ },
+ {
+  "bug": "click@2468b70997a6",
+  "path": "src/click/termui.py",
+  "lines": [
+   15,
+   15
+  ],
+  "reason": "import"
+ },
+ {
+  "bug": "humanize@7abebbadf101",
+  "path": "src/humanize/time.py",
+  "lines": [
+   15,
+   15
+  ],
+  "reason": "import"
+ },
+ {
+  "bug": "inflect@9282ccc7061c",
+  "path": "inflect/__init__.py",
+  "lines": [
+   64,
+   64
+  ],
+  "reason": "import"
+ },
+ {
+  "bug": "jinja2@220e67ae999c",
+  "path": "src/jinja2/filters.py",
+  "lines": [
+   9,
+   9
+  ],
+  "reason": "import"
+ },
+ {
+  "bug": "jinja2@7f0fc0ad2cd5",
+  "path": "src/jinja2/environment.py",
+  "lines": [
+   710,
+   718
+  ],
+  "reason": "no code change"
+ },
+ {
+  "bug": "jinja2@d5b8f668f392",
+  "path": "src/jinja2/async_utils.py",
+  "lines": [
+   3,
+   3
+  ],
+  "reason": "import"
+ },
+ {
+  "bug": "marshmallow@65374df0c31c",
+  "path": "src/marshmallow/validate.py",
+  "lines": [
+   7,
+   7
+  ],
+  "reason": "import"
+ },
+ {
+  "bug": "marshmallow@65374df0c31c",
+  "path": "src/marshmallow/validate.py",
+  "lines": [
+   8,
+   8
+  ],
+  "reason": "import"
+ },
+ {
+  "bug": "marshmallow@944f6de1b752",
+  "path": "src/marshmallow/schema.py",
+  "lines": [
+   18,
+   18
+  ],
+  "reason": "import"
+ },
+ {
+  "bug": "mistune@61b905c36bc2",
+  "path": "src/mistune/plugins/def_list.py",
+  "lines": [
+   99,
+   115
+  ],
+  "reason": "no code change"
+ },
+ {
+  "bug": "mistune@8baf90bf1038",
+  "path": "src/mistune/__init__.py",
+  "lines": [
+   11,
+   11
+  ],
+  "reason": "import"
+ },
+ {
+  "bug": "mistune@80b3e85eb3e4",
+  "path": "src/mistune/inline_parser.py",
+  "lines": [
+   887,
+   888
+  ],
+  "reason": "no code change"
+ },
+ {
+  "bug": "packaging@2d873eb60020",
+  "path": "src/packaging/metadata.py",
+  "lines": [
+   9,
+   9
+  ],
+  "reason": "import"
+ },
+ {
+  "bug": "parse@529dc2e01a0d",
+  "path": "parse/__init__.py",
+  "lines": [
+   14,
+   14
+  ],
+  "reason": "metadata"
+ },
+ {
+  "bug": "parse@5bc22a4c6dd1",
+  "path": "parse.py",
+  "lines": [
+   472,
+   472
+  ],
+  "reason": "metadata"
+ },
+ {
+  "bug": "portion@fc83f86848ea",
+  "path": "portion/api.py",
+  "lines": [
+   24,
+   74
+  ],
+  "reason": "no code change"
+ },
+ {
+  "bug": "portion@fc83f86848ea",
+  "path": "portion/func.py",
+  "lines": [
+   77,
+   139
+  ],
+  "reason": "no code change"
+ },
+ {
+  "bug": "portion@cbf99d153884",
+  "path": "portion/func.py",
+  "lines": [
+   5,
+   5
+  ],
+  "reason": "import"
+ },
+ {
+  "bug": "pyflakes@52cb7296b4bb",
+  "path": "pyflakes/checker.py",
+  "lines": [
+   19,
+   19
+  ],
+  "reason": "import"
+ },
+ {
+  "bug": "pyparsing@4dace945ce8c",
+  "path": "pyparsing/helpers.py",
+  "lines": [
+   634,
+   658
+  ],
+  "reason": "no code change"
+ },
+ {
+  "bug": "pyparsing@4dace945ce8c",
+  "path": "pyparsing/helpers.py",
+  "lines": [
+   661,
+   669
+  ],
+  "reason": "no code change"
+ },
+ {
+  "bug": "pyparsing@72a28067b050",
+  "path": "pyparsing/results.py",
+  "lines": [
+   2,
+   8
+  ],
+  "reason": "import"
+ },
+ {
+  "bug": "pyparsing@f6ba79d74aae",
+  "path": "pyparsing/core.py",
+  "lines": [
+   6066,
+   6079
+  ],
+  "reason": "no code change"
+ },
+ {
+  "bug": "python-dotenv@e0310e5bb3f2",
+  "path": "src/dotenv/cli.py",
+  "lines": [
+   20,
+   20
+  ],
+  "reason": "import"
+ },
+ {
+  "bug": "python-pathspec@81368adefcf1",
+  "path": "pathspec/_meta.py",
+  "lines": [
+   58,
+   58
+  ],
+  "reason": "metadata"
+ },
+ {
+  "bug": "python-pathspec@9302492483b0",
+  "path": "pathspec/_meta.py",
+  "lines": [
+   7,
+   54
+  ],
+  "reason": "metadata"
+ },
+ {
+  "bug": "python-pathspec@9302492483b0",
+  "path": "pathspec/_meta.py",
+  "lines": [
+   56,
+   56
+  ],
+  "reason": "metadata"
+ },
+ {
+  "bug": "python-pathspec@6bc1c1d05a50",
+  "path": "pathspec/_meta.py",
+  "lines": [
+   7,
+   53
+  ],
+  "reason": "metadata"
+ },
+ {
+  "bug": "python-pathspec@2bfe91b016ae",
+  "path": "pathspec/_meta.py",
+  "lines": [
+   7,
+   50
+  ],
+  "reason": "metadata"
+ },
+ {
+  "bug": "python-pathspec@4608cee86e98",
+  "path": "pathspec/_meta.py",
+  "lines": [
+   7,
+   49
+  ],
+  "reason": "metadata"
+ },
+ {
+  "bug": "python-pathspec@48519078329c",
+  "path": "pathspec/_meta.py",
+  "lines": [
+   7,
+   47
+  ],
+  "reason": "metadata"
+ },
+ {
+  "bug": "python-pathspec@9eb2908bbaec",
+  "path": "pathspec/_meta.py",
+  "lines": [
+   7,
+   45
+  ],
+  "reason": "metadata"
+ },
+ {
+  "bug": "python-tabulate@e6a24aa6e00c",
+  "path": "tabulate/__init__.py",
+  "lines": [
+   19,
+   19
+  ],
+  "reason": "import"
+ },
+ {
+  "bug": "python-tabulate@e6a24aa6e00c",
+  "path": "tabulate/__init__.py",
+  "lines": [
+   20,
+   20
+  ],
+  "reason": "import"
+ },
+ {
+  "bug": "python-tabulate@e6a24aa6e00c",
+  "path": "tabulate/__init__.py",
+  "lines": [
+   21,
+   21
+  ],
+  "reason": "import"
+ },
+ {
+  "bug": "python-tabulate@e6a24aa6e00c",
+  "path": "tabulate/__init__.py",
+  "lines": [
+   2513,
+   2529
+  ],
+  "reason": "no code change"
+ },
+ {
+  "bug": "python-tabulate@e6a24aa6e00c",
+  "path": "tabulate/__init__.py",
+  "lines": [
+   2532,
+   2544
+  ],
+  "reason": "no code change"
+ },
+ {
+  "bug": "python-tabulate@ebd50a75e116",
+  "path": "tabulate/__init__.py",
+  "lines": [
+   1705,
+   2471
+  ],
+  "reason": "no code change"
+ },
+ {
+  "bug": "python-tabulate@5373ebfa9568",
+  "path": "tabulate/__init__.py",
+  "lines": [
+   16,
+   16
+  ],
+  "reason": "import"
+ },
+ {
+  "bug": "python-tabulate@38d345b4fad7",
+  "path": "tabulate.py",
+  "lines": [
+   4,
+   4
+  ],
+  "reason": "import"
+ },
+ {
+  "bug": "python-tabulate@38d345b4fad7",
+  "path": "tabulate.py",
+  "lines": [
+   2089,
+   2159
+  ],
+  "reason": "no code change"
+ },
+ {
+  "bug": "python-tabulate@38d345b4fad7",
+  "path": "tabulate.py",
+  "lines": [
+   2460,
+   2473
+  ],
+  "reason": "no code change"
+ },
+ {
+  "bug": "pyupgrade@3a1254b1d9ee",
+  "path": "pyupgrade/_plugins/typing_pep563.py",
+  "lines": [
+   9,
+   9
+  ],
+  "reason": "import"
+ },
+ {
+  "bug": "pyupgrade@2f55fdee346d",
+  "path": "pyupgrade/_plugins/default_encoding.py",
+  "lines": [
+   15,
+   15
+  ],
+  "reason": "import"
+ },
+ {
+  "bug": "pyupgrade@2f55fdee346d",
+  "path": "pyupgrade/_plugins/default_encoding.py",
+  "lines": [
+   16,
+   16
+  ],
+  "reason": "import"
+ },
+ {
+  "bug": "pyupgrade@443797a8b190",
+  "path": "pyupgrade/_plugins/unittest_aliases.py",
+  "lines": [
+   10,
+   10
+  ],
+  "reason": "import"
+ },
+ {
+  "bug": "rich@9e18b96652f3",
+  "path": "rich/table.py",
+  "lines": [
+   476,
+   522
+  ],
+  "reason": "no code change"
+ },
+ {
+  "bug": "rich@9e18b96652f3",
+  "path": "rich/table.py",
+  "lines": [
+   524,
+   587
+  ],
+  "reason": "no code change"
+ },
+ {
+  "bug": "rich@9e18b96652f3",
+  "path": "rich/table.py",
+  "lines": [
+   717,
+   754
+  ],
+  "reason": "no code change"
+ },
+ {
+  "bug": "rich@9e18b96652f3",
+  "path": "rich/table.py",
+  "lines": [
+   756,
+   936
+  ],
+  "reason": "no code change"
+ },
+ {
+  "bug": "rich@e9a5680682e0",
+  "path": "rich/live_render.py",
+  "lines": [
+   1,
+   1
+  ],
+  "reason": "import"
+ },
+ {
+  "bug": "rich@b6aae7c342b2",
+  "path": "rich/syntax.py",
+  "lines": [
+   1,
+   1
+  ],
+  "reason": "import"
+ },
+ {
+  "bug": "tomlkit@dee4dccd4530",
+  "path": "tomlkit/items.py",
+  "lines": [
+   22,
+   22
+  ],
+  "reason": "import"
+ }
+]

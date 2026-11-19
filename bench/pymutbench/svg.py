@@ -131,7 +131,7 @@ def nice_scale(peak: float, *, share: bool = True) -> tuple[float, tuple[float, 
         if top / step <= 5:
             if share and top >= 1.0:
                 return 1.0, (0, 0.25, 0.5, 0.75, 1.0)
-            return top, tuple(round(step * i, 10) for i in range(int(round(top / step)) + 1))
+            return top, tuple(round(step * i, 10) for i in range(round(top / step) + 1))
     return peak, (0, peak)
 
 
@@ -169,16 +169,16 @@ def ranked_bars(title: str, subtitle: str, rows: list[Row], theme: Theme, *, sca
         bar_w = plot_w * max(0.0, row.value) / scale_max
         tip = f"{row.label}: {value_text}"
         if row.low is not None and row.high is not None:
-            tip += f" (95% CI {row.low * 100:.0f}–{row.high * 100:.0f}%)" if percent else f" ({row.low:.2f}–{row.high:.2f})"
+            tip += (f" (95% CI {row.low * 100:.0f}–{row.high * 100:.0f}%)" if percent
+                    else f" ({row.low:.2f}–{row.high:.2f})")
         body.append(_bar(left, cy - bar_h / 2, bar_w, bar_h, color, tip))
         end = bar_w
         if row.low is not None and row.high is not None:
             x1, x2 = left + plot_w * row.low / scale_max, left + plot_w * row.high / scale_max
             body.append(f'<line x1="{x1:.1f}" y1="{cy:.1f}" x2="{x2:.1f}" y2="{cy:.1f}" stroke="{theme.ink2}" '
                         f'stroke-width="1"><title>{_esc(tip)}</title></line>')
-            for x in (x1, x2):
-                body.append(f'<line x1="{x:.1f}" y1="{cy - 4:.1f}" x2="{x:.1f}" y2="{cy + 4:.1f}" '
-                            f'stroke="{theme.ink2}" stroke-width="1"/>')
+            body += [f'<line x1="{x:.1f}" y1="{cy - 4:.1f}" x2="{x:.1f}" y2="{cy + 4:.1f}" '
+                     f'stroke="{theme.ink2}" stroke-width="1"/>' for x in (x1, x2)]
             end = max(end, x2 - left)
         body.append(_text(left + end + 8, cy, value_text + (f"  {row.note}" if row.note else ""),
                           fill=theme.ink if row.emphasis else theme.ink2, weight=weight))
@@ -239,6 +239,88 @@ def stacked_bars(title: str, subtitle: str, rows: list[tuple[str, list[float], b
     return _frame(width, height, theme, body, title, subtitle)
 
 
+def stacked_shares(title: str, subtitle: str, rows: list[tuple[str, list[float], bool]], parts: list[Part],
+                   theme: Theme) -> str:
+    """Horizontal bars of shares on one zero-based axis, each split into the parts in a fixed order with a 2px
+    surface gap; the label at the tip is the bar's total."""
+    peak = max((sum(values) for _, values, _ in rows), default=1.0)
+    scale_max, ticks = nice_scale(peak)
+    width, left, right, top, row_h, bar_h = 760, 168, 70, 96, 30, 16
+    plot_w = width - left - right
+    height = top + row_h * len(rows) + 40
+    body: list[str] = []
+    x = 24.0
+    for part in parts:
+        body.append(f'<rect x="{x:.1f}" y="62" width="10" height="10" rx="2" fill="{getattr(theme, part.slot)}"/>')
+        body.append(_text(x + 16, 67, part.name, fill=theme.ink2, size=12))
+        x += 16 + CHAR_PX * len(part.name) + 18
+    for tick in ticks:
+        tx = left + plot_w * tick / scale_max
+        body.append(f'<line x1="{tx:.1f}" y1="{top - 8}" x2="{tx:.1f}" y2="{top + row_h * len(rows)}" '
+                    f'stroke="{theme.grid}" stroke-width="1"/>')
+        body.append(_text(tx, top + row_h * len(rows) + 16, f"{tick * 100:.0f}%", fill=theme.muted, size=11,
+                          anchor="middle"))
+    body.append(f'<line x1="{left}" y1="{top - 8}" x2="{left}" y2="{top + row_h * len(rows)}" '
+                f'stroke="{theme.axis}" stroke-width="1"/>')
+    for index, (label, values, emphasis) in enumerate(rows):
+        cy = top + index * row_h + row_h / 2
+        body.append(_text(left - 12, cy, label, fill=theme.ink if emphasis else theme.ink2, anchor="end",
+                          weight=600 if emphasis else 400))
+        cursor = float(left)
+        for part, value in zip(parts, values, strict=True):
+            if value <= 0:
+                continue
+            seg = plot_w * value / scale_max
+            gap = 2 if cursor > left else 0
+            body.append(f'<rect x="{cursor + gap:.2f}" y="{cy - bar_h / 2:.2f}" width="{max(0.5, seg - gap):.2f}" '
+                        f'height="{bar_h}" rx="3" fill="{getattr(theme, part.slot)}"><title>{_esc(label)} — '
+                        f'{_esc(part.name)}: {_percent(value)}</title></rect>')
+            cursor += seg
+        body.append(_text(cursor + 8, cy, _percent(sum(values)), fill=theme.ink if emphasis else theme.ink2,
+                          weight=600 if emphasis else 400))
+    return _frame(width, height, theme, body, title, subtitle)
+
+
+def scatter(title: str, subtitle: str, points: list[tuple[str, float, float, bool]], theme: Theme, *,
+            x_label: str, y_label: str) -> str:
+    """Labelled points: x a count on a log scale, y a share on a zero-based axis."""
+    width, height, left, right, top, bottom = 760, 460, 72, 150, 80, 56
+    plot_w, plot_h = width - left - right, height - top - bottom
+    xs = [p[1] for p in points if p[1] > 0]
+    lo, hi = math.floor(math.log10(min(xs, default=1))), math.ceil(math.log10(max(xs, default=10)))
+    hi = max(hi, lo + 1)
+    y_max, y_ticks = nice_scale(max((p[2] for p in points), default=1.0))
+
+    def px(value: float) -> float:
+        return left + plot_w * (math.log10(max(value, 10**lo)) - lo) / (hi - lo)
+
+    def py(value: float) -> float:
+        return top + plot_h * (1 - value / y_max)
+
+    body: list[str] = []
+    for tick in y_ticks:
+        body.append(f'<line x1="{left}" y1="{py(tick):.1f}" x2="{left + plot_w}" y2="{py(tick):.1f}" '
+                    f'stroke="{theme.grid}" stroke-width="1"/>')
+        body.append(_text(left - 8, py(tick), f"{tick * 100:.0f}%", fill=theme.muted, size=11, anchor="end"))
+    for power in range(lo, hi + 1):
+        x = px(10**power)
+        body.append(f'<line x1="{x:.1f}" y1="{top}" x2="{x:.1f}" y2="{top + plot_h}" stroke="{theme.grid}" '
+                    'stroke-width="1"/>')
+        body.append(_text(x, top + plot_h + 16, f"{10**power:,}", fill=theme.muted, size=11, anchor="middle"))
+    body.append(f'<line x1="{left}" y1="{top + plot_h}" x2="{left + plot_w}" y2="{top + plot_h}" '
+                f'stroke="{theme.axis}" stroke-width="1"/>')
+    body.append(_text(left + plot_w / 2, top + plot_h + 38, x_label, fill=theme.ink2, size=12, anchor="middle"))
+    body.append(_text(24, top - 18, y_label, fill=theme.ink2, size=12))
+    for label, x, y, emphasis in sorted(points, key=lambda p: p[3]):
+        color = theme.accent if emphasis else theme.ink2
+        tip = f"{label}: {_percent(y)} at {x:g}"
+        body.append(f'<circle cx="{px(x):.1f}" cy="{py(y):.1f}" r="5" fill="{color}"><title>{_esc(tip)}</title>'
+                    "</circle>")
+        body.append(_text(px(x) + 9, py(y), label, fill=theme.ink if emphasis else theme.ink2, size=11,
+                          weight=600 if emphasis else 400))
+    return _frame(width, height, theme, body, title, subtitle)
+
+
 def matrix(title: str, subtitle: str, labels: list[str], values: list[list[float]], theme: Theme, *,
            emphasis: str = "", fmt: str = "{:.0f}") -> str:
     """A square matrix on the sequential ramp; the diagonal is blank."""
@@ -251,7 +333,8 @@ def matrix(title: str, subtitle: str, labels: list[str], values: list[list[float
     for j, label in enumerate(labels):
         x = left + j * cell + cell / 2
         body.append(f'<text x="{x:.1f}" y="{top - 10}" fill="{theme.ink if label == emphasis else theme.ink2}" '
-                    f'font-size="11" text-anchor="start" transform="rotate(-40 {x:.1f} {top - 10})">{_esc(label)}</text>')
+                    f'font-size="11" text-anchor="start" transform="rotate(-40 {x:.1f} {top - 10})">'
+                    f'{_esc(label)}</text>')
     for i, label in enumerate(labels):
         y = top + i * cell
         body.append(_text(left - 10, y + cell / 2, label, fill=theme.ink if label == emphasis else theme.ink2,
@@ -265,7 +348,8 @@ def matrix(title: str, subtitle: str, labels: list[str], values: list[list[float
             fill = theme.ramp[step]
             ink = theme.muted if value <= 0 else ("#ffffff" if _luminance(fill) < 0.18 else "#0b0b0b")
             body.append(f'<rect x="{x + 1}" y="{y + 1}" width="{cell - 2}" height="{cell - 2}" rx="3" fill="{fill}">'
-                        f"<title>{_esc(labels[i])} witnesses, {_esc(labels[j])} does not: {fmt.format(value)}</title></rect>")
+                        f"<title>{_esc(label)} detects, {_esc(labels[j])} does not: {fmt.format(value)}"
+                        "</title></rect>")
             body.append(_text(x + cell / 2, y + cell / 2, fmt.format(value), fill=ink, size=11, anchor="middle"))
     return _frame(width, height, theme, body, title, subtitle)
 
@@ -279,7 +363,8 @@ class Status:
 
 
 def status_matrix(title: str, subtitle: str, rows: list[str], columns: list[str], cells: list[list[str]],
-                  statuses: list[Status], theme: Theme, *, emphasis: str = "", notes: dict[tuple[int, int], str] | None = None) -> str:
+                  statuses: list[Status], theme: Theme, *, emphasis: str = "",
+                  notes: dict[tuple[int, int], str] | None = None) -> str:
     """A rows × columns grid of categorical outcomes: each cell filled by its status and marked, a legend above."""
     by_key = {status.key: status for status in statuses}
     left, top, cell_h, width = 168, 150, 30, 760  # every figure is 760 wide: the cells share what is left
@@ -306,7 +391,8 @@ def status_matrix(title: str, subtitle: str, rows: list[str], columns: list[str]
             fill = getattr(theme, status.slot)
             ink = theme.muted if status.slot == "surface" else ("#ffffff" if _luminance(fill) < 0.18 else "#0b0b0b")
             tip = f"{row} — {columns[j]}: {status.label}" + (f" ({notes[(i, j)]})" if notes and (i, j) in notes else "")
-            body.append(f'<rect x="{left + j * cell_w + 1}" y="{y + 1}" width="{cell_w - 2}" height="{cell_h - 2}" rx="3" '
+            body.append(f'<rect x="{left + j * cell_w + 1}" y="{y + 1}" width="{cell_w - 2}" '
+                        f'height="{cell_h - 2}" rx="3" '
                         f'fill="{fill}" stroke="{theme.grid}"><title>{_esc(tip)}</title></rect>')
             body.append(_text(left + j * cell_w + cell_w / 2, y + cell_h / 2, status.mark, fill=ink, size=12,
                               anchor="middle"))

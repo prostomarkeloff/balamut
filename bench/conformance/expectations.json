@@ -43,5 +43,61 @@
     {"line": 6, "mutated_regex": "value - step|value \\* step|value / step", "expected": "killed", "why": "closure result changes"},
     {"line": 13, "mutated_regex": "% 2 != 0|% 3|% 1", "expected": "killed", "why": "generator yields other numbers"},
     {"line": 19, "mutated_regex": "return None|return -sum|return sum\\(values\\) [+-] 1", "expected": "killed", "why": "async total changes"}
+  ],
+  "cf_cov_config": [
+    {"line": 2, "mutated_regex": "value (\\*|\\*\\*) value", "expected": "survived",
+     "why": "double(2) == 4 holds for 2 * 2 and 2 ** 2; the project's pytest configuration runs pytest-cov (--cov)"},
+    {"line": 2, "mutated_regex": "value (-|/|//|%) value|return None", "expected": "killed",
+     "why": "double(2) == 4 fails"},
+    {"line": 8, "mutated_regex": "max\\(value, high\\)", "expected": "killed",
+     "why": "clamp(5, 0, 10) == 5 fails"}
+  ],
+  "cf_decorator_closure": [
+    {"line": 8, "mutated_regex": "return (?!fn\\(value\\) \\+ amount\\s*$)", "expected": "killed",
+     "why": "successor is decorated at import time: the wrapper in its closure is the mutated one, and successor(1) == 2 fails"},
+    {"line": 8, "mutated_regex": "return fn\\(value\\) << amount\\s*$", "expected": "survived",
+     "why": "1 << 1 is 2 as well: the only test cannot tell the mutant from the original"}
+  ],
+  "cf_init_target": [
+    {"line": 2, "mutated_regex": "return (?!\\\"hello \\\" \\+ name\\s*$)", "expected": "killed",
+     "why": "the mutated file is the package's __init__.py; greet('there') == 'hello there' fails"}
+  ],
+  "cf_nested_class": [
+    {"line": 10, "mutated_regex": "return (?!self\\.size \\* self\\.size\\s*$)", "expected": "killed",
+     "why": "Grid defines the nested class Cell; Grid(3).area() == 9 holds only for the original product"}
+  ],
+  "cf_pool": [
+    {"line": 2, "mutated_regex": "return (?!value \\* 3\\s*$)", "expected": "killed",
+     "why": "triple(2) == 6 fails; the suite also has a test that starts a multiprocessing.Pool"}
+  ],
+  "cf_property_setter": [
+    {"line": 7, "mutated_regex": "return (?!self\\._target\\s*$)", "expected": "killed",
+     "why": "the getter shares the qualified name Thermostat.target with the setter; target reads 25 after setting 25"},
+    {"line": 11, "mutated_regex": "self\\._target = (?!min\\(value, 30\\)\\s*$)", "expected": "killed",
+     "why": "the setter caps at 30: 25 stays 25 and 40 becomes 30"},
+    {"line": 14, "mutated_regex": "return (?!max\\(value, 10\\)\\s*$)", "expected": "killed",
+     "why": "the name-mangled method __floor raises 5 to 10 through set_safe"},
+    {"line": 11, "mutated_regex": "self\\._target = min\\s*\\(\\s*30\\s*,\\s*value\\s*\\)\\s*$", "expected": "survived",
+     "why": "min is symmetric: the swapped arguments are an equivalent mutant"},
+    {"line": 14, "mutated_regex": "return max\\s*\\(\\s*10\\s*,\\s*value\\s*\\)\\s*$", "expected": "survived",
+     "why": "max is symmetric: the swapped arguments are an equivalent mutant"}
+  ],
+  "cf_relative_import": [
+    {"line": 5, "mutated_regex": "width (\\+|\\*\\*) height", "expected": "survived",
+     "why": "the only test is a square (2, 2): 2 + 2 and 2 ** 2 are 4 as well"},
+    {"line": 5, "mutated_regex": "width (-|/|//|%) height|return None", "expected": "killed",
+     "why": "area(2, 2) == 4 fails; the module imports SCALE relatively, and the project turns warnings into errors"},
+    {"line": 9, "mutated_regex": "return (?!value \\* SCALE\\s*$)", "expected": "killed",
+     "why": "scaled(3) == 30"}
+  ],
+  "cf_src_pythonpath": [
+    {"line": 2, "mutated_regex": "return (?!sum\\(prices\\) \\+ 1\\s*$)", "expected": "killed",
+     "why": "the test imports its helper through pytest.ini's pythonpath = src tests; total([3, 4]) == 8 fails"}
+  ],
+  "cf_tabs": [
+    {"line": 6, "mutated_regex": "self\\.total = (?!self\\.total \\+ amount\\s*$)", "expected": "killed",
+     "why": "the file is indented with tabs; add(2) == 2 and add(3) == 5 fail"},
+    {"line": 11, "mutated_regex": "return (?!value // 2\\s*$)", "expected": "killed",
+     "why": "halve(9) == 4 fails"}
   ]
 }

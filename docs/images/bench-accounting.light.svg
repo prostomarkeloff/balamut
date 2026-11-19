@@ -3,7 +3,7 @@
 <rect width="760" height="466" fill="#fcfcfb" rx="8"/>
 <text x="24.0" y="28.0" fill="#0b0b0b" font-size="15" font-weight="600" text-anchor="start" dominant-baseline="middle">What each tool&#x27;s in-scope mutants turned out to be</text>
 <text x="24.0" y="48.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="start" dominant-baseline="middle">unique in-scope mutants per tool over all bugs, by the reference oracle&#x27;s first judgement</text>
-<text x="24.0" y="64.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="start" dominant-baseline="middle">witnesses confirmed by the re-judgement</text>
+<text x="24.0" y="64.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="start" dominant-baseline="middle">witnesses of the fixed program confirmed by the re-judgement</text>
 <g transform="translate(0,16)">
 <rect x="24.0" y="62" width="10" height="10" rx="2" fill="#d7d5cd"/>
 <text x="40.0" y="67.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="start" dominant-baseline="middle">killed</text>
@@ -14,70 +14,70 @@
 <rect x="369.2" y="62" width="10" height="10" rx="2" fill="#a8a69e"/>
 <text x="385.2" y="67.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="start" dominant-baseline="middle">screened out (invalid, equivalent, no-op) or unresolved</text>
 <text x="156.0" y="111.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">mutation</text>
-<rect x="168.00" y="103.00" width="449.49" height="16" rx="3" fill="#d7d5cd"><title>mutation — killed: 90744 (86.1%)</title></rect>
-<rect x="619.49" y="103.00" width="5.72" height="16" rx="3" fill="#eb6834"><title>mutation — survived: witness: 1558 (1.5%)</title></rect>
-<rect x="627.21" y="103.00" width="61.05" height="16" rx="3" fill="#1baf7a"><title>mutation — survived: other: 12728 (12.1%)</title></rect>
-<rect x="690.25" y="103.00" width="0.50" height="16" rx="3" fill="#a8a69e"><title>mutation — screened out (invalid, equivalent, no-op) or unresolved: 353 (0.3%)</title></rect>
-<text x="698.0" y="111.0" fill="#898781" font-size="11" font-weight="400" text-anchor="start" dominant-baseline="middle">105,383</text>
+<rect x="168.00" y="103.00" width="450.30" height="16" rx="3" fill="#d7d5cd"><title>mutation — killed: 87559 (86.3%)</title></rect>
+<rect x="620.30" y="103.00" width="5.98" height="16" rx="3" fill="#eb6834"><title>mutation — survived: witness: 1552 (1.5%)</title></rect>
+<rect x="628.28" y="103.00" width="60.02" height="16" rx="3" fill="#1baf7a"><title>mutation — survived: other: 12060 (11.9%)</title></rect>
+<rect x="690.30" y="103.00" width="0.50" height="16" rx="3" fill="#a8a69e"><title>mutation — screened out (invalid, equivalent, no-op) or unresolved: 330 (0.3%)</title></rect>
+<text x="698.0" y="111.0" fill="#898781" font-size="11" font-weight="400" text-anchor="start" dominant-baseline="middle">101,501</text>
 <text x="156.0" y="141.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">universalmutator</text>
-<rect x="168.00" y="133.00" width="430.11" height="16" rx="3" fill="#d7d5cd"><title>universalmutator — killed: 39808 (82.4%)</title></rect>
-<rect x="600.11" y="133.00" width="12.55" height="16" rx="3" fill="#eb6834"><title>universalmutator — survived: witness: 1347 (2.8%)</title></rect>
-<rect x="614.66" y="133.00" width="74.40" height="16" rx="3" fill="#1baf7a"><title>universalmutator — survived: other: 7071 (14.6%)</title></rect>
-<rect x="691.06" y="133.00" width="0.50" height="16" rx="3" fill="#a8a69e"><title>universalmutator — screened out (invalid, equivalent, no-op) or unresolved: 87 (0.2%)</title></rect>
-<text x="698.0" y="141.0" fill="#898781" font-size="11" font-weight="400" text-anchor="start" dominant-baseline="middle">48,313</text>
-<text x="156.0" y="171.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">cosmic-ray</text>
-<rect x="168.00" y="163.00" width="399.26" height="16" rx="3" fill="#d7d5cd"><title>cosmic-ray — killed: 28166 (76.5%)</title></rect>
-<rect x="569.26" y="163.00" width="15.11" height="16" rx="3" fill="#eb6834"><title>cosmic-ray — survived: witness: 1207 (3.3%)</title></rect>
-<rect x="586.37" y="163.00" width="97.55" height="16" rx="3" fill="#1baf7a"><title>cosmic-ray — survived: other: 7023 (19.1%)</title></rect>
-<rect x="685.92" y="163.00" width="4.08" height="16" rx="3" fill="#a8a69e"><title>cosmic-ray — screened out (invalid, equivalent, no-op) or unresolved: 429 (1.2%)</title></rect>
-<text x="698.0" y="171.0" fill="#898781" font-size="11" font-weight="400" text-anchor="start" dominant-baseline="middle">36,825</text>
-<text x="156.0" y="201.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">irradiate</text>
-<rect x="168.00" y="193.00" width="427.40" height="16" rx="3" fill="#d7d5cd"><title>irradiate — killed: 29538 (81.9%)</title></rect>
-<rect x="597.40" y="193.00" width="11.53" height="16" rx="3" fill="#eb6834"><title>irradiate — survived: witness: 935 (2.6%)</title></rect>
-<rect x="610.93" y="193.00" width="77.99" height="16" rx="3" fill="#1baf7a"><title>irradiate — survived: other: 5528 (15.3%)</title></rect>
-<rect x="690.91" y="193.00" width="0.50" height="16" rx="3" fill="#a8a69e"><title>irradiate — screened out (invalid, equivalent, no-op) or unresolved: 75 (0.2%)</title></rect>
-<text x="698.0" y="201.0" fill="#898781" font-size="11" font-weight="400" text-anchor="start" dominant-baseline="middle">36,076</text>
+<rect x="168.00" y="133.00" width="429.57" height="16" rx="3" fill="#d7d5cd"><title>universalmutator — killed: 38319 (82.3%)</title></rect>
+<rect x="599.57" y="133.00" width="13.04" height="16" rx="3" fill="#eb6834"><title>universalmutator — survived: witness: 1342 (2.9%)</title></rect>
+<rect x="614.61" y="133.00" width="74.56" height="16" rx="3" fill="#1baf7a"><title>universalmutator — survived: other: 6829 (14.7%)</title></rect>
+<rect x="691.17" y="133.00" width="0.50" height="16" rx="3" fill="#a8a69e"><title>universalmutator — screened out (invalid, equivalent, no-op) or unresolved: 74 (0.2%)</title></rect>
+<text x="698.0" y="141.0" fill="#898781" font-size="11" font-weight="400" text-anchor="start" dominant-baseline="middle">46,564</text>
+<text x="156.0" y="171.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">irradiate</text>
+<rect x="168.00" y="163.00" width="428.05" height="16" rx="3" fill="#d7d5cd"><title>irradiate — killed: 30847 (82.0%)</title></rect>
+<rect x="598.05" y="163.00" width="13.15" height="16" rx="3" fill="#eb6834"><title>irradiate — survived: witness: 1092 (2.9%)</title></rect>
+<rect x="613.21" y="163.00" width="75.83" height="16" rx="3" fill="#1baf7a"><title>irradiate — survived: other: 5609 (14.9%)</title></rect>
+<rect x="691.04" y="163.00" width="0.50" height="16" rx="3" fill="#a8a69e"><title>irradiate — screened out (invalid, equivalent, no-op) or unresolved: 69 (0.2%)</title></rect>
+<text x="698.0" y="171.0" fill="#898781" font-size="11" font-weight="400" text-anchor="start" dominant-baseline="middle">37,617</text>
+<text x="156.0" y="201.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">cosmic-ray</text>
+<rect x="168.00" y="193.00" width="399.04" height="16" rx="3" fill="#d7d5cd"><title>cosmic-ray — killed: 27203 (76.4%)</title></rect>
+<rect x="569.04" y="193.00" width="15.63" height="16" rx="3" fill="#eb6834"><title>cosmic-ray — survived: witness: 1202 (3.4%)</title></rect>
+<rect x="586.68" y="193.00" width="97.53" height="16" rx="3" fill="#1baf7a"><title>cosmic-ray — survived: other: 6785 (19.1%)</title></rect>
+<rect x="686.21" y="193.00" width="3.79" height="16" rx="3" fill="#a8a69e"><title>cosmic-ray — screened out (invalid, equivalent, no-op) or unresolved: 395 (1.1%)</title></rect>
+<text x="698.0" y="201.0" fill="#898781" font-size="11" font-weight="400" text-anchor="start" dominant-baseline="middle">35,585</text>
 <text x="156.0" y="231.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">mutmut</text>
-<rect x="168.00" y="223.00" width="417.42" height="16" rx="3" fill="#d7d5cd"><title>mutmut — killed: 24272 (80.0%)</title></rect>
-<rect x="587.42" y="223.00" width="12.38" height="16" rx="3" fill="#eb6834"><title>mutmut — survived: witness: 836 (2.8%)</title></rect>
-<rect x="601.80" y="223.00" width="87.44" height="16" rx="3" fill="#1baf7a"><title>mutmut — survived: other: 5201 (17.1%)</title></rect>
-<rect x="691.24" y="223.00" width="0.50" height="16" rx="3" fill="#a8a69e"><title>mutmut — screened out (invalid, equivalent, no-op) or unresolved: 44 (0.1%)</title></rect>
-<text x="698.0" y="231.0" fill="#898781" font-size="11" font-weight="400" text-anchor="start" dominant-baseline="middle">30,353</text>
+<rect x="168.00" y="223.00" width="416.33" height="16" rx="3" fill="#d7d5cd"><title>mutmut — killed: 23073 (79.8%)</title></rect>
+<rect x="586.33" y="223.00" width="13.05" height="16" rx="3" fill="#eb6834"><title>mutmut — survived: witness: 834 (2.9%)</title></rect>
+<rect x="601.38" y="223.00" width="88.02" height="16" rx="3" fill="#1baf7a"><title>mutmut — survived: other: 4989 (17.2%)</title></rect>
+<rect x="691.40" y="223.00" width="0.50" height="16" rx="3" fill="#a8a69e"><title>mutmut — screened out (invalid, equivalent, no-op) or unresolved: 33 (0.1%)</title></rect>
+<text x="698.0" y="231.0" fill="#898781" font-size="11" font-weight="400" text-anchor="start" dominant-baseline="middle">28,929</text>
 <text x="156.0" y="261.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">poodle</text>
-<rect x="168.00" y="253.00" width="376.61" height="16" rx="3" fill="#d7d5cd"><title>poodle — killed: 20956 (72.1%)</title></rect>
-<rect x="546.61" y="253.00" width="15.63" height="16" rx="3" fill="#eb6834"><title>poodle — survived: witness: 981 (3.4%)</title></rect>
-<rect x="564.24" y="253.00" width="107.61" height="16" rx="3" fill="#1baf7a"><title>poodle — survived: other: 6099 (21.0%)</title></rect>
-<rect x="673.85" y="253.00" width="16.15" height="16" rx="3" fill="#a8a69e"><title>poodle — screened out (invalid, equivalent, no-op) or unresolved: 1010 (3.5%)</title></rect>
-<text x="698.0" y="261.0" fill="#898781" font-size="11" font-weight="400" text-anchor="start" dominant-baseline="middle">29,046</text>
-<text x="156.0" y="291.0" fill="#0b0b0b" font-size="12" font-weight="600" text-anchor="end" dominant-baseline="middle">balamut</text>
-<rect x="168.00" y="283.00" width="442.74" height="16" rx="3" fill="#d7d5cd"><title>balamut — killed: 17406 (84.8%)</title></rect>
-<rect x="612.74" y="283.00" width="11.51" height="16" rx="3" fill="#eb6834"><title>balamut — survived: witness: 531 (2.6%)</title></rect>
-<rect x="626.25" y="283.00" width="63.29" height="16" rx="3" fill="#1baf7a"><title>balamut — survived: other: 2567 (12.5%)</title></rect>
-<rect x="691.54" y="283.00" width="0.50" height="16" rx="3" fill="#a8a69e"><title>balamut — screened out (invalid, equivalent, no-op) or unresolved: 18 (0.1%)</title></rect>
-<text x="698.0" y="291.0" fill="#898781" font-size="11" font-weight="400" text-anchor="start" dominant-baseline="middle">20,522</text>
+<rect x="168.00" y="253.00" width="379.09" height="16" rx="3" fill="#d7d5cd"><title>poodle — killed: 20410 (72.6%)</title></rect>
+<rect x="549.09" y="253.00" width="16.20" height="16" rx="3" fill="#eb6834"><title>poodle — survived: witness: 980 (3.5%)</title></rect>
+<rect x="567.30" y="253.00" width="104.21" height="16" rx="3" fill="#1baf7a"><title>poodle — survived: other: 5718 (20.3%)</title></rect>
+<rect x="673.50" y="253.00" width="16.50" height="16" rx="3" fill="#a8a69e"><title>poodle — screened out (invalid, equivalent, no-op) or unresolved: 996 (3.5%)</title></rect>
+<text x="698.0" y="261.0" fill="#898781" font-size="11" font-weight="400" text-anchor="start" dominant-baseline="middle">28,104</text>
+<text x="156.0" y="291.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">balamut</text>
+<rect x="168.00" y="283.00" width="442.06" height="16" rx="3" fill="#d7d5cd"><title>balamut — killed: 16666 (84.7%)</title></rect>
+<rect x="612.06" y="283.00" width="12.06" height="16" rx="3" fill="#eb6834"><title>balamut — survived: witness: 530 (2.7%)</title></rect>
+<rect x="626.11" y="283.00" width="63.49" height="16" rx="3" fill="#1baf7a"><title>balamut — survived: other: 2469 (12.5%)</title></rect>
+<rect x="691.60" y="283.00" width="0.50" height="16" rx="3" fill="#a8a69e"><title>balamut — screened out (invalid, equivalent, no-op) or unresolved: 15 (0.1%)</title></rect>
+<text x="698.0" y="291.0" fill="#898781" font-size="11" font-weight="400" text-anchor="start" dominant-baseline="middle">19,680</text>
 <text x="156.0" y="321.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">fest</text>
-<rect x="168.00" y="313.00" width="386.60" height="16" rx="3" fill="#d7d5cd"><title>fest — killed: 13025 (74.1%)</title></rect>
-<rect x="556.60" y="313.00" width="16.11" height="16" rx="3" fill="#eb6834"><title>fest — survived: witness: 610 (3.5%)</title></rect>
-<rect x="574.70" y="313.00" width="105.39" height="16" rx="3" fill="#1baf7a"><title>fest — survived: other: 3618 (20.6%)</title></rect>
-<rect x="682.09" y="313.00" width="7.91" height="16" rx="3" fill="#a8a69e"><title>fest — screened out (invalid, equivalent, no-op) or unresolved: 334 (1.9%)</title></rect>
-<text x="698.0" y="321.0" fill="#898781" font-size="11" font-weight="400" text-anchor="start" dominant-baseline="middle">17,587</text>
+<rect x="168.00" y="313.00" width="391.13" height="16" rx="3" fill="#d7d5cd"><title>fest — killed: 12684 (74.9%)</title></rect>
+<rect x="561.13" y="313.00" width="16.78" height="16" rx="3" fill="#eb6834"><title>fest — survived: witness: 609 (3.6%)</title></rect>
+<rect x="579.91" y="313.00" width="100.25" height="16" rx="3" fill="#1baf7a"><title>fest — survived: other: 3316 (19.6%)</title></rect>
+<rect x="682.16" y="313.00" width="7.84" height="16" rx="3" fill="#a8a69e"><title>fest — screened out (invalid, equivalent, no-op) or unresolved: 319 (1.9%)</title></rect>
+<text x="698.0" y="321.0" fill="#898781" font-size="11" font-weight="400" text-anchor="start" dominant-baseline="middle">16,928</text>
 <text x="156.0" y="351.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">deployproof</text>
-<rect x="168.00" y="343.00" width="374.48" height="16" rx="3" fill="#d7d5cd"><title>deployproof — killed: 12599 (71.7%)</title></rect>
-<rect x="544.48" y="343.00" width="19.43" height="16" rx="3" fill="#eb6834"><title>deployproof — survived: witness: 721 (4.1%)</title></rect>
-<rect x="565.91" y="343.00" width="122.96" height="16" rx="3" fill="#1baf7a"><title>deployproof — survived: other: 4204 (23.9%)</title></rect>
-<rect x="690.87" y="343.00" width="0.50" height="16" rx="3" fill="#a8a69e"><title>deployproof — screened out (invalid, equivalent, no-op) or unresolved: 38 (0.2%)</title></rect>
-<text x="698.0" y="351.0" fill="#898781" font-size="11" font-weight="400" text-anchor="start" dominant-baseline="middle">17,562</text>
+<rect x="168.00" y="343.00" width="378.94" height="16" rx="3" fill="#d7d5cd"><title>deployproof — killed: 12264 (72.6%)</title></rect>
+<rect x="548.94" y="343.00" width="20.25" height="16" rx="3" fill="#eb6834"><title>deployproof — survived: witness: 720 (4.3%)</title></rect>
+<rect x="571.19" y="343.00" width="117.79" height="16" rx="3" fill="#1baf7a"><title>deployproof — survived: other: 3877 (22.9%)</title></rect>
+<rect x="690.98" y="343.00" width="0.50" height="16" rx="3" fill="#a8a69e"><title>deployproof — screened out (invalid, equivalent, no-op) or unresolved: 33 (0.2%)</title></rect>
+<text x="698.0" y="351.0" fill="#898781" font-size="11" font-weight="400" text-anchor="start" dominant-baseline="middle">16,894</text>
 <text x="156.0" y="381.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">pytest-leela</text>
-<rect x="168.00" y="373.00" width="444.93" height="16" rx="3" fill="#d7d5cd"><title>pytest-leela — killed: 6437 (85.2%)</title></rect>
-<rect x="614.93" y="373.00" width="15.28" height="16" rx="3" fill="#eb6834"><title>pytest-leela — survived: witness: 250 (3.3%)</title></rect>
-<rect x="632.21" y="373.00" width="57.10" height="16" rx="3" fill="#1baf7a"><title>pytest-leela — survived: other: 855 (11.3%)</title></rect>
-<rect x="691.31" y="373.00" width="0.50" height="16" rx="3" fill="#a8a69e"><title>pytest-leela — screened out (invalid, equivalent, no-op) or unresolved: 10 (0.1%)</title></rect>
-<text x="698.0" y="381.0" fill="#898781" font-size="11" font-weight="400" text-anchor="start" dominant-baseline="middle">7,552</text>
+<rect x="168.00" y="373.00" width="444.73" height="16" rx="3" fill="#d7d5cd"><title>pytest-leela — killed: 6187 (85.2%)</title></rect>
+<rect x="614.73" y="373.00" width="15.90" height="16" rx="3" fill="#eb6834"><title>pytest-leela — survived: witness: 249 (3.4%)</title></rect>
+<rect x="632.63" y="373.00" width="56.94" height="16" rx="3" fill="#1baf7a"><title>pytest-leela — survived: other: 820 (11.3%)</title></rect>
+<rect x="691.57" y="373.00" width="0.50" height="16" rx="3" fill="#a8a69e"><title>pytest-leela — screened out (invalid, equivalent, no-op) or unresolved: 6 (0.1%)</title></rect>
+<text x="698.0" y="381.0" fill="#898781" font-size="11" font-weight="400" text-anchor="start" dominant-baseline="middle">7,262</text>
 <text x="156.0" y="411.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">pytest-gremlins</text>
-<rect x="168.00" y="403.00" width="416.45" height="16" rx="3" fill="#d7d5cd"><title>pytest-gremlins — killed: 5196 (79.8%)</title></rect>
-<rect x="586.45" y="403.00" width="16.99" height="16" rx="3" fill="#eb6834"><title>pytest-gremlins — survived: witness: 237 (3.6%)</title></rect>
-<rect x="605.44" y="403.00" width="83.60" height="16" rx="3" fill="#1baf7a"><title>pytest-gremlins — survived: other: 1068 (16.4%)</title></rect>
-<rect x="691.04" y="403.00" width="0.50" height="16" rx="3" fill="#a8a69e"><title>pytest-gremlins — screened out (invalid, equivalent, no-op) or unresolved: 12 (0.2%)</title></rect>
-<text x="698.0" y="411.0" fill="#898781" font-size="11" font-weight="400" text-anchor="start" dominant-baseline="middle">6,513</text>
+<rect x="168.00" y="403.00" width="416.05" height="16" rx="3" fill="#d7d5cd"><title>pytest-gremlins — killed: 5007 (79.7%)</title></rect>
+<rect x="586.05" y="403.00" width="17.61" height="16" rx="3" fill="#eb6834"><title>pytest-gremlins — survived: witness: 236 (3.8%)</title></rect>
+<rect x="605.66" y="403.00" width="83.75" height="16" rx="3" fill="#1baf7a"><title>pytest-gremlins — survived: other: 1032 (16.4%)</title></rect>
+<rect x="691.42" y="403.00" width="0.50" height="16" rx="3" fill="#a8a69e"><title>pytest-gremlins — screened out (invalid, equivalent, no-op) or unresolved: 7 (0.1%)</title></rect>
+<text x="698.0" y="411.0" fill="#898781" font-size="11" font-weight="400" text-anchor="start" dominant-baseline="middle">6,282</text>
 </g>
 </svg>

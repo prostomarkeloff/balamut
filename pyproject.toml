@@ -78,6 +78,8 @@ markers = [
 line-length = 120
 target-version = "py314"
 src = ["src", "tests"]
+# The trap fixtures are small projects as their tests expect them, not code of this repository.
+extend-exclude = ["bench/conformance"]
 
 [tool.ruff.lint]
 select = ["ALL"]
@@ -114,6 +116,17 @@ known-third-party = ["coverage"]
 
 [tool.ruff.lint.per-file-ignores]
 "tests/**" = ["ANN", "ARG", "INP001", "PLC0415", "PT011", "S", "SLF001", "FBT003", "N802"]
+# The benchmark harness (bench/) is a stdlib-only command-line program: it prints progress, runs fixed argv of
+# git, docker and the tools without a shell, samples with seeded non-cryptographic randomness, imports stage code
+# lazily, keeps the tools' own unicode in strings, and its adapters and tests are scripts, not packages.
+"bench/**" = ["T201", "S603", "S607", "S311", "PLC0415", "RUF001", "RUF002", "INP001", "S108", "PT009", "PT027",
+              "ANN", "ARG001", "FBT003", "N802", "ISC004"]
+# The bytes of these files are the code fingerprints recorded in published results (bench/pymutbench/fingerprint.py):
+# their text stays as it was when the results were produced.
+"bench/pymutbench/{oracle,pytestrun,artifacts,gitops,validate,subjects,astmat,scope}.py" = ["E501", "N818", "ARG002",
+                                                                                          "FURB192", "RUF100"]
+"bench/pymutbench/plugin_path/*.py" = ["PTH123", "E501", "RUF100"]
+"bench/pymutbench/adapters/*.py" = ["I001", "S112", "E501", "RUF100"]
 # The kit's matchers and site finders share one protocol signature: the context is the contract,
 # even when a piece does not read it.
 "src/balamut/operators/kit.py" = ["ARG002"]

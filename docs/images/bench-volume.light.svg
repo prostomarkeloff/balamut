@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="460" viewBox="0 0 760 460" font-family='system-ui, -apple-system, "Segoe UI", sans-serif' role="img" aria-label="Detection grows with the number of mutants">
+<title>Detection grows with the number of mutants</title>
+<rect width="760" height="460" fill="#fcfcfb" rx="8"/>
+<text x="24.0" y="28.0" fill="#0b0b0b" font-size="15" font-weight="600" text-anchor="start" dominant-baseline="middle">Detection grows with the number of mutants</text>
+<text x="24.0" y="48.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="start" dominant-baseline="middle">share of bugs with a pre-fix witness against the median number of in-scope emissions per bug</text>
+<line x1="72" y1="404.0" x2="610" y2="404.0" stroke="#e1e0d9" stroke-width="1"/>
+<text x="64.0" y="404.0" fill="#898781" font-size="11" font-weight="400" text-anchor="end" dominant-baseline="middle">0%</text>
+<line x1="72" y1="339.2" x2="610" y2="339.2" stroke="#e1e0d9" stroke-width="1"/>
+<text x="64.0" y="339.2" fill="#898781" font-size="11" font-weight="400" text-anchor="end" dominant-baseline="middle">5%</text>
+<line x1="72" y1="274.4" x2="610" y2="274.4" stroke="#e1e0d9" stroke-width="1"/>
+<text x="64.0" y="274.4" fill="#898781" font-size="11" font-weight="400" text-anchor="end" dominant-baseline="middle">10%</text>
+<line x1="72" y1="209.6" x2="610" y2="209.6" stroke="#e1e0d9" stroke-width="1"/>
+<text x="64.0" y="209.6" fill="#898781" font-size="11" font-weight="400" text-anchor="end" dominant-baseline="middle">15%</text>
+<line x1="72" y1="144.8" x2="610" y2="144.8" stroke="#e1e0d9" stroke-width="1"/>
+<text x="64.0" y="144.8" fill="#898781" font-size="11" font-weight="400" text-anchor="end" dominant-baseline="middle">20%</text>
+<line x1="72" y1="80.0" x2="610" y2="80.0" stroke="#e1e0d9" stroke-width="1"/>
+<text x="64.0" y="80.0" fill="#898781" font-size="11" font-weight="400" text-anchor="end" dominant-baseline="middle">25%</text>
+<line x1="72.0" y1="80" x2="72.0" y2="404" stroke="#e1e0d9" stroke-width="1"/>
+<text x="72.0" y="420.0" fill="#898781" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">1</text>
+<line x1="251.3" y1="80" x2="251.3" y2="404" stroke="#e1e0d9" stroke-width="1"/>
+<text x="251.3" y="420.0" fill="#898781" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">10</text>
+<line x1="430.7" y1="80" x2="430.7" y2="404" stroke="#e1e0d9" stroke-width="1"/>
+<text x="430.7" y="420.0" fill="#898781" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">100</text>
+<line x1="610.0" y1="80" x2="610.0" y2="404" stroke="#e1e0d9" stroke-width="1"/>
+<text x="610.0" y="420.0" fill="#898781" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">1,000</text>
+<line x1="72" y1="404" x2="610" y2="404" stroke="#c3c2b7" stroke-width="1"/>
+<text x="341.0" y="442.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">in-scope emissions per bug (median, log scale)</text>
+<text x="24.0" y="62.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="start" dominant-baseline="middle">bugs with a pre-fix witness</text>
+<circle cx="319.5" cy="256.5" r="5" fill="#52514e"><title>balamut: 11% at 24</title></circle>
+<text x="328.5" y="256.5" fill="#52514e" font-size="11" font-weight="400" text-anchor="start" dominant-baseline="middle">balamut</text>
+<circle cx="346.6" cy="200.6" r="5" fill="#52514e"><title>mutmut: 16% at 34</title></circle>
+<text x="355.6" y="200.6" fill="#52514e" font-size="11" font-weight="400" text-anchor="start" dominant-baseline="middle">mutmut</text>
+<circle cx="359.3" cy="220.6" r="5" fill="#52514e"><title>cosmic-ray: 14% at 40</title></circle>
+<text x="368.3" y="220.6" fill="#52514e" font-size="11" font-weight="400" text-anchor="start" dominant-baseline="middle">cosmic-ray</text>
+<circle cx="355.3" cy="180.7" r="5" fill="#52514e"><title>poodle: 17% at 38</title></circle>
+<text x="364.3" y="180.7" fill="#52514e" font-size="11" font-weight="400" text-anchor="start" dominant-baseline="middle">poodle</text>
+<circle cx="234.0" cy="320.3" r="5" fill="#52514e"><title>pytest-gremlins: 6% at 8</title></circle>
+<text x="243.0" y="320.3" fill="#52514e" font-size="11" font-weight="400" text-anchor="start" dominant-baseline="middle">pytest-gremlins</text>
+<circle cx="243.1" cy="316.3" r="5" fill="#52514e"><title>pytest-leela: 7% at 9</title></circle>
+<text x="252.1" y="316.3" fill="#52514e" font-size="11" font-weight="400" text-anchor="start" dominant-baseline="middle">pytest-leela</text>
+<circle cx="451.1" cy="96.9" r="5" fill="#52514e"><title>mutation: 24% at 130</title></circle>
+<text x="460.1" y="96.9" fill="#52514e" font-size="11" font-weight="400" text-anchor="start" dominant-baseline="middle">mutation</text>
+<circle cx="384.1" cy="156.8" r="5" fill="#52514e"><title>universalmutator: 19% at 55</title></circle>
+<text x="393.1" y="156.8" fill="#52514e" font-size="11" font-weight="400" text-anchor="start" dominant-baseline="middle">universalmutator</text>
+<circle cx="316.2" cy="240.5" r="5" fill="#52514e"><title>fest: 13% at 23</title></circle>
+<text x="325.2" y="240.5" fill="#52514e" font-size="11" font-weight="400" text-anchor="start" dominant-baseline="middle">fest</text>
+<circle cx="355.3" cy="196.6" r="5" fill="#52514e"><title>irradiate: 16% at 38</title></circle>
+<text x="364.3" y="196.6" fill="#52514e" font-size="11" font-weight="400" text-anchor="start" dominant-baseline="middle">irradiate</text>
+<circle cx="309.1" cy="220.6" r="5" fill="#52514e"><title>deployproof: 14% at 21</title></circle>
+<text x="318.1" y="220.6" fill="#52514e" font-size="11" font-weight="400" text-anchor="start" dominant-baseline="middle">deployproof</text>
+</svg>

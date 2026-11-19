@@ -1,0 +1,15 @@
+coverage==7.17.2
+freezegun==1.5.5
+iniconfig==2.3.1
+markdown-it-py==4.2.0
+mdurl==0.1.2
+packaging==26.3
+pluggy==1.7.0
+pygments==2.21.0
+pytest-codspeed==5.0.4
+pytest-cov==7.1.0
+pytest-gremlins==1.13.2
+pytest==9.2.0
+python-dateutil==4.0.0
+rich==15.0.0
+tzdata==2026.6

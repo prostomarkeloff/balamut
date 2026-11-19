@@ -13,245 +13,452 @@
 <text x="449.2" y="67.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="start" dominant-baseline="middle">– no trap mutant</text>
 <rect x="569.6" y="62" width="10" height="10" rx="2" fill="#fcfcfb" stroke="#e1e0d9"/>
 <text x="585.6" y="67.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="start" dominant-baseline="middle">! no result</text>
-<text x="196.0" y="140" fill="#52514e" font-size="11" text-anchor="start" transform="rotate(-40 196.0 140)">cached</text>
-<text x="252.0" y="140" fill="#52514e" font-size="11" text-anchor="start" transform="rotate(-40 252.0 140)">default_arg</text>
-<text x="308.0" y="140" fill="#52514e" font-size="11" text-anchor="start" transform="rotate(-40 308.0 140)">flaky</text>
-<text x="364.0" y="140" fill="#52514e" font-size="11" text-anchor="start" transform="rotate(-40 364.0 140)">hard_exit</text>
-<text x="420.0" y="140" fill="#52514e" font-size="11" text-anchor="start" transform="rotate(-40 420.0 140)">import_time</text>
-<text x="476.0" y="140" fill="#52514e" font-size="11" text-anchor="start" transform="rotate(-40 476.0 140)">infinite_loop</text>
-<text x="532.0" y="140" fill="#52514e" font-size="11" text-anchor="start" transform="rotate(-40 532.0 140)">session_fixture</text>
-<text x="588.0" y="140" fill="#52514e" font-size="11" text-anchor="start" transform="rotate(-40 588.0 140)">shapes</text>
-<text x="644.0" y="140" fill="#52514e" font-size="11" text-anchor="start" transform="rotate(-40 644.0 140)">subprocess</text>
-<text x="700.0" y="140" fill="#52514e" font-size="11" text-anchor="start" transform="rotate(-40 700.0 140)">unicode</text>
-<text x="156.0" y="165.0" fill="#0b0b0b" font-size="12" font-weight="600" text-anchor="end" dominant-baseline="middle">balamut</text>
-<rect x="169" y="151" width="54" height="28" rx="3" fill="#eb6834" stroke="#e1e0d9"><title>balamut — cached: wrong verdict (survived (expected killed): 2)</title></rect>
-<text x="196.0" y="165.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✗</text>
-<rect x="225" y="151" width="54" height="28" rx="3" fill="#fcfcfb" stroke="#e1e0d9"><title>balamut — default_arg: no trap mutant</title></rect>
-<text x="252.0" y="165.0" fill="#898781" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">–</text>
-<rect x="281" y="151" width="54" height="28" rx="3" fill="#fcfcfb" stroke="#e1e0d9"><title>balamut — flaky: no result</title></rect>
-<text x="308.0" y="165.0" fill="#898781" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">!</text>
-<rect x="337" y="151" width="54" height="28" rx="3" fill="#fcfcfb" stroke="#e1e0d9"><title>balamut — hard_exit: no trap mutant</title></rect>
-<text x="364.0" y="165.0" fill="#898781" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">–</text>
-<rect x="393" y="151" width="54" height="28" rx="3" fill="#eb6834" stroke="#e1e0d9"><title>balamut — import_time: wrong verdict (no_coverage (expected killed): 2)</title></rect>
-<text x="420.0" y="165.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✗</text>
-<rect x="449" y="151" width="54" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>balamut — infinite_loop: as expected (correct: 1)</title></rect>
-<text x="476.0" y="165.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
-<rect x="505" y="151" width="54" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>balamut — session_fixture: as expected (correct: 1)</title></rect>
-<text x="532.0" y="165.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
-<rect x="561" y="151" width="54" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>balamut — shapes: as expected (correct: 4)</title></rect>
-<text x="588.0" y="165.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
-<rect x="617" y="151" width="54" height="28" rx="3" fill="#eb6834" stroke="#e1e0d9"><title>balamut — subprocess: wrong verdict (no_coverage (expected killed): 2)</title></rect>
-<text x="644.0" y="165.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✗</text>
-<rect x="673" y="151" width="54" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>balamut — unicode: as expected (correct: 2)</title></rect>
-<text x="700.0" y="165.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<text x="182.5" y="140" fill="#52514e" font-size="11" text-anchor="start" transform="rotate(-40 182.5 140)">cached</text>
+<text x="211.5" y="140" fill="#52514e" font-size="11" text-anchor="start" transform="rotate(-40 211.5 140)">cov_config</text>
+<text x="240.5" y="140" fill="#52514e" font-size="11" text-anchor="start" transform="rotate(-40 240.5 140)">decorator_closure</text>
+<text x="269.5" y="140" fill="#52514e" font-size="11" text-anchor="start" transform="rotate(-40 269.5 140)">default_arg</text>
+<text x="298.5" y="140" fill="#52514e" font-size="11" text-anchor="start" transform="rotate(-40 298.5 140)">flaky</text>
+<text x="327.5" y="140" fill="#52514e" font-size="11" text-anchor="start" transform="rotate(-40 327.5 140)">hard_exit</text>
+<text x="356.5" y="140" fill="#52514e" font-size="11" text-anchor="start" transform="rotate(-40 356.5 140)">import_time</text>
+<text x="385.5" y="140" fill="#52514e" font-size="11" text-anchor="start" transform="rotate(-40 385.5 140)">infinite_loop</text>
+<text x="414.5" y="140" fill="#52514e" font-size="11" text-anchor="start" transform="rotate(-40 414.5 140)">init_target</text>
+<text x="443.5" y="140" fill="#52514e" font-size="11" text-anchor="start" transform="rotate(-40 443.5 140)">nested_class</text>
+<text x="472.5" y="140" fill="#52514e" font-size="11" text-anchor="start" transform="rotate(-40 472.5 140)">pool</text>
+<text x="501.5" y="140" fill="#52514e" font-size="11" text-anchor="start" transform="rotate(-40 501.5 140)">property_setter</text>
+<text x="530.5" y="140" fill="#52514e" font-size="11" text-anchor="start" transform="rotate(-40 530.5 140)">relative_import</text>
+<text x="559.5" y="140" fill="#52514e" font-size="11" text-anchor="start" transform="rotate(-40 559.5 140)">session_fixture</text>
+<text x="588.5" y="140" fill="#52514e" font-size="11" text-anchor="start" transform="rotate(-40 588.5 140)">shapes</text>
+<text x="617.5" y="140" fill="#52514e" font-size="11" text-anchor="start" transform="rotate(-40 617.5 140)">src_pythonpath</text>
+<text x="646.5" y="140" fill="#52514e" font-size="11" text-anchor="start" transform="rotate(-40 646.5 140)">subprocess</text>
+<text x="675.5" y="140" fill="#52514e" font-size="11" text-anchor="start" transform="rotate(-40 675.5 140)">tabs</text>
+<text x="704.5" y="140" fill="#52514e" font-size="11" text-anchor="start" transform="rotate(-40 704.5 140)">unicode</text>
+<text x="156.0" y="165.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">balamut</text>
+<rect x="169" y="151" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>balamut — cached: as expected (correct: 2)</title></rect>
+<text x="182.5" y="165.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="198" y="151" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>balamut — cov_config: as expected (correct: 3)</title></rect>
+<text x="211.5" y="165.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="227" y="151" width="27" height="28" rx="3" fill="#eb6834" stroke="#e1e0d9"><title>balamut — decorator_closure: wrong verdict (error (expected killed): 2)</title></rect>
+<text x="240.5" y="165.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✗</text>
+<rect x="256" y="151" width="27" height="28" rx="3" fill="#fcfcfb" stroke="#e1e0d9"><title>balamut — default_arg: no trap mutant</title></rect>
+<text x="269.5" y="165.0" fill="#898781" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">–</text>
+<rect x="285" y="151" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>balamut — flaky: as expected (correct: 3)</title></rect>
+<text x="298.5" y="165.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="314" y="151" width="27" height="28" rx="3" fill="#fcfcfb" stroke="#e1e0d9"><title>balamut — hard_exit: no trap mutant</title></rect>
+<text x="327.5" y="165.0" fill="#898781" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">–</text>
+<rect x="343" y="151" width="27" height="28" rx="3" fill="#eb6834" stroke="#e1e0d9"><title>balamut — import_time: wrong verdict (no_coverage (expected killed): 2)</title></rect>
+<text x="356.5" y="165.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✗</text>
+<rect x="372" y="151" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>balamut — infinite_loop: as expected (correct: 1)</title></rect>
+<text x="385.5" y="165.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="401" y="151" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>balamut — init_target: as expected (correct: 2)</title></rect>
+<text x="414.5" y="165.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="430" y="151" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>balamut — nested_class: as expected (correct: 2)</title></rect>
+<text x="443.5" y="165.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="459" y="151" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>balamut — pool: as expected (correct: 3)</title></rect>
+<text x="472.5" y="165.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="488" y="151" width="27" height="28" rx="3" fill="#eb6834" stroke="#e1e0d9"><title>balamut — property_setter: wrong verdict (correct: 6, error (expected killed): 5, error (expected survived): 1)</title></rect>
+<text x="501.5" y="165.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✗</text>
+<rect x="517" y="151" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>balamut — relative_import: as expected (correct: 4)</title></rect>
+<text x="530.5" y="165.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="546" y="151" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>balamut — session_fixture: as expected (correct: 1)</title></rect>
+<text x="559.5" y="165.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="575" y="151" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>balamut — shapes: as expected (correct: 4)</title></rect>
+<text x="588.5" y="165.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="604" y="151" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>balamut — src_pythonpath: as expected (correct: 3)</title></rect>
+<text x="617.5" y="165.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="633" y="151" width="27" height="28" rx="3" fill="#eb6834" stroke="#e1e0d9"><title>balamut — subprocess: wrong verdict (no_coverage (expected killed): 2)</title></rect>
+<text x="646.5" y="165.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✗</text>
+<rect x="662" y="151" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>balamut — tabs: as expected (correct: 4)</title></rect>
+<text x="675.5" y="165.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="691" y="151" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>balamut — unicode: as expected (correct: 2)</title></rect>
+<text x="704.5" y="165.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
 <text x="156.0" y="195.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">cosmic-ray</text>
-<rect x="169" y="181" width="54" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>cosmic-ray — cached: as expected (correct: 2)</title></rect>
-<text x="196.0" y="195.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
-<rect x="225" y="181" width="54" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>cosmic-ray — default_arg: as expected (correct: 2)</title></rect>
-<text x="252.0" y="195.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
-<rect x="281" y="181" width="54" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>cosmic-ray — flaky: as expected (correct: 6)</title></rect>
-<text x="308.0" y="195.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
-<rect x="337" y="181" width="54" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>cosmic-ray — hard_exit: as expected (correct: 3)</title></rect>
-<text x="364.0" y="195.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
-<rect x="393" y="181" width="54" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>cosmic-ray — import_time: as expected (correct: 5)</title></rect>
-<text x="420.0" y="195.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
-<rect x="449" y="181" width="54" height="28" rx="3" fill="#fcfcfb" stroke="#e1e0d9"><title>cosmic-ray — infinite_loop: no trap mutant</title></rect>
-<text x="476.0" y="195.0" fill="#898781" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">–</text>
-<rect x="505" y="181" width="54" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>cosmic-ray — session_fixture: as expected (correct: 2)</title></rect>
-<text x="532.0" y="195.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
-<rect x="561" y="181" width="54" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>cosmic-ray — shapes: as expected (correct: 6)</title></rect>
-<text x="588.0" y="195.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
-<rect x="617" y="181" width="54" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>cosmic-ray — subprocess: as expected (correct: 7)</title></rect>
-<text x="644.0" y="195.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
-<rect x="673" y="181" width="54" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>cosmic-ray — unicode: as expected (correct: 6)</title></rect>
-<text x="700.0" y="195.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="169" y="181" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>cosmic-ray — cached: as expected (correct: 2)</title></rect>
+<text x="182.5" y="195.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="198" y="181" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>cosmic-ray — cov_config: as expected (correct: 6)</title></rect>
+<text x="211.5" y="195.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="227" y="181" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>cosmic-ray — decorator_closure: as expected (correct: 11)</title></rect>
+<text x="240.5" y="195.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="256" y="181" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>cosmic-ray — default_arg: as expected (correct: 2)</title></rect>
+<text x="269.5" y="195.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="285" y="181" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>cosmic-ray — flaky: as expected (correct: 6)</title></rect>
+<text x="298.5" y="195.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="314" y="181" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>cosmic-ray — hard_exit: as expected (correct: 3)</title></rect>
+<text x="327.5" y="195.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="343" y="181" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>cosmic-ray — import_time: as expected (correct: 5)</title></rect>
+<text x="356.5" y="195.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="372" y="181" width="27" height="28" rx="3" fill="#fcfcfb" stroke="#e1e0d9"><title>cosmic-ray — infinite_loop: no trap mutant</title></rect>
+<text x="385.5" y="195.0" fill="#898781" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">–</text>
+<rect x="401" y="181" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>cosmic-ray — init_target: as expected (correct: 11)</title></rect>
+<text x="414.5" y="195.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="430" y="181" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>cosmic-ray — nested_class: as expected (correct: 11)</title></rect>
+<text x="443.5" y="195.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="459" y="181" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>cosmic-ray — pool: as expected (correct: 13)</title></rect>
+<text x="472.5" y="195.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="488" y="181" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>cosmic-ray — property_setter: as expected (correct: 4)</title></rect>
+<text x="501.5" y="195.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="517" y="181" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>cosmic-ray — relative_import: as expected (correct: 17)</title></rect>
+<text x="530.5" y="195.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="546" y="181" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>cosmic-ray — session_fixture: as expected (correct: 2)</title></rect>
+<text x="559.5" y="195.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="575" y="181" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>cosmic-ray — shapes: as expected (correct: 6)</title></rect>
+<text x="588.5" y="195.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="604" y="181" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>cosmic-ray — src_pythonpath: as expected (correct: 13)</title></rect>
+<text x="617.5" y="195.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="633" y="181" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>cosmic-ray — subprocess: as expected (correct: 7)</title></rect>
+<text x="646.5" y="195.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="662" y="181" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>cosmic-ray — tabs: as expected (correct: 24)</title></rect>
+<text x="675.5" y="195.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="691" y="181" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>cosmic-ray — unicode: as expected (correct: 6)</title></rect>
+<text x="704.5" y="195.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
 <text x="156.0" y="225.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">deployproof</text>
-<rect x="169" y="211" width="54" height="28" rx="3" fill="#eb6834" stroke="#e1e0d9"><title>deployproof — cached: wrong verdict (survived (expected killed): 2)</title></rect>
-<text x="196.0" y="225.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✗</text>
-<rect x="225" y="211" width="54" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>deployproof — default_arg: as expected (correct: 1)</title></rect>
-<text x="252.0" y="225.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
-<rect x="281" y="211" width="54" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>deployproof — flaky: as expected (correct: 3)</title></rect>
-<text x="308.0" y="225.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
-<rect x="337" y="211" width="54" height="28" rx="3" fill="#eb6834" stroke="#e1e0d9"><title>deployproof — hard_exit: wrong verdict (survived (expected killed): 1)</title></rect>
-<text x="364.0" y="225.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✗</text>
-<rect x="393" y="211" width="54" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>deployproof — import_time: as expected (correct: 2)</title></rect>
-<text x="420.0" y="225.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
-<rect x="449" y="211" width="54" height="28" rx="3" fill="#fcfcfb" stroke="#e1e0d9"><title>deployproof — infinite_loop: no trap mutant</title></rect>
-<text x="476.0" y="225.0" fill="#898781" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">–</text>
-<rect x="505" y="211" width="54" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>deployproof — session_fixture: as expected (correct: 1)</title></rect>
-<text x="532.0" y="225.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
-<rect x="561" y="211" width="54" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>deployproof — shapes: as expected (correct: 4)</title></rect>
-<text x="588.0" y="225.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
-<rect x="617" y="211" width="54" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>deployproof — subprocess: as expected (correct: 2)</title></rect>
-<text x="644.0" y="225.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
-<rect x="673" y="211" width="54" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>deployproof — unicode: as expected (correct: 3)</title></rect>
-<text x="700.0" y="225.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="169" y="211" width="27" height="28" rx="3" fill="#eb6834" stroke="#e1e0d9"><title>deployproof — cached: wrong verdict (survived (expected killed): 2)</title></rect>
+<text x="182.5" y="225.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✗</text>
+<rect x="198" y="211" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>deployproof — cov_config: as expected (correct: 2)</title></rect>
+<text x="211.5" y="225.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="227" y="211" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>deployproof — decorator_closure: as expected (correct: 2)</title></rect>
+<text x="240.5" y="225.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="256" y="211" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>deployproof — default_arg: as expected (correct: 1)</title></rect>
+<text x="269.5" y="225.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="285" y="211" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>deployproof — flaky: as expected (correct: 3)</title></rect>
+<text x="298.5" y="225.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="314" y="211" width="27" height="28" rx="3" fill="#eb6834" stroke="#e1e0d9"><title>deployproof — hard_exit: wrong verdict (survived (expected killed): 1)</title></rect>
+<text x="327.5" y="225.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✗</text>
+<rect x="343" y="211" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>deployproof — import_time: as expected (correct: 2)</title></rect>
+<text x="356.5" y="225.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="372" y="211" width="27" height="28" rx="3" fill="#fcfcfb" stroke="#e1e0d9"><title>deployproof — infinite_loop: no trap mutant</title></rect>
+<text x="385.5" y="225.0" fill="#898781" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">–</text>
+<rect x="401" y="211" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>deployproof — init_target: as expected (correct: 3)</title></rect>
+<text x="414.5" y="225.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="430" y="211" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>deployproof — nested_class: as expected (correct: 2)</title></rect>
+<text x="443.5" y="225.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="459" y="211" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>deployproof — pool: as expected (correct: 3)</title></rect>
+<text x="472.5" y="225.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="488" y="211" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>deployproof — property_setter: as expected (correct: 6)</title></rect>
+<text x="501.5" y="225.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="517" y="211" width="27" height="28" rx="3" fill="#fcfcfb" stroke="#e1e0d9"><title>deployproof — relative_import: no result</title></rect>
+<text x="530.5" y="225.0" fill="#898781" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">!</text>
+<rect x="546" y="211" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>deployproof — session_fixture: as expected (correct: 1)</title></rect>
+<text x="559.5" y="225.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="575" y="211" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>deployproof — shapes: as expected (correct: 4)</title></rect>
+<text x="588.5" y="225.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="604" y="211" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>deployproof — src_pythonpath: as expected (correct: 3)</title></rect>
+<text x="617.5" y="225.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="633" y="211" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>deployproof — subprocess: as expected (correct: 2)</title></rect>
+<text x="646.5" y="225.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="662" y="211" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>deployproof — tabs: as expected (correct: 4)</title></rect>
+<text x="675.5" y="225.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="691" y="211" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>deployproof — unicode: as expected (correct: 3)</title></rect>
+<text x="704.5" y="225.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
 <text x="156.0" y="255.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">fest</text>
-<rect x="169" y="241" width="54" height="28" rx="3" fill="#eb6834" stroke="#e1e0d9"><title>fest — cached: wrong verdict (survived (expected killed): 2)</title></rect>
-<text x="196.0" y="255.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✗</text>
-<rect x="225" y="241" width="54" height="28" rx="3" fill="#fcfcfb" stroke="#e1e0d9"><title>fest — default_arg: no trap mutant</title></rect>
-<text x="252.0" y="255.0" fill="#898781" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">–</text>
-<rect x="281" y="241" width="54" height="28" rx="3" fill="#fcfcfb" stroke="#e1e0d9"><title>fest — flaky: no result</title></rect>
-<text x="308.0" y="255.0" fill="#898781" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">!</text>
-<rect x="337" y="241" width="54" height="28" rx="3" fill="#eb6834" stroke="#e1e0d9"><title>fest — hard_exit: wrong verdict (survived (expected killed): 1)</title></rect>
-<text x="364.0" y="255.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✗</text>
-<rect x="393" y="241" width="54" height="28" rx="3" fill="#fcfcfb" stroke="#e1e0d9"><title>fest — import_time: no trap mutant</title></rect>
-<text x="420.0" y="255.0" fill="#898781" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">–</text>
-<rect x="449" y="241" width="54" height="28" rx="3" fill="#eb6834" stroke="#e1e0d9"><title>fest — infinite_loop: wrong verdict (survived (expected killed): 1)</title></rect>
-<text x="476.0" y="255.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✗</text>
-<rect x="505" y="241" width="54" height="28" rx="3" fill="#eb6834" stroke="#e1e0d9"><title>fest — session_fixture: wrong verdict (survived (expected killed): 1)</title></rect>
-<text x="532.0" y="255.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✗</text>
-<rect x="561" y="241" width="54" height="28" rx="3" fill="#eb6834" stroke="#e1e0d9"><title>fest — shapes: wrong verdict (survived (expected killed): 4)</title></rect>
-<text x="588.0" y="255.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✗</text>
-<rect x="617" y="241" width="54" height="28" rx="3" fill="#eb6834" stroke="#e1e0d9"><title>fest — subprocess: wrong verdict (no_coverage (expected killed): 3)</title></rect>
-<text x="644.0" y="255.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✗</text>
-<rect x="673" y="241" width="54" height="28" rx="3" fill="#eb6834" stroke="#e1e0d9"><title>fest — unicode: wrong verdict (survived (expected killed): 2)</title></rect>
-<text x="700.0" y="255.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✗</text>
+<rect x="169" y="241" width="27" height="28" rx="3" fill="#eb6834" stroke="#e1e0d9"><title>fest — cached: wrong verdict (survived (expected killed): 2)</title></rect>
+<text x="182.5" y="255.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✗</text>
+<rect x="198" y="241" width="27" height="28" rx="3" fill="#eb6834" stroke="#e1e0d9"><title>fest — cov_config: wrong verdict (survived (expected killed): 2)</title></rect>
+<text x="211.5" y="255.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✗</text>
+<rect x="227" y="241" width="27" height="28" rx="3" fill="#eb6834" stroke="#e1e0d9"><title>fest — decorator_closure: wrong verdict (survived (expected killed): 2)</title></rect>
+<text x="240.5" y="255.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✗</text>
+<rect x="256" y="241" width="27" height="28" rx="3" fill="#fcfcfb" stroke="#e1e0d9"><title>fest — default_arg: no trap mutant</title></rect>
+<text x="269.5" y="255.0" fill="#898781" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">–</text>
+<rect x="285" y="241" width="27" height="28" rx="3" fill="#fcfcfb" stroke="#e1e0d9"><title>fest — flaky: no result</title></rect>
+<text x="298.5" y="255.0" fill="#898781" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">!</text>
+<rect x="314" y="241" width="27" height="28" rx="3" fill="#eb6834" stroke="#e1e0d9"><title>fest — hard_exit: wrong verdict (survived (expected killed): 1)</title></rect>
+<text x="327.5" y="255.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✗</text>
+<rect x="343" y="241" width="27" height="28" rx="3" fill="#fcfcfb" stroke="#e1e0d9"><title>fest — import_time: no trap mutant</title></rect>
+<text x="356.5" y="255.0" fill="#898781" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">–</text>
+<rect x="372" y="241" width="27" height="28" rx="3" fill="#eb6834" stroke="#e1e0d9"><title>fest — infinite_loop: wrong verdict (survived (expected killed): 1)</title></rect>
+<text x="385.5" y="255.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✗</text>
+<rect x="401" y="241" width="27" height="28" rx="3" fill="#eb6834" stroke="#e1e0d9"><title>fest — init_target: wrong verdict (survived (expected killed): 3)</title></rect>
+<text x="414.5" y="255.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✗</text>
+<rect x="430" y="241" width="27" height="28" rx="3" fill="#eb6834" stroke="#e1e0d9"><title>fest — nested_class: wrong verdict (survived (expected killed): 2)</title></rect>
+<text x="443.5" y="255.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✗</text>
+<rect x="459" y="241" width="27" height="28" rx="3" fill="#eb6834" stroke="#e1e0d9"><title>fest — pool: wrong verdict (survived (expected killed): 3)</title></rect>
+<text x="472.5" y="255.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✗</text>
+<rect x="488" y="241" width="27" height="28" rx="3" fill="#eb6834" stroke="#e1e0d9"><title>fest — property_setter: wrong verdict (survived (expected killed): 4)</title></rect>
+<text x="501.5" y="255.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✗</text>
+<rect x="517" y="241" width="27" height="28" rx="3" fill="#eb6834" stroke="#e1e0d9"><title>fest — relative_import: wrong verdict (survived (expected killed): 4)</title></rect>
+<text x="530.5" y="255.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✗</text>
+<rect x="546" y="241" width="27" height="28" rx="3" fill="#eb6834" stroke="#e1e0d9"><title>fest — session_fixture: wrong verdict (survived (expected killed): 1)</title></rect>
+<text x="559.5" y="255.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✗</text>
+<rect x="575" y="241" width="27" height="28" rx="3" fill="#eb6834" stroke="#e1e0d9"><title>fest — shapes: wrong verdict (survived (expected killed): 4)</title></rect>
+<text x="588.5" y="255.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✗</text>
+<rect x="604" y="241" width="27" height="28" rx="3" fill="#eb6834" stroke="#e1e0d9"><title>fest — src_pythonpath: wrong verdict (survived (expected killed): 3)</title></rect>
+<text x="617.5" y="255.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✗</text>
+<rect x="633" y="241" width="27" height="28" rx="3" fill="#eb6834" stroke="#e1e0d9"><title>fest — subprocess: wrong verdict (no_coverage (expected killed): 3)</title></rect>
+<text x="646.5" y="255.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✗</text>
+<rect x="662" y="241" width="27" height="28" rx="3" fill="#eb6834" stroke="#e1e0d9"><title>fest — tabs: wrong verdict (survived (expected killed): 4)</title></rect>
+<text x="675.5" y="255.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✗</text>
+<rect x="691" y="241" width="27" height="28" rx="3" fill="#eb6834" stroke="#e1e0d9"><title>fest — unicode: wrong verdict (survived (expected killed): 2)</title></rect>
+<text x="704.5" y="255.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✗</text>
 <text x="156.0" y="285.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">irradiate</text>
-<rect x="169" y="271" width="54" height="28" rx="3" fill="#eb6834" stroke="#e1e0d9"><title>irradiate — cached: wrong verdict (correct: 3, no_coverage (expected killed): 3)</title></rect>
-<text x="196.0" y="285.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✗</text>
-<rect x="225" y="271" width="54" height="28" rx="3" fill="#eb6834" stroke="#e1e0d9"><title>irradiate — default_arg: wrong verdict (survived (expected killed): 1)</title></rect>
-<text x="252.0" y="285.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✗</text>
-<rect x="281" y="271" width="54" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>irradiate — flaky: as expected (correct: 3)</title></rect>
-<text x="308.0" y="285.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
-<rect x="337" y="271" width="54" height="28" rx="3" fill="#eb6834" stroke="#e1e0d9"><title>irradiate — hard_exit: wrong verdict (error (expected killed): 1)</title></rect>
-<text x="364.0" y="285.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✗</text>
-<rect x="393" y="271" width="54" height="28" rx="3" fill="#eb6834" stroke="#e1e0d9"><title>irradiate — import_time: wrong verdict (no_coverage (expected killed): 2)</title></rect>
-<text x="420.0" y="285.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✗</text>
-<rect x="449" y="271" width="54" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>irradiate — infinite_loop: as expected (correct: 2)</title></rect>
-<text x="476.0" y="285.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
-<rect x="505" y="271" width="54" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>irradiate — session_fixture: as expected (correct: 3)</title></rect>
-<text x="532.0" y="285.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
-<rect x="561" y="271" width="54" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>irradiate — shapes: as expected (correct: 2)</title></rect>
-<text x="588.0" y="285.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
-<rect x="617" y="271" width="54" height="28" rx="3" fill="#fcfcfb" stroke="#e1e0d9"><title>irradiate — subprocess: no result</title></rect>
-<text x="644.0" y="285.0" fill="#898781" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">!</text>
-<rect x="673" y="271" width="54" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>irradiate — unicode: as expected (correct: 3)</title></rect>
-<text x="700.0" y="285.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="169" y="271" width="27" height="28" rx="3" fill="#eb6834" stroke="#e1e0d9"><title>irradiate — cached: wrong verdict (correct: 3, no_coverage (expected killed): 3)</title></rect>
+<text x="182.5" y="285.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✗</text>
+<rect x="198" y="271" width="27" height="28" rx="3" fill="#fcfcfb" stroke="#e1e0d9"><title>irradiate — cov_config: no result</title></rect>
+<text x="211.5" y="285.0" fill="#898781" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">!</text>
+<rect x="227" y="271" width="27" height="28" rx="3" fill="#fcfcfb" stroke="#e1e0d9"><title>irradiate — decorator_closure: no result</title></rect>
+<text x="240.5" y="285.0" fill="#898781" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">!</text>
+<rect x="256" y="271" width="27" height="28" rx="3" fill="#eb6834" stroke="#e1e0d9"><title>irradiate — default_arg: wrong verdict (survived (expected killed): 1)</title></rect>
+<text x="269.5" y="285.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✗</text>
+<rect x="285" y="271" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>irradiate — flaky: as expected (correct: 3)</title></rect>
+<text x="298.5" y="285.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="314" y="271" width="27" height="28" rx="3" fill="#eb6834" stroke="#e1e0d9"><title>irradiate — hard_exit: wrong verdict (error (expected killed): 1)</title></rect>
+<text x="327.5" y="285.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✗</text>
+<rect x="343" y="271" width="27" height="28" rx="3" fill="#eb6834" stroke="#e1e0d9"><title>irradiate — import_time: wrong verdict (no_coverage (expected killed): 2)</title></rect>
+<text x="356.5" y="285.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✗</text>
+<rect x="372" y="271" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>irradiate — infinite_loop: as expected (correct: 2)</title></rect>
+<text x="385.5" y="285.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="401" y="271" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>irradiate — init_target: as expected (correct: 2)</title></rect>
+<text x="414.5" y="285.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="430" y="271" width="27" height="28" rx="3" fill="#fcfcfb" stroke="#e1e0d9"><title>irradiate — nested_class: no result</title></rect>
+<text x="443.5" y="285.0" fill="#898781" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">!</text>
+<rect x="459" y="271" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>irradiate — pool: as expected (correct: 5)</title></rect>
+<text x="472.5" y="285.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="488" y="271" width="27" height="28" rx="3" fill="#eb6834" stroke="#e1e0d9"><title>irradiate — property_setter: wrong verdict (correct: 12, no_coverage (expected killed): 7)</title></rect>
+<text x="501.5" y="285.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✗</text>
+<rect x="517" y="271" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>irradiate — relative_import: as expected (correct: 4)</title></rect>
+<text x="530.5" y="285.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="546" y="271" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>irradiate — session_fixture: as expected (correct: 3)</title></rect>
+<text x="559.5" y="285.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="575" y="271" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>irradiate — shapes: as expected (correct: 2)</title></rect>
+<text x="588.5" y="285.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="604" y="271" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>irradiate — src_pythonpath: as expected (correct: 6)</title></rect>
+<text x="617.5" y="285.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="633" y="271" width="27" height="28" rx="3" fill="#fcfcfb" stroke="#e1e0d9"><title>irradiate — subprocess: no result</title></rect>
+<text x="646.5" y="285.0" fill="#898781" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">!</text>
+<rect x="662" y="271" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>irradiate — tabs: as expected (correct: 7)</title></rect>
+<text x="675.5" y="285.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="691" y="271" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>irradiate — unicode: as expected (correct: 3)</title></rect>
+<text x="704.5" y="285.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
 <text x="156.0" y="315.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">mutation</text>
-<rect x="169" y="301" width="54" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>mutation — cached: as expected (correct: 7)</title></rect>
-<text x="196.0" y="315.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
-<rect x="225" y="301" width="54" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>mutation — default_arg: as expected (correct: 5)</title></rect>
-<text x="252.0" y="315.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
-<rect x="281" y="301" width="54" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>mutation — flaky: as expected (correct: 6)</title></rect>
-<text x="308.0" y="315.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
-<rect x="337" y="301" width="54" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>mutation — hard_exit: as expected (correct: 3)</title></rect>
-<text x="364.0" y="315.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
-<rect x="393" y="301" width="54" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>mutation — import_time: as expected (correct: 5)</title></rect>
-<text x="420.0" y="315.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
-<rect x="449" y="301" width="54" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>mutation — infinite_loop: as expected (correct: 2)</title></rect>
-<text x="476.0" y="315.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
-<rect x="505" y="301" width="54" height="28" rx="3" fill="#eb6834" stroke="#e1e0d9"><title>mutation — session_fixture: wrong verdict (survived (expected killed): 5)</title></rect>
-<text x="532.0" y="315.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✗</text>
-<rect x="561" y="301" width="54" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>mutation — shapes: as expected (correct: 8)</title></rect>
-<text x="588.0" y="315.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
-<rect x="617" y="301" width="54" height="28" rx="3" fill="#fcfcfb" stroke="#e1e0d9"><title>mutation — subprocess: no result</title></rect>
-<text x="644.0" y="315.0" fill="#898781" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">!</text>
-<rect x="673" y="301" width="54" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>mutation — unicode: as expected (correct: 6)</title></rect>
-<text x="700.0" y="315.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="169" y="301" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>mutation — cached: as expected (correct: 7)</title></rect>
+<text x="182.5" y="315.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="198" y="301" width="27" height="28" rx="3" fill="#eb6834" stroke="#e1e0d9"><title>mutation — cov_config: wrong verdict (correct: 5, killed (expected survived): 2)</title></rect>
+<text x="211.5" y="315.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✗</text>
+<rect x="227" y="301" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>mutation — decorator_closure: as expected (correct: 15)</title></rect>
+<text x="240.5" y="315.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="256" y="301" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>mutation — default_arg: as expected (correct: 5)</title></rect>
+<text x="269.5" y="315.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="285" y="301" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>mutation — flaky: as expected (correct: 6)</title></rect>
+<text x="298.5" y="315.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="314" y="301" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>mutation — hard_exit: as expected (correct: 3)</title></rect>
+<text x="327.5" y="315.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="343" y="301" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>mutation — import_time: as expected (correct: 5)</title></rect>
+<text x="356.5" y="315.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="372" y="301" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>mutation — infinite_loop: as expected (correct: 2)</title></rect>
+<text x="385.5" y="315.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="401" y="301" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>mutation — init_target: as expected (correct: 15)</title></rect>
+<text x="414.5" y="315.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="430" y="301" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>mutation — nested_class: as expected (correct: 14)</title></rect>
+<text x="443.5" y="315.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="459" y="301" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>mutation — pool: as expected (correct: 19)</title></rect>
+<text x="472.5" y="315.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="488" y="301" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>mutation — property_setter: as expected (correct: 29)</title></rect>
+<text x="501.5" y="315.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="517" y="301" width="27" height="28" rx="3" fill="#eb6834" stroke="#e1e0d9"><title>mutation — relative_import: wrong verdict (correct: 19, killed (expected survived): 2)</title></rect>
+<text x="530.5" y="315.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✗</text>
+<rect x="546" y="301" width="27" height="28" rx="3" fill="#eb6834" stroke="#e1e0d9"><title>mutation — session_fixture: wrong verdict (survived (expected killed): 5)</title></rect>
+<text x="559.5" y="315.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✗</text>
+<rect x="575" y="301" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>mutation — shapes: as expected (correct: 8)</title></rect>
+<text x="588.5" y="315.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="604" y="301" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>mutation — src_pythonpath: as expected (correct: 20)</title></rect>
+<text x="617.5" y="315.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="633" y="301" width="27" height="28" rx="3" fill="#fcfcfb" stroke="#e1e0d9"><title>mutation — subprocess: no result</title></rect>
+<text x="646.5" y="315.0" fill="#898781" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">!</text>
+<rect x="662" y="301" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>mutation — tabs: as expected (correct: 30)</title></rect>
+<text x="675.5" y="315.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="691" y="301" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>mutation — unicode: as expected (correct: 6)</title></rect>
+<text x="704.5" y="315.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
 <text x="156.0" y="345.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">mutmut</text>
-<rect x="169" y="331" width="54" height="28" rx="3" fill="#fcfcfb" stroke="#e1e0d9"><title>mutmut — cached: no trap mutant</title></rect>
-<text x="196.0" y="345.0" fill="#898781" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">–</text>
-<rect x="225" y="331" width="54" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>mutmut — default_arg: as expected (correct: 1)</title></rect>
-<text x="252.0" y="345.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
-<rect x="281" y="331" width="54" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>mutmut — flaky: as expected (correct: 2)</title></rect>
-<text x="308.0" y="345.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
-<rect x="337" y="331" width="54" height="28" rx="3" fill="#fcfcfb" stroke="#e1e0d9"><title>mutmut — hard_exit: no trap mutant</title></rect>
-<text x="364.0" y="345.0" fill="#898781" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">–</text>
-<rect x="393" y="331" width="54" height="28" rx="3" fill="#fcfcfb" stroke="#e1e0d9"><title>mutmut — import_time: no result</title></rect>
-<text x="420.0" y="345.0" fill="#898781" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">!</text>
-<rect x="449" y="331" width="54" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>mutmut — infinite_loop: as expected (correct: 2)</title></rect>
-<text x="476.0" y="345.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
-<rect x="505" y="331" width="54" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>mutmut — session_fixture: as expected (correct: 1)</title></rect>
-<text x="532.0" y="345.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
-<rect x="561" y="331" width="54" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>mutmut — shapes: as expected (correct: 3)</title></rect>
-<text x="588.0" y="345.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
-<rect x="617" y="331" width="54" height="28" rx="3" fill="#fcfcfb" stroke="#e1e0d9"><title>mutmut — subprocess: no result</title></rect>
-<text x="644.0" y="345.0" fill="#898781" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">!</text>
-<rect x="673" y="331" width="54" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>mutmut — unicode: as expected (correct: 3)</title></rect>
-<text x="700.0" y="345.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="169" y="331" width="27" height="28" rx="3" fill="#fcfcfb" stroke="#e1e0d9"><title>mutmut — cached: no trap mutant</title></rect>
+<text x="182.5" y="345.0" fill="#898781" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">–</text>
+<rect x="198" y="331" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>mutmut — cov_config: as expected (correct: 1)</title></rect>
+<text x="211.5" y="345.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="227" y="331" width="27" height="28" rx="3" fill="#fcfcfb" stroke="#e1e0d9"><title>mutmut — decorator_closure: no result</title></rect>
+<text x="240.5" y="345.0" fill="#898781" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">!</text>
+<rect x="256" y="331" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>mutmut — default_arg: as expected (correct: 1)</title></rect>
+<text x="269.5" y="345.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="285" y="331" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>mutmut — flaky: as expected (correct: 2)</title></rect>
+<text x="298.5" y="345.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="314" y="331" width="27" height="28" rx="3" fill="#fcfcfb" stroke="#e1e0d9"><title>mutmut — hard_exit: no trap mutant</title></rect>
+<text x="327.5" y="345.0" fill="#898781" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">–</text>
+<rect x="343" y="331" width="27" height="28" rx="3" fill="#fcfcfb" stroke="#e1e0d9"><title>mutmut — import_time: no result</title></rect>
+<text x="356.5" y="345.0" fill="#898781" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">!</text>
+<rect x="372" y="331" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>mutmut — infinite_loop: as expected (correct: 2)</title></rect>
+<text x="385.5" y="345.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="401" y="331" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>mutmut — init_target: as expected (correct: 3)</title></rect>
+<text x="414.5" y="345.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="430" y="331" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>mutmut — nested_class: as expected (correct: 1)</title></rect>
+<text x="443.5" y="345.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="459" y="331" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>mutmut — pool: as expected (correct: 2)</title></rect>
+<text x="472.5" y="345.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="488" y="331" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>mutmut — property_setter: as expected (correct: 5)</title></rect>
+<text x="501.5" y="345.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="517" y="331" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>mutmut — relative_import: as expected (correct: 2)</title></rect>
+<text x="530.5" y="345.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="546" y="331" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>mutmut — session_fixture: as expected (correct: 1)</title></rect>
+<text x="559.5" y="345.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="575" y="331" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>mutmut — shapes: as expected (correct: 3)</title></rect>
+<text x="588.5" y="345.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="604" y="331" width="27" height="28" rx="3" fill="#fcfcfb" stroke="#e1e0d9"><title>mutmut — src_pythonpath: no result</title></rect>
+<text x="617.5" y="345.0" fill="#898781" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">!</text>
+<rect x="633" y="331" width="27" height="28" rx="3" fill="#fcfcfb" stroke="#e1e0d9"><title>mutmut — subprocess: no result</title></rect>
+<text x="646.5" y="345.0" fill="#898781" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">!</text>
+<rect x="662" y="331" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>mutmut — tabs: as expected (correct: 4)</title></rect>
+<text x="675.5" y="345.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="691" y="331" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>mutmut — unicode: as expected (correct: 3)</title></rect>
+<text x="704.5" y="345.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
 <text x="156.0" y="375.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">poodle</text>
-<rect x="169" y="361" width="54" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>poodle — cached: as expected (correct: 3)</title></rect>
-<text x="196.0" y="375.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
-<rect x="225" y="361" width="54" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>poodle — default_arg: as expected (correct: 2)</title></rect>
-<text x="252.0" y="375.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
-<rect x="281" y="361" width="54" height="28" rx="3" fill="#eb6834" stroke="#e1e0d9"><title>poodle — flaky: wrong verdict (correct: 4, killed (expected survived): 1)</title></rect>
-<text x="308.0" y="375.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✗</text>
-<rect x="337" y="361" width="54" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>poodle — hard_exit: as expected (correct: 1)</title></rect>
-<text x="364.0" y="375.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
-<rect x="393" y="361" width="54" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>poodle — import_time: as expected (correct: 4)</title></rect>
-<text x="420.0" y="375.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
-<rect x="449" y="361" width="54" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>poodle — infinite_loop: as expected (correct: 2)</title></rect>
-<text x="476.0" y="375.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
-<rect x="505" y="361" width="54" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>poodle — session_fixture: as expected (correct: 2)</title></rect>
-<text x="532.0" y="375.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
-<rect x="561" y="361" width="54" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>poodle — shapes: as expected (correct: 7)</title></rect>
-<text x="588.0" y="375.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
-<rect x="617" y="361" width="54" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>poodle — subprocess: as expected (correct: 4)</title></rect>
-<text x="644.0" y="375.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
-<rect x="673" y="361" width="54" height="28" rx="3" fill="#eb6834" stroke="#e1e0d9"><title>poodle — unicode: wrong verdict (invalid mutant (expected killed): 2)</title></rect>
-<text x="700.0" y="375.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✗</text>
+<rect x="169" y="361" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>poodle — cached: as expected (correct: 3)</title></rect>
+<text x="182.5" y="375.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="198" y="361" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>poodle — cov_config: as expected (correct: 3)</title></rect>
+<text x="211.5" y="375.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="227" y="361" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>poodle — decorator_closure: as expected (correct: 4)</title></rect>
+<text x="240.5" y="375.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="256" y="361" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>poodle — default_arg: as expected (correct: 2)</title></rect>
+<text x="269.5" y="375.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="285" y="361" width="27" height="28" rx="3" fill="#eb6834" stroke="#e1e0d9"><title>poodle — flaky: wrong verdict (correct: 4, killed (expected survived): 1)</title></rect>
+<text x="298.5" y="375.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✗</text>
+<rect x="314" y="361" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>poodle — hard_exit: as expected (correct: 1)</title></rect>
+<text x="327.5" y="375.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="343" y="361" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>poodle — import_time: as expected (correct: 4)</title></rect>
+<text x="356.5" y="375.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="372" y="361" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>poodle — infinite_loop: as expected (correct: 2)</title></rect>
+<text x="385.5" y="375.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="401" y="361" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>poodle — init_target: as expected (correct: 4)</title></rect>
+<text x="414.5" y="375.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="430" y="361" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>poodle — nested_class: as expected (correct: 3)</title></rect>
+<text x="443.5" y="375.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="459" y="361" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>poodle — pool: as expected (correct: 5)</title></rect>
+<text x="472.5" y="375.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="488" y="361" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>poodle — property_setter: as expected (correct: 8)</title></rect>
+<text x="501.5" y="375.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="517" y="361" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>poodle — relative_import: as expected (correct: 6)</title></rect>
+<text x="530.5" y="375.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="546" y="361" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>poodle — session_fixture: as expected (correct: 2)</title></rect>
+<text x="559.5" y="375.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="575" y="361" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>poodle — shapes: as expected (correct: 7)</title></rect>
+<text x="588.5" y="375.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="604" y="361" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>poodle — src_pythonpath: as expected (correct: 6)</title></rect>
+<text x="617.5" y="375.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="633" y="361" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>poodle — subprocess: as expected (correct: 4)</title></rect>
+<text x="646.5" y="375.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="662" y="361" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>poodle — tabs: as expected (correct: 7)</title></rect>
+<text x="675.5" y="375.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="691" y="361" width="27" height="28" rx="3" fill="#eb6834" stroke="#e1e0d9"><title>poodle — unicode: wrong verdict (invalid mutant (expected killed): 2)</title></rect>
+<text x="704.5" y="375.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✗</text>
 <text x="156.0" y="405.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">pytest-gremlins</text>
-<rect x="169" y="391" width="54" height="28" rx="3" fill="#fcfcfb" stroke="#e1e0d9"><title>pytest-gremlins — cached: no trap mutant</title></rect>
-<text x="196.0" y="405.0" fill="#898781" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">–</text>
-<rect x="225" y="391" width="54" height="28" rx="3" fill="#fcfcfb" stroke="#e1e0d9"><title>pytest-gremlins — default_arg: no trap mutant</title></rect>
-<text x="252.0" y="405.0" fill="#898781" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">–</text>
-<rect x="281" y="391" width="54" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>pytest-gremlins — flaky: as expected (correct: 1)</title></rect>
-<text x="308.0" y="405.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
-<rect x="337" y="391" width="54" height="28" rx="3" fill="#eb6834" stroke="#e1e0d9"><title>pytest-gremlins — hard_exit: wrong verdict (error (expected killed): 1)</title></rect>
-<text x="364.0" y="405.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✗</text>
-<rect x="393" y="391" width="54" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>pytest-gremlins — import_time: as expected (correct: 1)</title></rect>
-<text x="420.0" y="405.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
-<rect x="449" y="391" width="54" height="28" rx="3" fill="#fcfcfb" stroke="#e1e0d9"><title>pytest-gremlins — infinite_loop: no trap mutant</title></rect>
-<text x="476.0" y="405.0" fill="#898781" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">–</text>
-<rect x="505" y="391" width="54" height="28" rx="3" fill="#fcfcfb" stroke="#e1e0d9"><title>pytest-gremlins — session_fixture: no trap mutant</title></rect>
-<text x="532.0" y="405.0" fill="#898781" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">–</text>
-<rect x="561" y="391" width="54" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>pytest-gremlins — shapes: as expected (correct: 2)</title></rect>
-<text x="588.0" y="405.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
-<rect x="617" y="391" width="54" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>pytest-gremlins — subprocess: as expected (correct: 4)</title></rect>
-<text x="644.0" y="405.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
-<rect x="673" y="391" width="54" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>pytest-gremlins — unicode: as expected (correct: 3)</title></rect>
-<text x="700.0" y="405.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="169" y="391" width="27" height="28" rx="3" fill="#fcfcfb" stroke="#e1e0d9"><title>pytest-gremlins — cached: no trap mutant</title></rect>
+<text x="182.5" y="405.0" fill="#898781" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">–</text>
+<rect x="198" y="391" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>pytest-gremlins — cov_config: as expected (correct: 1)</title></rect>
+<text x="211.5" y="405.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="227" y="391" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>pytest-gremlins — decorator_closure: as expected (correct: 1)</title></rect>
+<text x="240.5" y="405.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="256" y="391" width="27" height="28" rx="3" fill="#fcfcfb" stroke="#e1e0d9"><title>pytest-gremlins — default_arg: no trap mutant</title></rect>
+<text x="269.5" y="405.0" fill="#898781" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">–</text>
+<rect x="285" y="391" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>pytest-gremlins — flaky: as expected (correct: 1)</title></rect>
+<text x="298.5" y="405.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="314" y="391" width="27" height="28" rx="3" fill="#eb6834" stroke="#e1e0d9"><title>pytest-gremlins — hard_exit: wrong verdict (error (expected killed): 1)</title></rect>
+<text x="327.5" y="405.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✗</text>
+<rect x="343" y="391" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>pytest-gremlins — import_time: as expected (correct: 1)</title></rect>
+<text x="356.5" y="405.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="372" y="391" width="27" height="28" rx="3" fill="#fcfcfb" stroke="#e1e0d9"><title>pytest-gremlins — infinite_loop: no trap mutant</title></rect>
+<text x="385.5" y="405.0" fill="#898781" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">–</text>
+<rect x="401" y="391" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>pytest-gremlins — init_target: as expected (correct: 1)</title></rect>
+<text x="414.5" y="405.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="430" y="391" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>pytest-gremlins — nested_class: as expected (correct: 1)</title></rect>
+<text x="443.5" y="405.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="459" y="391" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>pytest-gremlins — pool: as expected (correct: 1)</title></rect>
+<text x="472.5" y="405.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="488" y="391" width="27" height="28" rx="3" fill="#fcfcfb" stroke="#e1e0d9"><title>pytest-gremlins — property_setter: no trap mutant</title></rect>
+<text x="501.5" y="405.0" fill="#898781" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">–</text>
+<rect x="517" y="391" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>pytest-gremlins — relative_import: as expected (correct: 2)</title></rect>
+<text x="530.5" y="405.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="546" y="391" width="27" height="28" rx="3" fill="#fcfcfb" stroke="#e1e0d9"><title>pytest-gremlins — session_fixture: no trap mutant</title></rect>
+<text x="559.5" y="405.0" fill="#898781" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">–</text>
+<rect x="575" y="391" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>pytest-gremlins — shapes: as expected (correct: 2)</title></rect>
+<text x="588.5" y="405.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="604" y="391" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>pytest-gremlins — src_pythonpath: as expected (correct: 1)</title></rect>
+<text x="617.5" y="405.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="633" y="391" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>pytest-gremlins — subprocess: as expected (correct: 4)</title></rect>
+<text x="646.5" y="405.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="662" y="391" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>pytest-gremlins — tabs: as expected (correct: 2)</title></rect>
+<text x="675.5" y="405.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="691" y="391" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>pytest-gremlins — unicode: as expected (correct: 3)</title></rect>
+<text x="704.5" y="405.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
 <text x="156.0" y="435.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">pytest-leela</text>
-<rect x="169" y="421" width="54" height="28" rx="3" fill="#fcfcfb" stroke="#e1e0d9"><title>pytest-leela — cached: no trap mutant</title></rect>
-<text x="196.0" y="435.0" fill="#898781" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">–</text>
-<rect x="225" y="421" width="54" height="28" rx="3" fill="#fcfcfb" stroke="#e1e0d9"><title>pytest-leela — default_arg: no trap mutant</title></rect>
-<text x="252.0" y="435.0" fill="#898781" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">–</text>
-<rect x="281" y="421" width="54" height="28" rx="3" fill="#eb6834" stroke="#e1e0d9"><title>pytest-leela — flaky: wrong verdict (correct: 1, killed (expected survived): 1)</title></rect>
-<text x="308.0" y="435.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✗</text>
-<rect x="337" y="421" width="54" height="28" rx="3" fill="#fcfcfb" stroke="#e1e0d9"><title>pytest-leela — hard_exit: no result</title></rect>
-<text x="364.0" y="435.0" fill="#898781" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">!</text>
-<rect x="393" y="421" width="54" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>pytest-leela — import_time: as expected (correct: 1)</title></rect>
-<text x="420.0" y="435.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
-<rect x="449" y="421" width="54" height="28" rx="3" fill="#fcfcfb" stroke="#e1e0d9"><title>pytest-leela — infinite_loop: no trap mutant</title></rect>
-<text x="476.0" y="435.0" fill="#898781" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">–</text>
-<rect x="505" y="421" width="54" height="28" rx="3" fill="#fcfcfb" stroke="#e1e0d9"><title>pytest-leela — session_fixture: no trap mutant</title></rect>
-<text x="532.0" y="435.0" fill="#898781" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">–</text>
-<rect x="561" y="421" width="54" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>pytest-leela — shapes: as expected (correct: 4)</title></rect>
-<text x="588.0" y="435.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
-<rect x="617" y="421" width="54" height="28" rx="3" fill="#eb6834" stroke="#e1e0d9"><title>pytest-leela — subprocess: wrong verdict (survived (expected killed): 2)</title></rect>
-<text x="644.0" y="435.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✗</text>
-<rect x="673" y="421" width="54" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>pytest-leela — unicode: as expected (correct: 2)</title></rect>
-<text x="700.0" y="435.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="169" y="421" width="27" height="28" rx="3" fill="#fcfcfb" stroke="#e1e0d9"><title>pytest-leela — cached: no trap mutant</title></rect>
+<text x="182.5" y="435.0" fill="#898781" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">–</text>
+<rect x="198" y="421" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>pytest-leela — cov_config: as expected (correct: 3)</title></rect>
+<text x="211.5" y="435.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="227" y="421" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>pytest-leela — decorator_closure: as expected (correct: 3)</title></rect>
+<text x="240.5" y="435.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="256" y="421" width="27" height="28" rx="3" fill="#fcfcfb" stroke="#e1e0d9"><title>pytest-leela — default_arg: no trap mutant</title></rect>
+<text x="269.5" y="435.0" fill="#898781" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">–</text>
+<rect x="285" y="421" width="27" height="28" rx="3" fill="#eb6834" stroke="#e1e0d9"><title>pytest-leela — flaky: wrong verdict (correct: 1, killed (expected survived): 1)</title></rect>
+<text x="298.5" y="435.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✗</text>
+<rect x="314" y="421" width="27" height="28" rx="3" fill="#fcfcfb" stroke="#e1e0d9"><title>pytest-leela — hard_exit: no result</title></rect>
+<text x="327.5" y="435.0" fill="#898781" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">!</text>
+<rect x="343" y="421" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>pytest-leela — import_time: as expected (correct: 1)</title></rect>
+<text x="356.5" y="435.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="372" y="421" width="27" height="28" rx="3" fill="#fcfcfb" stroke="#e1e0d9"><title>pytest-leela — infinite_loop: no trap mutant</title></rect>
+<text x="385.5" y="435.0" fill="#898781" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">–</text>
+<rect x="401" y="421" width="27" height="28" rx="3" fill="#eb6834" stroke="#e1e0d9"><title>pytest-leela — init_target: wrong verdict (survived (expected killed): 1)</title></rect>
+<text x="414.5" y="435.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✗</text>
+<rect x="430" y="421" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>pytest-leela — nested_class: as expected (correct: 3)</title></rect>
+<text x="443.5" y="435.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="459" y="421" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>pytest-leela — pool: as expected (correct: 3)</title></rect>
+<text x="472.5" y="435.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="488" y="421" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>pytest-leela — property_setter: as expected (correct: 2)</title></rect>
+<text x="501.5" y="435.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="517" y="421" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>pytest-leela — relative_import: as expected (correct: 6)</title></rect>
+<text x="530.5" y="435.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="546" y="421" width="27" height="28" rx="3" fill="#fcfcfb" stroke="#e1e0d9"><title>pytest-leela — session_fixture: no trap mutant</title></rect>
+<text x="559.5" y="435.0" fill="#898781" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">–</text>
+<rect x="575" y="421" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>pytest-leela — shapes: as expected (correct: 4)</title></rect>
+<text x="588.5" y="435.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="604" y="421" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>pytest-leela — src_pythonpath: as expected (correct: 4)</title></rect>
+<text x="617.5" y="435.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="633" y="421" width="27" height="28" rx="3" fill="#eb6834" stroke="#e1e0d9"><title>pytest-leela — subprocess: wrong verdict (survived (expected killed): 2)</title></rect>
+<text x="646.5" y="435.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✗</text>
+<rect x="662" y="421" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>pytest-leela — tabs: as expected (correct: 5)</title></rect>
+<text x="675.5" y="435.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="691" y="421" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>pytest-leela — unicode: as expected (correct: 2)</title></rect>
+<text x="704.5" y="435.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
 <text x="156.0" y="465.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">universalmutator</text>
-<rect x="169" y="451" width="54" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>universalmutator — cached: as expected (correct: 3)</title></rect>
-<text x="196.0" y="465.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
-<rect x="225" y="451" width="54" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>universalmutator — default_arg: as expected (correct: 5)</title></rect>
-<text x="252.0" y="465.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
-<rect x="281" y="451" width="54" height="28" rx="3" fill="#eb6834" stroke="#e1e0d9"><title>universalmutator — flaky: wrong verdict (correct: 4, killed (expected survived): 1)</title></rect>
-<text x="308.0" y="465.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✗</text>
-<rect x="337" y="451" width="54" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>universalmutator — hard_exit: as expected (correct: 3)</title></rect>
-<text x="364.0" y="465.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
-<rect x="393" y="451" width="54" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>universalmutator — import_time: as expected (correct: 4)</title></rect>
-<text x="420.0" y="465.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
-<rect x="449" y="451" width="54" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>universalmutator — infinite_loop: as expected (correct: 1)</title></rect>
-<text x="476.0" y="465.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
-<rect x="505" y="451" width="54" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>universalmutator — session_fixture: as expected (correct: 5)</title></rect>
-<text x="532.0" y="465.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
-<rect x="561" y="451" width="54" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>universalmutator — shapes: as expected (correct: 6)</title></rect>
-<text x="588.0" y="465.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
-<rect x="617" y="451" width="54" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>universalmutator — subprocess: as expected (correct: 5)</title></rect>
-<text x="644.0" y="465.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
-<rect x="673" y="451" width="54" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>universalmutator — unicode: as expected (correct: 4)</title></rect>
-<text x="700.0" y="465.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="169" y="451" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>universalmutator — cached: as expected (correct: 3)</title></rect>
+<text x="182.5" y="465.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="198" y="451" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>universalmutator — cov_config: as expected (correct: 5)</title></rect>
+<text x="211.5" y="465.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="227" y="451" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>universalmutator — decorator_closure: as expected (correct: 5)</title></rect>
+<text x="240.5" y="465.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="256" y="451" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>universalmutator — default_arg: as expected (correct: 5)</title></rect>
+<text x="269.5" y="465.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="285" y="451" width="27" height="28" rx="3" fill="#eb6834" stroke="#e1e0d9"><title>universalmutator — flaky: wrong verdict (correct: 4, killed (expected survived): 1)</title></rect>
+<text x="298.5" y="465.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✗</text>
+<rect x="314" y="451" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>universalmutator — hard_exit: as expected (correct: 3)</title></rect>
+<text x="327.5" y="465.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="343" y="451" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>universalmutator — import_time: as expected (correct: 4)</title></rect>
+<text x="356.5" y="465.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="372" y="451" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>universalmutator — infinite_loop: as expected (correct: 1)</title></rect>
+<text x="385.5" y="465.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="401" y="451" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>universalmutator — init_target: as expected (correct: 5)</title></rect>
+<text x="414.5" y="465.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="430" y="451" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>universalmutator — nested_class: as expected (correct: 5)</title></rect>
+<text x="443.5" y="465.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="459" y="451" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>universalmutator — pool: as expected (correct: 10)</title></rect>
+<text x="472.5" y="465.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="488" y="451" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>universalmutator — property_setter: as expected (correct: 14)</title></rect>
+<text x="501.5" y="465.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="517" y="451" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>universalmutator — relative_import: as expected (correct: 10)</title></rect>
+<text x="530.5" y="465.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="546" y="451" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>universalmutator — session_fixture: as expected (correct: 5)</title></rect>
+<text x="559.5" y="465.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="575" y="451" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>universalmutator — shapes: as expected (correct: 6)</title></rect>
+<text x="588.5" y="465.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="604" y="451" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>universalmutator — src_pythonpath: as expected (correct: 9)</title></rect>
+<text x="617.5" y="465.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="633" y="451" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>universalmutator — subprocess: as expected (correct: 5)</title></rect>
+<text x="646.5" y="465.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="662" y="451" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>universalmutator — tabs: as expected (correct: 11)</title></rect>
+<text x="675.5" y="465.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="691" y="451" width="27" height="28" rx="3" fill="#d7d5cd" stroke="#e1e0d9"><title>universalmutator — unicode: as expected (correct: 4)</title></rect>
+<text x="704.5" y="465.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
 </svg>

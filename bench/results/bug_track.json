@@ -1,5 +1,1527 @@
 {
  "bugs": 325,
+ "by_fault_class": {
+  "algorithm_or_data_structure": {
+   "balamut": 0.10526315789473684,
+   "cosmic-ray": 0.21052631578947367,
+   "deployproof": 0.15789473684210525,
+   "fest": 0.05263157894736842,
+   "irradiate": 0.21052631578947367,
+   "mutation": 0.10526315789473684,
+   "mutmut": 0.15789473684210525,
+   "poodle": 0.15789473684210525,
+   "pytest-gremlins": 0.05263157894736842,
+   "pytest-leela": 0.05263157894736842,
+   "universalmutator": 0.15789473684210525
+  },
+  "arithmetic_or_operator": {
+   "balamut": 0.0,
+   "cosmic-ray": 0.2,
+   "deployproof": 0.0,
+   "fest": 0.0,
+   "irradiate": 0.0,
+   "mutation": 0.4,
+   "mutmut": 0.2,
+   "poodle": 0.0,
+   "pytest-gremlins": 0.0,
+   "pytest-leela": 0.0,
+   "universalmutator": 0.4
+  },
+  "call_arguments_or_api_use": {
+   "balamut": 0.09375,
+   "cosmic-ray": 0.1875,
+   "deployproof": 0.0625,
+   "fest": 0.09375,
+   "irradiate": 0.21875,
+   "mutation": 0.25,
+   "mutmut": 0.25,
+   "poodle": 0.09375,
+   "pytest-gremlins": 0.03125,
+   "pytest-leela": 0.03125,
+   "universalmutator": 0.1875
+  },
+  "comparison_or_boundary": {
+   "balamut": 0.3333333333333333,
+   "cosmic-ray": 0.3333333333333333,
+   "deployproof": 0.0,
+   "fest": 0.0,
+   "irradiate": 0.16666666666666666,
+   "mutation": 0.3333333333333333,
+   "mutmut": 0.3333333333333333,
+   "poodle": 0.0,
+   "pytest-gremlins": 0.16666666666666666,
+   "pytest-leela": 0.16666666666666666,
+   "universalmutator": 0.16666666666666666
+  },
+  "exception_handling": {
+   "balamut": 0.0,
+   "cosmic-ray": 0.2,
+   "deployproof": 0.06666666666666667,
+   "fest": 0.06666666666666667,
+   "irradiate": 0.0,
+   "mutation": 0.13333333333333333,
+   "mutmut": 0.0,
+   "poodle": 0.06666666666666667,
+   "pytest-gremlins": 0.0,
+   "pytest-leela": 0.0,
+   "universalmutator": 0.13333333333333333
+  },
+  "missing_or_wrong_condition": {
+   "balamut": 0.12087912087912088,
+   "cosmic-ray": 0.13186813186813187,
+   "deployproof": 0.12087912087912088,
+   "fest": 0.12087912087912088,
+   "irradiate": 0.21978021978021978,
+   "mutation": 0.24175824175824176,
+   "mutmut": 0.17582417582417584,
+   "poodle": 0.16483516483516483,
+   "pytest-gremlins": 0.06593406593406594,
+   "pytest-leela": 0.054945054945054944,
+   "universalmutator": 0.23076923076923078
+  },
+  "missing_statement_or_call": {
+   "balamut": 0.10526315789473684,
+   "cosmic-ray": 0.10526315789473684,
+   "deployproof": 0.15789473684210525,
+   "fest": 0.10526315789473684,
+   "irradiate": 0.15789473684210525,
+   "mutation": 0.3157894736842105,
+   "mutmut": 0.15789473684210525,
+   "poodle": 0.15789473684210525,
+   "pytest-gremlins": 0.05263157894736842,
+   "pytest-leela": 0.10526315789473684,
+   "universalmutator": 0.15789473684210525
+  },
+  "other": {
+   "balamut": 0.0,
+   "cosmic-ray": 0.0,
+   "deployproof": 0.0,
+   "fest": 0.0,
+   "irradiate": 0.0,
+   "mutation": 0.0,
+   "mutmut": 0.0,
+   "poodle": 0.0,
+   "pytest-gremlins": 0.0,
+   "pytest-leela": 0.0,
+   "universalmutator": 0.0
+  },
+  "string_format_or_regex": {
+   "balamut": 0.13114754098360656,
+   "cosmic-ray": 0.08196721311475409,
+   "deployproof": 0.14754098360655737,
+   "fest": 0.11475409836065574,
+   "irradiate": 0.13114754098360656,
+   "mutation": 0.14754098360655737,
+   "mutmut": 0.14754098360655737,
+   "poodle": 0.14754098360655737,
+   "pytest-gremlins": 0.08196721311475409,
+   "pytest-leela": 0.06557377049180328,
+   "universalmutator": 0.13114754098360656
+  },
+  "type_or_none_handling": {
+   "balamut": 0.09375,
+   "cosmic-ray": 0.125,
+   "deployproof": 0.03125,
+   "fest": 0.03125,
+   "irradiate": 0.125,
+   "mutation": 0.1875,
+   "mutmut": 0.09375,
+   "poodle": 0.15625,
+   "pytest-gremlins": 0.0625,
+   "pytest-leela": 0.0625,
+   "universalmutator": 0.1875
+  },
+  "wrong_literal_or_constant": {
+   "balamut": 0.21052631578947367,
+   "cosmic-ray": 0.21052631578947367,
+   "deployproof": 0.6842105263157895,
+   "fest": 0.6842105263157895,
+   "irradiate": 0.10526315789473684,
+   "mutation": 0.6842105263157895,
+   "mutmut": 0.10526315789473684,
+   "poodle": 0.6842105263157895,
+   "pytest-gremlins": 0.15789473684210525,
+   "pytest-leela": 0.21052631578947367,
+   "universalmutator": 0.3157894736842105
+  },
+  "wrong_return_value": {
+   "balamut": 0.14285714285714285,
+   "cosmic-ray": 0.14285714285714285,
+   "deployproof": 0.14285714285714285,
+   "fest": 0.14285714285714285,
+   "irradiate": 0.0,
+   "mutation": 0.14285714285714285,
+   "mutmut": 0.14285714285714285,
+   "poodle": 0.14285714285714285,
+   "pytest-gremlins": 0.14285714285714285,
+   "pytest-leela": 0.14285714285714285,
+   "universalmutator": 0.14285714285714285
+  },
+  "wrong_variable_or_value": {
+   "balamut": 0.06666666666666667,
+   "cosmic-ray": 0.13333333333333333,
+   "deployproof": 0.13333333333333333,
+   "fest": 0.06666666666666667,
+   "irradiate": 0.2,
+   "mutation": 0.26666666666666666,
+   "mutmut": 0.2,
+   "poodle": 0.2,
+   "pytest-gremlins": 0.0,
+   "pytest-leela": 0.06666666666666667,
+   "universalmutator": 0.2
+  }
+ },
+ "corpus": {
+  "ai_marker_bugs": 27,
+  "ai_marker_by_project": {
+   "inflect": 14,
+   "marshmallow": 1,
+   "more-itertools": 2,
+   "packaging": 5,
+   "pyparsing": 1,
+   "python-dotenv": 2,
+   "python-semver": 1,
+   "tomlkit": 1
+  },
+  "changed_lines_median": 5.0,
+  "composition": {
+   "insertion": 52,
+   "mixed": 110,
+   "rewrite": 163
+  },
+  "years": {
+   "2021": 14,
+   "2022": 22,
+   "2023": 15,
+   "2024": 32,
+   "2025": 29,
+   "2026": 213
+  }
+ },
+ "cost": {
+  "bugs": 325,
+  "lite": {
+   "bugs": 111,
+   "draws": 1000,
+   "max_difference": 0.033347193347193355,
+   "max_difference_median": 0.03872487872487873,
+   "max_difference_p95": 0.06566874566874567,
+   "projects_left_out": [
+    "cattrs",
+    "packaging",
+    "pyparsing"
+   ],
+   "seed": 20261105,
+   "spearman": 0.9816617042638283,
+   "spearman_median": 0.938217559443647,
+   "spearman_p5": 0.8329541259450916,
+   "worker_hours": 74.03913611111112
+  },
+  "projects": {
+   "arrow": {
+    "bugs": 14,
+    "lite": 5,
+    "per_bug_median_hours": 0.2647375,
+    "suite_seconds_median": 7.775,
+    "worker_hours": 4.9681999999999995
+   },
+   "attrs": {
+    "bugs": 15,
+    "lite": 5,
+    "per_bug_median_hours": 0.41103055555555557,
+    "suite_seconds_median": 12.46,
+    "worker_hours": 12.68618611111111
+   },
+   "boltons": {
+    "bugs": 15,
+    "lite": 5,
+    "per_bug_median_hours": 0.1287361111111111,
+    "suite_seconds_median": 4.32,
+    "worker_hours": 3.8771750000000003
+   },
+   "cachetools": {
+    "bugs": 9,
+    "lite": 5,
+    "per_bug_median_hours": 0.09336111111111112,
+    "suite_seconds_median": 4.93,
+    "worker_hours": 1.4748333333333334
+   },
+   "cattrs": {
+    "bugs": 15,
+    "lite": 0,
+    "per_bug_median_hours": 2.7989916666666668,
+    "suite_seconds_median": 149.05,
+    "worker_hours": 91.19370277777777
+   },
+   "click": {
+    "bugs": 15,
+    "lite": 5,
+    "per_bug_median_hours": 0.1680111111111111,
+    "suite_seconds_median": 7.69,
+    "worker_hours": 5.089936111111111
+   },
+   "humanize": {
+    "bugs": 12,
+    "lite": 5,
+    "per_bug_median_hours": 0.17694305555555556,
+    "suite_seconds_median": 6.515,
+    "worker_hours": 5.219886111111111
+   },
+   "inflect": {
+    "bugs": 15,
+    "lite": 5,
+    "per_bug_median_hours": 0.16373333333333334,
+    "suite_seconds_median": 6.88,
+    "worker_hours": 20.849272222222222
+   },
+   "jinja2": {
+    "bugs": 7,
+    "lite": 5,
+    "per_bug_median_hours": 0.21111666666666667,
+    "suite_seconds_median": 11.02,
+    "worker_hours": 12.636405555555555
+   },
+   "marshmallow": {
+    "bugs": 15,
+    "lite": 5,
+    "per_bug_median_hours": 0.08058611111111111,
+    "suite_seconds_median": 4.35,
+    "worker_hours": 2.114697222222222
+   },
+   "mistune": {
+    "bugs": 15,
+    "lite": 5,
+    "per_bug_median_hours": 0.12008055555555557,
+    "suite_seconds_median": 4.43,
+    "worker_hours": 4.828675
+   },
+   "more-itertools": {
+    "bugs": 15,
+    "lite": 5,
+    "per_bug_median_hours": 0.1724361111111111,
+    "suite_seconds_median": 18.09,
+    "worker_hours": 3.1342
+   },
+   "packaging": {
+    "bugs": 15,
+    "lite": 0,
+    "per_bug_median_hours": 0.4078861111111111,
+    "suite_seconds_median": 93.96,
+    "worker_hours": 14.005252777777777
+   },
+   "parse": {
+    "bugs": 14,
+    "lite": 5,
+    "per_bug_median_hours": 0.3947513888888889,
+    "suite_seconds_median": 2.82,
+    "worker_hours": 11.665727777777779
+   },
+   "portion": {
+    "bugs": 4,
+    "lite": 4,
+    "per_bug_median_hours": 0.9869791666666667,
+    "suite_seconds_median": 9.785,
+    "worker_hours": 4.239113888888889
+   },
+   "pyflakes": {
+    "bugs": 7,
+    "lite": 5,
+    "per_bug_median_hours": 0.6093833333333334,
+    "suite_seconds_median": 12.36,
+    "worker_hours": 15.105261111111112
+   },
+   "pyparsing": {
+    "bugs": 15,
+    "lite": 0,
+    "per_bug_median_hours": 1.3351027777777777,
+    "suite_seconds_median": 77.23,
+    "worker_hours": 46.762883333333335
+   },
+   "python-dotenv": {
+    "bugs": 12,
+    "lite": 5,
+    "per_bug_median_hours": 0.10048611111111111,
+    "suite_seconds_median": 6.59,
+    "worker_hours": 1.404711111111111
+   },
+   "python-pathspec": {
+    "bugs": 11,
+    "lite": 5,
+    "per_bug_median_hours": 0.5428833333333333,
+    "suite_seconds_median": 1.94,
+    "worker_hours": 5.1950666666666665
+   },
+   "python-semver": {
+    "bugs": 13,
+    "lite": 5,
+    "per_bug_median_hours": 0.16009722222222222,
+    "suite_seconds_median": 4.16,
+    "worker_hours": 2.2568277777777777
+   },
+   "python-tabulate": {
+    "bugs": 14,
+    "lite": 5,
+    "per_bug_median_hours": 1.2164055555555555,
+    "suite_seconds_median": 8.82,
+    "worker_hours": 21.803419444444444
+   },
+   "pyupgrade": {
+    "bugs": 11,
+    "lite": 5,
+    "per_bug_median_hours": 0.08696666666666666,
+    "suite_seconds_median": 7.02,
+    "worker_hours": 1.6050083333333334
+   },
+   "rich": {
+    "bugs": 15,
+    "lite": 5,
+    "per_bug_median_hours": 0.5356777777777778,
+    "suite_seconds_median": 11.39,
+    "worker_hours": 17.87918888888889
+   },
+   "sqlparse": {
+    "bugs": 15,
+    "lite": 5,
+    "per_bug_median_hours": 0.5024388888888889,
+    "suite_seconds_median": 3.52,
+    "worker_hours": 8.723166666666666
+   },
+   "tomlkit": {
+    "bugs": 15,
+    "lite": 5,
+    "per_bug_median_hours": 0.17069722222222222,
+    "suite_seconds_median": 2.66,
+    "worker_hours": 3.1978138888888887
+   },
+   "toolz": {
+    "bugs": 2,
+    "lite": 2,
+    "per_bug_median_hours": 0.015691666666666666,
+    "suite_seconds_median": 3.71,
+    "worker_hours": 0.03138333333333333
+   }
+  },
+  "tool_only": {
+   "balamut": {
+    "artifacts": 1964,
+    "worker_hours": 3.4662611111111064
+   },
+   "cosmic-ray": {
+    "artifacts": 12828,
+    "worker_hours": 25.85835000000002
+   },
+   "deployproof": {
+    "artifacts": 1123,
+    "worker_hours": 2.047400000000003
+   },
+   "fest": {
+    "artifacts": 5056,
+    "worker_hours": 4.523086111111095
+   },
+   "irradiate": {
+    "artifacts": 25390,
+    "worker_hours": 29.64596666666647
+   },
+   "mutation": {
+    "artifacts": 64695,
+    "worker_hours": 71.82325000000196
+   },
+   "mutmut": {
+    "artifacts": 8279,
+    "worker_hours": 19.82043333333329
+   },
+   "poodle": {
+    "artifacts": 8648,
+    "worker_hours": 14.152361111111139
+   },
+   "pytest-gremlins": {
+    "artifacts": 1082,
+    "worker_hours": 1.160825000000001
+   },
+   "pytest-leela": {
+    "artifacts": 242,
+    "worker_hours": 0.1834055555555555
+   },
+   "universalmutator": {
+    "artifacts": 21753,
+    "worker_hours": 33.757438888888515
+   }
+  },
+  "worker_hours": 321.9479944444445
+ },
+ "coverage_guided_ci": [
+  0.25,
+  0.3738019169329074
+ ],
+ "coverage_guided_rank": [
+  1,
+  2
+ ],
+ "coverage_guided_rate": 0.31076923076923074,
+ "engine": {
+  "balamut": {
+   "false_survivor": 0.0,
+   "not_run": 0,
+   "planned": 6
+  },
+  "cosmic-ray": {
+   "false_survivor": 0.0,
+   "not_run": 0,
+   "planned": 6
+  },
+  "deployproof": {
+   "false_survivor": 0.34054054054054056,
+   "not_run": 2,
+   "planned": 6
+  },
+  "fest": {
+   "false_survivor": 0.9178571428571428,
+   "not_run": 0,
+   "planned": 6
+  },
+  "irradiate": {
+   "false_survivor": 0.49730700179533216,
+   "not_run": 1,
+   "planned": 6
+  },
+  "mutation": {
+   "false_survivor": 0.831881086622245,
+   "not_run": 1,
+   "planned": 6
+  },
+  "mutmut": {
+   "false_survivor": 0.05917159763313609,
+   "not_run": 3,
+   "planned": 6
+  },
+  "poodle": {
+   "false_survivor": 0.0,
+   "not_run": 2,
+   "planned": 6
+  },
+  "pytest-gremlins": {
+   "false_survivor": 0.0,
+   "not_run": 0,
+   "planned": 6
+  },
+  "pytest-leela": {
+   "false_survivor": 0.8425925925925926,
+   "not_run": 2,
+   "planned": 6
+  },
+  "universalmutator": {
+   "false_survivor": 0.0,
+   "not_run": 0,
+   "planned": 6
+  }
+ },
+ "fault_classes": {
+  "algorithm_or_data_structure": 19,
+  "arithmetic_or_operator": 5,
+  "call_arguments_or_api_use": 32,
+  "comparison_or_boundary": 6,
+  "exception_handling": 15,
+  "missing_or_wrong_condition": 91,
+  "missing_statement_or_call": 19,
+  "other": 4,
+  "string_format_or_regex": 61,
+  "type_or_none_handling": 32,
+  "wrong_literal_or_constant": 19,
+  "wrong_return_value": 7,
+  "wrong_variable_or_value": 15
+ },
+ "fault_coverage_gap": 97,
+ "fault_covered_by_old": 222,
+ "fault_lines_unrun": 6,
+ "measures": {
+  "existing": "a witness whose place existed before the fix (unchanged or rewritten lines)",
+  "fixed": "a witness of the fixed program: the two conditions",
+  "prefix": "a pre-fix witness: the three conditions",
+  "prefix_tested": "a pre-fix witness on a line a historical test executes",
+  "tested": "a witness on a line a historical test executes",
+  "unchanged": "a witness in code the fix did not touch",
+  "unchanged_executed": "a witness in untouched code on a line a test executes"
+ },
+ "noise": {
+  "bugs": 46,
+  "regions": {
+   "import": 36,
+   "metadata": 10,
+   "no code change": 17
+  }
+ },
+ "oracle": {
+  "bug/1": [
+   "6dde30737b28f496",
+   "ecd9f95dcc8ee860"
+  ],
+  "parent/1": [
+   "6dde30737b28f496"
+  ]
+ },
+ "oracle_equivalence": {
+  "agreement": 0.998998998998999,
+  "bugs": 230,
+  "discordant": [
+   {
+    "aid": "b16ff7c0933db766a47cfba1",
+    "bug": "rich@0752ff047295",
+    "reason": null,
+    "recorded": "killed",
+    "recorded_code": "ecd9f95dcc8ee860",
+    "recorded_killed_by": [
+     "tests/test_console.py::test_brokenpipeerror"
+    ],
+    "rejudged": "survived: not a witness",
+    "rejudged_killed_by": []
+   }
+  ],
+  "outcome_by_recorded_code": {
+   "6dde30737b28f496": {
+    "same": 12
+   },
+   "ecd9f95dcc8ee860": {
+    "different": 1,
+    "same": 986,
+    "undecided in one judgement": 1
+   }
+  },
+  "population": 222278,
+  "rejudged_code": [
+   "6dde30737b28f496"
+  ],
+  "sampled": 1000,
+  "seed": 20261111,
+  "transitions": {
+   "equivalent_tce -> equivalent_tce": 2,
+   "gated_out -> gated_out": 15,
+   "invalid -> invalid": 14,
+   "killed -> killed": 757,
+   "killed -> survived: not a witness": 1,
+   "killed -> unresolved": 1,
+   "survived: not a witness -> survived: not a witness": 171,
+   "survived: witness -> survived: witness": 37,
+   "unresolved -> unresolved": 2
+  }
+ },
+ "oracle_sensitivity": {
+  "agreement": 1.0,
+  "bugs": 210,
+  "by_first_stage": {
+   "killer": {
+    "killed": 865,
+    "unresolved": 1
+   },
+   "subset": {
+    "killed": 134
+   }
+  },
+  "discordant": [
+   {
+    "aid": "995fe31a91e57641dbe5fb47",
+    "bug": "cattrs@39a4d6ebe1ab",
+    "fault_tests_red": [],
+    "first_killed_by": [
+     "tests/test_self.py::test_self_roundtrip_namedtuple[False]"
+    ],
+    "first_stage": "killer",
+    "full_suite": "unresolved",
+    "reason": "<external-kill>",
+    "tools": [
+     "irradiate",
+     "mutation",
+     "mutmut"
+    ]
+   }
+  ],
+  "full_suite": {
+   "killed": 999,
+   "unresolved": 1
+  },
+  "killed_of_sampled": 0.999,
+  "population": 158040,
+  "sampled": 1000,
+  "seed": 20261105
+ },
+ "overlap": {
+  "labels": [
+   "balamut",
+   "mutmut",
+   "cosmic-ray",
+   "poodle",
+   "pytest-gremlins",
+   "pytest-leela",
+   "mutation",
+   "universalmutator",
+   "fest",
+   "irradiate",
+   "deployproof"
+  ],
+  "values": [
+   [
+    0,
+    6,
+    13,
+    10,
+    19,
+    18,
+    4,
+    7,
+    14,
+    8,
+    14
+   ],
+   [
+    20,
+    0,
+    24,
+    19,
+    35,
+    35,
+    8,
+    16,
+    28,
+    8,
+    23
+   ],
+   [
+    22,
+    19,
+    0,
+    16,
+    27,
+    28,
+    10,
+    9,
+    22,
+    21,
+    20
+   ],
+   [
+    29,
+    24,
+    26,
+    0,
+    36,
+    37,
+    9,
+    19,
+    20,
+    21,
+    11
+   ],
+   [
+    3,
+    5,
+    2,
+    1,
+    0,
+    4,
+    3,
+    2,
+    3,
+    6,
+    2
+   ],
+   [
+    3,
+    6,
+    4,
+    3,
+    5,
+    0,
+    2,
+    2,
+    3,
+    7,
+    3
+   ],
+   [
+    44,
+    34,
+    41,
+    30,
+    59,
+    57,
+    0,
+    27,
+    41,
+    31,
+    37
+   ],
+   [
+    32,
+    27,
+    25,
+    25,
+    43,
+    42,
+    12,
+    0,
+    32,
+    25,
+    32
+   ],
+   [
+    18,
+    18,
+    17,
+    5,
+    23,
+    22,
+    5,
+    11,
+    0,
+    19,
+    5
+   ],
+   [
+    23,
+    9,
+    27,
+    17,
+    37,
+    37,
+    6,
+    15,
+    30,
+    0,
+    24
+   ],
+   [
+    23,
+    18,
+    20,
+    1,
+    27,
+    27,
+    6,
+    16,
+    10,
+    18,
+    0
+   ]
+  ]
+ },
+ "pairs": [
+  {
+   "ci": [
+    -0.07932011331444759,
+    -0.009063444108761337
+   ],
+   "difference": -0.043076923076923075,
+   "first": "balamut",
+   "first_only": 6,
+   "p": 0.0164,
+   "p_holm": 0.41000000000000003,
+   "second": "mutmut",
+   "second_only": 20
+  },
+  {
+   "ci": [
+    -0.06711409395973154,
+    0.009740259740259744
+   ],
+   "difference": -0.027692307692307693,
+   "first": "balamut",
+   "first_only": 13,
+   "p": 0.1848,
+   "p_holm": 1.0,
+   "second": "cosmic-ray",
+   "second_only": 22
+  },
+  {
+   "ci": [
+    -0.12297734627831716,
+    -0.0111111111111111
+   ],
+   "difference": -0.05846153846153846,
+   "first": "balamut",
+   "first_only": 10,
+   "p": 0.0102,
+   "p_holm": 0.2856,
+   "second": "poodle",
+   "second_only": 29
+  },
+  {
+   "ci": [
+    0.02295081967213114,
+    0.07954545454545454
+   ],
+   "difference": 0.04923076923076923,
+   "first": "balamut",
+   "first_only": 19,
+   "p": 0.0001,
+   "p_holm": 0.0055000000000000005,
+   "second": "pytest-gremlins",
+   "second_only": 3
+  },
+  {
+   "ci": [
+    0.021276595744680854,
+    0.07309941520467836
+   ],
+   "difference": 0.046153846153846156,
+   "first": "balamut",
+   "first_only": 18,
+   "p": 0.0002,
+   "p_holm": 0.007200000000000001,
+   "second": "pytest-leela",
+   "second_only": 3
+  },
+  {
+   "ci": [
+    -0.19764011799410028,
+    -0.05982905982905984
+   ],
+   "difference": -0.12307692307692308,
+   "first": "balamut",
+   "first_only": 4,
+   "p": 0.0001,
+   "p_holm": 0.0055000000000000005,
+   "second": "mutation",
+   "second_only": 44
+  },
+  {
+   "ci": [
+    -0.1121212121212121,
+    -0.0426829268292683
+   ],
+   "difference": -0.07692307692307693,
+   "first": "balamut",
+   "first_only": 7,
+   "p": 0.0001,
+   "p_holm": 0.0055000000000000005,
+   "second": "universalmutator",
+   "second_only": 32
+  },
+  {
+   "ci": [
+    -0.07396449704142011,
+    0.033434650455927056
+   ],
+   "difference": -0.012307692307692308,
+   "first": "balamut",
+   "first_only": 14,
+   "p": 0.7782,
+   "p_holm": 1.0,
+   "second": "fest",
+   "second_only": 18
+  },
+  {
+   "ci": [
+    -0.08797653958944279,
+    -0.006079027355623101
+   ],
+   "difference": -0.046153846153846156,
+   "first": "balamut",
+   "first_only": 8,
+   "p": 0.0262,
+   "p_holm": 0.6288,
+   "second": "irradiate",
+   "second_only": 23
+  },
+  {
+   "ci": [
+    -0.09030100334448163,
+    0.020527859237536666
+   ],
+   "difference": -0.027692307692307693,
+   "first": "balamut",
+   "first_only": 14,
+   "p": 0.3664,
+   "p_holm": 1.0,
+   "second": "deployproof",
+   "second_only": 23
+  },
+  {
+   "ci": [
+    -0.02915451895043733,
+    0.0625
+   ],
+   "difference": 0.015384615384615385,
+   "first": "mutmut",
+   "first_only": 24,
+   "p": 0.5608,
+   "p_holm": 1.0,
+   "second": "cosmic-ray",
+   "second_only": 19
+  },
+  {
+   "ci": [
+    -0.09174311926605505,
+    0.04301075268817203
+   ],
+   "difference": -0.015384615384615385,
+   "first": "mutmut",
+   "first_only": 19,
+   "p": 0.7518,
+   "p_holm": 1.0,
+   "second": "poodle",
+   "second_only": 24
+  },
+  {
+   "ci": [
+    0.05678233438485805,
+    0.13029315960912052
+   ],
+   "difference": 0.09230769230769231,
+   "first": "mutmut",
+   "first_only": 35,
+   "p": 0.0001,
+   "p_holm": 0.0055000000000000005,
+   "second": "pytest-gremlins",
+   "second_only": 5
+  },
+  {
+   "ci": [
+    0.050314465408805034,
+    0.12893081761006292
+   ],
+   "difference": 0.08923076923076922,
+   "first": "mutmut",
+   "first_only": 35,
+   "p": 0.0001,
+   "p_holm": 0.0055000000000000005,
+   "second": "pytest-leela",
+   "second_only": 6
+  },
+  {
+   "ci": [
+    -0.1625766871165644,
+    -0.01273885350318471
+   ],
+   "difference": -0.08,
+   "first": "mutmut",
+   "first_only": 8,
+   "p": 0.0134,
+   "p_holm": 0.3618,
+   "second": "mutation",
+   "second_only": 34
+  },
+  {
+   "ci": [
+    -0.08059701492537313,
+    0.014164305949008499
+   ],
+   "difference": -0.033846153846153845,
+   "first": "mutmut",
+   "first_only": 16,
+   "p": 0.195,
+   "p_holm": 1.0,
+   "second": "universalmutator",
+   "second_only": 27
+  },
+  {
+   "ci": [
+    -0.043209876543209874,
+    0.08741258741258741
+   ],
+   "difference": 0.03076923076923077,
+   "first": "mutmut",
+   "first_only": 28,
+   "p": 0.3772,
+   "p_holm": 1.0,
+   "second": "fest",
+   "second_only": 18
+  },
+  {
+   "ci": [
+    -0.03691275167785235,
+    0.025936599423631135
+   ],
+   "difference": -0.003076923076923077,
+   "first": "mutmut",
+   "first_only": 8,
+   "p": 0.9974,
+   "p_holm": 1.0,
+   "second": "irradiate",
+   "second_only": 9
+  },
+  {
+   "ci": [
+    -0.0579710144927536,
+    0.07384615384615384
+   ],
+   "difference": 0.015384615384615385,
+   "first": "mutmut",
+   "first_only": 23,
+   "p": 0.6422,
+   "p_holm": 1.0,
+   "second": "deployproof",
+   "second_only": 18
+  },
+  {
+   "ci": [
+    -0.09584664536741214,
+    0.021212121212121196
+   ],
+   "difference": -0.03076923076923077,
+   "first": "cosmic-ray",
+   "first_only": 16,
+   "p": 0.3206,
+   "p_holm": 1.0,
+   "second": "poodle",
+   "second_only": 26
+  },
+  {
+   "ci": [
+    0.04519774011299435,
+    0.108359133126935
+   ],
+   "difference": 0.07692307692307693,
+   "first": "cosmic-ray",
+   "first_only": 27,
+   "p": 0.0001,
+   "p_holm": 0.0055000000000000005,
+   "second": "pytest-gremlins",
+   "second_only": 2
+  },
+  {
+   "ci": [
+    0.039473684210526314,
+    0.1097560975609756
+   ],
+   "difference": 0.07384615384615385,
+   "first": "cosmic-ray",
+   "first_only": 28,
+   "p": 0.0001,
+   "p_holm": 0.0055000000000000005,
+   "second": "pytest-leela",
+   "second_only": 4
+  },
+  {
+   "ci": [
+    -0.1713483146067416,
+    -0.031847133757961804
+   ],
+   "difference": -0.09538461538461539,
+   "first": "cosmic-ray",
+   "first_only": 10,
+   "p": 0.001,
+   "p_holm": 0.032,
+   "second": "mutation",
+   "second_only": 41
+  },
+  {
+   "ci": [
+    -0.07784431137724551,
+    -0.02033898305084747
+   ],
+   "difference": -0.04923076923076923,
+   "first": "cosmic-ray",
+   "first_only": 9,
+   "p": 0.0008,
+   "p_holm": 0.0264,
+   "second": "universalmutator",
+   "second_only": 25
+  },
+  {
+   "ci": [
+    -0.04950495049504951,
+    0.07038123167155426
+   ],
+   "difference": 0.015384615384615385,
+   "first": "cosmic-ray",
+   "first_only": 22,
+   "p": 0.62,
+   "p_holm": 1.0,
+   "second": "fest",
+   "second_only": 17
+  },
+  {
+   "ci": [
+    -0.06567164179104477,
+    0.027692307692307683
+   ],
+   "difference": -0.018461538461538463,
+   "first": "cosmic-ray",
+   "first_only": 21,
+   "p": 0.4944,
+   "p_holm": 1.0,
+   "second": "irradiate",
+   "second_only": 27
+  },
+  {
+   "ci": [
+    -0.06906906906906907,
+    0.05882352941176472
+   ],
+   "difference": 0.0,
+   "first": "cosmic-ray",
+   "first_only": 20,
+   "p": 0.9984,
+   "p_holm": 1.0,
+   "second": "deployproof",
+   "second_only": 20
+  },
+  {
+   "ci": [
+    0.05519480519480519,
+    0.17784256559766762
+   ],
+   "difference": 0.1076923076923077,
+   "first": "poodle",
+   "first_only": 36,
+   "p": 0.0001,
+   "p_holm": 0.0055000000000000005,
+   "second": "pytest-gremlins",
+   "second_only": 1
+  },
+  {
+   "ci": [
+    0.054313099041533544,
+    0.16853932584269665
+   ],
+   "difference": 0.10461538461538461,
+   "first": "poodle",
+   "first_only": 37,
+   "p": 0.0001,
+   "p_holm": 0.0055000000000000005,
+   "second": "pytest-leela",
+   "second_only": 3
+  },
+  {
+   "ci": [
+    -0.11445783132530124,
+    -0.02140672782874617
+   ],
+   "difference": -0.06461538461538462,
+   "first": "poodle",
+   "first_only": 9,
+   "p": 0.0012,
+   "p_holm": 0.0372,
+   "second": "mutation",
+   "second_only": 30
+  },
+  {
+   "ci": [
+    -0.06862745098039215,
+    0.043771043771043766
+   ],
+   "difference": -0.018461538461538463,
+   "first": "poodle",
+   "first_only": 19,
+   "p": 0.5306,
+   "p_holm": 1.0,
+   "second": "universalmutator",
+   "second_only": 25
+  },
+  {
+   "ci": [
+    0.024464831804281356,
+    0.07297297297297298
+   ],
+   "difference": 0.046153846153846156,
+   "first": "poodle",
+   "first_only": 20,
+   "p": 0.0001,
+   "p_holm": 0.0055000000000000005,
+   "second": "fest",
+   "second_only": 5
+  },
+  {
+   "ci": [
+    -0.046511627906976744,
+    0.08959537572254334
+   ],
+   "difference": 0.012307692307692308,
+   "first": "poodle",
+   "first_only": 21,
+   "p": 0.823,
+   "p_holm": 1.0,
+   "second": "irradiate",
+   "second_only": 17
+  },
+  {
+   "ci": [
+    0.006116207951070332,
+    0.0608974358974359
+   ],
+   "difference": 0.03076923076923077,
+   "first": "poodle",
+   "first_only": 11,
+   "p": 0.0148,
+   "p_holm": 0.38480000000000003,
+   "second": "deployproof",
+   "second_only": 1
+  },
+  {
+   "ci": [
+    -0.022292993630573243,
+    0.013513513513513507
+   ],
+   "difference": -0.003076923076923077,
+   "first": "pytest-gremlins",
+   "first_only": 4,
+   "p": 0.8892,
+   "p_holm": 1.0,
+   "second": "pytest-leela",
+   "second_only": 5
+  },
+  {
+   "ci": [
+    -0.25806451612903225,
+    -0.09937888198757763
+   ],
+   "difference": -0.1723076923076923,
+   "first": "pytest-gremlins",
+   "first_only": 3,
+   "p": 0.0001,
+   "p_holm": 0.0055000000000000005,
+   "second": "mutation",
+   "second_only": 59
+  },
+  {
+   "ci": [
+    -0.169811320754717,
+    -0.0851063829787234
+   ],
+   "difference": -0.12615384615384614,
+   "first": "pytest-gremlins",
+   "first_only": 2,
+   "p": 0.0001,
+   "p_holm": 0.0055000000000000005,
+   "second": "universalmutator",
+   "second_only": 43
+  },
+  {
+   "ci": [
+    -0.12693498452012386,
+    -0.014492753623188415
+   ],
+   "difference": -0.06153846153846154,
+   "first": "pytest-gremlins",
+   "first_only": 3,
+   "p": 0.004,
+   "p_holm": 0.116,
+   "second": "fest",
+   "second_only": 23
+  },
+  {
+   "ci": [
+    -0.1461794019933555,
+    -0.052307692307692305
+   ],
+   "difference": -0.09538461538461539,
+   "first": "pytest-gremlins",
+   "first_only": 6,
+   "p": 0.0001,
+   "p_holm": 0.0055000000000000005,
+   "second": "irradiate",
+   "second_only": 37
+  },
+  {
+   "ci": [
+    -0.1446540880503145,
+    -0.02639296187683285
+   ],
+   "difference": -0.07692307692307693,
+   "first": "pytest-gremlins",
+   "first_only": 2,
+   "p": 0.0002,
+   "p_holm": 0.007200000000000001,
+   "second": "deployproof",
+   "second_only": 27
+  },
+  {
+   "ci": [
+    -0.24842767295597484,
+    -0.10140845070422534
+   ],
+   "difference": -0.16923076923076924,
+   "first": "pytest-leela",
+   "first_only": 2,
+   "p": 0.0001,
+   "p_holm": 0.0055000000000000005,
+   "second": "mutation",
+   "second_only": 57
+  },
+  {
+   "ci": [
+    -0.16878980891719747,
+    -0.08235294117647059
+   ],
+   "difference": -0.12307692307692308,
+   "first": "pytest-leela",
+   "first_only": 2,
+   "p": 0.0001,
+   "p_holm": 0.0055000000000000005,
+   "second": "universalmutator",
+   "second_only": 42
+  },
+  {
+   "ci": [
+    -0.11612903225806452,
+    -0.01706484641638225
+   ],
+   "difference": -0.05846153846153846,
+   "first": "pytest-leela",
+   "first_only": 3,
+   "p": 0.0026,
+   "p_holm": 0.078,
+   "second": "fest",
+   "second_only": 22
+  },
+  {
+   "ci": [
+    -0.14556962025316456,
+    -0.04575163398692811
+   ],
+   "difference": -0.09230769230769231,
+   "first": "pytest-leela",
+   "first_only": 7,
+   "p": 0.0001,
+   "p_holm": 0.0055000000000000005,
+   "second": "irradiate",
+   "second_only": 37
+  },
+  {
+   "ci": [
+    -0.13183279742765272,
+    -0.030030030030030033
+   ],
+   "difference": -0.07384615384615385,
+   "first": "pytest-leela",
+   "first_only": 3,
+   "p": 0.0001,
+   "p_holm": 0.0055000000000000005,
+   "second": "deployproof",
+   "second_only": 27
+  },
+  {
+   "ci": [
+    -0.005830903790087466,
+    0.10963455149501664
+   ],
+   "difference": 0.046153846153846156,
+   "first": "mutation",
+   "first_only": 27,
+   "p": 0.1,
+   "p_holm": 1.0,
+   "second": "universalmutator",
+   "second_only": 12
+  },
+  {
+   "ci": [
+    0.06590257879656161,
+    0.16176470588235295
+   ],
+   "difference": 0.11076923076923077,
+   "first": "mutation",
+   "first_only": 41,
+   "p": 0.0001,
+   "p_holm": 0.0055000000000000005,
+   "second": "fest",
+   "second_only": 5
+  },
+  {
+   "ci": [
+    0.023809523809523808,
+    0.1531791907514451
+   ],
+   "difference": 0.07692307692307693,
+   "first": "mutation",
+   "first_only": 31,
+   "p": 0.0006,
+   "p_holm": 0.020399999999999998,
+   "second": "irradiate",
+   "second_only": 6
+  },
+  {
+   "ci": [
+    0.04424778761061947,
+    0.15555555555555553
+   ],
+   "difference": 0.09538461538461539,
+   "first": "mutation",
+   "first_only": 37,
+   "p": 0.0001,
+   "p_holm": 0.0055000000000000005,
+   "second": "deployproof",
+   "second_only": 6
+  },
+  {
+   "ci": [
+    0.0027624309392265123,
+    0.12037037037037036
+   ],
+   "difference": 0.06461538461538462,
+   "first": "universalmutator",
+   "first_only": 32,
+   "p": 0.05,
+   "p_holm": 1.0,
+   "second": "fest",
+   "second_only": 11
+  },
+  {
+   "ci": [
+    -0.009771986970684043,
+    0.07232704402515724
+   ],
+   "difference": 0.03076923076923077,
+   "first": "universalmutator",
+   "first_only": 25,
+   "p": 0.1638,
+   "p_holm": 1.0,
+   "second": "irradiate",
+   "second_only": 15
+  },
+  {
+   "ci": [
+    -0.019354838709677413,
+    0.11200000000000002
+   ],
+   "difference": 0.04923076923076923,
+   "first": "universalmutator",
+   "first_only": 32,
+   "p": 0.1628,
+   "p_holm": 1.0,
+   "second": "deployproof",
+   "second_only": 16
+  },
+  {
+   "ci": [
+    -0.09523809523809523,
+    0.04281345565749234
+   ],
+   "difference": -0.033846153846153845,
+   "first": "fest",
+   "first_only": 19,
+   "p": 0.3598,
+   "p_holm": 1.0,
+   "second": "irradiate",
+   "second_only": 30
+  },
+  {
+   "ci": [
+    -0.033670033670033656,
+    0.0
+   ],
+   "difference": -0.015384615384615385,
+   "first": "fest",
+   "first_only": 5,
+   "p": 0.0846,
+   "p_holm": 1.0,
+   "second": "deployproof",
+   "second_only": 10
+  },
+  {
+   "ci": [
+    -0.059602649006622516,
+    0.0856269113149847
+   ],
+   "difference": 0.018461538461538463,
+   "first": "irradiate",
+   "first_only": 24,
+   "p": 0.6196,
+   "p_holm": 1.0,
+   "second": "deployproof",
+   "second_only": 18
+  }
+ ],
+ "preview_problems": [],
+ "primary": "prefix",
  "projects": {
   "arrow": 14,
   "attrs": 15,
@@ -28,1535 +1550,2994 @@
   "tomlkit": 15,
   "toolz": 2
  },
- "tools": {
-  "balamut": {
-   "bugs": 325,
-   "available_bugs": 325,
-   "unavailable_bugs": 0,
-   "detected": 131,
-   "rate": 0.40307692307692305,
-   "rate_ci": [
-    0.33125,
-    0.48
-   ],
-   "rate_project_mean": 0.406205546590162,
-   "rate_leave_one_project_out": [
-    0.38064516129032255,
-    0.4161290322580645
-   ],
-   "rate_without_arrow": 0.40836012861736337,
-   "rate_conditional": 0.40307692307692305,
-   "rate_conditional_ci": [
-    0.33125,
-    0.48
-   ],
-   "r": {
-    "1": 0.0661487156244784,
-    "5": 0.16985692375530517,
-    "10": 0.23158634160848635,
-    "25": 0.31890769105908234,
-    "50": 0.36780126291751436,
-    "100": 0.39205918236560194
-   },
-   "r10_ci": [
-    0.17702205498037699,
-    0.2913564542297689
-   ],
-   "s": {
-    "1": 0.18035891027777814,
-    "3": 0.2978409285009364,
-    "5": 0.33976488317637243,
-    "10": 0.3785836194264607
-   },
-   "s3_ci": [
-    0.24135645885318846,
-    0.35813910182988046
-   ],
-   "emitted": 20795,
-   "unique": 20522,
-   "status": {
-    "survived": 3098,
-    "killed": 17406,
-    "unresolved": 16,
-    "invalid": 2
-   },
-   "witness_mutants": 531,
-   "witness_flow": {
-    "first_witnesses": 559,
-    "unknown_confirmations": 0,
-    "unconfirmed_witnesses": 1,
-    "synthetic_witnesses": 0,
-    "feature_only_witnesses": 27,
-    "witnesses": 531
-   },
-   "unconfirmed_witnesses": 1,
-   "undecided_mutants": 16,
-   "undecided_bugs": 6,
-   "survivors_per_bug_median": 3.0,
-   "emitted_per_bug_median": 25.0,
-   "exact_fault": 3,
-   "exact_fault_applicable": 296,
-   "only_this_tool": 0,
-   "covered_fault_rate": 0.22972972972972974,
-   "gap_fault_rate": 0.8247422680412371,
-   "unrun_fault_rate": 0.0,
-   "by_region": {
-    "function": 0.40454545454545454,
-    "statement": 0.13157894736842105,
-    "mixed": 0.5522388059701493
-   },
-   "rate_optimistic": 0.42153846153846153,
-   "rate_any_fix_test": 0.4123076923076923
-  },
-  "mutmut": {
-   "bugs": 325,
-   "available_bugs": 325,
-   "unavailable_bugs": 0,
-   "detected": 142,
-   "rate": 0.4369230769230769,
-   "rate_ci": [
-    0.3525641025641026,
-    0.5273311897106109
-   ],
-   "rate_project_mean": 0.4462923828308444,
-   "rate_leave_one_project_out": [
-    0.4129032258064516,
-    0.4533762057877814
-   ],
-   "rate_without_arrow": 0.4533762057877814,
-   "rate_conditional": 0.4369230769230769,
-   "rate_conditional_ci": [
-    0.3525641025641026,
-    0.5273311897106109
-   ],
-   "r": {
-    "1": 0.0595018008041621,
-    "5": 0.16448158536270635,
-    "10": 0.22137908238640916,
-    "25": 0.30824170830351855,
-    "50": 0.36571466118612134,
-    "100": 0.4049275094144012
-   },
-   "r10_ci": [
-    0.16929701339000885,
-    0.2789185115475537
-   ],
-   "s": {
-    "1": 0.16094711244382642,
-    "3": 0.2705424350896852,
-    "5": 0.31854825143949966,
-    "10": 0.3744545709303903
-   },
-   "s3_ci": [
-    0.21375876479744915,
-    0.331140611990163
-   ],
-   "emitted": 30363,
-   "unique": 30353,
-   "status": {
-    "survived": 6037,
-    "killed": 24272,
-    "unresolved": 32,
-    "equivalent_tce": 12
-   },
-   "witness_mutants": 836,
-   "witness_flow": {
-    "first_witnesses": 849,
-    "unknown_confirmations": 0,
-    "unconfirmed_witnesses": 1,
-    "synthetic_witnesses": 0,
-    "feature_only_witnesses": 12,
-    "witnesses": 836
-   },
-   "unconfirmed_witnesses": 1,
-   "undecided_mutants": 32,
-   "undecided_bugs": 6,
-   "survivors_per_bug_median": 6.0,
-   "emitted_per_bug_median": 35.0,
-   "exact_fault": 3,
-   "exact_fault_applicable": 296,
-   "only_this_tool": 1,
-   "covered_fault_rate": 0.2972972972972973,
-   "gap_fault_rate": 0.7731958762886598,
-   "unrun_fault_rate": 0.16666666666666666,
-   "by_region": {
-    "function": 0.4636363636363636,
-    "statement": 0.10526315789473684,
-    "mixed": 0.5373134328358209
-   },
-   "rate_optimistic": 0.4553846153846154,
-   "rate_any_fix_test": 0.4430769230769231
-  },
-  "cosmic-ray": {
-   "bugs": 325,
-   "available_bugs": 325,
-   "unavailable_bugs": 0,
-   "detected": 139,
-   "rate": 0.4276923076923077,
-   "rate_ci": [
-    0.35755813953488375,
-    0.5047923322683706
-   ],
-   "rate_project_mean": 0.4315940469786624,
-   "rate_leave_one_project_out": [
-    0.4064516129032258,
-    0.43870967741935485
-   ],
-   "rate_without_arrow": 0.4340836012861736,
-   "rate_conditional": 0.4276923076923077,
-   "rate_conditional_ci": [
-    0.35755813953488375,
-    0.5047923322683706
-   ],
-   "r": {
-    "1": 0.06810746409722263,
-    "5": 0.16376254079718724,
-    "10": 0.21976845720429733,
-    "25": 0.3003428985090883,
-    "50": 0.3541155885484797,
-    "100": 0.39196815177385663
-   },
-   "r10_ci": [
-    0.16789765939024512,
-    0.27393966612365084
-   ],
-   "s": {
-    "1": 0.1534027291914126,
-    "3": 0.25762088043363246,
-    "5": 0.299549400047683,
-    "10": 0.3525087149511731
-   },
-   "s3_ci": [
-    0.20513916180968653,
-    0.3131957560684758
-   ],
-   "emitted": 36826,
-   "unique": 36825,
-   "status": {
-    "survived": 8230,
-    "killed": 28166,
-    "unresolved": 35,
-    "invalid": 372,
-    "equivalent_tce": 22
-   },
-   "witness_mutants": 1207,
-   "witness_flow": {
-    "first_witnesses": 1234,
-    "unknown_confirmations": 0,
-    "unconfirmed_witnesses": 9,
-    "synthetic_witnesses": 0,
-    "feature_only_witnesses": 18,
-    "witnesses": 1207
-   },
-   "unconfirmed_witnesses": 9,
-   "undecided_mutants": 37,
-   "undecided_bugs": 7,
-   "survivors_per_bug_median": 8.0,
-   "emitted_per_bug_median": 40.0,
-   "exact_fault": 2,
-   "exact_fault_applicable": 296,
-   "only_this_tool": 1,
-   "covered_fault_rate": 0.26126126126126126,
-   "gap_fault_rate": 0.8247422680412371,
-   "unrun_fault_rate": 0.16666666666666666,
-   "by_region": {
-    "function": 0.44545454545454544,
-    "statement": 0.15789473684210525,
-    "mixed": 0.5223880597014925
-   },
-   "rate_optimistic": 0.4492307692307692,
-   "rate_any_fix_test": 0.4338461538461538
-  },
-  "poodle": {
-   "bugs": 325,
-   "available_bugs": 325,
-   "unavailable_bugs": 0,
-   "detected": 178,
-   "rate": 0.5476923076923077,
-   "rate_ci": [
-    0.4658753709198813,
-    0.6288659793814433
-   ],
-   "rate_project_mean": 0.5432847067462452,
-   "rate_leave_one_project_out": [
-    0.532258064516129,
-    0.5645161290322581
-   ],
-   "rate_without_arrow": 0.5337620578778135,
-   "rate_conditional": 0.5476923076923077,
-   "rate_conditional_ci": [
-    0.4658753709198813,
-    0.6288659793814433
-   ],
-   "r": {
-    "1": 0.07578982989816963,
-    "5": 0.21879023858484578,
-    "10": 0.3019774730948959,
-    "25": 0.4112297763304988,
-    "50": 0.47296621617032786,
-    "100": 0.5115056309324549
-   },
-   "r10_ci": [
-    0.23615245019316833,
-    0.3719268383625059
-   ],
-   "s": {
-    "1": 0.2014780215420581,
-    "3": 0.3495009792478191,
-    "5": 0.41398947620402343,
-    "10": 0.47599964332123545
-   },
-   "s3_ci": [
-    0.28990169150320433,
-    0.41095002267263686
-   ],
-   "emitted": 29467,
-   "unique": 29046,
-   "status": {
-    "invalid": 989,
-    "killed": 20956,
-    "survived": 7080,
-    "unresolved": 19,
-    "equivalent_tce": 2
-   },
-   "witness_mutants": 981,
-   "witness_flow": {
-    "first_witnesses": 997,
-    "unknown_confirmations": 0,
-    "unconfirmed_witnesses": 1,
-    "synthetic_witnesses": 0,
-    "feature_only_witnesses": 15,
-    "witnesses": 981
-   },
-   "unconfirmed_witnesses": 1,
-   "undecided_mutants": 19,
-   "undecided_bugs": 6,
-   "survivors_per_bug_median": 8.0,
-   "emitted_per_bug_median": 38.0,
-   "exact_fault": 2,
-   "exact_fault_applicable": 296,
-   "only_this_tool": 1,
-   "covered_fault_rate": 0.3918918918918919,
-   "gap_fault_rate": 0.9175257731958762,
-   "unrun_fault_rate": 0.3333333333333333,
-   "by_region": {
-    "function": 0.5272727272727272,
-    "statement": 0.47368421052631576,
-    "mixed": 0.6567164179104478
-   },
-   "rate_optimistic": 0.5661538461538461,
-   "rate_any_fix_test": 0.5538461538461539
-  },
-  "pytest-gremlins": {
-   "bugs": 325,
-   "available_bugs": 325,
-   "unavailable_bugs": 0,
-   "detected": 81,
-   "rate": 0.24923076923076923,
-   "rate_ci": [
-    0.18694362017804153,
-    0.3183183183183183
-   ],
-   "rate_project_mean": 0.2551553147706994,
-   "rate_leave_one_project_out": [
-    0.22580645161290322,
-    0.25806451612903225
-   ],
-   "rate_without_arrow": 0.2540192926045016,
-   "rate_conditional": 0.24923076923076923,
-   "rate_conditional_ci": [
-    0.18694362017804153,
-    0.3183183183183183
-   ],
-   "r": {
-    "1": 0.06644013122134046,
-    "5": 0.1593681715093712,
-    "10": 0.19587060581692362,
-    "25": 0.23232366135066357,
-    "50": 0.24653023919497294,
-    "100": 0.24880600954338067
-   },
-   "r10_ci": [
-    0.14375560105657986,
-    0.25516417709595346
-   ],
-   "s": {
-    "1": 0.1409941012064664,
-    "3": 0.20464468678207817,
-    "5": 0.225974310979627,
-    "10": 0.24149412355454514
-   },
-   "s3_ci": [
-    0.1544226795724126,
-    0.26014032643745544
-   ],
-   "emitted": 6515,
-   "unique": 6513,
-   "status": {
-    "survived": 1305,
-    "killed": 5196,
-    "unresolved": 12
-   },
-   "witness_mutants": 237,
-   "witness_flow": {
-    "first_witnesses": 247,
-    "unknown_confirmations": 0,
-    "unconfirmed_witnesses": 0,
-    "synthetic_witnesses": 0,
-    "feature_only_witnesses": 10,
-    "witnesses": 237
-   },
-   "unconfirmed_witnesses": 0,
-   "undecided_mutants": 12,
-   "undecided_bugs": 6,
-   "survivors_per_bug_median": 1.0,
-   "emitted_per_bug_median": 8.0,
-   "exact_fault": 1,
-   "exact_fault_applicable": 296,
-   "only_this_tool": 0,
-   "covered_fault_rate": 0.09009009009009009,
-   "gap_fault_rate": 0.6288659793814433,
-   "unrun_fault_rate": 0.0,
-   "by_region": {
-    "function": 0.25,
-    "statement": 0.10526315789473684,
-    "mixed": 0.3283582089552239
-   },
-   "rate_optimistic": 0.2676923076923077,
-   "rate_any_fix_test": 0.2553846153846154
-  },
-  "pytest-leela": {
-   "bugs": 325,
-   "available_bugs": 325,
-   "unavailable_bugs": 0,
-   "detected": 93,
-   "rate": 0.28615384615384615,
-   "rate_ci": [
-    0.21818181818181817,
-    0.359375
-   ],
-   "rate_project_mean": 0.28398247052093206,
-   "rate_leave_one_project_out": [
-    0.2645161290322581,
-    0.2967741935483871
-   ],
-   "rate_without_arrow": 0.2861736334405145,
-   "rate_conditional": 0.28615384615384615,
-   "rate_conditional_ci": [
-    0.21818181818181817,
-    0.359375
-   ],
-   "r": {
-    "1": 0.06799851234891234,
-    "5": 0.16627335438069257,
-    "10": 0.21172813922902312,
-    "25": 0.25874560922589107,
-    "50": 0.27977448129670573,
-    "100": 0.28335999444030563
-   },
-   "r10_ci": [
-    0.15759923511722757,
-    0.2701403376279603
-   ],
-   "s": {
-    "1": 0.1608252225883122,
-    "3": 0.23557970937474526,
-    "5": 0.2581919335342942,
-    "10": 0.2753928000839695
-   },
-   "s3_ci": [
-    0.1809466232153148,
-    0.29430553482811317
-   ],
-   "emitted": 7736,
-   "unique": 7552,
-   "status": {
-    "survived": 1105,
-    "killed": 6437,
-    "unresolved": 10
-   },
-   "witness_mutants": 250,
-   "witness_flow": {
-    "first_witnesses": 260,
-    "unknown_confirmations": 0,
-    "unconfirmed_witnesses": 1,
-    "synthetic_witnesses": 0,
-    "feature_only_witnesses": 9,
-    "witnesses": 250
-   },
-   "unconfirmed_witnesses": 1,
-   "undecided_mutants": 10,
-   "undecided_bugs": 6,
-   "survivors_per_bug_median": 1.0,
-   "emitted_per_bug_median": 9.0,
-   "exact_fault": 1,
-   "exact_fault_applicable": 296,
-   "only_this_tool": 0,
-   "covered_fault_rate": 0.11711711711711711,
-   "gap_fault_rate": 0.6907216494845361,
-   "unrun_fault_rate": 0.0,
-   "by_region": {
-    "function": 0.2863636363636364,
-    "statement": 0.13157894736842105,
-    "mixed": 0.373134328358209
-   },
-   "rate_optimistic": 0.3046153846153846,
-   "rate_any_fix_test": 0.2923076923076923
-  },
-  "mutation": {
-   "bugs": 325,
-   "available_bugs": 325,
-   "unavailable_bugs": 0,
-   "detected": 201,
-   "rate": 0.6184615384615385,
-   "rate_ci": [
-    0.5264900662251656,
-    0.707936507936508
-   ],
-   "rate_project_mean": 0.6007784950092643,
-   "rate_leave_one_project_out": [
-    0.603225806451613,
-    0.6387096774193548
-   ],
-   "rate_without_arrow": 0.6045016077170418,
-   "rate_conditional": 0.6184615384615385,
-   "rate_conditional_ci": [
-    0.5264900662251656,
-    0.707936507936508
-   ],
-   "r": {
-    "1": 0.04784481836654212,
-    "5": 0.14506445319773642,
-    "10": 0.21550672801253384,
-    "25": 0.32909121980799333,
-    "50": 0.4146779831112276,
-    "100": 0.49841802549235903
-   },
-   "r10_ci": [
-    0.15754817352359066,
-    0.283454238515177
-   ],
-   "s": {
-    "1": 0.1884803945655478,
-    "3": 0.33676999522908485,
-    "5": 0.4030252401417771,
-    "10": 0.4838199854041482
-   },
-   "s3_ci": [
-    0.27019721465625096,
-    0.40809179774146553
-   ],
-   "emitted": 110169,
-   "unique": 105383,
-   "status": {
-    "survived": 14286,
-    "killed": 90744,
-    "equivalent_tce": 200,
-    "unresolved": 76,
-    "invalid": 77
-   },
-   "witness_mutants": 1558,
-   "witness_flow": {
-    "first_witnesses": 1635,
-    "unknown_confirmations": 0,
-    "unconfirmed_witnesses": 14,
-    "synthetic_witnesses": 0,
-    "feature_only_witnesses": 63,
-    "witnesses": 1558
-   },
-   "unconfirmed_witnesses": 14,
-   "undecided_mutants": 77,
-   "undecided_bugs": 10,
-   "survivors_per_bug_median": 18.0,
-   "emitted_per_bug_median": 133.0,
-   "exact_fault": 2,
-   "exact_fault_applicable": 296,
-   "only_this_tool": 3,
-   "covered_fault_rate": 0.5180180180180181,
-   "gap_fault_rate": 0.8762886597938144,
-   "unrun_fault_rate": 0.16666666666666666,
-   "by_region": {
-    "function": 0.6,
-    "statement": 0.5789473684210527,
-    "mixed": 0.7014925373134329
-   },
-   "rate_optimistic": 0.6492307692307693,
-   "rate_any_fix_test": 0.6215384615384615
-  },
-  "universalmutator": {
-   "bugs": 325,
-   "available_bugs": 325,
-   "unavailable_bugs": 0,
-   "detected": 184,
-   "rate": 0.5661538461538461,
-   "rate_ci": [
-    0.48580441640378547,
-    0.6488095238095238
-   ],
-   "rate_project_mean": 0.5618748772594926,
-   "rate_leave_one_project_out": [
-    0.5483870967741935,
-    0.5819935691318328
-   ],
-   "rate_without_arrow": 0.5819935691318328,
-   "rate_conditional": 0.5661538461538461,
-   "rate_conditional_ci": [
-    0.48580441640378547,
-    0.6488095238095238
-   ],
-   "r": {
-    "1": 0.0605979066627225,
-    "5": 0.17823579967559594,
-    "10": 0.25887012543217236,
-    "25": 0.3649347457830661,
-    "50": 0.44110631004205025,
-    "100": 0.49430791016900044
-   },
-   "r10_ci": [
-    0.20310210318056723,
-    0.3191196812886259
-   ],
-   "s": {
-    "1": 0.1790905556763777,
-    "3": 0.3255132311357593,
-    "5": 0.39528770711355177,
-    "10": 0.4680001915379322
-   },
-   "s3_ci": [
-    0.26793037680726534,
-    0.38450520735222804
-   ],
-   "emitted": 48313,
-   "unique": 48313,
-   "status": {
-    "survived": 8418,
-    "killed": 39808,
-    "unresolved": 82,
-    "equivalent_tce": 5
-   },
-   "witness_mutants": 1347,
-   "witness_flow": {
-    "first_witnesses": 1388,
-    "unknown_confirmations": 0,
-    "unconfirmed_witnesses": 4,
-    "synthetic_witnesses": 0,
-    "feature_only_witnesses": 37,
-    "witnesses": 1347
-   },
-   "unconfirmed_witnesses": 4,
-   "undecided_mutants": 82,
-   "undecided_bugs": 7,
-   "survivors_per_bug_median": 11.0,
-   "emitted_per_bug_median": 56.0,
-   "exact_fault": 2,
-   "exact_fault_applicable": 296,
-   "only_this_tool": 2,
-   "covered_fault_rate": 0.42792792792792794,
-   "gap_fault_rate": 0.8969072164948454,
-   "unrun_fault_rate": 0.3333333333333333,
-   "by_region": {
-    "function": 0.5909090909090909,
-    "statement": 0.2894736842105263,
-    "mixed": 0.6417910447761194
-   },
-   "rate_optimistic": 0.5876923076923077,
-   "rate_any_fix_test": 0.5692307692307692
-  },
-  "fest": {
-   "bugs": 325,
-   "available_bugs": 325,
-   "unavailable_bugs": 0,
-   "detected": 134,
-   "rate": 0.4123076923076923,
-   "rate_ci": [
-    0.3391304347826087,
-    0.4867549668874172
-   ],
-   "rate_project_mean": 0.4110803726188342,
-   "rate_leave_one_project_out": [
-    0.3954983922829582,
-    0.42443729903536975
-   ],
-   "rate_without_arrow": 0.3954983922829582,
-   "rate_conditional": 0.4123076923076923,
-   "rate_conditional_ci": [
-    0.3391304347826087,
-    0.4867549668874172
-   ],
-   "r": {
-    "1": 0.0726709038905107,
-    "5": 0.1956873823940584,
-    "10": 0.26236677593968044,
-    "25": 0.3447196522344955,
-    "50": 0.38069981849330226,
-    "100": 0.3987156101267728
-   },
-   "r10_ci": [
-    0.20424685235356885,
-    0.324278146920821
-   ],
-   "s": {
-    "1": 0.20921122100863487,
-    "3": 0.32253928935619436,
-    "5": 0.3561037894397703,
-    "10": 0.381951357953165
-   },
-   "s3_ci": [
-    0.2605575075896762,
-    0.38760274727160626
-   ],
-   "emitted": 17638,
-   "unique": 17587,
-   "status": {
-    "survived": 4228,
-    "killed": 13025,
-    "equivalent_tce": 215,
-    "unresolved": 11,
-    "invalid": 98,
-    "noop": 10
-   },
-   "witness_mutants": 610,
-   "witness_flow": {
-    "first_witnesses": 634,
-    "unknown_confirmations": 0,
-    "unconfirmed_witnesses": 2,
-    "synthetic_witnesses": 0,
-    "feature_only_witnesses": 22,
-    "witnesses": 610
-   },
-   "unconfirmed_witnesses": 2,
-   "undecided_mutants": 11,
-   "undecided_bugs": 5,
-   "survivors_per_bug_median": 3.0,
-   "emitted_per_bug_median": 24.0,
-   "exact_fault": 1,
-   "exact_fault_applicable": 296,
-   "only_this_tool": 0,
-   "covered_fault_rate": 0.23423423423423423,
-   "gap_fault_rate": 0.8350515463917526,
-   "unrun_fault_rate": 0.16666666666666666,
-   "by_region": {
-    "function": 0.38181818181818183,
-    "statement": 0.39473684210526316,
-    "mixed": 0.5223880597014925
-   },
-   "rate_optimistic": 0.4276923076923077,
-   "rate_any_fix_test": 0.4153846153846154
-  },
-  "irradiate": {
-   "bugs": 325,
-   "available_bugs": 325,
-   "unavailable_bugs": 0,
-   "detected": 139,
-   "rate": 0.4276923076923077,
-   "rate_ci": [
-    0.33933933933933935,
-    0.5137614678899083
-   ],
-   "rate_project_mean": 0.42521901175747334,
-   "rate_leave_one_project_out": [
-    0.4096774193548387,
-    0.44516129032258067
-   ],
-   "rate_without_arrow": 0.4340836012861736,
-   "rate_conditional": 0.4276923076923077,
-   "rate_conditional_ci": [
-    0.33933933933933935,
-    0.5137614678899083
-   ],
-   "r": {
-    "1": 0.058858148121632765,
-    "5": 0.16008957038072205,
-    "10": 0.2189413111673924,
-    "25": 0.2969752285698696,
-    "50": 0.3528573055015934,
-    "100": 0.39349078968508533
-   },
-   "r10_ci": [
-    0.16014887223342567,
-    0.27983956877676747
-   ],
-   "s": {
-    "1": 0.16192365026928016,
-    "3": 0.27074742594548545,
-    "5": 0.31853101806274714,
-    "10": 0.36752114872103026
-   },
-   "s3_ci": [
-    0.20528415911583292,
-    0.3354883011900045
-   ],
-   "emitted": 38432,
-   "unique": 36076,
-   "status": {
-    "survived": 6463,
-    "killed": 29538,
-    "unresolved": 38,
-    "equivalent_tce": 36,
-    "noop": 1
-   },
-   "witness_mutants": 935,
-   "witness_flow": {
-    "first_witnesses": 959,
-    "unknown_confirmations": 0,
-    "unconfirmed_witnesses": 2,
-    "synthetic_witnesses": 0,
-    "feature_only_witnesses": 22,
-    "witnesses": 935
-   },
-   "unconfirmed_witnesses": 2,
-   "undecided_mutants": 38,
-   "undecided_bugs": 5,
-   "survivors_per_bug_median": 6.0,
-   "emitted_per_bug_median": 39.0,
-   "exact_fault": 0,
-   "exact_fault_applicable": 296,
-   "only_this_tool": 0,
-   "covered_fault_rate": 0.3063063063063063,
-   "gap_fault_rate": 0.7216494845360825,
-   "unrun_fault_rate": 0.16666666666666666,
-   "by_region": {
-    "function": 0.4681818181818182,
-    "statement": 0.10526315789473684,
-    "mixed": 0.47761194029850745
-   },
-   "rate_optimistic": 0.4430769230769231,
-   "rate_any_fix_test": 0.4338461538461538
-  },
-  "deployproof": {
-   "bugs": 325,
-   "available_bugs": 325,
-   "unavailable_bugs": 0,
-   "detected": 143,
-   "rate": 0.44,
-   "rate_ci": [
-    0.3674698795180723,
-    0.5144508670520231
-   ],
-   "rate_project_mean": 0.4405370270754886,
-   "rate_leave_one_project_out": [
-    0.4212218649517685,
-    0.45483870967741935
-   ],
-   "rate_without_arrow": 0.4212218649517685,
-   "rate_conditional": 0.44,
-   "rate_conditional_ci": [
-    0.3674698795180723,
-    0.5144508670520231
-   ],
-   "r": {
-    "1": 0.0813155800945917,
-    "5": 0.21664012147298872,
-    "10": 0.2874784945035149,
-    "25": 0.36589152469229247,
-    "50": 0.40189444074991454,
-    "100": 0.4206274104532496
-   },
-   "r10_ci": [
-    0.22908095152816427,
-    0.35359599870403896
-   ],
-   "s": {
-    "1": 0.20369127806713874,
-    "3": 0.3211175263519308,
-    "5": 0.36288990673430443,
-    "10": 0.39913087721637114
-   },
-   "s3_ci": [
-    0.2690209627308902,
-    0.3778531586690555
-   ],
-   "emitted": 17565,
-   "unique": 17562,
-   "status": {
-    "survived": 4925,
-    "killed": 12599,
-    "unresolved": 18,
-    "equivalent_tce": 20
-   },
-   "witness_mutants": 721,
-   "witness_flow": {
-    "first_witnesses": 742,
-    "unknown_confirmations": 0,
-    "unconfirmed_witnesses": 0,
-    "synthetic_witnesses": 0,
-    "feature_only_witnesses": 21,
-    "witnesses": 721
-   },
-   "unconfirmed_witnesses": 0,
-   "undecided_mutants": 18,
-   "undecided_bugs": 7,
-   "survivors_per_bug_median": 4.0,
-   "emitted_per_bug_median": 22.0,
-   "exact_fault": 0,
-   "exact_fault_applicable": 296,
-   "only_this_tool": 1,
-   "covered_fault_rate": 0.27927927927927926,
-   "gap_fault_rate": 0.8247422680412371,
-   "unrun_fault_rate": 0.16666666666666666,
-   "by_region": {
-    "function": 0.39545454545454545,
-    "statement": 0.5,
-    "mixed": 0.5522388059701493
-   },
-   "rate_optimistic": 0.46153846153846156,
-   "rate_any_fix_test": 0.4430769230769231
-  },
-  "balamut + extreme": {
-   "bugs": 325,
-   "available_bugs": 325,
-   "unavailable_bugs": 0,
-   "detected": 161,
-   "rate": 0.49538461538461537,
-   "rate_ci": [
-    0.4174174174174174,
-    0.5728155339805825
-   ],
-   "rate_project_mean": 0.4986611678919371,
-   "rate_leave_one_project_out": [
-    0.4774193548387097,
-    0.5112540192926045
-   ],
-   "rate_without_arrow": 0.4983922829581994,
-   "rate_conditional": 0.49538461538461537,
-   "rate_conditional_ci": [
-    0.4174174174174174,
-    0.5728155339805825
-   ],
-   "r": {
-    "1": 0.06990872147985176,
-    "5": 0.18721392469073309,
-    "10": 0.2654115216299484,
-    "25": 0.37144828831612825,
-    "50": 0.4298913951845175,
-    "100": 0.46659397190132024
-   },
-   "r10_ci": [
-    0.21116845429739617,
-    0.3240546561643307
-   ],
-   "s": {
-    "1": 0.21213344162757816,
-    "3": 0.3548274222594918,
-    "5": 0.407583901903953,
-    "10": 0.4521808957561098
-   },
-   "s3_ci": [
-    0.29559845925541856,
-    0.4164966670363181
-   ],
-   "emitted": 26948,
-   "unique": 26675,
-   "status": {
-    "survived": 4036,
-    "killed": 22607,
-    "unresolved": 21,
-    "invalid": 10,
-    "equivalent_tce": 1
-   },
-   "witness_mutants": 759,
-   "witness_flow": {
-    "first_witnesses": 794,
-    "unknown_confirmations": 0,
-    "unconfirmed_witnesses": 2,
-    "synthetic_witnesses": 0,
-    "feature_only_witnesses": 33,
-    "witnesses": 759
-   },
-   "unconfirmed_witnesses": 2,
-   "undecided_mutants": 21,
-   "undecided_bugs": 6,
-   "survivors_per_bug_median": 5.0,
-   "emitted_per_bug_median": 33.0,
-   "exact_fault": 3,
-   "exact_fault_applicable": 296,
-   "only_this_tool": 0,
-   "covered_fault_rate": 0.30180180180180183,
-   "gap_fault_rate": 0.9690721649484536,
-   "unrun_fault_rate": 0.0,
-   "by_region": {
-    "function": 0.5136363636363637,
-    "statement": 0.15789473684210525,
-    "mixed": 0.6268656716417911
-   },
-   "rate_optimistic": 0.5138461538461538,
-   "rate_any_fix_test": 0.5015384615384615
-  }
+ "release": {
+  "corpus": "1.0",
+  "harness": "0.2.0",
+  "results": "2026.11"
  },
- "versus_focus": [
-  {
-   "other": "mutmut",
-   "focus_only": 26,
-   "other_only": 37,
-   "p_midp": 0.1686429114397034,
-   "difference": -0.033846153846153845,
-   "difference_ci": [
-    -0.10495626822157435,
-    0.02865329512893983
-   ],
-   "both_available": {
-    "bugs": 325,
-    "projects": 26
-   },
-   "p_holm": 0.6745716457588136
+ "reliability": {
+  "existing": {
+   "median_pair_ci_width": 0.12747511786275537,
+   "pairs": 55,
+   "separable_pairs": 34,
+   "split_half_spearman": 0.8073394495412844
   },
-  {
-   "other": "cosmic-ray",
-   "focus_only": 27,
-   "other_only": 35,
-   "p_midp": 0.31350305329645284,
-   "difference": -0.024615384615384615,
-   "difference_ci": [
-    -0.08083832335329341,
-    0.027700831024930747
-   ],
-   "both_available": {
-    "bugs": 325,
-    "projects": 26
-   },
-   "p_holm": 0.9405091598893585
+  "fixed": {
+   "median_pair_ci_width": 0.1425664130943441,
+   "pairs": 55,
+   "separable_pairs": 37,
+   "split_half_spearman": 0.8242009132420092
   },
-  {
-   "other": "poodle",
-   "focus_only": 9,
-   "other_only": 56,
-   "p_midp": 1.1827848105236058e-09,
-   "difference": -0.14461538461538462,
-   "difference_ci": [
-    -0.20860927152317882,
-    -0.08771929824561403
-   ],
-   "both_available": {
-    "bugs": 325,
-    "projects": 26
-   },
-   "p_holm": 8.27949367366524e-09
+  "prefix": {
+   "median_pair_ci_width": 0.10180276739762269,
+   "pairs": 55,
+   "separable_pairs": 33,
+   "split_half_spearman": 0.7144639630267862
   },
-  {
-   "other": "pytest-gremlins",
-   "focus_only": 52,
-   "other_only": 2,
-   "p_midp": 8.554268404736831e-14,
-   "difference": 0.15384615384615385,
-   "difference_ci": [
-    0.10725552050473186,
-    0.19661016949152543
-   ],
-   "both_available": {
-    "bugs": 325,
-    "projects": 26
-   },
-   "p_holm": 8.554268404736831e-13
+  "r1": {
+   "median_pair_ci_width": 0.02509243398019183,
+   "pairs": 55,
+   "separable_pairs": 6,
+   "split_half_spearman": -0.10909090909090909
   },
-  {
-   "other": "pytest-leela",
-   "focus_only": 43,
-   "other_only": 5,
-   "p_midp": 7.59715845788378e-09,
-   "difference": 0.11692307692307692,
-   "difference_ci": [
-    0.0748502994011976,
-    0.1597222222222222
-   ],
-   "both_available": {
-    "bugs": 325,
-    "projects": 26
-   },
-   "p_holm": 4.5582950747302675e-08
+  "r10": {
+   "median_pair_ci_width": 0.06588143318412083,
+   "pairs": 55,
+   "separable_pairs": 10,
+   "split_half_spearman": 0.1
   },
-  {
-   "other": "mutation",
-   "focus_only": 14,
-   "other_only": 84,
-   "p_midp": 1.4279916347173858e-13,
-   "difference": -0.2153846153846154,
-   "difference_ci": [
-    -0.29605263157894735,
-    -0.1382636655948553
-   ],
-   "both_available": {
-    "bugs": 325,
-    "projects": 26
-   },
-   "p_holm": 1.2851924712456472e-12
+  "s1": {
+   "median_pair_ci_width": 0.05083416937146103,
+   "pairs": 55,
+   "separable_pairs": 5,
+   "split_half_spearman": -0.03636363636363636
   },
-  {
-   "other": "universalmutator",
-   "focus_only": 12,
-   "other_only": 65,
-   "p_midp": 3.485851300097458e-10,
-   "difference": -0.16307692307692306,
-   "difference_ci": [
-    -0.2297734627831715,
-    -0.09846153846153846
-   ],
-   "both_available": {
-    "bugs": 325,
-    "projects": 26
-   },
-   "p_holm": 2.7886810400779663e-09
+  "s3": {
+   "median_pair_ci_width": 0.07840224683349513,
+   "pairs": 55,
+   "separable_pairs": 15,
+   "split_half_spearman": 0.3
   },
-  {
-   "other": "fest",
-   "focus_only": 26,
-   "other_only": 29,
-   "p_midp": 0.6888797607233396,
-   "difference": -0.009230769230769232,
-   "difference_ci": [
-    -0.08360128617363344,
-    0.05952380952380952
-   ],
-   "both_available": {
-    "bugs": 325,
-    "projects": 26
-   },
-   "p_holm": 0.9405091598893585
+  "unchanged": {
+   "median_pair_ci_width": 0.08850483475248952,
+   "pairs": 55,
+   "separable_pairs": 31,
+   "split_half_spearman": 0.7542931876360282
   },
-  {
-   "other": "irradiate",
-   "focus_only": 38,
-   "other_only": 46,
-   "p_midp": 0.38566942011927957,
-   "difference": -0.024615384615384615,
-   "difference_ci": [
-    -0.10355029585798817,
-    0.05982905982905983
-   ],
-   "both_available": {
-    "bugs": 325,
-    "projects": 26
-   },
-   "p_holm": 0.9405091598893585
-  },
-  {
-   "other": "deployproof",
-   "focus_only": 22,
-   "other_only": 34,
-   "p_midp": 0.11116111910399348,
-   "difference": -0.036923076923076927,
-   "difference_ci": [
-    -0.11078717201166181,
-    0.026470588235294117
-   ],
-   "both_available": {
-    "bugs": 325,
-    "projects": 26
-   },
-   "p_holm": 0.5558055955199674
+  "unchanged_executed": {
+   "median_pair_ci_width": 0.059954152706753666,
+   "pairs": 55,
+   "separable_pairs": 37,
+   "split_half_spearman": 0.894174950096335
   }
- ],
- "overlap": {
-  "labels": [
-   "balamut",
-   "mutmut",
-   "cosmic-ray",
-   "poodle",
-   "pytest-gremlins",
-   "pytest-leela",
-   "mutation",
-   "universalmutator",
-   "fest",
-   "irradiate",
-   "deployproof"
-  ],
-  "values": [
-   [
-    0,
-    26,
-    27,
-    9,
-    52,
-    43,
-    14,
-    12,
-    26,
-    38,
-    22
-   ],
-   [
-    37,
-    0,
-    42,
-    18,
-    78,
-    69,
-    11,
-    15,
-    42,
-    26,
-    40
-   ],
-   [
-    35,
-    39,
-    0,
-    16,
-    65,
-    54,
-    14,
-    9,
-    36,
-    49,
-    37
-   ],
-   [
-    56,
-    54,
-    55,
-    0,
-    98,
-    87,
-    16,
-    23,
-    47,
-    60,
-    37
-   ],
-   [
-    2,
-    17,
-    7,
-    1,
-    0,
-    10,
-    9,
-    4,
-    7,
-    25,
-    5
-   ],
-   [
-    5,
-    20,
-    8,
-    2,
-    22,
-    0,
-    8,
-    5,
-    7,
-    28,
-    7
-   ],
-   [
-    84,
-    70,
-    76,
-    39,
-    129,
-    116,
-    0,
-    34,
-    79,
-    72,
-    70
-   ],
-   [
-    65,
-    57,
-    54,
-    29,
-    107,
-    96,
-    17,
-    0,
-    64,
-    61,
-    62
-   ],
-   [
-    29,
-    34,
-    31,
-    3,
-    60,
-    48,
-    12,
-    14,
-    0,
-    43,
-    12
-   ],
-   [
-    46,
-    23,
-    49,
-    21,
-    83,
-    74,
-    10,
-    16,
-    48,
-    0,
-    47
-   ],
-   [
-    34,
-    41,
-    41,
-    2,
-    67,
-    57,
-    12,
-    21,
-    21,
-    51,
-    0
-   ]
-  ]
- },
- "union_rate": 0.6953846153846154,
- "coverage_guided_rate": 0.31076923076923074,
- "fault_covered_by_old": 222,
- "fault_coverage_gap": 97,
- "fault_lines_unrun": 6,
- "region_kinds": {
-  "statement": 38,
-  "mixed": 67,
-  "function": 220
  },
  "repair_shapes": {
   "modification": 273,
   "pure_addition": 52
  },
- "fault_classes": {
-  "wrong_literal_or_constant": 19,
-  "string_format_or_regex": 61,
-  "missing_or_wrong_condition": 91,
-  "missing_statement_or_call": 19,
-  "call_arguments_or_api_use": 32,
-  "type_or_none_handling": 32,
-  "exception_handling": 15,
-  "wrong_variable_or_value": 15,
-  "other": 4,
-  "comparison_or_boundary": 6,
-  "algorithm_or_data_structure": 19,
-  "wrong_return_value": 7,
-  "arithmetic_or_operator": 5
+ "selection_incomplete_accepted": [],
+ "statistics": {
+  "clusters": 26,
+  "interval": "percentile bootstrap over projects, pointwise 95%",
+  "minimum_detectable_difference": 0.050901383698811344,
+  "paired_test": "two-sided bootstrap p-value of the paired difference, Holm over all pairs",
+  "replicates": 10000,
+  "seed": 20261105
  },
- "by_fault_class": {
-  "algorithm_or_data_structure": {
-   "balamut": 0.5263157894736842,
-   "mutmut": 0.47368421052631576,
-   "cosmic-ray": 0.47368421052631576,
-   "poodle": 0.5263157894736842,
-   "pytest-gremlins": 0.42105263157894735,
-   "pytest-leela": 0.42105263157894735,
-   "mutation": 0.5263157894736842,
-   "universalmutator": 0.5263157894736842,
-   "fest": 0.47368421052631576,
-   "irradiate": 0.3157894736842105,
-   "deployproof": 0.5263157894736842
+ "strata_sizes": {
+  "ai_marker": {
+   "AI marker": 27,
+   "no marker": 298
   },
-  "arithmetic_or_operator": {
-   "balamut": 0.4,
-   "mutmut": 0.4,
-   "cosmic-ray": 0.6,
-   "poodle": 0.6,
-   "pytest-gremlins": 0.2,
-   "pytest-leela": 0.4,
-   "mutation": 0.8,
-   "universalmutator": 0.8,
-   "fest": 0.2,
-   "irradiate": 0.6,
-   "deployproof": 0.4
+  "composition": {
+   "insertion": 52,
+   "mixed": 110,
+   "rewrite": 163
   },
-  "call_arguments_or_api_use": {
-   "balamut": 0.375,
-   "mutmut": 0.5,
-   "cosmic-ray": 0.28125,
-   "poodle": 0.34375,
-   "pytest-gremlins": 0.125,
-   "pytest-leela": 0.15625,
-   "mutation": 0.5625,
-   "universalmutator": 0.53125,
-   "fest": 0.3125,
-   "irradiate": 0.4375,
-   "deployproof": 0.28125
+  "coverage": {
+   "covered": 222,
+   "gap": 97,
+   "unrun": 6
   },
-  "comparison_or_boundary": {
-   "balamut": 0.6666666666666666,
-   "mutmut": 0.6666666666666666,
-   "cosmic-ray": 0.8333333333333334,
-   "poodle": 0.5,
-   "pytest-gremlins": 0.5,
-   "pytest-leela": 0.3333333333333333,
-   "mutation": 0.6666666666666666,
-   "universalmutator": 0.6666666666666666,
-   "fest": 0.16666666666666666,
-   "irradiate": 0.3333333333333333,
-   "deployproof": 0.16666666666666666
+  "period": {
+   "2021\u20132025": 112,
+   "2026 January\u2013June": 48,
+   "2026 July\u2013November": 165
   },
-  "exception_handling": {
-   "balamut": 0.3333333333333333,
-   "mutmut": 0.2,
-   "cosmic-ray": 0.4666666666666667,
-   "poodle": 0.3333333333333333,
-   "pytest-gremlins": 0.2,
-   "pytest-leela": 0.2,
-   "mutation": 0.4,
-   "universalmutator": 0.4666666666666667,
-   "fest": 0.4,
-   "irradiate": 0.26666666666666666,
-   "deployproof": 0.3333333333333333
+  "region": {
+   "function": 220,
+   "mixed": 67,
+   "statement": 38
   },
-  "missing_or_wrong_condition": {
-   "balamut": 0.5494505494505495,
-   "mutmut": 0.6043956043956044,
-   "cosmic-ray": 0.6593406593406593,
-   "poodle": 0.7032967032967034,
-   "pytest-gremlins": 0.4065934065934066,
-   "pytest-leela": 0.4725274725274725,
-   "mutation": 0.8021978021978022,
-   "universalmutator": 0.7802197802197802,
-   "fest": 0.5824175824175825,
-   "irradiate": 0.6263736263736264,
-   "deployproof": 0.5824175824175825
-  },
-  "missing_statement_or_call": {
-   "balamut": 0.631578947368421,
-   "mutmut": 0.5789473684210527,
-   "cosmic-ray": 0.5263157894736842,
-   "poodle": 0.7368421052631579,
-   "pytest-gremlins": 0.15789473684210525,
-   "pytest-leela": 0.2631578947368421,
-   "mutation": 0.7894736842105263,
-   "universalmutator": 0.6842105263157895,
-   "fest": 0.5789473684210527,
-   "irradiate": 0.631578947368421,
-   "deployproof": 0.5263157894736842
-  },
-  "other": {
-   "balamut": 0.0,
-   "mutmut": 0.0,
-   "cosmic-ray": 0.0,
-   "poodle": 0.25,
-   "pytest-gremlins": 0.0,
-   "pytest-leela": 0.0,
-   "mutation": 0.25,
-   "universalmutator": 0.25,
-   "fest": 0.0,
-   "irradiate": 0.0,
-   "deployproof": 0.25
-  },
-  "string_format_or_regex": {
-   "balamut": 0.2459016393442623,
-   "mutmut": 0.26229508196721313,
-   "cosmic-ray": 0.22950819672131148,
-   "poodle": 0.4098360655737705,
-   "pytest-gremlins": 0.13114754098360656,
-   "pytest-leela": 0.14754098360655737,
-   "mutation": 0.4098360655737705,
-   "universalmutator": 0.32786885245901637,
-   "fest": 0.26229508196721313,
-   "irradiate": 0.19672131147540983,
-   "deployproof": 0.3770491803278688
-  },
-  "type_or_none_handling": {
-   "balamut": 0.3125,
-   "mutmut": 0.5,
-   "cosmic-ray": 0.3125,
-   "poodle": 0.5625,
-   "pytest-gremlins": 0.21875,
-   "pytest-leela": 0.1875,
-   "mutation": 0.625,
-   "universalmutator": 0.625,
-   "fest": 0.25,
-   "irradiate": 0.625,
-   "deployproof": 0.21875
-  },
-  "wrong_literal_or_constant": {
-   "balamut": 0.3157894736842105,
-   "mutmut": 0.21052631578947367,
-   "cosmic-ray": 0.3157894736842105,
-   "poodle": 0.7894736842105263,
-   "pytest-gremlins": 0.21052631578947367,
-   "pytest-leela": 0.3157894736842105,
-   "mutation": 0.8421052631578947,
-   "universalmutator": 0.42105263157894735,
-   "fest": 0.7894736842105263,
-   "irradiate": 0.21052631578947367,
-   "deployproof": 0.8421052631578947
-  },
-  "wrong_return_value": {
-   "balamut": 0.42857142857142855,
-   "mutmut": 0.14285714285714285,
-   "cosmic-ray": 0.42857142857142855,
-   "poodle": 0.42857142857142855,
-   "pytest-gremlins": 0.42857142857142855,
-   "pytest-leela": 0.42857142857142855,
-   "mutation": 0.2857142857142857,
-   "universalmutator": 0.42857142857142855,
-   "fest": 0.42857142857142855,
-   "irradiate": 0.0,
-   "deployproof": 0.42857142857142855
-  },
-  "wrong_variable_or_value": {
-   "balamut": 0.13333333333333333,
-   "mutmut": 0.3333333333333333,
-   "cosmic-ray": 0.2,
-   "poodle": 0.4,
-   "pytest-gremlins": 0.0,
-   "pytest-leela": 0.06666666666666667,
-   "mutation": 0.4666666666666667,
-   "universalmutator": 0.4,
-   "fest": 0.06666666666666667,
-   "irradiate": 0.3333333333333333,
-   "deployproof": 0.2
+  "size": {
+   "13 or more lines": 64,
+   "1\u20134 lines": 151,
+   "5\u201312 lines": 110
   }
  },
- "unresolved_mutants": 180,
- "oracle_sensitivity": {
-  "seed": 20261105,
-  "population": 157058,
-  "sampled": 1000,
-  "bugs": 207,
-  "full_suite": {
-   "killed": 998,
-   "unresolved": 2
-  },
-  "by_first_stage": {
-   "killer": {
-    "killed": 879,
-    "unresolved": 2
+ "tools": {
+  "balamut": {
+   "available_bugs": 325,
+   "best_class": {
+    "inserted": 52,
+    "rewritten": 54,
+    "unchanged": 25
    },
-   "subset": {
-    "killed": 119
-   }
-  },
-  "agreement": 1.0,
-  "killed_of_sampled": 0.998,
-  "discordant": [
-   {
-    "bug": "cattrs@02c3ead21d62",
-    "aid": "a6624c9b02070acfd0f498cb",
-    "first_stage": "killer",
-    "first_killed_by": [
-     "tests/preconf/test_pyyaml.py::test_pyyaml"
-    ],
-    "full_suite": "unresolved",
-    "reason": "<external-kill>",
-    "tools": [
-     "mutation"
-    ],
-    "fault_tests_red": []
+   "best_execution": {
+    "import": 5,
+    "never": 42,
+    "test": 84
    },
-   {
-    "bug": "portion@fc83f86848ea",
-    "aid": "a4a7a7060a4893faa8627fc9",
-    "first_stage": "killer",
-    "first_killed_by": [
-     "tests/test_doc.py::test_readme"
+   "bugs": 325,
+   "detection": {
+    "existing": {
+     "bugs": 79,
+     "ci": [
+      0.17647058823529413,
+      0.31790123456790126
+     ],
+     "rank": [
+      6,
+      9
+     ],
+     "rate": 0.24307692307692308
+    },
+    "fixed": {
+     "bugs": 131,
+     "ci": [
+      0.33125,
+      0.48
+     ],
+     "rank": [
+      6,
+      9
+     ],
+     "rate": 0.40307692307692305
+    },
+    "prefix": {
+     "bugs": 37,
+     "ci": [
+      0.06666666666666667,
+      0.1641337386018237
+     ],
+     "rank": [
+      6,
+      9
+     ],
+     "rate": 0.11384615384615385
+    },
+    "prefix_tested": {
+     "bugs": 23,
+     "ci": [
+      0.037037037037037035,
+      0.10876132930513595
+     ],
+     "rank": [
+      6,
+      9
+     ],
+     "rate": 0.07076923076923076
+    },
+    "tested": {
+     "bugs": 84,
+     "ci": [
+      0.1986970684039088,
+      0.3238095238095238
+     ],
+     "rank": [
+      7,
+      9
+     ],
+     "rate": 0.25846153846153846
+    },
+    "unchanged": {
+     "bugs": 25,
+     "ci": [
+      0.037383177570093455,
+      0.12037037037037036
+     ],
+     "rank": [
+      8,
+      10
+     ],
+     "rate": 0.07692307692307693
+    },
+    "unchanged_executed": {
+     "bugs": 14,
+     "ci": [
+      0.018292682926829267,
+      0.07165109034267912
+     ],
+     "rank": [
+      7,
+      10
+     ],
+     "rate": 0.043076923076923075
+    }
+   },
+   "emitted": 19945,
+   "emitted_per_bug_median": 24.0,
+   "exact_fault": 3,
+   "exact_fault_applicable": 296,
+   "only_this_tool": 0,
+   "prefix_undecided_bugs": 0,
+   "prefix_undecided_witnesses": 0,
+   "prefix_witness_mutants": 198,
+   "r": {
+    "1": 0.022824830301785098,
+    "5": 0.04981384111283194,
+    "10": 0.06566153732515413,
+    "25": 0.0896287618972964,
+    "50": 0.10294903533665094,
+    "100": 0.11206386075691044
+   },
+   "r10_ci": [
+    0.03432127653220192,
+    0.1005571621645661
+   ],
+   "r_fixed": {
+    "1": 0.07061354377451785,
+    "5": 0.17507802856041282,
+    "10": 0.23605917367060045,
+    "25": 0.32186398187568627,
+    "50": 0.3695011034351835,
+    "100": 0.39289673496013194
+   },
+   "ranks": {
+    "r1": [
+     1,
+     8
     ],
-    "full_suite": "unresolved",
-    "reason": "<external-kill>",
-    "tools": [
-     "universalmutator"
+    "r10": [
+     3,
+     10
     ],
-    "fault_tests_red": []
-   }
-  ]
+    "r10_fixed": [
+     4,
+     9
+    ],
+    "s1": [
+     2,
+     10
+    ],
+    "s3": [
+     2,
+     9
+    ],
+    "s3_fixed": [
+     3,
+     8
+    ]
+   },
+   "rate_any_fix_test": 0.4123076923076923,
+   "rate_ci_bca": [
+    0.0707070707070707,
+    0.17096774193548386
+   ],
+   "rate_conditional": 0.11384615384615385,
+   "rate_conditional_ci": [
+    0.06666666666666667,
+    0.1641337386018237
+   ],
+   "rate_leave_one_project_out": [
+    0.1,
+    0.11935483870967742
+   ],
+   "rate_optimistic": 0.13846153846153847,
+   "rate_project_mean": 0.10612720612720612,
+   "rate_without_arrow": 0.1157556270096463,
+   "s": {
+    "1": 0.03852008928166011,
+    "3": 0.07090580876330757,
+    "5": 0.08790279187747788,
+    "10": 0.10519414152450884
+   },
+   "s3_ci": [
+    0.04000255851138653,
+    0.1047485845023329
+   ],
+   "s_executed": {
+    "1": 0.02837059044467641,
+    "3": 0.05188868417133946,
+    "5": 0.06283499684717365,
+    "10": 0.06906622850580522
+   },
+   "s_fixed": {
+    "1": 0.18405416269245048,
+    "3": 0.3009495917547658,
+    "5": 0.3419656757168901,
+    "10": 0.37975996504275317
+   },
+   "s_lines": {
+    "1": 0.045765268919115074,
+    "3": 0.08572169383723584,
+    "5": 0.10134583350066333,
+    "10": 0.10980827696992002
+   },
+   "status": {
+    "invalid": 2,
+    "killed": 16666,
+    "survived": 2999,
+    "unresolved": 13
+   },
+   "strata": {
+    "ai_marker": {
+     "AI marker": 0.07407407407407407,
+     "no marker": 0.1174496644295302
+    },
+    "composition": {
+     "insertion": 0.09615384615384616,
+     "mixed": 0.12727272727272726,
+     "rewrite": 0.11042944785276074
+    },
+    "coverage": {
+     "covered": 0.08558558558558559,
+     "gap": 0.18556701030927836,
+     "unrun": 0.0
+    },
+    "period": {
+     "2021\u20132025": 0.08035714285714286,
+     "2026 January\u2013June": 0.14583333333333334,
+     "2026 July\u2013November": 0.12727272727272726
+    },
+    "region": {
+     "function": 0.11363636363636363,
+     "mixed": 0.16417910447761194,
+     "statement": 0.02631578947368421
+    },
+    "size": {
+     "13 or more lines": 0.171875,
+     "1\u20134 lines": 0.0728476821192053,
+     "5\u201312 lines": 0.13636363636363635
+    }
+   },
+   "survivors_per_bug_median": 3.0,
+   "unavailable_bugs": 0,
+   "undecided_bugs": 5,
+   "undecided_mutants": 13,
+   "unique": 19680,
+   "unmaterializable": 0,
+   "witness_classes": {
+    "inserted": 176,
+    "rewritten": 189,
+    "unchanged": 165
+   },
+   "witness_execution": {
+    "import": 19,
+    "never": 318,
+    "test": 193
+   },
+   "witness_flow": {
+    "feature_only_witnesses": 27,
+    "first_witnesses": 558,
+    "synthetic_witnesses": 0,
+    "unconfirmed_witnesses": 1,
+    "unknown_confirmations": 0,
+    "witnesses": 530
+   },
+   "witness_mutants": 530
+  },
+  "cosmic-ray": {
+   "available_bugs": 325,
+   "best_class": {
+    "inserted": 48,
+    "rewritten": 53,
+    "unchanged": 38
+   },
+   "best_execution": {
+    "import": 8,
+    "never": 23,
+    "test": 108
+   },
+   "bugs": 325,
+   "detection": {
+    "existing": {
+     "bugs": 91,
+     "ci": [
+      0.20748299319727892,
+      0.36227544910179643
+     ],
+     "rank": [
+      3,
+      8
+     ],
+     "rate": 0.28
+    },
+    "fixed": {
+     "bugs": 139,
+     "ci": [
+      0.35755813953488375,
+      0.5047923322683706
+     ],
+     "rank": [
+      4,
+      9
+     ],
+     "rate": 0.4276923076923077
+    },
+    "prefix": {
+     "bugs": 46,
+     "ci": [
+      0.09,
+      0.20205479452054795
+     ],
+     "rank": [
+      3,
+      9
+     ],
+     "rate": 0.14153846153846153
+    },
+    "prefix_tested": {
+     "bugs": 33,
+     "ci": [
+      0.05625,
+      0.1532033426183844
+     ],
+     "rank": [
+      3,
+      8
+     ],
+     "rate": 0.10153846153846154
+    },
+    "tested": {
+     "bugs": 108,
+     "ci": [
+      0.2619047619047619,
+      0.40822784810126583
+     ],
+     "rank": [
+      4,
+      6
+     ],
+     "rate": 0.3323076923076923
+    },
+    "unchanged": {
+     "bugs": 38,
+     "ci": [
+      0.0701219512195122,
+      0.17261904761904762
+     ],
+     "rank": [
+      3,
+      8
+     ],
+     "rate": 0.11692307692307692
+    },
+    "unchanged_executed": {
+     "bugs": 27,
+     "ci": [
+      0.0440771349862259,
+      0.1289308176100629
+     ],
+     "rank": [
+      3,
+      7
+     ],
+     "rate": 0.08307692307692308
+    }
+   },
+   "emitted": 35586,
+   "emitted_per_bug_median": 40.0,
+   "exact_fault": 2,
+   "exact_fault_applicable": 296,
+   "only_this_tool": 1,
+   "prefix_undecided_bugs": 0,
+   "prefix_undecided_witnesses": 0,
+   "prefix_witness_mutants": 680,
+   "r": {
+    "1": 0.025065451193250477,
+    "5": 0.05477597772799478,
+    "10": 0.07531629268368653,
+    "25": 0.10402813180107584,
+    "50": 0.12405649260040302,
+    "100": 0.1335862698354951
+   },
+   "r10_ci": [
+    0.043544403771421804,
+    0.11379040522916074
+   ],
+   "r_fixed": {
+    "1": 0.07262651259843186,
+    "5": 0.16780732592855727,
+    "10": 0.2223928786876737,
+    "25": 0.3010440235574918,
+    "50": 0.35418617937279895,
+    "100": 0.3919686054757167
+   },
+   "ranks": {
+    "r1": [
+     1,
+     8
+    ],
+    "r10": [
+     1,
+     9
+    ],
+    "r10_fixed": [
+     5,
+     11
+    ],
+    "s1": [
+     1,
+     10
+    ],
+    "s3": [
+     1,
+     9
+    ],
+    "s3_fixed": [
+     7,
+     10
+    ]
+   },
+   "rate_any_fix_test": 0.4338461538461538,
+   "rate_ci_bca": [
+    0.09815950920245399,
+    0.22118380062305296
+   ],
+   "rate_conditional": 0.14153846153846153,
+   "rate_conditional_ci": [
+    0.09,
+    0.20205479452054795
+   ],
+   "rate_leave_one_project_out": [
+    0.11935483870967742,
+    0.14838709677419354
+   ],
+   "rate_optimistic": 0.1723076923076923,
+   "rate_project_mean": 0.1316696124388432,
+   "rate_without_arrow": 0.1414790996784566,
+   "s": {
+    "1": 0.04080034273443964,
+    "3": 0.07337038667553504,
+    "5": 0.0899573150150954,
+    "10": 0.11091325707884214
+   },
+   "s3_ci": [
+    0.043701600340033495,
+    0.10876907166188696
+   ],
+   "s_executed": {
+    "1": 0.030256821489953536,
+    "3": 0.058797204856212815,
+    "5": 0.07209604769809422,
+    "10": 0.08913855694879093
+   },
+   "s_fixed": {
+    "1": 0.1571064031006323,
+    "3": 0.25998109843956024,
+    "5": 0.3008006983632327,
+    "10": 0.35274934088809984
+   },
+   "s_lines": {
+    "1": 0.05745234602868072,
+    "3": 0.10406129317368135,
+    "5": 0.12017205647696447,
+    "10": 0.13295519895441196
+   },
+   "status": {
+    "equivalent_tce": 22,
+    "invalid": 351,
+    "killed": 27203,
+    "survived": 7987,
+    "unresolved": 22
+   },
+   "strata": {
+    "ai_marker": {
+     "AI marker": 0.037037037037037035,
+     "no marker": 0.15100671140939598
+    },
+    "composition": {
+     "insertion": 0.09615384615384616,
+     "mixed": 0.2,
+     "rewrite": 0.1165644171779141
+    },
+    "coverage": {
+     "covered": 0.0945945945945946,
+     "gap": 0.25773195876288657,
+     "unrun": 0.0
+    },
+    "period": {
+     "2021\u20132025": 0.10714285714285714,
+     "2026 January\u2013June": 0.125,
+     "2026 July\u2013November": 0.1696969696969697
+    },
+    "region": {
+     "function": 0.13636363636363635,
+     "mixed": 0.208955223880597,
+     "statement": 0.05263157894736842
+    },
+    "size": {
+     "13 or more lines": 0.203125,
+     "1\u20134 lines": 0.10596026490066225,
+     "5\u201312 lines": 0.15454545454545454
+    }
+   },
+   "survivors_per_bug_median": 8.0,
+   "unavailable_bugs": 0,
+   "undecided_bugs": 6,
+   "undecided_mutants": 24,
+   "unique": 35585,
+   "unmaterializable": 1,
+   "witness_classes": {
+    "inserted": 297,
+    "rewritten": 312,
+    "unchanged": 593
+   },
+   "witness_execution": {
+    "import": 66,
+    "never": 667,
+    "test": 469
+   },
+   "witness_flow": {
+    "feature_only_witnesses": 18,
+    "first_witnesses": 1229,
+    "synthetic_witnesses": 0,
+    "unconfirmed_witnesses": 9,
+    "unknown_confirmations": 0,
+    "witnesses": 1202
+   },
+   "witness_mutants": 1202
+  },
+  "deployproof": {
+   "available_bugs": 325,
+   "best_class": {
+    "inserted": 59,
+    "rewritten": 46,
+    "unchanged": 38
+   },
+   "best_execution": {
+    "import": 26,
+    "never": 31,
+    "test": 86
+   },
+   "bugs": 325,
+   "detection": {
+    "existing": {
+     "bugs": 84,
+     "ci": [
+      0.19169329073482427,
+      0.33544303797468356
+     ],
+     "rank": [
+      4,
+      9
+     ],
+     "rate": 0.25846153846153846
+    },
+    "fixed": {
+     "bugs": 143,
+     "ci": [
+      0.3674698795180723,
+      0.5144508670520231
+     ],
+     "rank": [
+      4,
+      8
+     ],
+     "rate": 0.44
+    },
+    "prefix": {
+     "bugs": 46,
+     "ci": [
+      0.08360128617363344,
+      0.21114369501466276
+     ],
+     "rank": [
+      3,
+      8
+     ],
+     "rate": 0.14153846153846153
+    },
+    "prefix_tested": {
+     "bugs": 22,
+     "ci": [
+      0.03571428571428571,
+      0.1076923076923077
+     ],
+     "rank": [
+      6,
+      9
+     ],
+     "rate": 0.06769230769230769
+    },
+    "tested": {
+     "bugs": 86,
+     "ci": [
+      0.21021021021021022,
+      0.32087227414330216
+     ],
+     "rank": [
+      7,
+      9
+     ],
+     "rate": 0.26461538461538464
+    },
+    "unchanged": {
+     "bugs": 38,
+     "ci": [
+      0.06,
+      0.1834862385321101
+     ],
+     "rank": [
+      3,
+      8
+     ],
+     "rate": 0.11692307692307692
+    },
+    "unchanged_executed": {
+     "bugs": 17,
+     "ci": [
+      0.023952095808383235,
+      0.0880503144654088
+     ],
+     "rank": [
+      6,
+      10
+     ],
+     "rate": 0.052307692307692305
+    }
+   },
+   "emitted": 16897,
+   "emitted_per_bug_median": 21.0,
+   "exact_fault": 0,
+   "exact_fault_applicable": 296,
+   "only_this_tool": 0,
+   "prefix_undecided_bugs": 0,
+   "prefix_undecided_witnesses": 0,
+   "prefix_witness_mutants": 373,
+   "r": {
+    "1": 0.031690765446028876,
+    "5": 0.0719989328990664,
+    "10": 0.09250825244730392,
+    "25": 0.11876727148367201,
+    "50": 0.12833214631497697,
+    "100": 0.13563396210430897
+   },
+   "r10_ci": [
+    0.049430150792200235,
+    0.15066220558564658
+   ],
+   "r_fixed": {
+    "1": 0.08502158004407087,
+    "5": 0.22188359820071993,
+    "10": 0.29129094390275456,
+    "25": 0.36794373978381945,
+    "50": 0.40356780195654035,
+    "100": 0.4221952352778105
+   },
+   "ranks": {
+    "r1": [
+     1,
+     9
+    ],
+    "r10": [
+     1,
+     8
+    ],
+    "r10_fixed": [
+     1,
+     3
+    ],
+    "s1": [
+     1,
+     9
+    ],
+    "s3": [
+     1,
+     8
+    ],
+    "s3_fixed": [
+     2,
+     7
+    ]
+   },
+   "rate_any_fix_test": 0.4430769230769231,
+   "rate_ci_bca": [
+    0.09144542772861357,
+    0.22658610271903323
+   ],
+   "rate_conditional": 0.14153846153846153,
+   "rate_conditional_ci": [
+    0.08360128617363344,
+    0.21114369501466276
+   ],
+   "rate_leave_one_project_out": [
+    0.1189710610932476,
+    0.14790996784565916
+   ],
+   "rate_optimistic": 0.16307692307692306,
+   "rate_project_mean": 0.13205960705960706,
+   "rate_without_arrow": 0.1189710610932476,
+   "s": {
+    "1": 0.0529455280518113,
+    "3": 0.09386230102236764,
+    "5": 0.1110680212261647,
+    "10": 0.12484062715930733
+   },
+   "s3_ci": [
+    0.05262617490133937,
+    0.14685243149960472
+   ],
+   "s_executed": {
+    "1": 0.0515743995679639,
+    "3": 0.08452706514796512,
+    "5": 0.0934280249632975,
+    "10": 0.10024960651609016
+   },
+   "s_fixed": {
+    "1": 0.20943141803760787,
+    "3": 0.3299604518056788,
+    "5": 0.3719763138009278,
+    "10": 0.4050576137378128
+   },
+   "s_lines": {
+    "1": 0.058340839677789955,
+    "3": 0.10215313316337231,
+    "5": 0.11898309792042384,
+    "10": 0.13065902215411446
+   },
+   "status": {
+    "equivalent_tce": 20,
+    "killed": 12264,
+    "survived": 4597,
+    "unresolved": 13
+   },
+   "strata": {
+    "ai_marker": {
+     "AI marker": 0.07407407407407407,
+     "no marker": 0.1476510067114094
+    },
+    "composition": {
+     "insertion": 0.11538461538461539,
+     "mixed": 0.18181818181818182,
+     "rewrite": 0.12269938650306748
+    },
+    "coverage": {
+     "covered": 0.11711711711711711,
+     "gap": 0.1958762886597938,
+     "unrun": 0.16666666666666666
+    },
+    "period": {
+     "2021\u20132025": 0.16964285714285715,
+     "2026 January\u2013June": 0.10416666666666667,
+     "2026 July\u2013November": 0.13333333333333333
+    },
+    "region": {
+     "function": 0.11363636363636363,
+     "mixed": 0.16417910447761194,
+     "statement": 0.2631578947368421
+    },
+    "size": {
+     "13 or more lines": 0.140625,
+     "1\u20134 lines": 0.10596026490066225,
+     "5\u201312 lines": 0.19090909090909092
+    }
+   },
+   "survivors_per_bug_median": 4.0,
+   "unavailable_bugs": 0,
+   "undecided_bugs": 6,
+   "undecided_mutants": 13,
+   "unique": 16894,
+   "unmaterializable": 2,
+   "witness_classes": {
+    "inserted": 202,
+    "rewritten": 205,
+    "unchanged": 313
+   },
+   "witness_execution": {
+    "import": 264,
+    "never": 259,
+    "test": 197
+   },
+   "witness_flow": {
+    "feature_only_witnesses": 21,
+    "first_witnesses": 741,
+    "synthetic_witnesses": 0,
+    "unconfirmed_witnesses": 0,
+    "unknown_confirmations": 0,
+    "witnesses": 720
+   },
+   "witness_mutants": 720
+  },
+  "fest": {
+   "available_bugs": 325,
+   "best_class": {
+    "inserted": 54,
+    "rewritten": 44,
+    "unchanged": 36
+   },
+   "best_execution": {
+    "import": 17,
+    "never": 33,
+    "test": 84
+   },
+   "bugs": 325,
+   "detection": {
+    "existing": {
+     "bugs": 80,
+     "ci": [
+      0.1758957654723127,
+      0.3241590214067278
+     ],
+     "rank": [
+      5,
+      9
+     ],
+     "rate": 0.24615384615384617
+    },
+    "fixed": {
+     "bugs": 134,
+     "ci": [
+      0.3391304347826087,
+      0.4867549668874172
+     ],
+     "rank": [
+      5,
+      9
+     ],
+     "rate": 0.4123076923076923
+    },
+    "prefix": {
+     "bugs": 41,
+     "ci": [
+      0.06906906906906907,
+      0.19402985074626866
+     ],
+     "rank": [
+      4,
+      9
+     ],
+     "rate": 0.12615384615384614
+    },
+    "prefix_tested": {
+     "bugs": 18,
+     "ci": [
+      0.023391812865497075,
+      0.09146341463414634
+     ],
+     "rank": [
+      8,
+      10
+     ],
+     "rate": 0.055384615384615386
+    },
+    "tested": {
+     "bugs": 84,
+     "ci": [
+      0.19444444444444445,
+      0.3280757097791798
+     ],
+     "rank": [
+      7,
+      9
+     ],
+     "rate": 0.25846153846153846
+    },
+    "unchanged": {
+     "bugs": 36,
+     "ci": [
+      0.05501618122977346,
+      0.1761194029850746
+     ],
+     "rank": [
+      4,
+      9
+     ],
+     "rate": 0.11076923076923077
+    },
+    "unchanged_executed": {
+     "bugs": 16,
+     "ci": [
+      0.019498607242339833,
+      0.08387096774193549
+     ],
+     "rank": [
+      7,
+      10
+     ],
+     "rate": 0.04923076923076923
+    }
+   },
+   "emitted": 16979,
+   "emitted_per_bug_median": 23.0,
+   "exact_fault": 1,
+   "exact_fault_applicable": 296,
+   "only_this_tool": 0,
+   "prefix_undecided_bugs": 0,
+   "prefix_undecided_witnesses": 0,
+   "prefix_witness_mutants": 259,
+   "r": {
+    "1": 0.026542781754005627,
+    "5": 0.0639382447107303,
+    "10": 0.08143174850912153,
+    "25": 0.10480578141673841,
+    "50": 0.115802549078048,
+    "100": 0.12171204079807532
+   },
+   "r10_ci": [
+    0.04241616505661837,
+    0.12939400838992818
+   ],
+   "r_fixed": {
+    "1": 0.07651617307365047,
+    "5": 0.20092789663143423,
+    "10": 0.2662302735923215,
+    "25": 0.3467360803594922,
+    "50": 0.3818576044097732,
+    "100": 0.4002889780505687
+   },
+   "ranks": {
+    "r1": [
+     2,
+     9
+    ],
+    "r10": [
+     3,
+     9
+    ],
+    "r10_fixed": [
+     3,
+     7
+    ],
+    "s1": [
+     1,
+     10
+    ],
+    "s3": [
+     2,
+     9
+    ],
+    "s3_fixed": [
+     1,
+     8
+    ]
+   },
+   "rate_any_fix_test": 0.4153846153846154,
+   "rate_ci_bca": [
+    0.07668711656441718,
+    0.21220930232558138
+   ],
+   "rate_conditional": 0.12615384615384614,
+   "rate_conditional_ci": [
+    0.06906906906906907,
+    0.19402985074626866
+   ],
+   "rate_leave_one_project_out": [
+    0.10289389067524116,
+    0.13225806451612904
+   ],
+   "rate_optimistic": 0.14153846153846153,
+   "rate_project_mean": 0.11830669330669331,
+   "rate_without_arrow": 0.10289389067524116,
+   "s": {
+    "1": 0.05089808370776993,
+    "3": 0.08835640351597249,
+    "5": 0.10333242624714792,
+    "10": 0.11563631750161135
+   },
+   "s3_ci": [
+    0.045154403563010446,
+    0.14313811392738238
+   ],
+   "s_executed": {
+    "1": 0.040820826374745524,
+    "3": 0.06463735455495191,
+    "5": 0.07229389437662874,
+    "10": 0.08025293899412234
+   },
+   "s_fixed": {
+    "1": 0.21403817664399946,
+    "3": 0.3305778942000072,
+    "5": 0.36454480643504605,
+    "10": 0.3884387541116626
+   },
+   "s_lines": {
+    "1": 0.05705931565949455,
+    "3": 0.09320493109408136,
+    "5": 0.10885809601510373,
+    "10": 0.11913253477120944
+   },
+   "status": {
+    "equivalent_tce": 208,
+    "invalid": 96,
+    "killed": 12684,
+    "noop": 9,
+    "survived": 3925,
+    "unresolved": 6
+   },
+   "strata": {
+    "ai_marker": {
+     "AI marker": 0.1111111111111111,
+     "no marker": 0.12751677852348994
+    },
+    "composition": {
+     "insertion": 0.11538461538461539,
+     "mixed": 0.18181818181818182,
+     "rewrite": 0.09202453987730061
+    },
+    "coverage": {
+     "covered": 0.08558558558558559,
+     "gap": 0.21649484536082475,
+     "unrun": 0.16666666666666666
+    },
+    "period": {
+     "2021\u20132025": 0.16964285714285715,
+     "2026 January\u2013June": 0.08333333333333333,
+     "2026 July\u2013November": 0.10909090909090909
+    },
+    "region": {
+     "function": 0.1,
+     "mixed": 0.14925373134328357,
+     "statement": 0.23684210526315788
+    },
+    "size": {
+     "13 or more lines": 0.125,
+     "1\u20134 lines": 0.09271523178807947,
+     "5\u201312 lines": 0.17272727272727273
+    }
+   },
+   "survivors_per_bug_median": 3.0,
+   "unavailable_bugs": 0,
+   "undecided_bugs": 4,
+   "undecided_mutants": 6,
+   "unique": 16928,
+   "unmaterializable": 0,
+   "witness_classes": {
+    "inserted": 210,
+    "rewritten": 169,
+    "unchanged": 230
+   },
+   "witness_execution": {
+    "import": 141,
+    "never": 275,
+    "test": 193
+   },
+   "witness_flow": {
+    "feature_only_witnesses": 22,
+    "first_witnesses": 633,
+    "synthetic_witnesses": 0,
+    "unconfirmed_witnesses": 2,
+    "unknown_confirmations": 0,
+    "witnesses": 609
+   },
+   "witness_mutants": 609
+  },
+  "irradiate": {
+   "available_bugs": 325,
+   "best_class": {
+    "inserted": 57,
+    "rewritten": 53,
+    "unchanged": 42
+   },
+   "best_execution": {
+    "import": 4,
+    "never": 9,
+    "test": 139
+   },
+   "bugs": 325,
+   "detection": {
+    "existing": {
+     "bugs": 95,
+     "ci": [
+      0.21508379888268156,
+      0.3721590909090909
+     ],
+     "rank": [
+      3,
+      8
+     ],
+     "rate": 0.2923076923076923
+    },
+    "fixed": {
+     "bugs": 152,
+     "ci": [
+      0.3775811209439528,
+      0.558282208588957
+     ],
+     "rank": [
+      4,
+      8
+     ],
+     "rate": 0.4676923076923077
+    },
+    "prefix": {
+     "bugs": 52,
+     "ci": [
+      0.0958904109589041,
+      0.2324159021406728
+     ],
+     "rank": [
+      2,
+      8
+     ],
+     "rate": 0.16
+    },
+    "prefix_tested": {
+     "bugs": 43,
+     "ci": [
+      0.07854984894259819,
+      0.1945392491467577
+     ],
+     "rank": [
+      2,
+      5
+     ],
+     "rate": 0.13230769230769232
+    },
+    "tested": {
+     "bugs": 139,
+     "ci": [
+      0.33819241982507287,
+      0.5168195718654435
+     ],
+     "rank": [
+      2,
+      4
+     ],
+     "rate": 0.4276923076923077
+    },
+    "unchanged": {
+     "bugs": 42,
+     "ci": [
+      0.07666666666666666,
+      0.18885448916408668
+     ],
+     "rank": [
+      2,
+      8
+     ],
+     "rate": 0.12923076923076923
+    },
+    "unchanged_executed": {
+     "bugs": 35,
+     "ci": [
+      0.06349206349206349,
+      0.15963855421686746
+     ],
+     "rank": [
+      2,
+      5
+     ],
+     "rate": 0.1076923076923077
+    }
+   },
+   "emitted": 37679,
+   "emitted_per_bug_median": 38.0,
+   "exact_fault": 0,
+   "exact_fault_applicable": 296,
+   "only_this_tool": 0,
+   "prefix_undecided_bugs": 0,
+   "prefix_undecided_witnesses": 0,
+   "prefix_witness_mutants": 348,
+   "r": {
+    "1": 0.01525927527448414,
+    "5": 0.04457418574297881,
+    "10": 0.06406397828058819,
+    "25": 0.09391171631943546,
+    "50": 0.11788861753315166,
+    "100": 0.1396214798417088
+   },
+   "r10_ci": [
+    0.030666289404060534,
+    0.10389680436121614
+   ],
+   "r_fixed": {
+    "1": 0.0660949888228792,
+    "5": 0.1752221918196392,
+    "10": 0.2373568453001674,
+    "25": 0.32186333239714826,
+    "50": 0.3849403634763249,
+    "100": 0.43142526705393913
+   },
+   "ranks": {
+    "r1": [
+     4,
+     11
+    ],
+    "r10": [
+     2,
+     11
+    ],
+    "r10_fixed": [
+     3,
+     9
+    ],
+    "s1": [
+     1,
+     11
+    ],
+    "s3": [
+     2,
+     11
+    ],
+    "s3_fixed": [
+     4,
+     8
+    ]
+   },
+   "rate_any_fix_test": 0.47384615384615386,
+   "rate_ci_bca": [
+    0.10240963855421686,
+    0.24675324675324675
+   ],
+   "rate_conditional": 0.16,
+   "rate_conditional_ci": [
+    0.0958904109589041,
+    0.2324159021406728
+   ],
+   "rate_leave_one_project_out": [
+    0.13870967741935483,
+    0.16774193548387098
+   ],
+   "rate_optimistic": 0.18769230769230769,
+   "rate_project_mean": 0.14941212633520326,
+   "rate_without_arrow": 0.16720257234726688,
+   "s": {
+    "1": 0.03534088499134245,
+    "3": 0.06843160185892164,
+    "5": 0.08872445656765748,
+    "10": 0.11847500824297356
+   },
+   "s3_ci": [
+    0.03470653858436411,
+    0.10790398733282532
+   ],
+   "s_executed": {
+    "1": 0.0385349300713824,
+    "3": 0.07004153865874092,
+    "5": 0.08714511986249328,
+    "10": 0.11038709905440551
+   },
+   "s_fixed": {
+    "1": 0.17627729555564745,
+    "3": 0.29613956401461194,
+    "5": 0.3487881617713364,
+    "10": 0.4029446002410981
+   },
+   "s_lines": {
+    "1": 0.04461700107642805,
+    "3": 0.08779732241835612,
+    "5": 0.1101103550150944,
+    "10": 0.13382725406607732
+   },
+   "status": {
+    "equivalent_tce": 36,
+    "killed": 30847,
+    "noop": 1,
+    "survived": 6701,
+    "unresolved": 32
+   },
+   "strata": {
+    "ai_marker": {
+     "AI marker": 0.07407407407407407,
+     "no marker": 0.16778523489932887
+    },
+    "composition": {
+     "insertion": 0.1346153846153846,
+     "mixed": 0.19090909090909092,
+     "rewrite": 0.147239263803681
+    },
+    "coverage": {
+     "covered": 0.12162162162162163,
+     "gap": 0.25773195876288657,
+     "unrun": 0.0
+    },
+    "period": {
+     "2021\u20132025": 0.125,
+     "2026 January\u2013June": 0.16666666666666666,
+     "2026 July\u2013November": 0.18181818181818182
+    },
+    "region": {
+     "function": 0.16363636363636364,
+     "mixed": 0.19402985074626866,
+     "statement": 0.07894736842105263
+    },
+    "size": {
+     "13 or more lines": 0.203125,
+     "1\u20134 lines": 0.13245033112582782,
+     "5\u201312 lines": 0.17272727272727273
+    }
+   },
+   "survivors_per_bug_median": 7.0,
+   "unavailable_bugs": 0,
+   "undecided_bugs": 3,
+   "undecided_mutants": 32,
+   "unique": 37617,
+   "unmaterializable": 0,
+   "witness_classes": {
+    "inserted": 451,
+    "rewritten": 325,
+    "unchanged": 316
+   },
+   "witness_execution": {
+    "import": 5,
+    "never": 590,
+    "test": 497
+   },
+   "witness_flow": {
+    "feature_only_witnesses": 22,
+    "first_witnesses": 1116,
+    "synthetic_witnesses": 0,
+    "unconfirmed_witnesses": 2,
+    "unknown_confirmations": 0,
+    "witnesses": 1092
+   },
+   "witness_mutants": 1092
+  },
+  "mutation": {
+   "available_bugs": 325,
+   "best_class": {
+    "inserted": 63,
+    "rewritten": 76,
+    "unchanged": 62
+   },
+   "best_execution": {
+    "import": 25,
+    "test": 176
+   },
+   "bugs": 325,
+   "detection": {
+    "existing": {
+     "bugs": 138,
+     "ci": [
+      0.331306990881459,
+      0.5193548387096775
+     ],
+     "rank": [
+      1,
+      2
+     ],
+     "rate": 0.4246153846153846
+    },
+    "fixed": {
+     "bugs": 201,
+     "ci": [
+      0.5264900662251656,
+      0.707936507936508
+     ],
+     "rank": [
+      1,
+      2
+     ],
+     "rate": 0.6184615384615385
+    },
+    "prefix": {
+     "bugs": 77,
+     "ci": [
+      0.15112540192926044,
+      0.3301282051282051
+     ],
+     "rank": [
+      1,
+      2
+     ],
+     "rate": 0.23692307692307693
+    },
+    "prefix_tested": {
+     "bugs": 62,
+     "ci": [
+      0.12285714285714286,
+      0.26688102893890675
+     ],
+     "rank": [
+      1,
+      1
+     ],
+     "rate": 0.19076923076923077
+    },
+    "tested": {
+     "bugs": 176,
+     "ci": [
+      0.45528455284552843,
+      0.6261398176291794
+     ],
+     "rank": [
+      1,
+      1
+     ],
+     "rate": 0.5415384615384615
+    },
+    "unchanged": {
+     "bugs": 62,
+     "ci": [
+      0.12,
+      0.268370607028754
+     ],
+     "rank": [
+      1,
+      2
+     ],
+     "rate": 0.19076923076923077
+    },
+    "unchanged_executed": {
+     "bugs": 51,
+     "ci": [
+      0.09904153354632587,
+      0.2204968944099379
+     ],
+     "rank": [
+      1,
+      1
+     ],
+     "rate": 0.15692307692307692
+    }
+   },
+   "emitted": 106243,
+   "emitted_per_bug_median": 130.0,
+   "exact_fault": 2,
+   "exact_fault_applicable": 296,
+   "only_this_tool": 2,
+   "prefix_undecided_bugs": 0,
+   "prefix_undecided_witnesses": 2,
+   "prefix_witness_mutants": 609,
+   "r": {
+    "1": 0.02543806372979818,
+    "5": 0.06170677828041864,
+    "10": 0.0815956879926224,
+    "25": 0.11750699468017568,
+    "50": 0.14826428342627387,
+    "100": 0.1764802272279001
+   },
+   "r10_ci": [
+    0.032196098204636585,
+    0.14934392146722353
+   ],
+   "r_fixed": {
+    "1": 0.04951660685139913,
+    "5": 0.1496493895184522,
+    "10": 0.22101521102005628,
+    "25": 0.3340927112294738,
+    "50": 0.4193294518126147,
+    "100": 0.502811419795085
+   },
+   "ranks": {
+    "r1": [
+     1,
+     11
+    ],
+    "r10": [
+     1,
+     11
+    ],
+    "r10_fixed": [
+     4,
+     11
+    ],
+    "s1": [
+     1,
+     8
+    ],
+    "s3": [
+     1,
+     7
+    ],
+    "s3_fixed": [
+     1,
+     6
+    ]
+   },
+   "rate_any_fix_test": 0.6215384615384615,
+   "rate_ci_bca": [
+    0.15988372093023256,
+    0.343042071197411
+   ],
+   "rate_conditional": 0.23692307692307693,
+   "rate_conditional_ci": [
+    0.15112540192926044,
+    0.3301282051282051
+   ],
+   "rate_leave_one_project_out": [
+    0.21221864951768488,
+    0.24838709677419354
+   ],
+   "rate_optimistic": 0.28,
+   "rate_project_mean": 0.22228220497451265,
+   "rate_without_arrow": 0.21221864951768488,
+   "s": {
+    "1": 0.06199095731434043,
+    "3": 0.10753566763339487,
+    "5": 0.1314173559446322,
+    "10": 0.16454708214109465
+   },
+   "s3_ci": [
+    0.05183936211902686,
+    0.1748660066161754
+   ],
+   "s_executed": {
+    "1": 0.06199095731434043,
+    "3": 0.10753566763339487,
+    "5": 0.1314173559446322,
+    "10": 0.16454708214109465
+   },
+   "s_fixed": {
+    "1": 0.19484094062344787,
+    "3": 0.3457831881550797,
+    "5": 0.4131677054616437,
+    "10": 0.49348348343306325
+   },
+   "s_lines": {
+    "1": 0.0761980453747349,
+    "3": 0.1346763671923537,
+    "5": 0.16165728338035315,
+    "10": 0.19277982863488488
+   },
+   "status": {
+    "equivalent_tce": 200,
+    "invalid": 77,
+    "killed": 87559,
+    "survived": 13612,
+    "unresolved": 53
+   },
+   "strata": {
+    "ai_marker": {
+     "AI marker": 0.1111111111111111,
+     "no marker": 0.2483221476510067
+    },
+    "composition": {
+     "insertion": 0.21153846153846154,
+     "mixed": 0.2818181818181818,
+     "rewrite": 0.2147239263803681
+    },
+    "coverage": {
+     "covered": 0.1981981981981982,
+     "gap": 0.3402061855670103,
+     "unrun": 0.0
+    },
+    "period": {
+     "2021\u20132025": 0.25892857142857145,
+     "2026 January\u2013June": 0.14583333333333334,
+     "2026 July\u2013November": 0.24848484848484848
+    },
+    "region": {
+     "function": 0.22272727272727272,
+     "mixed": 0.208955223880597,
+     "statement": 0.3684210526315789
+    },
+    "size": {
+     "13 or more lines": 0.265625,
+     "1\u20134 lines": 0.2052980132450331,
+     "5\u201312 lines": 0.2636363636363636
+    }
+   },
+   "survivors_per_bug_median": 18.0,
+   "unavailable_bugs": 0,
+   "undecided_bugs": 8,
+   "undecided_mutants": 54,
+   "unique": 101501,
+   "unmaterializable": 1519,
+   "witness_classes": {
+    "inserted": 547,
+    "rewritten": 494,
+    "unchanged": 511
+   },
+   "witness_execution": {
+    "import": 381,
+    "test": 1171
+   },
+   "witness_flow": {
+    "feature_only_witnesses": 63,
+    "first_witnesses": 1629,
+    "synthetic_witnesses": 0,
+    "unconfirmed_witnesses": 14,
+    "unknown_confirmations": 0,
+    "witnesses": 1552
+   },
+   "witness_mutants": 1552
+  },
+  "mutmut": {
+   "available_bugs": 325,
+   "best_class": {
+    "inserted": 48,
+    "rewritten": 56,
+    "unchanged": 38
+   },
+   "best_execution": {
+    "import": 5,
+    "never": 24,
+    "test": 113
+   },
+   "bugs": 325,
+   "detection": {
+    "existing": {
+     "bugs": 94,
+     "ci": [
+      0.21428571428571427,
+      0.3723076923076923
+     ],
+     "rank": [
+      3,
+      8
+     ],
+     "rate": 0.28923076923076924
+    },
+    "fixed": {
+     "bugs": 142,
+     "ci": [
+      0.3525641025641026,
+      0.5273311897106109
+     ],
+     "rank": [
+      4,
+      9
+     ],
+     "rate": 0.4369230769230769
+    },
+    "prefix": {
+     "bugs": 51,
+     "ci": [
+      0.10204081632653061,
+      0.2159468438538206
+     ],
+     "rank": [
+      2,
+      8
+     ],
+     "rate": 0.15692307692307692
+    },
+    "prefix_tested": {
+     "bugs": 39,
+     "ci": [
+      0.0744336569579288,
+      0.16776315789473684
+     ],
+     "rank": [
+      2,
+      5
+     ],
+     "rate": 0.12
+    },
+    "tested": {
+     "bugs": 113,
+     "ci": [
+      0.26627218934911245,
+      0.43730886850152906
+     ],
+     "rank": [
+      3,
+      6
+     ],
+     "rate": 0.3476923076923077
+    },
+    "unchanged": {
+     "bugs": 38,
+     "ci": [
+      0.07142857142857142,
+      0.16716417910447762
+     ],
+     "rank": [
+      3,
+      8
+     ],
+     "rate": 0.11692307692307692
+    },
+    "unchanged_executed": {
+     "bugs": 29,
+     "ci": [
+      0.05194805194805195,
+      0.13114754098360656
+     ],
+     "rank": [
+      2,
+      6
+     ],
+     "rate": 0.08923076923076922
+    }
+   },
+   "emitted": 28937,
+   "emitted_per_bug_median": 34.0,
+   "exact_fault": 3,
+   "exact_fault_applicable": 296,
+   "only_this_tool": 1,
+   "prefix_undecided_bugs": 0,
+   "prefix_undecided_witnesses": 0,
+   "prefix_witness_mutants": 340,
+   "r": {
+    "1": 0.019654716452006806,
+    "5": 0.05440408184457157,
+    "10": 0.07495817968873827,
+    "25": 0.10469167081751204,
+    "50": 0.12594703445576583,
+    "100": 0.14084192057771902
+   },
+   "r10_ci": [
+    0.04342344462648227,
+    0.11251785787932196
+   ],
+   "r_fixed": {
+    "1": 0.0627822973670434,
+    "5": 0.1694454602410442,
+    "10": 0.22567128839855619,
+    "25": 0.3111031453340253,
+    "50": 0.36757900733647203,
+    "100": 0.4059920794530118
+   },
+   "ranks": {
+    "r1": [
+     1,
+     9
+    ],
+    "r10": [
+     1,
+     8
+    ],
+    "r10_fixed": [
+     4,
+     11
+    ],
+    "s1": [
+     1,
+     10
+    ],
+    "s3": [
+     1,
+     9
+    ],
+    "s3_fixed": [
+     6,
+     10
+    ]
+   },
+   "rate_any_fix_test": 0.4430769230769231,
+   "rate_ci_bca": [
+    0.10662824207492795,
+    0.2222222222222222
+   ],
+   "rate_conditional": 0.15692307692307692,
+   "rate_conditional_ci": [
+    0.10204081632653061,
+    0.2159468438538206
+   ],
+   "rate_leave_one_project_out": [
+    0.13870967741935483,
+    0.16451612903225807
+   ],
+   "rate_optimistic": 0.17846153846153845,
+   "rate_project_mean": 0.15034410034410034,
+   "rate_without_arrow": 0.1639871382636656,
+   "s": {
+    "1": 0.03832037577149319,
+    "3": 0.07598719255962882,
+    "5": 0.09658022646190047,
+    "10": 0.12244194233381983
+   },
+   "s3_ci": [
+    0.04490316139176443,
+    0.11188257139746546
+   ],
+   "s_executed": {
+    "1": 0.03444236549995064,
+    "3": 0.06792815620090892,
+    "5": 0.08699714600902968,
+    "10": 0.1058964631704272
+   },
+   "s_fixed": {
+    "1": 0.16420668363205912,
+    "3": 0.27398660702597416,
+    "5": 0.321198534510041,
+    "10": 0.3760567936782578
+   },
+   "s_lines": {
+    "1": 0.05481804082498373,
+    "3": 0.09597797750527276,
+    "5": 0.11526804893491371,
+    "10": 0.1346537137168541
+   },
+   "status": {
+    "equivalent_tce": 6,
+    "killed": 23073,
+    "survived": 5823,
+    "unresolved": 27
+   },
+   "strata": {
+    "ai_marker": {
+     "AI marker": 0.037037037037037035,
+     "no marker": 0.16778523489932887
+    },
+    "composition": {
+     "insertion": 0.11538461538461539,
+     "mixed": 0.19090909090909092,
+     "rewrite": 0.147239263803681
+    },
+    "coverage": {
+     "covered": 0.12162162162162163,
+     "gap": 0.24742268041237114,
+     "unrun": 0.0
+    },
+    "period": {
+     "2021\u20132025": 0.14285714285714285,
+     "2026 January\u2013June": 0.1875,
+     "2026 July\u2013November": 0.15757575757575756
+    },
+    "region": {
+     "function": 0.14545454545454545,
+     "mixed": 0.22388059701492538,
+     "statement": 0.10526315789473684
+    },
+    "size": {
+     "13 or more lines": 0.21875,
+     "1\u20134 lines": 0.11920529801324503,
+     "5\u201312 lines": 0.17272727272727273
+    }
+   },
+   "survivors_per_bug_median": 6.0,
+   "unavailable_bugs": 0,
+   "undecided_bugs": 4,
+   "undecided_mutants": 27,
+   "unique": 28929,
+   "unmaterializable": 0,
+   "witness_classes": {
+    "inserted": 265,
+    "rewritten": 291,
+    "unchanged": 278
+   },
+   "witness_execution": {
+    "import": 13,
+    "never": 485,
+    "test": 336
+   },
+   "witness_flow": {
+    "feature_only_witnesses": 12,
+    "first_witnesses": 847,
+    "synthetic_witnesses": 0,
+    "unconfirmed_witnesses": 1,
+    "unknown_confirmations": 0,
+    "witnesses": 834
+   },
+   "witness_mutants": 834
+  },
+  "poodle": {
+   "available_bugs": 325,
+   "best_class": {
+    "inserted": 70,
+    "rewritten": 58,
+    "unchanged": 50
+   },
+   "best_execution": {
+    "import": 26,
+    "never": 27,
+    "test": 125
+   },
+   "bugs": 325,
+   "detection": {
+    "existing": {
+     "bugs": 108,
+     "ci": [
+      0.2523364485981308,
+      0.41896024464831805
+     ],
+     "rank": [
+      2,
+      5
+     ],
+     "rate": 0.3323076923076923
+    },
+    "fixed": {
+     "bugs": 178,
+     "ci": [
+      0.4658753709198813,
+      0.6288659793814433
+     ],
+     "rank": [
+      2,
+      3
+     ],
+     "rate": 0.5476923076923077
+    },
+    "prefix": {
+     "bugs": 56,
+     "ci": [
+      0.10126582278481013,
+      0.2543352601156069
+     ],
+     "rank": [
+      2,
+      6
+     ],
+     "rate": 0.1723076923076923
+    },
+    "prefix_tested": {
+     "bugs": 30,
+     "ci": [
+      0.05345911949685535,
+      0.1360759493670886
+     ],
+     "rank": [
+      5,
+      7
+     ],
+     "rate": 0.09230769230769231
+    },
+    "tested": {
+     "bugs": 125,
+     "ci": [
+      0.30835734870317005,
+      0.46273291925465837
+     ],
+     "rank": [
+      3,
+      5
+     ],
+     "rate": 0.38461538461538464
+    },
+    "unchanged": {
+     "bugs": 50,
+     "ci": [
+      0.08737864077669903,
+      0.22903225806451613
+     ],
+     "rank": [
+      1,
+      6
+     ],
+     "rate": 0.15384615384615385
+    },
+    "unchanged_executed": {
+     "bugs": 26,
+     "ci": [
+      0.04391891891891892,
+      0.12058823529411765
+     ],
+     "rank": [
+      3,
+      6
+     ],
+     "rate": 0.08
+    }
+   },
+   "emitted": 28511,
+   "emitted_per_bug_median": 38.0,
+   "exact_fault": 2,
+   "exact_fault_applicable": 296,
+   "only_this_tool": 1,
+   "prefix_undecided_bugs": 0,
+   "prefix_undecided_witnesses": 0,
+   "prefix_witness_mutants": 431,
+   "r": {
+    "1": 0.02907310984517311,
+    "5": 0.072287100500319,
+    "10": 0.0938124540338953,
+    "25": 0.1263554318265027,
+    "50": 0.1471731467602068,
+    "100": 0.15860847789696048
+   },
+   "r10_ci": [
+    0.04628681959127685,
+    0.1536798359799115
+   ],
+   "r_fixed": {
+    "1": 0.07981126211292366,
+    "5": 0.2241494811492644,
+    "10": 0.306168690199246,
+    "25": 0.4134955249117851,
+    "50": 0.47412359776316637,
+    "100": 0.5123372454566645
+   },
+   "ranks": {
+    "r1": [
+     2,
+     8
+    ],
+    "r10": [
+     1,
+     7
+    ],
+    "r10_fixed": [
+     1,
+     2
+    ],
+    "s1": [
+     2,
+     11
+    ],
+    "s3": [
+     2,
+     9
+    ],
+    "s3_fixed": [
+     1,
+     3
+    ]
+   },
+   "rate_any_fix_test": 0.5538461538461539,
+   "rate_ci_bca": [
+    0.11147540983606558,
+    0.2721518987341772
+   ],
+   "rate_conditional": 0.1723076923076923,
+   "rate_conditional_ci": [
+    0.10126582278481013,
+    0.2543352601156069
+   ],
+   "rate_leave_one_project_out": [
+    0.14790996784565916,
+    0.18006430868167203
+   ],
+   "rate_optimistic": 0.19692307692307692,
+   "rate_project_mean": 0.15806693306693306,
+   "rate_without_arrow": 0.14790996784565916,
+   "s": {
+    "1": 0.05012493581654659,
+    "3": 0.09194025048590665,
+    "5": 0.1148849580957464,
+    "10": 0.14205981696270395
+   },
+   "s3_ci": [
+    0.04668384176829687,
+    0.15072595020489904
+   ],
+   "s_executed": {
+    "1": 0.05755452576133637,
+    "3": 0.09249969962796706,
+    "5": 0.10715814847740052,
+    "10": 0.12108007565100992
+   },
+   "s_fixed": {
+    "1": 0.20726276321692638,
+    "3": 0.3566002197292328,
+    "5": 0.4201419788752134,
+    "10": 0.4804342719896596
+   },
+   "s_lines": {
+    "1": 0.0580430751186266,
+    "3": 0.10595393007760519,
+    "5": 0.1303710608953396,
+    "10": 0.15363304403344938
+   },
+   "status": {
+    "equivalent_tce": 2,
+    "invalid": 978,
+    "killed": 20410,
+    "survived": 6698,
+    "unresolved": 16
+   },
+   "strata": {
+    "ai_marker": {
+     "AI marker": 0.07407407407407407,
+     "no marker": 0.18120805369127516
+    },
+    "composition": {
+     "insertion": 0.17307692307692307,
+     "mixed": 0.2,
+     "rewrite": 0.15337423312883436
+    },
+    "coverage": {
+     "covered": 0.14414414414414414,
+     "gap": 0.23711340206185566,
+     "unrun": 0.16666666666666666
+    },
+    "period": {
+     "2021\u20132025": 0.17857142857142858,
+     "2026 January\u2013June": 0.14583333333333334,
+     "2026 July\u2013November": 0.17575757575757575
+    },
+    "region": {
+     "function": 0.15,
+     "mixed": 0.19402985074626866,
+     "statement": 0.2631578947368421
+    },
+    "size": {
+     "13 or more lines": 0.171875,
+     "1\u20134 lines": 0.1456953642384106,
+     "5\u201312 lines": 0.20909090909090908
+    }
+   },
+   "survivors_per_bug_median": 8.0,
+   "unavailable_bugs": 0,
+   "undecided_bugs": 4,
+   "undecided_mutants": 16,
+   "unique": 28104,
+   "unmaterializable": 0,
+   "witness_classes": {
+    "inserted": 323,
+    "rewritten": 280,
+    "unchanged": 377
+   },
+   "witness_execution": {
+    "import": 215,
+    "never": 453,
+    "test": 312
+   },
+   "witness_flow": {
+    "feature_only_witnesses": 15,
+    "first_witnesses": 996,
+    "synthetic_witnesses": 0,
+    "unconfirmed_witnesses": 1,
+    "unknown_confirmations": 0,
+    "witnesses": 980
+   },
+   "witness_mutants": 980
+  },
+  "pytest-gremlins": {
+   "available_bugs": 325,
+   "best_class": {
+    "inserted": 36,
+    "rewritten": 27,
+    "unchanged": 18
+   },
+   "best_execution": {
+    "import": 3,
+    "never": 33,
+    "test": 45
+   },
+   "bugs": 325,
+   "detection": {
+    "existing": {
+     "bugs": 45,
+     "ci": [
+      0.08668730650154799,
+      0.19937694704049844
+     ],
+     "rank": [
+      10,
+      11
+     ],
+     "rate": 0.13846153846153847
+    },
+    "fixed": {
+     "bugs": 81,
+     "ci": [
+      0.18694362017804153,
+      0.3183183183183183
+     ],
+     "rank": [
+      10,
+      11
+     ],
+     "rate": 0.24923076923076923
+    },
+    "prefix": {
+     "bugs": 21,
+     "ci": [
+      0.027692307692307693,
+      0.1094224924012158
+     ],
+     "rank": [
+      10,
+      11
+     ],
+     "rate": 0.06461538461538462
+    },
+    "prefix_tested": {
+     "bugs": 10,
+     "ci": [
+      0.012903225806451613,
+      0.050359712230215826
+     ],
+     "rank": [
+      10,
+      11
+     ],
+     "rate": 0.03076923076923077
+    },
+    "tested": {
+     "bugs": 45,
+     "ci": [
+      0.08746355685131195,
+      0.19811320754716982
+     ],
+     "rank": [
+      10,
+      11
+     ],
+     "rate": 0.13846153846153847
+    },
+    "unchanged": {
+     "bugs": 18,
+     "ci": [
+      0.018518518518518517,
+      0.10185185185185185
+     ],
+     "rank": [
+      10,
+      11
+     ],
+     "rate": 0.055384615384615386
+    },
+    "unchanged_executed": {
+     "bugs": 8,
+     "ci": [
+      0.006802721088435374,
+      0.04437869822485207
+     ],
+     "rank": [
+      10,
+      11
+     ],
+     "rate": 0.024615384615384615
+    }
+   },
+   "emitted": 6284,
+   "emitted_per_bug_median": 8.0,
+   "exact_fault": 1,
+   "exact_fault_applicable": 296,
+   "only_this_tool": 0,
+   "prefix_undecided_bugs": 0,
+   "prefix_undecided_witnesses": 0,
+   "prefix_witness_mutants": 85,
+   "r": {
+    "1": 0.01588498064321668,
+    "5": 0.04204992299606291,
+    "10": 0.05283029263710325,
+    "25": 0.06161817729797188,
+    "50": 0.06444029334637447,
+    "100": 0.06461538461538462
+   },
+   "r10_ci": [
+    0.023930341147322277,
+    0.0868277442781183
+   ],
+   "r_fixed": {
+    "1": 0.07032643990034797,
+    "5": 0.16402742772554138,
+    "10": 0.19921828826293966,
+    "25": 0.23345247259520074,
+    "50": 0.24664114155470454,
+    "100": 0.24880600954338067
+   },
+   "ranks": {
+    "r1": [
+     7,
+     11
+    ],
+    "r10": [
+     7,
+     11
+    ],
+    "r10_fixed": [
+     7,
+     11
+    ],
+    "s1": [
+     7,
+     11
+    ],
+    "s3": [
+     9,
+     11
+    ],
+    "s3_fixed": [
+     10,
+     11
+    ]
+   },
+   "rate_any_fix_test": 0.2553846153846154,
+   "rate_ci_bca": [
+    0.03363914373088685,
+    0.1277258566978193
+   ],
+   "rate_conditional": 0.06461538461538462,
+   "rate_conditional_ci": [
+    0.027692307692307693,
+    0.1094224924012158
+   ],
+   "rate_leave_one_project_out": [
+    0.04838709677419355,
+    0.06774193548387097
+   ],
+   "rate_optimistic": 0.08,
+   "rate_project_mean": 0.06087246087246087,
+   "rate_without_arrow": 0.06752411575562701,
+   "s": {
+    "1": 0.027948114715006942,
+    "3": 0.04961153309839866,
+    "5": 0.05700419278650136,
+    "10": 0.06222859713481327
+   },
+   "s3_ci": [
+    0.02304098825862305,
+    0.07992242249911731
+   ],
+   "s_executed": {
+    "1": 0.01811965811965812,
+    "3": 0.028692025922795156,
+    "5": 0.03292886600578908,
+    "10": 0.03611721611721611
+   },
+   "s_fixed": {
+    "1": 0.14448128069364588,
+    "3": 0.20727196503688677,
+    "5": 0.2273145568257076,
+    "10": 0.24163875942197216
+   },
+   "s_lines": {
+    "1": 0.03234809634809635,
+    "3": 0.05452963893467326,
+    "5": 0.06050620196871375,
+    "10": 0.06373581504420109
+   },
+   "status": {
+    "killed": 5007,
+    "survived": 1268,
+    "unresolved": 7
+   },
+   "strata": {
+    "ai_marker": {
+     "AI marker": 0.037037037037037035,
+     "no marker": 0.06711409395973154
+    },
+    "composition": {
+     "insertion": 0.057692307692307696,
+     "mixed": 0.08181818181818182,
+     "rewrite": 0.05521472392638037
+    },
+    "coverage": {
+     "covered": 0.036036036036036036,
+     "gap": 0.13402061855670103,
+     "unrun": 0.0
+    },
+    "period": {
+     "2021\u20132025": 0.03571428571428571,
+     "2026 January\u2013June": 0.0625,
+     "2026 July\u2013November": 0.08484848484848485
+    },
+    "region": {
+     "function": 0.06818181818181818,
+     "mixed": 0.08955223880597014,
+     "statement": 0.0
+    },
+    "size": {
+     "13 or more lines": 0.09375,
+     "1\u20134 lines": 0.046357615894039736,
+     "5\u201312 lines": 0.07272727272727272
+    }
+   },
+   "survivors_per_bug_median": 1.0,
+   "unavailable_bugs": 0,
+   "undecided_bugs": 5,
+   "undecided_mutants": 7,
+   "unique": 6282,
+   "unmaterializable": 1,
+   "witness_classes": {
+    "inserted": 98,
+    "rewritten": 59,
+    "unchanged": 79
+   },
+   "witness_execution": {
+    "import": 8,
+    "never": 136,
+    "test": 92
+   },
+   "witness_flow": {
+    "feature_only_witnesses": 10,
+    "first_witnesses": 246,
+    "synthetic_witnesses": 0,
+    "unconfirmed_witnesses": 0,
+    "unknown_confirmations": 0,
+    "witnesses": 236
+   },
+   "witness_mutants": 236
+  },
+  "pytest-leela": {
+   "available_bugs": 325,
+   "best_class": {
+    "inserted": 41,
+    "rewritten": 32,
+    "unchanged": 20
+   },
+   "best_execution": {
+    "import": 2,
+    "never": 37,
+    "test": 54
+   },
+   "bugs": 325,
+   "detection": {
+    "existing": {
+     "bugs": 52,
+     "ci": [
+      0.10559006211180125,
+      0.22185430463576158
+     ],
+     "rank": [
+      10,
+      11
+     ],
+     "rate": 0.16
+    },
+    "fixed": {
+     "bugs": 93,
+     "ci": [
+      0.21818181818181817,
+      0.359375
+     ],
+     "rank": [
+      10,
+      11
+     ],
+     "rate": 0.28615384615384615
+    },
+    "prefix": {
+     "bugs": 22,
+     "ci": [
+      0.036036036036036036,
+      0.10526315789473684
+     ],
+     "rank": [
+      10,
+      11
+     ],
+     "rate": 0.06769230769230769
+    },
+    "prefix_tested": {
+     "bugs": 12,
+     "ci": [
+      0.01904761904761905,
+      0.05642633228840126
+     ],
+     "rank": [
+      9,
+      11
+     ],
+     "rate": 0.036923076923076927
+    },
+    "tested": {
+     "bugs": 54,
+     "ci": [
+      0.11538461538461539,
+      0.2222222222222222
+     ],
+     "rank": [
+      10,
+      11
+     ],
+     "rate": 0.16615384615384615
+    },
+    "unchanged": {
+     "bugs": 20,
+     "ci": [
+      0.030303030303030304,
+      0.09935897435897435
+     ],
+     "rank": [
+      9,
+      11
+     ],
+     "rate": 0.06153846153846154
+    },
+    "unchanged_executed": {
+     "bugs": 10,
+     "ci": [
+      0.014970059880239521,
+      0.04838709677419355
+     ],
+     "rank": [
+      8,
+      11
+     ],
+     "rate": 0.03076923076923077
+    }
+   },
+   "emitted": 7444,
+   "emitted_per_bug_median": 9.0,
+   "exact_fault": 1,
+   "exact_fault_applicable": 296,
+   "only_this_tool": 0,
+   "prefix_undecided_bugs": 0,
+   "prefix_undecided_witnesses": 0,
+   "prefix_witness_mutants": 96,
+   "r": {
+    "1": 0.02325694499773848,
+    "5": 0.04580202881948597,
+    "10": 0.05407728349539054,
+    "25": 0.06198021243099578,
+    "50": 0.06634769276650085,
+    "100": 0.06769230769230769
+   },
+   "r10_ci": [
+    0.028847650171179583,
+    0.08344469833649579
+   ],
+   "r_fixed": {
+    "1": 0.07283752644216372,
+    "5": 0.17067199078244194,
+    "10": 0.2148143400203244,
+    "25": 0.25967294572974237,
+    "50": 0.2798333064718911,
+    "100": 0.2833599946243602
+   },
+   "ranks": {
+    "r1": [
+     1,
+     9
+    ],
+    "r10": [
+     8,
+     11
+    ],
+    "r10_fixed": [
+     6,
+     11
+    ],
+    "s1": [
+     1,
+     10
+    ],
+    "s3": [
+     8,
+     11
+    ],
+    "s3_fixed": [
+     8,
+     11
+    ]
+   },
+   "rate_any_fix_test": 0.2923076923076923,
+   "rate_ci_bca": [
+    0.040697674418604654,
+    0.11560693641618497
+   ],
+   "rate_conditional": 0.06769230769230769,
+   "rate_conditional_ci": [
+    0.036036036036036036,
+    0.10526315789473684
+   ],
+   "rate_leave_one_project_out": [
+    0.054838709677419356,
+    0.07096774193548387
+   ],
+   "rate_optimistic": 0.08307692307692308,
+   "rate_project_mean": 0.06308179000486693,
+   "rate_without_arrow": 0.06752411575562701,
+   "s": {
+    "1": 0.03806183182270139,
+    "3": 0.05415749957054305,
+    "5": 0.060446986887904855,
+    "10": 0.06586982959356483
+   },
+   "s3_ci": [
+    0.02989815328525006,
+    0.08117606047817344
+   ],
+   "s_executed": {
+    "1": 0.02493260073260073,
+    "3": 0.03314849498327759,
+    "5": 0.0355006105006105,
+    "10": 0.039120879120879117
+   },
+   "s_fixed": {
+    "1": 0.1647122534318648,
+    "3": 0.23808590948324715,
+    "5": 0.2595449644491773,
+    "10": 0.27561203792872896
+   },
+   "s_lines": {
+    "1": 0.03992212135690396,
+    "3": 0.05649689440993789,
+    "5": 0.06376950544614689,
+    "10": 0.06769213018775544
+   },
+   "status": {
+    "killed": 6187,
+    "survived": 1069,
+    "unresolved": 6
+   },
+   "strata": {
+    "ai_marker": {
+     "AI marker": 0.037037037037037035,
+     "no marker": 0.07046979865771812
+    },
+    "composition": {
+     "insertion": 0.057692307692307696,
+     "mixed": 0.09090909090909091,
+     "rewrite": 0.05521472392638037
+    },
+    "coverage": {
+     "covered": 0.04504504504504504,
+     "gap": 0.12371134020618557,
+     "unrun": 0.0
+    },
+    "period": {
+     "2021\u20132025": 0.05357142857142857,
+     "2026 January\u2013June": 0.0625,
+     "2026 July\u2013November": 0.07878787878787878
+    },
+    "region": {
+     "function": 0.07272727272727272,
+     "mixed": 0.07462686567164178,
+     "statement": 0.02631578947368421
+    },
+    "size": {
+     "13 or more lines": 0.09375,
+     "1\u20134 lines": 0.046357615894039736,
+     "5\u201312 lines": 0.08181818181818182
+    }
+   },
+   "survivors_per_bug_median": 1.0,
+   "unavailable_bugs": 0,
+   "undecided_bugs": 5,
+   "undecided_mutants": 6,
+   "unique": 7262,
+   "unmaterializable": 0,
+   "witness_classes": {
+    "inserted": 87,
+    "rewritten": 76,
+    "unchanged": 86
+   },
+   "witness_execution": {
+    "import": 7,
+    "never": 140,
+    "test": 102
+   },
+   "witness_flow": {
+    "feature_only_witnesses": 9,
+    "first_witnesses": 259,
+    "synthetic_witnesses": 0,
+    "unconfirmed_witnesses": 1,
+    "unknown_confirmations": 0,
+    "witnesses": 249
+   },
+   "witness_mutants": 249
+  },
+  "universalmutator": {
+   "available_bugs": 325,
+   "best_class": {
+    "inserted": 61,
+    "rewritten": 72,
+    "unchanged": 51
+   },
+   "best_execution": {
+    "import": 14,
+    "never": 31,
+    "test": 139
+   },
+   "bugs": 325,
+   "detection": {
+    "existing": {
+     "bugs": 123,
+     "ci": [
+      0.3041958041958042,
+      0.45481049562682213
+     ],
+     "rank": [
+      1,
+      3
+     ],
+     "rate": 0.37846153846153846
+    },
+    "fixed": {
+     "bugs": 184,
+     "ci": [
+      0.48580441640378547,
+      0.6488095238095238
+     ],
+     "rank": [
+      1,
+      3
+     ],
+     "rate": 0.5661538461538461
+    },
+    "prefix": {
+     "bugs": 62,
+     "ci": [
+      0.13029315960912052,
+      0.25901639344262295
+     ],
+     "rank": [
+      1,
+      5
+     ],
+     "rate": 0.19076923076923077
+    },
+    "prefix_tested": {
+     "bugs": 45,
+     "ci": [
+      0.08974358974358974,
+      0.19614147909967847
+     ],
+     "rank": [
+      2,
+      4
+     ],
+     "rate": 0.13846153846153847
+    },
+    "tested": {
+     "bugs": 139,
+     "ci": [
+      0.345679012345679,
+      0.5123456790123457
+     ],
+     "rank": [
+      2,
+      4
+     ],
+     "rate": 0.4276923076923077
+    },
+    "unchanged": {
+     "bugs": 51,
+     "ci": [
+      0.09841269841269841,
+      0.22662889518413598
+     ],
+     "rank": [
+      1,
+      5
+     ],
+     "rate": 0.15692307692307692
+    },
+    "unchanged_executed": {
+     "bugs": 35,
+     "ci": [
+      0.06291390728476821,
+      0.16065573770491803
+     ],
+     "rank": [
+      2,
+      5
+     ],
+     "rate": 0.1076923076923077
+    }
+   },
+   "emitted": 46564,
+   "emitted_per_bug_median": 55.0,
+   "exact_fault": 2,
+   "exact_fault_applicable": 296,
+   "only_this_tool": 4,
+   "prefix_undecided_bugs": 2,
+   "prefix_undecided_witnesses": 4,
+   "prefix_witness_mutants": 562,
+   "r": {
+    "1": 0.021660629900508772,
+    "5": 0.053275176550756344,
+    "10": 0.07826625583718376,
+    "25": 0.11808904013003867,
+    "50": 0.14394923059741235,
+    "100": 0.16269670291648286
+   },
+   "r10_ci": [
+    0.043245349570424294,
+    0.11855639810075584
+   ],
+   "r_fixed": {
+    "1": 0.06497118372998481,
+    "5": 0.18323790298527923,
+    "10": 0.26273968364635897,
+    "25": 0.3669814353849859,
+    "50": 0.4418984092258615,
+    "100": 0.49419470691069495
+   },
+   "ranks": {
+    "r1": [
+     3,
+     10
+    ],
+    "r10": [
+     1,
+     9
+    ],
+    "r10_fixed": [
+     2,
+     6
+    ],
+    "s1": [
+     4,
+     11
+    ],
+    "s3": [
+     2,
+     9
+    ],
+    "s3_fixed": [
+     1,
+     7
+    ]
+   },
+   "rate_any_fix_test": 0.5692307692307692,
+   "rate_ci_bca": [
+    0.13738019169329074,
+    0.273015873015873
+   ],
+   "rate_conditional": 0.19076923076923077,
+   "rate_conditional_ci": [
+    0.13029315960912052,
+    0.25901639344262295
+   ],
+   "rate_leave_one_project_out": [
+    0.16774193548387098,
+    0.2
+   ],
+   "rate_optimistic": 0.23692307692307693,
+   "rate_project_mean": 0.1781731089423397,
+   "rate_without_arrow": 0.18971061093247588,
+   "s": {
+    "1": 0.03564010176350751,
+    "3": 0.07468121736332847,
+    "5": 0.10031202714813899,
+    "10": 0.13693014067873835
+   },
+   "s3_ci": [
+    0.04530342589396096,
+    0.10830501127839863
+   ],
+   "s_executed": {
+    "1": 0.040262287766649,
+    "3": 0.07680396265253654,
+    "5": 0.09862728632084147,
+    "10": 0.12358869210514639
+   },
+   "s_fixed": {
+    "1": 0.18258037437663024,
+    "3": 0.328311630476006,
+    "5": 0.39647465691590983,
+    "10": 0.4681008664810652
+   },
+   "s_lines": {
+    "1": 0.04796679798236752,
+    "3": 0.10145430626564407,
+    "5": 0.13164198714034095,
+    "10": 0.16412216555909595
+   },
+   "status": {
+    "equivalent_tce": 3,
+    "killed": 38319,
+    "survived": 8171,
+    "unresolved": 71
+   },
+   "strata": {
+    "ai_marker": {
+     "AI marker": 0.14814814814814814,
+     "no marker": 0.19463087248322147
+    },
+    "composition": {
+     "insertion": 0.1346153846153846,
+     "mixed": 0.22727272727272727,
+     "rewrite": 0.18404907975460122
+    },
+    "coverage": {
+     "covered": 0.14414414414414414,
+     "gap": 0.29896907216494845,
+     "unrun": 0.16666666666666666
+    },
+    "period": {
+     "2021\u20132025": 0.16964285714285715,
+     "2026 January\u2013June": 0.16666666666666666,
+     "2026 July\u2013November": 0.21212121212121213
+    },
+    "region": {
+     "function": 0.2,
+     "mixed": 0.1791044776119403,
+     "statement": 0.15789473684210525
+    },
+    "size": {
+     "13 or more lines": 0.25,
+     "1\u20134 lines": 0.152317880794702,
+     "5\u201312 lines": 0.20909090909090908
+    }
+   },
+   "survivors_per_bug_median": 10.0,
+   "unavailable_bugs": 0,
+   "undecided_bugs": 6,
+   "undecided_mutants": 71,
+   "unique": 46564,
+   "unmaterializable": 0,
+   "witness_classes": {
+    "inserted": 443,
+    "rewritten": 382,
+    "unchanged": 517
+   },
+   "witness_execution": {
+    "import": 76,
+    "never": 769,
+    "test": 497
+   },
+   "witness_flow": {
+    "feature_only_witnesses": 37,
+    "first_witnesses": 1383,
+    "synthetic_witnesses": 0,
+    "unconfirmed_witnesses": 4,
+    "unknown_confirmations": 0,
+    "witnesses": 1342
+   },
+   "witness_mutants": 1342
+  }
  },
- "selection_incomplete_accepted": [],
- "preview_problems": []
+ "union_rate": {
+  "existing": 0.5169230769230769,
+  "fixed": 0.6953846153846154,
+  "prefix": 0.2953846153846154,
+  "prefix_tested": 0.2153846153846154,
+  "tested": 0.5846153846153846,
+  "unchanged": 0.24307692307692308,
+  "unchanged_executed": 0.1753846153846154
+ },
+ "unresolved_mutants": 152
 }

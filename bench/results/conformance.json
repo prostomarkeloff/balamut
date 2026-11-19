@@ -1,1285 +1,2445 @@
 {
  "cf_cached": {
-  "trap_mutants": 10,
-  "oracle": {
-   "ok": 10
-  },
   "balamut": {
-   "result": "ran",
-   "trap_mutants_generated": 2,
-   "outcome": {
-    "survived (expected killed)": 2
+   "agreement": {
+    "agree: killed": 4
    },
-   "wall_seconds": 3.18,
-   "agreement": {
-    "missed kill": 2,
-    "agree: killed": 2
-   }
-  },
-  "mutmut": {
-   "result": "ran",
-   "trap_mutants_generated": 0,
-   "outcome": {},
-   "wall_seconds": 1.14,
-   "agreement": {
-    "agree: killed": 1
-   }
-  },
-  "cosmic-ray": {
-   "result": "ran",
-   "trap_mutants_generated": 2,
    "outcome": {
     "correct": 2
    },
-   "wall_seconds": 11.9,
-   "agreement": {
-    "agree: killed": 13,
-    "agree: survived": 1
-   }
-  },
-  "poodle": {
-   "result": "ran",
-   "trap_mutants_generated": 3,
-   "outcome": {
-    "correct": 3
-   },
-   "wall_seconds": 3.41,
-   "agreement": {
-    "agree: killed": 9,
-    "agree: survived": 1
-   }
-  },
-  "pytest-gremlins": {
-   "result": "ran",
-   "trap_mutants_generated": 0,
-   "outcome": {},
-   "wall_seconds": 4.3,
-   "agreement": {
-    "missed kill": 1,
-    "agree: killed": 2
-   }
-  },
-  "pytest-leela": {
-   "result": "ran",
-   "trap_mutants_generated": 0,
-   "outcome": {},
-   "wall_seconds": 0.62,
-   "agreement": {
-    "missed kill": 1,
-    "agree: killed": 3
-   }
-  },
-  "mutation": {
-   "result": "ran",
-   "trap_mutants_generated": 7,
-   "outcome": {
-    "correct": 7
-   },
-   "wall_seconds": 10.18,
-   "agreement": {
-    "agree: killed": 26,
-    "unmapped": 2,
-    "agree: survived": 3
-   }
-  },
-  "universalmutator": {
-   "result": "ran",
-   "trap_mutants_generated": 3,
-   "outcome": {
-    "correct": 3
-   },
-   "wall_seconds": 8.35,
-   "agreement": {
-    "agree: killed": 13,
-    "agree: survived": 2
-   }
-  },
-  "fest": {
    "result": "ran",
    "trap_mutants_generated": 2,
+   "wall_seconds": 3.27
+  },
+  "cosmic-ray": {
+   "agreement": {
+    "agree: killed": 13,
+    "agree: survived": 1
+   },
+   "outcome": {
+    "correct": 2
+   },
+   "result": "ran",
+   "trap_mutants_generated": 2,
+   "wall_seconds": 11.9
+  },
+  "deployproof": {
+   "agreement": {
+    "agree: killed": 2,
+    "missed kill": 2
+   },
    "outcome": {
     "survived (expected killed)": 2
    },
-   "wall_seconds": 1.7,
+   "result": "ran",
+   "trap_mutants_generated": 2,
+   "wall_seconds": 2.97
+  },
+  "fest": {
    "agreement": {
     "agree (no coverage)": 1,
     "missed kill": 4
-   }
-  },
-  "irradiate": {
-   "result": "ran",
-   "trap_mutants_generated": 6,
-   "outcome": {
-    "no_coverage (expected killed)": 3,
-    "correct": 3
    },
-   "wall_seconds": 3.52,
-   "agreement": {
-    "agree (no coverage)": 1,
-    "no coverage, killable": 4,
-    "agree: killed": 6,
-    "agree: survived": 1
-   }
-  },
-  "deployproof": {
-   "result": "ran",
-   "trap_mutants_generated": 2,
    "outcome": {
     "survived (expected killed)": 2
    },
-   "wall_seconds": 2.97,
-   "agreement": {
-    "missed kill": 2,
-    "agree: killed": 2
-   }
-  }
- },
- "cf_default_arg": {
-  "trap_mutants": 13,
-  "oracle": {
-   "ok": 13
-  },
-  "balamut": {
-   "result": "ran",
-   "trap_mutants_generated": 0,
-   "outcome": {},
-   "wall_seconds": 3.16,
-   "agreement": {
-    "agree: killed": 2
-   }
-  },
-  "mutmut": {
-   "result": "ran",
-   "trap_mutants_generated": 1,
-   "outcome": {
-    "correct": 1
-   },
-   "wall_seconds": 1.1,
-   "agreement": {
-    "agree: killed": 2
-   }
-  },
-  "cosmic-ray": {
    "result": "ran",
    "trap_mutants_generated": 2,
-   "outcome": {
-    "correct": 2
-   },
-   "wall_seconds": 11.26,
-   "agreement": {
-    "agree: killed": 13
-   }
-  },
-  "poodle": {
-   "result": "ran",
-   "trap_mutants_generated": 2,
-   "outcome": {
-    "correct": 2
-   },
-   "wall_seconds": 2.31,
-   "agreement": {
-    "agree: killed": 5
-   }
-  },
-  "pytest-gremlins": {
-   "result": "ran",
-   "trap_mutants_generated": 0,
-   "outcome": {},
-   "wall_seconds": 3.52,
-   "agreement": {
-    "agree: killed": 2
-   }
-  },
-  "pytest-leela": {
-   "result": "ran",
-   "trap_mutants_generated": 0,
-   "outcome": {},
-   "wall_seconds": 0.59,
-   "agreement": {
-    "agree: killed": 3
-   }
-  },
-  "mutation": {
-   "result": "ran",
-   "trap_mutants_generated": 5,
-   "outcome": {
-    "correct": 5
-   },
-   "wall_seconds": 8.15,
-   "agreement": {
-    "agree: killed": 21
-   }
-  },
-  "universalmutator": {
-   "result": "ran",
-   "trap_mutants_generated": 5,
-   "outcome": {
-    "correct": 5
-   },
-   "wall_seconds": 5.7,
-   "agreement": {
-    "agree: killed": 10
-   }
-  },
-  "fest": {
-   "result": "ran",
-   "trap_mutants_generated": 0,
-   "outcome": {},
-   "wall_seconds": 1.68,
-   "agreement": {
-    "missed kill": 2
-   }
+   "wall_seconds": 1.7
   },
   "irradiate": {
-   "result": "ran",
-   "trap_mutants_generated": 1,
-   "outcome": {
-    "survived (expected killed)": 1
+   "agreement": {
+    "agree (no coverage)": 1,
+    "agree: killed": 6,
+    "agree: survived": 1,
+    "no coverage, killable": 4
    },
-   "wall_seconds": 1.02,
+   "outcome": {
+    "correct": 3,
+    "no_coverage (expected killed)": 3
+   },
+   "result": "ran",
+   "trap_mutants_generated": 6,
+   "wall_seconds": 3.52
+  },
+  "mutation": {
+   "agreement": {
+    "agree: killed": 26,
+    "agree: survived": 3,
+    "unmapped": 2
+   },
+   "outcome": {
+    "correct": 7
+   },
+   "result": "ran",
+   "trap_mutants_generated": 7,
+   "wall_seconds": 10.18
+  },
+  "mutmut": {
+   "agreement": {
+    "agree: killed": 1
+   },
+   "outcome": {},
+   "result": "ran",
+   "trap_mutants_generated": 0,
+   "wall_seconds": 1.14
+  },
+  "oracle": {
+   "ok": 10
+  },
+  "poodle": {
+   "agreement": {
+    "agree: killed": 9,
+    "agree: survived": 1
+   },
+   "outcome": {
+    "correct": 3
+   },
+   "result": "ran",
+   "trap_mutants_generated": 3,
+   "wall_seconds": 3.41
+  },
+  "pytest-gremlins": {
    "agreement": {
     "agree: killed": 2,
     "missed kill": 1
-   }
-  },
-  "deployproof": {
-   "result": "ran",
-   "trap_mutants_generated": 1,
-   "outcome": {
-    "correct": 1
    },
-   "wall_seconds": 2.55,
+   "outcome": {},
+   "result": "ran",
+   "trap_mutants_generated": 0,
+   "wall_seconds": 4.3
+  },
+  "pytest-leela": {
    "agreement": {
-    "agree: killed": 3
-   }
+    "agree: killed": 3,
+    "missed kill": 1
+   },
+   "outcome": {},
+   "result": "ran",
+   "trap_mutants_generated": 0,
+   "wall_seconds": 0.62
+  },
+  "trap_mutants": 10,
+  "universalmutator": {
+   "agreement": {
+    "agree: killed": 13,
+    "agree: survived": 2
+   },
+   "outcome": {
+    "correct": 3
+   },
+   "result": "ran",
+   "trap_mutants_generated": 3,
+   "wall_seconds": 8.35
   }
  },
- "cf_flaky": {
-  "trap_mutants": 8,
-  "oracle": {
-   "ok": 8
-  },
+ "cf_cov_config": {
   "balamut": {
-   "result": "no verdicts",
-   "reason": "exit 4: error: building the coverage substrate exited with 1",
-   "trap_mutants_generated": 0,
-   "outcome": {}
-  },
-  "mutmut": {
-   "result": "ran",
-   "trap_mutants_generated": 2,
-   "outcome": {
-    "correct": 2
-   },
-   "wall_seconds": 1.15,
    "agreement": {
-    "agree: killed": 2
-   }
+    "agree: killed": 7,
+    "agree: survived": 2
+   },
+   "outcome": {
+    "correct": 3
+   },
+   "result": "ran",
+   "trap_mutants_generated": 3,
+   "wall_seconds": 3.42
   },
   "cosmic-ray": {
-   "result": "ran",
-   "trap_mutants_generated": 6,
+   "agreement": {
+    "agree: killed": 16,
+    "agree: survived": 3
+   },
    "outcome": {
     "correct": 6
    },
-   "wall_seconds": 11.25,
+   "result": "ran",
+   "trap_mutants_generated": 6,
+   "wall_seconds": 17.04
+  },
+  "deployproof": {
    "agreement": {
+    "agree: killed": 5,
+    "agree: survived": 1
+   },
+   "outcome": {
+    "correct": 2
+   },
+   "result": "ran",
+   "trap_mutants_generated": 2,
+   "wall_seconds": 4.67
+  },
+  "fest": {
+   "agreement": {
+    "missed kill": 6
+   },
+   "outcome": {
+    "survived (expected killed)": 2
+   },
+   "result": "ran",
+   "trap_mutants_generated": 2,
+   "wall_seconds": 1.69
+  },
+  "irradiate": {
+   "outcome": {},
+   "reason": "exit 1: Error: No test coverage detected for the mutated functions.",
+   "result": "no verdicts",
+   "trap_mutants_generated": 0
+  },
+  "mutation": {
+   "agreement": {
+    "agree: killed": 33,
     "agree: survived": 2,
-    "agree: killed": 11
-   }
+    "unconfirmed kill": 4,
+    "unmapped": 2
+   },
+   "outcome": {
+    "correct": 5,
+    "killed (expected survived)": 2
+   },
+   "result": "ran",
+   "trap_mutants_generated": 7,
+   "wall_seconds": 12.28
+  },
+  "mutmut": {
+   "agreement": {
+    "agree: killed": 5,
+    "agree: survived": 1
+   },
+   "outcome": {
+    "correct": 1
+   },
+   "result": "ran",
+   "trap_mutants_generated": 1,
+   "wall_seconds": 1.22
+  },
+  "oracle": {
+   "ok": 8
   },
   "poodle": {
+   "agreement": {
+    "agree: killed": 6,
+    "agree: survived": 2
+   },
+   "outcome": {
+    "correct": 3
+   },
+   "result": "ran",
+   "trap_mutants_generated": 3,
+   "wall_seconds": 3.41
+  },
+  "pytest-gremlins": {
+   "agreement": {
+    "agree: killed": 5,
+    "agree: survived": 1
+   },
+   "outcome": {
+    "correct": 1
+   },
+   "result": "ran",
+   "trap_mutants_generated": 1,
+   "wall_seconds": 6.49
+  },
+  "pytest-leela": {
+   "agreement": {
+    "agree: killed": 5,
+    "agree: survived": 2
+   },
+   "outcome": {
+    "correct": 3
+   },
+   "result": "ran",
+   "trap_mutants_generated": 3,
+   "wall_seconds": 0.82
+  },
+  "trap_mutants": 8,
+  "universalmutator": {
+   "agreement": {
+    "agree: killed": 15,
+    "agree: survived": 3
+   },
+   "outcome": {
+    "correct": 5
+   },
    "result": "ran",
    "trap_mutants_generated": 5,
+   "wall_seconds": 12.02
+  }
+ },
+ "cf_decorator_closure": {
+  "balamut": {
+   "agreement": {
+    "agree: killed": 1,
+    "error": 2,
+    "no coverage, killable": 2
+   },
+   "outcome": {
+    "error (expected killed)": 2
+   },
+   "result": "ran",
+   "trap_mutants_generated": 2,
+   "wall_seconds": 3.41
+  },
+  "cosmic-ray": {
+   "agreement": {
+    "agree: killed": 13,
+    "agree: survived": 2
+   },
+   "outcome": {
+    "correct": 11
+   },
+   "result": "ran",
+   "trap_mutants_generated": 11,
+   "wall_seconds": 12.43
+  },
+  "deployproof": {
+   "agreement": {
+    "agree: killed": 5
+   },
+   "outcome": {
+    "correct": 2
+   },
+   "result": "ran",
+   "trap_mutants_generated": 2,
+   "wall_seconds": 3.53
+  },
+  "fest": {
+   "agreement": {
+    "missed kill": 3,
+    "no coverage, killable": 3,
+    "oracle invalid": 1
+   },
+   "outcome": {
+    "survived (expected killed)": 2
+   },
+   "result": "ran",
+   "trap_mutants_generated": 2,
+   "wall_seconds": 1.66
+  },
+  "irradiate": {
+   "outcome": {},
+   "reason": "exit 1: Error: No test coverage detected for the mutated functions.",
+   "result": "no verdicts",
+   "trap_mutants_generated": 0
+  },
+  "mutation": {
+   "agreement": {
+    "agree: killed": 42,
+    "agree: survived": 2,
+    "unmapped": 2
+   },
+   "outcome": {
+    "correct": 15
+   },
+   "result": "ran",
+   "trap_mutants_generated": 15,
+   "wall_seconds": 12.9
+  },
+  "mutmut": {
+   "outcome": {},
+   "reason": "exit 1: Stopping early, because we could not find any test case for any mutant. It seems that the selected tests do not cover any code that we mutated.",
+   "result": "no verdicts",
+   "trap_mutants_generated": 0
+  },
+  "oracle": {
+   "ok": 18
+  },
+  "poodle": {
+   "agreement": {
+    "agree: killed": 12
+   },
+   "outcome": {
+    "correct": 4
+   },
+   "result": "ran",
+   "trap_mutants_generated": 4,
+   "wall_seconds": 3.45
+  },
+  "pytest-gremlins": {
+   "agreement": {
+    "agree: killed": 5
+   },
+   "outcome": {
+    "correct": 1
+   },
+   "result": "ran",
+   "trap_mutants_generated": 1,
+   "wall_seconds": 6.51
+  },
+  "pytest-leela": {
+   "agreement": {
+    "agree: killed": 6
+   },
+   "outcome": {
+    "correct": 3
+   },
+   "result": "ran",
+   "trap_mutants_generated": 3,
+   "wall_seconds": 0.65
+  },
+  "trap_mutants": 18,
+  "universalmutator": {
+   "agreement": {
+    "agree: killed": 13,
+    "agree: survived": 2
+   },
+   "outcome": {
+    "correct": 5
+   },
+   "result": "ran",
+   "trap_mutants_generated": 5,
+   "wall_seconds": 8.52
+  }
+ },
+ "cf_default_arg": {
+  "balamut": {
+   "agreement": {
+    "agree: killed": 2
+   },
+   "outcome": {},
+   "result": "ran",
+   "trap_mutants_generated": 0,
+   "wall_seconds": 3.19
+  },
+  "cosmic-ray": {
+   "agreement": {
+    "agree: killed": 13
+   },
+   "outcome": {
+    "correct": 2
+   },
+   "result": "ran",
+   "trap_mutants_generated": 2,
+   "wall_seconds": 11.26
+  },
+  "deployproof": {
+   "agreement": {
+    "agree: killed": 3
+   },
+   "outcome": {
+    "correct": 1
+   },
+   "result": "ran",
+   "trap_mutants_generated": 1,
+   "wall_seconds": 2.55
+  },
+  "fest": {
+   "agreement": {
+    "missed kill": 2
+   },
+   "outcome": {},
+   "result": "ran",
+   "trap_mutants_generated": 0,
+   "wall_seconds": 1.68
+  },
+  "irradiate": {
+   "agreement": {
+    "agree: killed": 2,
+    "missed kill": 1
+   },
+   "outcome": {
+    "survived (expected killed)": 1
+   },
+   "result": "ran",
+   "trap_mutants_generated": 1,
+   "wall_seconds": 1.02
+  },
+  "mutation": {
+   "agreement": {
+    "agree: killed": 21
+   },
+   "outcome": {
+    "correct": 5
+   },
+   "result": "ran",
+   "trap_mutants_generated": 5,
+   "wall_seconds": 8.15
+  },
+  "mutmut": {
+   "agreement": {
+    "agree: killed": 2
+   },
+   "outcome": {
+    "correct": 1
+   },
+   "result": "ran",
+   "trap_mutants_generated": 1,
+   "wall_seconds": 1.1
+  },
+  "oracle": {
+   "ok": 13
+  },
+  "poodle": {
+   "agreement": {
+    "agree: killed": 5
+   },
+   "outcome": {
+    "correct": 2
+   },
+   "result": "ran",
+   "trap_mutants_generated": 2,
+   "wall_seconds": 2.31
+  },
+  "pytest-gremlins": {
+   "agreement": {
+    "agree: killed": 2
+   },
+   "outcome": {},
+   "result": "ran",
+   "trap_mutants_generated": 0,
+   "wall_seconds": 3.52
+  },
+  "pytest-leela": {
+   "agreement": {
+    "agree: killed": 3
+   },
+   "outcome": {},
+   "result": "ran",
+   "trap_mutants_generated": 0,
+   "wall_seconds": 0.59
+  },
+  "trap_mutants": 13,
+  "universalmutator": {
+   "agreement": {
+    "agree: killed": 10
+   },
+   "outcome": {
+    "correct": 5
+   },
+   "result": "ran",
+   "trap_mutants_generated": 5,
+   "wall_seconds": 5.7
+  }
+ },
+ "cf_flaky": {
+  "balamut": {
+   "agreement": {
+    "agree: killed": 3
+   },
+   "outcome": {
+    "correct": 3
+   },
+   "result": "ran",
+   "trap_mutants_generated": 3,
+   "wall_seconds": 3.4
+  },
+  "cosmic-ray": {
+   "agreement": {
+    "agree: killed": 11,
+    "agree: survived": 2
+   },
+   "outcome": {
+    "correct": 6
+   },
+   "result": "ran",
+   "trap_mutants_generated": 6,
+   "wall_seconds": 11.25
+  },
+  "deployproof": {
+   "agreement": {
+    "agree: killed": 3
+   },
+   "outcome": {
+    "correct": 3
+   },
+   "result": "ran",
+   "trap_mutants_generated": 3,
+   "wall_seconds": 2.51
+  },
+  "fest": {
+   "outcome": {},
+   "reason": "exit 1: Error: Coverage(\"baseline test suite failed \u2014 fix failing tests before running mutation testing\")",
+   "result": "no verdicts",
+   "trap_mutants_generated": 0
+  },
+  "irradiate": {
+   "agreement": {
+    "agree: killed": 5
+   },
+   "outcome": {
+    "correct": 3
+   },
+   "result": "ran",
+   "trap_mutants_generated": 3,
+   "wall_seconds": 1.03
+  },
+  "mutation": {
+   "agreement": {
+    "agree: killed": 18,
+    "agree: survived": 2
+   },
+   "outcome": {
+    "correct": 6
+   },
+   "result": "ran",
+   "trap_mutants_generated": 6,
+   "wall_seconds": 8.07
+  },
+  "mutmut": {
+   "agreement": {
+    "agree: killed": 2
+   },
+   "outcome": {
+    "correct": 2
+   },
+   "result": "ran",
+   "trap_mutants_generated": 2,
+   "wall_seconds": 1.15
+  },
+  "oracle": {
+   "ok": 8
+  },
+  "poodle": {
+   "agreement": {
+    "agree: killed": 4,
+    "unconfirmed kill": 1
+   },
    "outcome": {
     "correct": 4,
     "killed (expected survived)": 1
    },
-   "wall_seconds": 2.28,
-   "agreement": {
-    "agree: killed": 4,
-    "unconfirmed kill": 1
-   }
+   "result": "ran",
+   "trap_mutants_generated": 5,
+   "wall_seconds": 2.28
   },
   "pytest-gremlins": {
-   "result": "ran",
-   "trap_mutants_generated": 1,
+   "agreement": {
+    "agree: killed": 2
+   },
    "outcome": {
     "correct": 1
    },
-   "wall_seconds": 3.75,
-   "agreement": {
-    "agree: killed": 2
-   }
+   "result": "ran",
+   "trap_mutants_generated": 1,
+   "wall_seconds": 3.75
   },
   "pytest-leela": {
-   "result": "ran",
-   "trap_mutants_generated": 2,
+   "agreement": {
+    "agree: killed": 2,
+    "unconfirmed kill": 1
+   },
    "outcome": {
     "correct": 1,
     "killed (expected survived)": 1
    },
-   "wall_seconds": 0.62,
-   "agreement": {
-    "agree: killed": 2,
-    "unconfirmed kill": 1
-   }
-  },
-  "mutation": {
    "result": "ran",
-   "trap_mutants_generated": 6,
-   "outcome": {
-    "correct": 6
-   },
-   "wall_seconds": 8.07,
-   "agreement": {
-    "agree: killed": 18,
-    "agree: survived": 2
-   }
+   "trap_mutants_generated": 2,
+   "wall_seconds": 0.62
   },
+  "trap_mutants": 8,
   "universalmutator": {
-   "result": "ran",
-   "trap_mutants_generated": 5,
+   "agreement": {
+    "agree: killed": 9,
+    "unconfirmed kill": 1
+   },
    "outcome": {
     "correct": 4,
     "killed (expected survived)": 1
    },
-   "wall_seconds": 5.77,
-   "agreement": {
-    "agree: killed": 9,
-    "unconfirmed kill": 1
-   }
-  },
-  "fest": {
-   "result": "no verdicts",
-   "reason": "exit 1: Error: Coverage(\"baseline test suite failed \u2014 fix failing tests before running mutation testing\")",
-   "trap_mutants_generated": 0,
-   "outcome": {}
-  },
-  "irradiate": {
    "result": "ran",
-   "trap_mutants_generated": 3,
-   "outcome": {
-    "correct": 3
-   },
-   "wall_seconds": 1.03,
-   "agreement": {
-    "agree: killed": 5
-   }
-  },
-  "deployproof": {
-   "result": "ran",
-   "trap_mutants_generated": 3,
-   "outcome": {
-    "correct": 3
-   },
-   "wall_seconds": 2.51,
-   "agreement": {
-    "agree: killed": 3
-   }
+   "trap_mutants_generated": 5,
+   "wall_seconds": 5.77
   }
  },
  "cf_hard_exit": {
-  "trap_mutants": 3,
+  "balamut": {
+   "agreement": {
+    "agree (no coverage)": 2,
+    "agree: killed": 1,
+    "agree: survived": 2
+   },
+   "outcome": {},
+   "result": "ran",
+   "trap_mutants_generated": 0,
+   "wall_seconds": 3.2
+  },
+  "cosmic-ray": {
+   "agreement": {
+    "agree: killed": 4,
+    "agree: survived": 6
+   },
+   "outcome": {
+    "correct": 3
+   },
+   "result": "ran",
+   "trap_mutants_generated": 3,
+   "wall_seconds": 9.56
+  },
+  "deployproof": {
+   "agreement": {
+    "agree: killed": 1,
+    "agree: survived": 2,
+    "missed kill": 1
+   },
+   "outcome": {
+    "survived (expected killed)": 1
+   },
+   "result": "ran",
+   "trap_mutants_generated": 1,
+   "wall_seconds": 2.5
+  },
+  "fest": {
+   "agreement": {
+    "agree (no coverage)": 1,
+    "agree: survived": 1,
+    "missed kill": 3
+   },
+   "outcome": {
+    "survived (expected killed)": 1
+   },
+   "result": "ran",
+   "trap_mutants_generated": 1,
+   "wall_seconds": 1.7
+  },
+  "irradiate": {
+   "agreement": {
+    "agree: killed": 1,
+    "agree: survived": 8,
+    "error": 1
+   },
+   "outcome": {
+    "error (expected killed)": 1
+   },
+   "result": "ran",
+   "trap_mutants_generated": 1,
+   "wall_seconds": 6.01
+  },
+  "mutation": {
+   "agreement": {
+    "agree: killed": 14,
+    "agree: survived": 6,
+    "unmapped": 1
+   },
+   "outcome": {
+    "correct": 3
+   },
+   "result": "ran",
+   "trap_mutants_generated": 3,
+   "wall_seconds": 8.09
+  },
+  "mutmut": {
+   "agreement": {
+    "agree: survived": 4
+   },
+   "outcome": {},
+   "result": "ran",
+   "trap_mutants_generated": 0,
+   "wall_seconds": 1.15
+  },
   "oracle": {
    "ok": 3
   },
-  "balamut": {
-   "result": "ran",
-   "trap_mutants_generated": 0,
-   "outcome": {},
-   "wall_seconds": 3.17,
-   "agreement": {
-    "agree: killed": 1,
-    "agree: survived": 2,
-    "agree (no coverage)": 2
-   }
-  },
-  "mutmut": {
-   "result": "ran",
-   "trap_mutants_generated": 0,
-   "outcome": {},
-   "wall_seconds": 1.15,
-   "agreement": {
-    "agree: survived": 4
-   }
-  },
-  "cosmic-ray": {
-   "result": "ran",
-   "trap_mutants_generated": 3,
-   "outcome": {
-    "correct": 3
-   },
-   "wall_seconds": 9.56,
-   "agreement": {
-    "agree: survived": 6,
-    "agree: killed": 4
-   }
-  },
   "poodle": {
-   "result": "ran",
-   "trap_mutants_generated": 1,
-   "outcome": {
-    "correct": 1
-   },
-   "wall_seconds": 2.85,
    "agreement": {
     "agree: killed": 2,
     "agree: survived": 6
-   }
-  },
-  "pytest-gremlins": {
+   },
+   "outcome": {
+    "correct": 1
+   },
    "result": "ran",
    "trap_mutants_generated": 1,
+   "wall_seconds": 2.85
+  },
+  "pytest-gremlins": {
+   "agreement": {
+    "agree: killed": 1,
+    "agree: survived": 3,
+    "error": 1
+   },
    "outcome": {
     "error (expected killed)": 1
    },
-   "wall_seconds": 5.71,
-   "agreement": {
-    "agree: survived": 3,
-    "error": 1,
-    "agree: killed": 1
-   }
+   "result": "ran",
+   "trap_mutants_generated": 1,
+   "wall_seconds": 5.71
   },
   "pytest-leela": {
-   "result": "no verdicts",
+   "outcome": {},
    "reason": "exit 3: .                                                                        [100%]",
-   "trap_mutants_generated": 0,
-   "outcome": {}
+   "result": "no verdicts",
+   "trap_mutants_generated": 0
   },
-  "mutation": {
-   "result": "ran",
-   "trap_mutants_generated": 3,
-   "outcome": {
-    "correct": 3
-   },
-   "wall_seconds": 8.09,
-   "agreement": {
-    "agree: survived": 6,
-    "unmapped": 1,
-    "agree: killed": 14
-   }
-  },
+  "trap_mutants": 3,
   "universalmutator": {
-   "result": "ran",
-   "trap_mutants_generated": 3,
-   "outcome": {
-    "correct": 3
-   },
-   "wall_seconds": 9.37,
    "agreement": {
     "agree: killed": 5,
     "agree: survived": 12
-   }
-  },
-  "fest": {
-   "result": "ran",
-   "trap_mutants_generated": 1,
-   "outcome": {
-    "survived (expected killed)": 1
    },
-   "wall_seconds": 1.7,
-   "agreement": {
-    "missed kill": 3,
-    "agree: survived": 1,
-    "agree (no coverage)": 1
-   }
-  },
-  "irradiate": {
-   "result": "ran",
-   "trap_mutants_generated": 1,
    "outcome": {
-    "error (expected killed)": 1
+    "correct": 3
    },
-   "wall_seconds": 6.01,
-   "agreement": {
-    "agree: survived": 8,
-    "error": 1,
-    "agree: killed": 1
-   }
-  },
-  "deployproof": {
    "result": "ran",
-   "trap_mutants_generated": 1,
-   "outcome": {
-    "survived (expected killed)": 1
-   },
-   "wall_seconds": 2.5,
-   "agreement": {
-    "agree: survived": 2,
-    "missed kill": 1,
-    "agree: killed": 1
-   }
+   "trap_mutants_generated": 3,
+   "wall_seconds": 9.37
   }
  },
  "cf_import_time": {
-  "trap_mutants": 7,
-  "oracle": {
-   "ok": 7
-  },
   "balamut": {
-   "result": "ran",
-   "trap_mutants_generated": 2,
+   "agreement": {
+    "agree (no coverage)": 1,
+    "agree: killed": 1,
+    "no coverage, killable": 3
+   },
    "outcome": {
     "no_coverage (expected killed)": 2
    },
-   "wall_seconds": 3.08,
-   "agreement": {
-    "no coverage, killable": 3,
-    "agree: killed": 1,
-    "agree (no coverage)": 1
-   }
-  },
-  "mutmut": {
-   "result": "no verdicts",
-   "reason": "exit 1: FAILED: Unable to force test failures",
-   "trap_mutants_generated": 0,
-   "outcome": {}
+   "result": "ran",
+   "trap_mutants_generated": 2,
+   "wall_seconds": 3.23
   },
   "cosmic-ray": {
-   "result": "ran",
-   "trap_mutants_generated": 5,
-   "outcome": {
-    "correct": 5
-   },
-   "wall_seconds": 12.3,
    "agreement": {
     "agree: killed": 13,
     "agree: survived": 2
-   }
-  },
-  "poodle": {
-   "result": "ran",
-   "trap_mutants_generated": 4,
-   "outcome": {
-    "correct": 4
    },
-   "wall_seconds": 3.43,
-   "agreement": {
-    "agree: killed": 9,
-    "agree: survived": 2
-   }
-  },
-  "pytest-gremlins": {
-   "result": "ran",
-   "trap_mutants_generated": 1,
-   "outcome": {
-    "correct": 1
-   },
-   "wall_seconds": 4.31,
-   "agreement": {
-    "agree: killed": 3
-   }
-  },
-  "pytest-leela": {
-   "result": "ran",
-   "trap_mutants_generated": 1,
-   "outcome": {
-    "correct": 1
-   },
-   "wall_seconds": 0.6,
-   "agreement": {
-    "agree: killed": 4
-   }
-  },
-  "mutation": {
-   "result": "ran",
-   "trap_mutants_generated": 5,
    "outcome": {
     "correct": 5
    },
-   "wall_seconds": 11.12,
-   "agreement": {
-    "unmapped": 2,
-    "agree: killed": 29,
-    "agree: survived": 5
-   }
-  },
-  "universalmutator": {
    "result": "ran",
-   "trap_mutants_generated": 4,
-   "outcome": {
-    "correct": 4
-   },
-   "wall_seconds": 9.37,
-   "agreement": {
-    "agree: killed": 15,
-    "agree: survived": 2
-   }
-  },
-  "fest": {
-   "result": "ran",
-   "trap_mutants_generated": 0,
-   "outcome": {},
-   "wall_seconds": 1.66,
-   "agreement": {
-    "no coverage, killable": 1,
-    "missed kill": 1
-   }
-  },
-  "irradiate": {
-   "result": "ran",
-   "trap_mutants_generated": 2,
-   "outcome": {
-    "no_coverage (expected killed)": 2
-   },
-   "wall_seconds": 1.24,
-   "agreement": {
-    "no coverage, killable": 8,
-    "agree (no coverage)": 1,
-    "agree: killed": 1
-   }
+   "trap_mutants_generated": 5,
+   "wall_seconds": 12.3
   },
   "deployproof": {
-   "result": "ran",
-   "trap_mutants_generated": 2,
-   "outcome": {
-    "correct": 2
-   },
-   "wall_seconds": 3.54,
-   "agreement": {
-    "agree: survived": 1,
-    "agree: killed": 4
-   }
-  }
- },
- "cf_infinite_loop": {
-  "trap_mutants": 2,
-  "oracle": {
-   "ok": 2
-  },
-  "balamut": {
-   "result": "ran",
-   "trap_mutants_generated": 1,
-   "outcome": {
-    "correct": 1
-   },
-   "wall_seconds": 37.23,
    "agreement": {
     "agree: killed": 4,
     "agree: survived": 1
-   }
-  },
-  "mutmut": {
-   "result": "ran",
-   "trap_mutants_generated": 2,
+   },
    "outcome": {
     "correct": 2
    },
-   "wall_seconds": 16.13,
+   "result": "ran",
+   "trap_mutants_generated": 2,
+   "wall_seconds": 3.54
+  },
+  "fest": {
+   "agreement": {
+    "missed kill": 1,
+    "no coverage, killable": 1
+   },
+   "outcome": {},
+   "result": "ran",
+   "trap_mutants_generated": 0,
+   "wall_seconds": 1.66
+  },
+  "irradiate": {
+   "agreement": {
+    "agree (no coverage)": 1,
+    "agree: killed": 1,
+    "no coverage, killable": 8
+   },
+   "outcome": {
+    "no_coverage (expected killed)": 2
+   },
+   "result": "ran",
+   "trap_mutants_generated": 2,
+   "wall_seconds": 1.24
+  },
+  "mutation": {
+   "agreement": {
+    "agree: killed": 29,
+    "agree: survived": 5,
+    "unmapped": 2
+   },
+   "outcome": {
+    "correct": 5
+   },
+   "result": "ran",
+   "trap_mutants_generated": 5,
+   "wall_seconds": 11.12
+  },
+  "mutmut": {
+   "outcome": {},
+   "reason": "exit 1: FAILED: Unable to force test failures",
+   "result": "no verdicts",
+   "trap_mutants_generated": 0
+  },
+  "oracle": {
+   "ok": 7
+  },
+  "poodle": {
+   "agreement": {
+    "agree: killed": 9,
+    "agree: survived": 2
+   },
+   "outcome": {
+    "correct": 4
+   },
+   "result": "ran",
+   "trap_mutants_generated": 4,
+   "wall_seconds": 3.43
+  },
+  "pytest-gremlins": {
+   "agreement": {
+    "agree: killed": 3
+   },
+   "outcome": {
+    "correct": 1
+   },
+   "result": "ran",
+   "trap_mutants_generated": 1,
+   "wall_seconds": 4.31
+  },
+  "pytest-leela": {
+   "agreement": {
+    "agree: killed": 4
+   },
+   "outcome": {
+    "correct": 1
+   },
+   "result": "ran",
+   "trap_mutants_generated": 1,
+   "wall_seconds": 0.6
+  },
+  "trap_mutants": 7,
+  "universalmutator": {
+   "agreement": {
+    "agree: killed": 15,
+    "agree: survived": 2
+   },
+   "outcome": {
+    "correct": 4
+   },
+   "result": "ran",
+   "trap_mutants_generated": 4,
+   "wall_seconds": 9.37
+  }
+ },
+ "cf_infinite_loop": {
+  "balamut": {
+   "agreement": {
+    "agree: killed": 4,
+    "agree: survived": 1
+   },
+   "outcome": {
+    "correct": 1
+   },
+   "result": "ran",
+   "trap_mutants_generated": 1,
+   "wall_seconds": 37.29
+  },
+  "cosmic-ray": {
+   "agreement": {
+    "agree: killed": 8,
+    "agree: survived": 4
+   },
+   "outcome": {},
+   "result": "ran",
+   "trap_mutants_generated": 0,
+   "wall_seconds": 70.35
+  },
+  "deployproof": {
+   "agreement": {
+    "agree: killed": 3,
+    "agree: survived": 1
+   },
+   "outcome": {},
+   "result": "ran",
+   "trap_mutants_generated": 0,
+   "wall_seconds": 2.99
+  },
+  "fest": {
+   "agreement": {
+    "agree: survived": 1,
+    "missed kill": 6
+   },
+   "outcome": {
+    "survived (expected killed)": 1
+   },
+   "result": "ran",
+   "trap_mutants_generated": 1,
+   "wall_seconds": 1.69
+  },
+  "irradiate": {
+   "agreement": {
+    "agree: killed": 7,
+    "agree: survived": 2,
+    "timeout": 4
+   },
+   "outcome": {
+    "correct": 2
+   },
+   "result": "ran",
+   "trap_mutants_generated": 2,
+   "wall_seconds": 7.5
+  },
+  "mutation": {
+   "agreement": {
+    "agree: killed": 36,
+    "agree: survived": 2
+   },
+   "outcome": {
+    "correct": 2
+   },
+   "result": "ran",
+   "trap_mutants_generated": 2,
+   "wall_seconds": 105.46
+  },
+  "mutmut": {
    "agreement": {
     "agree: killed": 3,
     "agree: survived": 1,
     "timeout": 2
-   }
-  },
-  "cosmic-ray": {
+   },
+   "outcome": {
+    "correct": 2
+   },
    "result": "ran",
-   "trap_mutants_generated": 0,
-   "outcome": {},
-   "wall_seconds": 70.35,
-   "agreement": {
-    "agree: killed": 8,
-    "agree: survived": 4
-   }
+   "trap_mutants_generated": 2,
+   "wall_seconds": 16.13
+  },
+  "oracle": {
+   "ok": 2
   },
   "poodle": {
-   "result": "ran",
-   "trap_mutants_generated": 2,
+   "agreement": {
+    "agree: killed": 4,
+    "agree: survived": 2,
+    "timeout": 4
+   },
    "outcome": {
     "correct": 2
    },
-   "wall_seconds": 21.8,
-   "agreement": {
-    "timeout": 4,
-    "agree: killed": 4,
-    "agree: survived": 2
-   }
+   "result": "ran",
+   "trap_mutants_generated": 2,
+   "wall_seconds": 21.8
   },
   "pytest-gremlins": {
-   "result": "ran",
-   "trap_mutants_generated": 0,
-   "outcome": {},
-   "wall_seconds": 4.31,
    "agreement": {
     "agree: killed": 3
-   }
+   },
+   "outcome": {},
+   "result": "ran",
+   "trap_mutants_generated": 0,
+   "wall_seconds": 4.31
   },
   "pytest-leela": {
-   "result": "ran",
-   "trap_mutants_generated": 0,
-   "outcome": {},
-   "wall_seconds": 0.59,
    "agreement": {
     "agree: killed": 3
-   }
-  },
-  "mutation": {
-   "result": "ran",
-   "trap_mutants_generated": 2,
-   "outcome": {
-    "correct": 2
    },
-   "wall_seconds": 105.46,
-   "agreement": {
-    "agree: killed": 36,
-    "agree: survived": 2
-   }
+   "outcome": {},
+   "result": "ran",
+   "trap_mutants_generated": 0,
+   "wall_seconds": 0.59
   },
+  "trap_mutants": 2,
   "universalmutator": {
-   "result": "ran",
-   "trap_mutants_generated": 1,
-   "outcome": {
-    "correct": 1
-   },
-   "wall_seconds": 249.21,
    "agreement": {
     "agree: killed": 18,
     "agree: survived": 5
-   }
-  },
-  "fest": {
+   },
+   "outcome": {
+    "correct": 1
+   },
    "result": "ran",
    "trap_mutants_generated": 1,
+   "wall_seconds": 249.21
+  }
+ },
+ "cf_init_target": {
+  "balamut": {
+   "agreement": {
+    "agree: killed": 2
+   },
+   "outcome": {
+    "correct": 2
+   },
+   "result": "ran",
+   "trap_mutants_generated": 2,
+   "wall_seconds": 3.3
+  },
+  "cosmic-ray": {
+   "agreement": {
+    "agree: killed": 11
+   },
+   "outcome": {
+    "correct": 11
+   },
+   "result": "ran",
+   "trap_mutants_generated": 11,
+   "wall_seconds": 10.29
+  },
+  "deployproof": {
+   "agreement": {
+    "agree: killed": 3
+   },
+   "outcome": {
+    "correct": 3
+   },
+   "result": "ran",
+   "trap_mutants_generated": 3,
+   "wall_seconds": 2.5
+  },
+  "fest": {
+   "agreement": {
+    "missed kill": 3
+   },
+   "outcome": {
+    "survived (expected killed)": 3
+   },
+   "result": "ran",
+   "trap_mutants_generated": 3,
+   "wall_seconds": 1.7
+  },
+  "irradiate": {
+   "agreement": {
+    "agree: killed": 2
+   },
+   "outcome": {
+    "correct": 2
+   },
+   "result": "ran",
+   "trap_mutants_generated": 2,
+   "wall_seconds": 1.01
+  },
+  "mutation": {
+   "agreement": {
+    "agree: killed": 16
+   },
+   "outcome": {
+    "correct": 15
+   },
+   "result": "ran",
+   "trap_mutants_generated": 15,
+   "wall_seconds": 7.57
+  },
+  "mutmut": {
+   "agreement": {
+    "agree: killed": 3
+   },
+   "outcome": {
+    "correct": 3
+   },
+   "result": "ran",
+   "trap_mutants_generated": 3,
+   "wall_seconds": 1.16
+  },
+  "oracle": {
+   "ok": 30
+  },
+  "poodle": {
+   "agreement": {
+    "agree: killed": 4
+   },
+   "outcome": {
+    "correct": 4
+   },
+   "result": "ran",
+   "trap_mutants_generated": 4,
+   "wall_seconds": 2.26
+  },
+  "pytest-gremlins": {
+   "agreement": {
+    "agree: killed": 2
+   },
+   "outcome": {
+    "correct": 1
+   },
+   "result": "ran",
+   "trap_mutants_generated": 1,
+   "wall_seconds": 3.57
+  },
+  "pytest-leela": {
+   "agreement": {
+    "missed kill": 1
+   },
    "outcome": {
     "survived (expected killed)": 1
    },
-   "wall_seconds": 1.69,
-   "agreement": {
-    "agree: survived": 1,
-    "missed kill": 6
-   }
-  },
-  "irradiate": {
-   "result": "ran",
-   "trap_mutants_generated": 2,
-   "outcome": {
-    "correct": 2
-   },
-   "wall_seconds": 7.5,
-   "agreement": {
-    "agree: survived": 2,
-    "agree: killed": 7,
-    "timeout": 4
-   }
-  },
-  "deployproof": {
-   "result": "ran",
-   "trap_mutants_generated": 0,
-   "outcome": {},
-   "wall_seconds": 2.99,
-   "agreement": {
-    "agree: survived": 1,
-    "agree: killed": 3
-   }
-  }
- },
- "cf_session_fixture": {
-  "trap_mutants": 12,
-  "oracle": {
-   "ok": 12
-  },
-  "balamut": {
    "result": "ran",
    "trap_mutants_generated": 1,
-   "outcome": {
-    "correct": 1
-   },
-   "wall_seconds": 3.31,
-   "agreement": {
-    "agree: killed": 2
-   }
+   "wall_seconds": 0.55
   },
-  "mutmut": {
-   "result": "ran",
-   "trap_mutants_generated": 1,
-   "outcome": {
-    "correct": 1
-   },
-   "wall_seconds": 1.11,
-   "agreement": {
-    "agree: killed": 3
-   }
-  },
-  "cosmic-ray": {
-   "result": "ran",
-   "trap_mutants_generated": 2,
-   "outcome": {
-    "correct": 2
-   },
-   "wall_seconds": 5.78,
-   "agreement": {
-    "agree: killed": 2
-   }
-  },
-  "poodle": {
-   "result": "ran",
-   "trap_mutants_generated": 2,
-   "outcome": {
-    "correct": 2
-   },
-   "wall_seconds": 2.28,
-   "agreement": {
-    "agree: killed": 4
-   }
-  },
-  "pytest-gremlins": {
-   "result": "ran",
-   "trap_mutants_generated": 0,
-   "outcome": {},
-   "wall_seconds": 2.87,
-   "agreement": {
-    "agree: killed": 1
-   }
-  },
-  "pytest-leela": {
-   "result": "ran",
-   "trap_mutants_generated": 0,
-   "outcome": {},
-   "wall_seconds": 0.56,
-   "agreement": {
-    "agree: killed": 1
-   }
-  },
-  "mutation": {
-   "result": "ran",
-   "trap_mutants_generated": 5,
-   "outcome": {
-    "survived (expected killed)": 5
-   },
-   "wall_seconds": 6.31,
-   "agreement": {
-    "missed kill": 11
-   }
-  },
+  "trap_mutants": 30,
   "universalmutator": {
-   "result": "ran",
-   "trap_mutants_generated": 5,
+   "agreement": {
+    "agree: killed": 5
+   },
    "outcome": {
     "correct": 5
    },
-   "wall_seconds": 4.09,
-   "agreement": {
-    "agree: killed": 7
-   }
-  },
-  "fest": {
    "result": "ran",
-   "trap_mutants_generated": 1,
-   "outcome": {
-    "survived (expected killed)": 1
-   },
-   "wall_seconds": 1.69,
-   "agreement": {
-    "missed kill": 3
-   }
-  },
-  "irradiate": {
-   "result": "ran",
-   "trap_mutants_generated": 3,
-   "outcome": {
-    "correct": 3
-   },
-   "wall_seconds": 1.04,
-   "agreement": {
-    "agree: killed": 5
-   }
-  },
-  "deployproof": {
-   "result": "ran",
-   "trap_mutants_generated": 1,
-   "outcome": {
-    "correct": 1
-   },
-   "wall_seconds": 2.56,
-   "agreement": {
-    "agree: killed": 3
-   }
+   "trap_mutants_generated": 5,
+   "wall_seconds": 3.1
   }
  },
- "cf_shapes": {
-  "trap_mutants": 10,
-  "oracle": {
-   "ok": 10
-  },
+ "cf_nested_class": {
   "balamut": {
-   "result": "ran",
-   "trap_mutants_generated": 4,
-   "outcome": {
-    "correct": 4
-   },
-   "wall_seconds": 4.19,
    "agreement": {
-    "agree: killed": 8,
-    "agree: survived": 2
-   }
-  },
-  "mutmut": {
-   "result": "ran",
-   "trap_mutants_generated": 3,
-   "outcome": {
-    "correct": 3
+    "agree: killed": 2
    },
-   "wall_seconds": 2.16,
-   "agreement": {
-    "agree: killed": 8,
-    "agree: survived": 1
-   }
-  },
-  "cosmic-ray": {
-   "result": "ran",
-   "trap_mutants_generated": 6,
-   "outcome": {
-    "correct": 6
-   },
-   "wall_seconds": 23.29,
-   "agreement": {
-    "agree: killed": 30,
-    "agree: survived": 5
-   }
-  },
-  "poodle": {
-   "result": "ran",
-   "trap_mutants_generated": 7,
-   "outcome": {
-    "correct": 7
-   },
-   "wall_seconds": 4.97,
-   "agreement": {
-    "agree: killed": 15,
-    "agree: survived": 2
-   }
-  },
-  "pytest-gremlins": {
-   "result": "ran",
-   "trap_mutants_generated": 2,
    "outcome": {
     "correct": 2
    },
-   "wall_seconds": 7.8,
-   "agreement": {
-    "agree: killed": 8
-   }
-  },
-  "pytest-leela": {
    "result": "ran",
-   "trap_mutants_generated": 4,
-   "outcome": {
-    "correct": 4
-   },
-   "wall_seconds": 0.67,
-   "agreement": {
-    "agree: killed": 7
-   }
+   "trap_mutants_generated": 2,
+   "wall_seconds": 3.2
   },
-  "mutation": {
-   "result": "ran",
-   "trap_mutants_generated": 8,
-   "outcome": {
-    "correct": 8
-   },
-   "wall_seconds": 104.21,
+  "cosmic-ray": {
    "agreement": {
-    "agree: killed": 66,
-    "unmapped": 3,
-    "agree: survived": 4,
+    "agree: killed": 11
+   },
+   "outcome": {
+    "correct": 11
+   },
+   "result": "ran",
+   "trap_mutants_generated": 11,
+   "wall_seconds": 10.3
+  },
+  "deployproof": {
+   "agreement": {
+    "agree: killed": 2
+   },
+   "outcome": {
+    "correct": 2
+   },
+   "result": "ran",
+   "trap_mutants_generated": 2,
+   "wall_seconds": 2.02
+  },
+  "fest": {
+   "agreement": {
     "missed kill": 2
-   }
-  },
-  "universalmutator": {
-   "result": "ran",
-   "trap_mutants_generated": 6,
-   "outcome": {
-    "correct": 6
    },
-   "wall_seconds": 19.42,
-   "agreement": {
-    "agree: killed": 25,
-    "agree: survived": 6
-   }
-  },
-  "fest": {
-   "result": "ran",
-   "trap_mutants_generated": 4,
-   "outcome": {
-    "survived (expected killed)": 4
-   },
-   "wall_seconds": 1.7,
-   "agreement": {
-    "missed kill": 10
-   }
-  },
-  "irradiate": {
-   "result": "ran",
-   "trap_mutants_generated": 2,
-   "outcome": {
-    "correct": 2
-   },
-   "wall_seconds": 2.42,
-   "agreement": {
-    "agree: survived": 3,
-    "agree: killed": 14
-   }
-  },
-  "deployproof": {
-   "result": "ran",
-   "trap_mutants_generated": 4,
-   "outcome": {
-    "correct": 4
-   },
-   "wall_seconds": 6.49,
-   "agreement": {
-    "agree: survived": 1,
-    "agree: killed": 8
-   }
-  }
- },
- "cf_subprocess": {
-  "trap_mutants": 10,
-  "oracle": {
-   "ok": 10
-  },
-  "balamut": {
-   "result": "ran",
-   "trap_mutants_generated": 2,
-   "outcome": {
-    "no_coverage (expected killed)": 2
-   },
-   "wall_seconds": 2.25,
-   "agreement": {
-    "no coverage, killable": 7
-   }
-  },
-  "mutmut": {
-   "result": "no verdicts",
-   "reason": "exit 1: Stopping early, because we could not find any test case for any mutant. It seems that the selected tests do not cover any code that we mutated.",
-   "trap_mutants_generated": 0,
-   "outcome": {}
-  },
-  "cosmic-ray": {
-   "result": "ran",
-   "trap_mutants_generated": 7,
-   "outcome": {
-    "correct": 7
-   },
-   "wall_seconds": 14.13,
-   "agreement": {
-    "agree: killed": 14,
-    "agree: survived": 4
-   }
-  },
-  "poodle": {
-   "result": "ran",
-   "trap_mutants_generated": 4,
-   "outcome": {
-    "correct": 4
-   },
-   "wall_seconds": 4.13,
-   "agreement": {
-    "agree: killed": 14
-   }
-  },
-  "pytest-gremlins": {
-   "result": "ran",
-   "trap_mutants_generated": 4,
-   "outcome": {
-    "correct": 4
-   },
-   "wall_seconds": 8.01,
-   "agreement": {
-    "agree: killed": 7
-   }
-  },
-  "pytest-leela": {
-   "result": "ran",
-   "trap_mutants_generated": 2,
    "outcome": {
     "survived (expected killed)": 2
    },
-   "wall_seconds": 0.78,
-   "agreement": {
-    "missed kill": 5
-   }
+   "result": "ran",
+   "trap_mutants_generated": 2,
+   "wall_seconds": 1.67
+  },
+  "irradiate": {
+   "outcome": {},
+   "reason": "exit 1: Debug: IRRADIATE_ACTIVE_MUTANT=fail /native/irradiate/bin/python -m pytest tests -x",
+   "result": "no verdicts",
+   "trap_mutants_generated": 0
   },
   "mutation": {
-   "result": "no verdicts",
-   "reason": "exit 0: INFO Checking that the test suite is strong against mutations took: 0 seconds... And it is a success \ud83d\udc9a",
-   "trap_mutants_generated": 0,
-   "outcome": {}
-  },
-  "universalmutator": {
+   "agreement": {
+    "agree: killed": 26
+   },
+   "outcome": {
+    "correct": 14
+   },
    "result": "ran",
-   "trap_mutants_generated": 5,
+   "trap_mutants_generated": 14,
+   "wall_seconds": 9.18
+  },
+  "mutmut": {
+   "agreement": {
+    "agree: killed": 2
+   },
+   "outcome": {
+    "correct": 1
+   },
+   "result": "ran",
+   "trap_mutants_generated": 1,
+   "wall_seconds": 1.1
+  },
+  "oracle": {
+   "ok": 16
+  },
+  "poodle": {
+   "agreement": {
+    "agree: killed": 3
+   },
+   "outcome": {
+    "correct": 3
+   },
+   "result": "ran",
+   "trap_mutants_generated": 3,
+   "wall_seconds": 1.76
+  },
+  "pytest-gremlins": {
+   "agreement": {
+    "agree: killed": 2
+   },
+   "outcome": {
+    "correct": 1
+   },
+   "result": "ran",
+   "trap_mutants_generated": 1,
+   "wall_seconds": 3.59
+  },
+  "pytest-leela": {
+   "agreement": {
+    "agree: killed": 3
+   },
+   "outcome": {
+    "correct": 3
+   },
+   "result": "ran",
+   "trap_mutants_generated": 3,
+   "wall_seconds": 0.6
+  },
+  "trap_mutants": 16,
+  "universalmutator": {
+   "agreement": {
+    "agree: killed": 9
+   },
    "outcome": {
     "correct": 5
    },
-   "wall_seconds": 13.14,
+   "result": "ran",
+   "trap_mutants_generated": 5,
+   "wall_seconds": 5.32
+  }
+ },
+ "cf_pool": {
+  "balamut": {
    "agreement": {
-    "agree: killed": 21,
-    "agree: survived": 3
-   }
-  },
-  "fest": {
+    "agree: killed": 3
+   },
+   "outcome": {
+    "correct": 3
+   },
    "result": "ran",
    "trap_mutants_generated": 3,
-   "outcome": {
-    "no_coverage (expected killed)": 3
-   },
-   "wall_seconds": 1.71,
-   "agreement": {
-    "no coverage, killable": 10
-   }
+   "wall_seconds": 3.38
   },
-  "irradiate": {
-   "result": "no verdicts",
-   "reason": "exit 1: Debug: IRRADIATE_ACTIVE_MUTANT=fail /native/irradiate/bin/python -m pytest tests -x",
-   "trap_mutants_generated": 0,
-   "outcome": {}
+  "cosmic-ray": {
+   "agreement": {
+    "agree: killed": 13
+   },
+   "outcome": {
+    "correct": 13
+   },
+   "result": "ran",
+   "trap_mutants_generated": 13,
+   "wall_seconds": 11.61
   },
   "deployproof": {
+   "agreement": {
+    "agree: killed": 3
+   },
+   "outcome": {
+    "correct": 3
+   },
    "result": "ran",
-   "trap_mutants_generated": 2,
+   "trap_mutants_generated": 3,
+   "wall_seconds": 2.81
+  },
+  "fest": {
+   "agreement": {
+    "missed kill": 3
+   },
+   "outcome": {
+    "survived (expected killed)": 3
+   },
+   "result": "ran",
+   "trap_mutants_generated": 3,
+   "wall_seconds": 1.9
+  },
+  "irradiate": {
+   "agreement": {
+    "agree: killed": 5
+   },
+   "outcome": {
+    "correct": 5
+   },
+   "result": "ran",
+   "trap_mutants_generated": 5,
+   "wall_seconds": 1.23
+  },
+  "mutation": {
+   "agreement": {
+    "agree: killed": 20
+   },
+   "outcome": {
+    "correct": 19
+   },
+   "result": "ran",
+   "trap_mutants_generated": 19,
+   "wall_seconds": 10.1
+  },
+  "mutmut": {
+   "agreement": {
+    "agree: killed": 2
+   },
    "outcome": {
     "correct": 2
    },
-   "wall_seconds": 4.65,
+   "result": "ran",
+   "trap_mutants_generated": 2,
+   "wall_seconds": 1.12
+  },
+  "oracle": {
+   "ok": 28
+  },
+  "poodle": {
+   "agreement": {
+    "agree: killed": 5
+   },
+   "outcome": {
+    "correct": 5
+   },
+   "result": "ran",
+   "trap_mutants_generated": 5,
+   "wall_seconds": 2.63
+  },
+  "pytest-gremlins": {
+   "agreement": {
+    "agree: killed": 2
+   },
+   "outcome": {
+    "correct": 1
+   },
+   "result": "ran",
+   "trap_mutants_generated": 1,
+   "wall_seconds": 4.12
+  },
+  "pytest-leela": {
+   "agreement": {
+    "agree: killed": 3
+   },
+   "outcome": {
+    "correct": 3
+   },
+   "result": "ran",
+   "trap_mutants_generated": 3,
+   "wall_seconds": 0.79
+  },
+  "trap_mutants": 28,
+  "universalmutator": {
+   "agreement": {
+    "agree: killed": 10
+   },
+   "outcome": {
+    "correct": 10
+   },
+   "result": "ran",
+   "trap_mutants_generated": 10,
+   "wall_seconds": 5.87
+  }
+ },
+ "cf_property_setter": {
+  "balamut": {
+   "agreement": {
+    "agree: killed": 5,
+    "agree: survived": 2,
+    "error": 6
+   },
+   "outcome": {
+    "correct": 6,
+    "error (expected killed)": 5,
+    "error (expected survived)": 1
+   },
+   "result": "ran",
+   "trap_mutants_generated": 12,
+   "wall_seconds": 3.25
+  },
+  "cosmic-ray": {
+   "agreement": {
+    "agree: killed": 6,
+    "agree: survived": 2
+   },
+   "outcome": {
+    "correct": 4
+   },
+   "result": "ran",
+   "trap_mutants_generated": 4,
+   "wall_seconds": 8.8
+  },
+  "deployproof": {
+   "agreement": {
+    "agree: killed": 4,
+    "agree: survived": 3
+   },
+   "outcome": {
+    "correct": 6
+   },
+   "result": "ran",
+   "trap_mutants_generated": 6,
+   "wall_seconds": 4.5
+  },
+  "fest": {
+   "agreement": {
+    "agree: survived": 1,
+    "missed kill": 4,
+    "oracle invalid": 2
+   },
+   "outcome": {
+    "survived (expected killed)": 4
+   },
+   "result": "ran",
+   "trap_mutants_generated": 4,
+   "wall_seconds": 1.68
+  },
+  "irradiate": {
+   "agreement": {
+    "agree (no coverage)": 4,
+    "agree: killed": 15,
+    "error": 1,
+    "no coverage, killable": 9
+   },
+   "outcome": {
+    "correct": 12,
+    "no_coverage (expected killed)": 7
+   },
+   "result": "ran",
+   "trap_mutants_generated": 19,
+   "wall_seconds": 5.38
+  },
+  "mutation": {
+   "agreement": {
+    "agree: killed": 45,
+    "agree: survived": 10
+   },
+   "outcome": {
+    "correct": 29
+   },
+   "result": "ran",
+   "trap_mutants_generated": 29,
+   "wall_seconds": 14.65
+  },
+  "mutmut": {
+   "agreement": {
+    "agree: killed": 7,
+    "agree: survived": 2
+   },
+   "outcome": {
+    "correct": 5
+   },
+   "result": "ran",
+   "trap_mutants_generated": 5,
+   "wall_seconds": 1.22
+  },
+  "oracle": {
+   "ok": 50
+  },
+  "poodle": {
+   "agreement": {
+    "agree: killed": 11,
+    "agree: survived": 2
+   },
+   "outcome": {
+    "correct": 8
+   },
+   "result": "ran",
+   "trap_mutants_generated": 8,
+   "wall_seconds": 3.94
+  },
+  "pytest-gremlins": {
+   "agreement": {
+    "agree: killed": 2
+   },
+   "outcome": {},
+   "result": "ran",
+   "trap_mutants_generated": 0,
+   "wall_seconds": 3.61
+  },
+  "pytest-leela": {
+   "agreement": {
+    "agree: killed": 2
+   },
+   "outcome": {
+    "correct": 2
+   },
+   "result": "ran",
+   "trap_mutants_generated": 2,
+   "wall_seconds": 0.58
+  },
+  "trap_mutants": 50,
+  "universalmutator": {
+   "agreement": {
+    "agree: killed": 17,
+    "agree: survived": 8
+   },
+   "outcome": {
+    "correct": 14
+   },
+   "result": "ran",
+   "trap_mutants_generated": 14,
+   "wall_seconds": 13.92
+  }
+ },
+ "cf_relative_import": {
+  "balamut": {
+   "agreement": {
+    "agree: killed": 4
+   },
+   "outcome": {
+    "correct": 4
+   },
+   "result": "ran",
+   "trap_mutants_generated": 4,
+   "wall_seconds": 3.25
+  },
+  "cosmic-ray": {
+   "agreement": {
+    "agree: killed": 20,
+    "agree: survived": 2
+   },
+   "outcome": {
+    "correct": 17
+   },
+   "result": "ran",
+   "trap_mutants_generated": 17,
+   "wall_seconds": 15.84
+  },
+  "deployproof": {
+   "outcome": {},
+   "reason": "exit 2: overage.exceptions.CoverageWarning: Dynamic contexts aren't supported with core=sysmon; context data may be incomplete (no-sysmon-context); see https://coverage",
+   "result": "no verdicts",
+   "trap_mutants_generated": 0
+  },
+  "fest": {
+   "agreement": {
+    "missed kill": 4
+   },
+   "outcome": {
+    "survived (expected killed)": 4
+   },
+   "result": "ran",
+   "trap_mutants_generated": 4,
+   "wall_seconds": 1.7
+  },
+  "irradiate": {
+   "agreement": {
+    "agree: killed": 4
+   },
+   "outcome": {
+    "correct": 4
+   },
+   "result": "ran",
+   "trap_mutants_generated": 4,
+   "wall_seconds": 1.03
+  },
+  "mutation": {
+   "agreement": {
+    "agree: killed": 29,
+    "unconfirmed kill": 2,
+    "unmapped": 2
+   },
+   "outcome": {
+    "correct": 19,
+    "killed (expected survived)": 2
+   },
+   "result": "ran",
+   "trap_mutants_generated": 21,
+   "wall_seconds": 10.75
+  },
+  "mutmut": {
+   "agreement": {
+    "agree: killed": 2
+   },
+   "outcome": {
+    "correct": 2
+   },
+   "result": "ran",
+   "trap_mutants_generated": 2,
+   "wall_seconds": 1.1
+  },
+  "oracle": {
+   "ok": 23
+  },
+  "poodle": {
+   "agreement": {
+    "agree: killed": 5,
+    "agree: survived": 1
+   },
+   "outcome": {
+    "correct": 6
+   },
+   "result": "ran",
+   "trap_mutants_generated": 6,
+   "wall_seconds": 2.36
+  },
+  "pytest-gremlins": {
+   "agreement": {
+    "agree: killed": 4
+   },
+   "outcome": {
+    "correct": 2
+   },
+   "result": "ran",
+   "trap_mutants_generated": 2,
+   "wall_seconds": 4.96
+  },
+  "pytest-leela": {
+   "agreement": {
+    "agree: killed": 5,
+    "agree: survived": 1
+   },
+   "outcome": {
+    "correct": 6
+   },
+   "result": "ran",
+   "trap_mutants_generated": 6,
+   "wall_seconds": 0.65
+  },
+  "trap_mutants": 23,
+  "universalmutator": {
+   "agreement": {
+    "agree: killed": 10,
+    "agree: survived": 2
+   },
+   "outcome": {
+    "correct": 10
+   },
+   "result": "ran",
+   "trap_mutants_generated": 10,
+   "wall_seconds": 6.88
+  }
+ },
+ "cf_session_fixture": {
+  "balamut": {
+   "agreement": {
+    "agree: killed": 2
+   },
+   "outcome": {
+    "correct": 1
+   },
+   "result": "ran",
+   "trap_mutants_generated": 1,
+   "wall_seconds": 3.47
+  },
+  "cosmic-ray": {
+   "agreement": {
+    "agree: killed": 2
+   },
+   "outcome": {
+    "correct": 2
+   },
+   "result": "ran",
+   "trap_mutants_generated": 2,
+   "wall_seconds": 5.78
+  },
+  "deployproof": {
+   "agreement": {
+    "agree: killed": 3
+   },
+   "outcome": {
+    "correct": 1
+   },
+   "result": "ran",
+   "trap_mutants_generated": 1,
+   "wall_seconds": 2.56
+  },
+  "fest": {
+   "agreement": {
+    "missed kill": 3
+   },
+   "outcome": {
+    "survived (expected killed)": 1
+   },
+   "result": "ran",
+   "trap_mutants_generated": 1,
+   "wall_seconds": 1.69
+  },
+  "irradiate": {
+   "agreement": {
+    "agree: killed": 5
+   },
+   "outcome": {
+    "correct": 3
+   },
+   "result": "ran",
+   "trap_mutants_generated": 3,
+   "wall_seconds": 1.04
+  },
+  "mutation": {
+   "agreement": {
+    "missed kill": 11
+   },
+   "outcome": {
+    "survived (expected killed)": 5
+   },
+   "result": "ran",
+   "trap_mutants_generated": 5,
+   "wall_seconds": 6.31
+  },
+  "mutmut": {
+   "agreement": {
+    "agree: killed": 3
+   },
+   "outcome": {
+    "correct": 1
+   },
+   "result": "ran",
+   "trap_mutants_generated": 1,
+   "wall_seconds": 1.11
+  },
+  "oracle": {
+   "ok": 12
+  },
+  "poodle": {
+   "agreement": {
+    "agree: killed": 4
+   },
+   "outcome": {
+    "correct": 2
+   },
+   "result": "ran",
+   "trap_mutants_generated": 2,
+   "wall_seconds": 2.28
+  },
+  "pytest-gremlins": {
+   "agreement": {
+    "agree: killed": 1
+   },
+   "outcome": {},
+   "result": "ran",
+   "trap_mutants_generated": 0,
+   "wall_seconds": 2.87
+  },
+  "pytest-leela": {
+   "agreement": {
+    "agree: killed": 1
+   },
+   "outcome": {},
+   "result": "ran",
+   "trap_mutants_generated": 0,
+   "wall_seconds": 0.56
+  },
+  "trap_mutants": 12,
+  "universalmutator": {
    "agreement": {
     "agree: killed": 7
-   }
+   },
+   "outcome": {
+    "correct": 5
+   },
+   "result": "ran",
+   "trap_mutants_generated": 5,
+   "wall_seconds": 4.09
+  }
+ },
+ "cf_shapes": {
+  "balamut": {
+   "agreement": {
+    "agree: killed": 8,
+    "agree: survived": 2
+   },
+   "outcome": {
+    "correct": 4
+   },
+   "result": "ran",
+   "trap_mutants_generated": 4,
+   "wall_seconds": 4.28
+  },
+  "cosmic-ray": {
+   "agreement": {
+    "agree: killed": 30,
+    "agree: survived": 5
+   },
+   "outcome": {
+    "correct": 6
+   },
+   "result": "ran",
+   "trap_mutants_generated": 6,
+   "wall_seconds": 23.29
+  },
+  "deployproof": {
+   "agreement": {
+    "agree: killed": 8,
+    "agree: survived": 1
+   },
+   "outcome": {
+    "correct": 4
+   },
+   "result": "ran",
+   "trap_mutants_generated": 4,
+   "wall_seconds": 6.49
+  },
+  "fest": {
+   "agreement": {
+    "missed kill": 10
+   },
+   "outcome": {
+    "survived (expected killed)": 4
+   },
+   "result": "ran",
+   "trap_mutants_generated": 4,
+   "wall_seconds": 1.7
+  },
+  "irradiate": {
+   "agreement": {
+    "agree: killed": 14,
+    "agree: survived": 3
+   },
+   "outcome": {
+    "correct": 2
+   },
+   "result": "ran",
+   "trap_mutants_generated": 2,
+   "wall_seconds": 2.42
+  },
+  "mutation": {
+   "agreement": {
+    "agree: killed": 66,
+    "agree: survived": 4,
+    "missed kill": 2,
+    "unmapped": 3
+   },
+   "outcome": {
+    "correct": 8
+   },
+   "result": "ran",
+   "trap_mutants_generated": 8,
+   "wall_seconds": 104.21
+  },
+  "mutmut": {
+   "agreement": {
+    "agree: killed": 8,
+    "agree: survived": 1
+   },
+   "outcome": {
+    "correct": 3
+   },
+   "result": "ran",
+   "trap_mutants_generated": 3,
+   "wall_seconds": 2.16
+  },
+  "oracle": {
+   "ok": 10
+  },
+  "poodle": {
+   "agreement": {
+    "agree: killed": 15,
+    "agree: survived": 2
+   },
+   "outcome": {
+    "correct": 7
+   },
+   "result": "ran",
+   "trap_mutants_generated": 7,
+   "wall_seconds": 4.97
+  },
+  "pytest-gremlins": {
+   "agreement": {
+    "agree: killed": 8
+   },
+   "outcome": {
+    "correct": 2
+   },
+   "result": "ran",
+   "trap_mutants_generated": 2,
+   "wall_seconds": 7.8
+  },
+  "pytest-leela": {
+   "agreement": {
+    "agree: killed": 7
+   },
+   "outcome": {
+    "correct": 4
+   },
+   "result": "ran",
+   "trap_mutants_generated": 4,
+   "wall_seconds": 0.67
+  },
+  "trap_mutants": 10,
+  "universalmutator": {
+   "agreement": {
+    "agree: killed": 25,
+    "agree: survived": 6
+   },
+   "outcome": {
+    "correct": 6
+   },
+   "result": "ran",
+   "trap_mutants_generated": 6,
+   "wall_seconds": 19.42
+  }
+ },
+ "cf_src_pythonpath": {
+  "balamut": {
+   "agreement": {
+    "agree: killed": 3
+   },
+   "outcome": {
+    "correct": 3
+   },
+   "result": "ran",
+   "trap_mutants_generated": 3,
+   "wall_seconds": 3.29
+  },
+  "cosmic-ray": {
+   "agreement": {
+    "agree: killed": 13
+   },
+   "outcome": {
+    "correct": 13
+   },
+   "result": "ran",
+   "trap_mutants_generated": 13,
+   "wall_seconds": 11.26
+  },
+  "deployproof": {
+   "agreement": {
+    "agree: killed": 3
+   },
+   "outcome": {
+    "correct": 3
+   },
+   "result": "ran",
+   "trap_mutants_generated": 3,
+   "wall_seconds": 2.5
+  },
+  "fest": {
+   "agreement": {
+    "missed kill": 3
+   },
+   "outcome": {
+    "survived (expected killed)": 3
+   },
+   "result": "ran",
+   "trap_mutants_generated": 3,
+   "wall_seconds": 1.68
+  },
+  "irradiate": {
+   "agreement": {
+    "agree: killed": 6
+   },
+   "outcome": {
+    "correct": 6
+   },
+   "result": "ran",
+   "trap_mutants_generated": 6,
+   "wall_seconds": 1.02
+  },
+  "mutation": {
+   "agreement": {
+    "agree: killed": 21
+   },
+   "outcome": {
+    "correct": 20
+   },
+   "result": "ran",
+   "trap_mutants_generated": 20,
+   "wall_seconds": 8.13
+  },
+  "mutmut": {
+   "outcome": {},
+   "reason": "exit 1: Stopping early, because we could not find any test case for any mutant. It seems that the selected tests do not cover any code that we mutated.",
+   "result": "no verdicts",
+   "trap_mutants_generated": 0
+  },
+  "oracle": {
+   "ok": 28
+  },
+  "poodle": {
+   "agreement": {
+    "agree: killed": 6
+   },
+   "outcome": {
+    "correct": 6
+   },
+   "result": "ran",
+   "trap_mutants_generated": 6,
+   "wall_seconds": 2.33
+  },
+  "pytest-gremlins": {
+   "agreement": {
+    "agree: killed": 2
+   },
+   "outcome": {
+    "correct": 1
+   },
+   "result": "ran",
+   "trap_mutants_generated": 1,
+   "wall_seconds": 3.52
+  },
+  "pytest-leela": {
+   "agreement": {
+    "agree: killed": 4
+   },
+   "outcome": {
+    "correct": 4
+   },
+   "result": "ran",
+   "trap_mutants_generated": 4,
+   "wall_seconds": 0.61
+  },
+  "trap_mutants": 28,
+  "universalmutator": {
+   "agreement": {
+    "agree: killed": 9
+   },
+   "outcome": {
+    "correct": 9
+   },
+   "result": "ran",
+   "trap_mutants_generated": 9,
+   "wall_seconds": 5.24
+  }
+ },
+ "cf_subprocess": {
+  "balamut": {
+   "agreement": {
+    "no coverage, killable": 7
+   },
+   "outcome": {
+    "no_coverage (expected killed)": 2
+   },
+   "result": "ran",
+   "trap_mutants_generated": 2,
+   "wall_seconds": 2.31
+  },
+  "cosmic-ray": {
+   "agreement": {
+    "agree: killed": 14,
+    "agree: survived": 4
+   },
+   "outcome": {
+    "correct": 7
+   },
+   "result": "ran",
+   "trap_mutants_generated": 7,
+   "wall_seconds": 14.13
+  },
+  "deployproof": {
+   "agreement": {
+    "agree: killed": 7
+   },
+   "outcome": {
+    "correct": 2
+   },
+   "result": "ran",
+   "trap_mutants_generated": 2,
+   "wall_seconds": 4.65
+  },
+  "fest": {
+   "agreement": {
+    "no coverage, killable": 10
+   },
+   "outcome": {
+    "no_coverage (expected killed)": 3
+   },
+   "result": "ran",
+   "trap_mutants_generated": 3,
+   "wall_seconds": 1.71
+  },
+  "irradiate": {
+   "outcome": {},
+   "reason": "exit 1: Debug: IRRADIATE_ACTIVE_MUTANT=fail /native/irradiate/bin/python -m pytest tests -x",
+   "result": "no verdicts",
+   "trap_mutants_generated": 0
+  },
+  "mutation": {
+   "outcome": {},
+   "reason": "exit 0: INFO Checking that the test suite is strong against mutations took: 0 seconds... And it is a success \ud83d\udc9a",
+   "result": "no verdicts",
+   "trap_mutants_generated": 0
+  },
+  "mutmut": {
+   "outcome": {},
+   "reason": "exit 1: Stopping early, because we could not find any test case for any mutant. It seems that the selected tests do not cover any code that we mutated.",
+   "result": "no verdicts",
+   "trap_mutants_generated": 0
+  },
+  "oracle": {
+   "ok": 10
+  },
+  "poodle": {
+   "agreement": {
+    "agree: killed": 14
+   },
+   "outcome": {
+    "correct": 4
+   },
+   "result": "ran",
+   "trap_mutants_generated": 4,
+   "wall_seconds": 4.13
+  },
+  "pytest-gremlins": {
+   "agreement": {
+    "agree: killed": 7
+   },
+   "outcome": {
+    "correct": 4
+   },
+   "result": "ran",
+   "trap_mutants_generated": 4,
+   "wall_seconds": 8.01
+  },
+  "pytest-leela": {
+   "agreement": {
+    "missed kill": 5
+   },
+   "outcome": {
+    "survived (expected killed)": 2
+   },
+   "result": "ran",
+   "trap_mutants_generated": 2,
+   "wall_seconds": 0.78
+  },
+  "trap_mutants": 10,
+  "universalmutator": {
+   "agreement": {
+    "agree: killed": 21,
+    "agree: survived": 3
+   },
+   "outcome": {
+    "correct": 5
+   },
+   "result": "ran",
+   "trap_mutants_generated": 5,
+   "wall_seconds": 13.14
+  }
+ },
+ "cf_tabs": {
+  "balamut": {
+   "agreement": {
+    "agree: killed": 6
+   },
+   "outcome": {
+    "correct": 4
+   },
+   "result": "ran",
+   "trap_mutants_generated": 4,
+   "wall_seconds": 3.33
+  },
+  "cosmic-ray": {
+   "agreement": {
+    "agree: killed": 26
+   },
+   "outcome": {
+    "correct": 24
+   },
+   "result": "ran",
+   "trap_mutants_generated": 24,
+   "wall_seconds": 17.82
+  },
+  "deployproof": {
+   "agreement": {
+    "agree: killed": 6
+   },
+   "outcome": {
+    "correct": 4
+   },
+   "result": "ran",
+   "trap_mutants_generated": 4,
+   "wall_seconds": 3.98
+  },
+  "fest": {
+   "agreement": {
+    "missed kill": 6
+   },
+   "outcome": {
+    "survived (expected killed)": 4
+   },
+   "result": "ran",
+   "trap_mutants_generated": 4,
+   "wall_seconds": 1.67
+  },
+  "irradiate": {
+   "agreement": {
+    "agree: killed": 8,
+    "no coverage, killable": 2
+   },
+   "outcome": {
+    "correct": 7
+   },
+   "result": "ran",
+   "trap_mutants_generated": 7,
+   "wall_seconds": 6.06
+  },
+  "mutation": {
+   "agreement": {
+    "agree: killed": 51,
+    "unmapped": 2
+   },
+   "outcome": {
+    "correct": 30
+   },
+   "result": "ran",
+   "trap_mutants_generated": 30,
+   "wall_seconds": 14.25
+  },
+  "mutmut": {
+   "agreement": {
+    "agree: killed": 6
+   },
+   "outcome": {
+    "correct": 4
+   },
+   "result": "ran",
+   "trap_mutants_generated": 4,
+   "wall_seconds": 1.12
+  },
+  "oracle": {
+   "ok": 41
+  },
+  "poodle": {
+   "agreement": {
+    "agree: killed": 10
+   },
+   "outcome": {
+    "correct": 7
+   },
+   "result": "ran",
+   "trap_mutants_generated": 7,
+   "wall_seconds": 3.37
+  },
+  "pytest-gremlins": {
+   "agreement": {
+    "agree: killed": 4
+   },
+   "outcome": {
+    "correct": 2
+   },
+   "result": "ran",
+   "trap_mutants_generated": 2,
+   "wall_seconds": 5.07
+  },
+  "pytest-leela": {
+   "agreement": {
+    "agree: killed": 6
+   },
+   "outcome": {
+    "correct": 5
+   },
+   "result": "ran",
+   "trap_mutants_generated": 5,
+   "wall_seconds": 0.64
+  },
+  "trap_mutants": 41,
+  "universalmutator": {
+   "agreement": {
+    "agree: killed": 19
+   },
+   "outcome": {
+    "correct": 11
+   },
+   "result": "ran",
+   "trap_mutants_generated": 11,
+   "wall_seconds": 10.67
   }
  },
  "cf_unicode": {
-  "trap_mutants": 9,
+  "balamut": {
+   "agreement": {
+    "agree: killed": 7
+   },
+   "outcome": {
+    "correct": 2
+   },
+   "result": "ran",
+   "trap_mutants_generated": 2,
+   "wall_seconds": 3.33
+  },
+  "cosmic-ray": {
+   "agreement": {
+    "agree: killed": 41,
+    "agree: survived": 1
+   },
+   "outcome": {
+    "correct": 6
+   },
+   "result": "ran",
+   "trap_mutants_generated": 6,
+   "wall_seconds": 25.73
+  },
+  "deployproof": {
+   "agreement": {
+    "agree: killed": 12
+   },
+   "outcome": {
+    "correct": 3
+   },
+   "result": "ran",
+   "trap_mutants_generated": 3,
+   "wall_seconds": 7.04
+  },
+  "fest": {
+   "agreement": {
+    "missed kill": 11
+   },
+   "outcome": {
+    "survived (expected killed)": 2
+   },
+   "result": "ran",
+   "trap_mutants_generated": 2,
+   "wall_seconds": 1.68
+  },
+  "irradiate": {
+   "agreement": {
+    "agree: killed": 15,
+    "agree: survived": 1
+   },
+   "outcome": {
+    "correct": 3
+   },
+   "result": "ran",
+   "trap_mutants_generated": 3,
+   "wall_seconds": 1.23
+  },
+  "mutation": {
+   "agreement": {
+    "agree: killed": 62,
+    "agree: survived": 1,
+    "unmapped": 2
+   },
+   "outcome": {
+    "correct": 6
+   },
+   "result": "ran",
+   "trap_mutants_generated": 6,
+   "wall_seconds": 16.35
+  },
+  "mutmut": {
+   "agreement": {
+    "agree: killed": 16
+   },
+   "outcome": {
+    "correct": 3
+   },
+   "result": "ran",
+   "trap_mutants_generated": 3,
+   "wall_seconds": 1.17
+  },
   "oracle": {
    "ok": 7,
    "oracle invalid expected killed": 2
   },
-  "balamut": {
-   "result": "ran",
-   "trap_mutants_generated": 2,
-   "outcome": {
-    "correct": 2
-   },
-   "wall_seconds": 3.21,
-   "agreement": {
-    "agree: killed": 7
-   }
-  },
-  "mutmut": {
-   "result": "ran",
-   "trap_mutants_generated": 3,
-   "outcome": {
-    "correct": 3
-   },
-   "wall_seconds": 1.17,
-   "agreement": {
-    "agree: killed": 16
-   }
-  },
-  "cosmic-ray": {
-   "result": "ran",
-   "trap_mutants_generated": 6,
-   "outcome": {
-    "correct": 6
-   },
-   "wall_seconds": 25.73,
-   "agreement": {
-    "agree: killed": 41,
-    "agree: survived": 1
-   }
-  },
   "poodle": {
-   "result": "ran",
-   "trap_mutants_generated": 2,
+   "agreement": {
+    "agree: killed": 4,
+    "oracle invalid": 12
+   },
    "outcome": {
     "invalid mutant (expected killed)": 2
    },
-   "wall_seconds": 4.7,
-   "agreement": {
-    "oracle invalid": 12,
-    "agree: killed": 4
-   }
+   "result": "ran",
+   "trap_mutants_generated": 2,
+   "wall_seconds": 4.7
   },
   "pytest-gremlins": {
-   "result": "ran",
-   "trap_mutants_generated": 3,
+   "agreement": {
+    "agree: killed": 9
+   },
    "outcome": {
     "correct": 3
    },
-   "wall_seconds": 8.54,
-   "agreement": {
-    "agree: killed": 9
-   }
+   "result": "ran",
+   "trap_mutants_generated": 3,
+   "wall_seconds": 8.54
   },
   "pytest-leela": {
-   "result": "ran",
-   "trap_mutants_generated": 2,
+   "agreement": {
+    "agree: killed": 4
+   },
    "outcome": {
     "correct": 2
    },
-   "wall_seconds": 0.65,
-   "agreement": {
-    "agree: killed": 4
-   }
-  },
-  "mutation": {
    "result": "ran",
-   "trap_mutants_generated": 6,
-   "outcome": {
-    "correct": 6
-   },
-   "wall_seconds": 16.35,
-   "agreement": {
-    "unmapped": 2,
-    "agree: killed": 62,
-    "agree: survived": 1
-   }
+   "trap_mutants_generated": 2,
+   "wall_seconds": 0.65
   },
+  "trap_mutants": 9,
   "universalmutator": {
-   "result": "ran",
-   "trap_mutants_generated": 4,
-   "outcome": {
-    "correct": 4
-   },
-   "wall_seconds": 14.17,
    "agreement": {
     "agree: killed": 25,
     "agree: survived": 1
-   }
-  },
-  "fest": {
-   "result": "ran",
-   "trap_mutants_generated": 2,
-   "outcome": {
-    "survived (expected killed)": 2
    },
-   "wall_seconds": 1.68,
-   "agreement": {
-    "missed kill": 11
-   }
-  },
-  "irradiate": {
-   "result": "ran",
-   "trap_mutants_generated": 3,
    "outcome": {
-    "correct": 3
+    "correct": 4
    },
-   "wall_seconds": 1.23,
-   "agreement": {
-    "agree: killed": 15,
-    "agree: survived": 1
-   }
-  },
-  "deployproof": {
    "result": "ran",
-   "trap_mutants_generated": 3,
-   "outcome": {
-    "correct": 3
-   },
-   "wall_seconds": 7.04,
-   "agreement": {
-    "agree: killed": 12
-   }
+   "trap_mutants_generated": 4,
+   "wall_seconds": 14.17
   }
  }
 }

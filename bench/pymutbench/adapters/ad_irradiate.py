@@ -3,7 +3,8 @@
 Generation happens before the harness validation, so a run with a test directory that cannot validate the
 harness still leaves the complete trampolined module. Each ``…__irradiate_N`` variant replaces the ``def`` it
 was generated from (renamed, re-indented, decorators kept) in the original module; the materialization is
-accepted only if the spliced function parses to the variant's own tree.
+accepted only if the spliced function parses to the variant's own tree. A body that defines the name more than
+once (``@overload`` stubs, a property's accessors) takes the variant in the definition closest to it.
 
 The generated module holds a copy of a function per mutant, so it is never parsed whole: it is cut into its
 top-level statements, and only a statement that holds a variant of a function in the bug's scope is parsed, on
@@ -21,6 +22,7 @@ import shutil
 import sys
 import tempfile
 import tokenize
+from difflib import SequenceMatcher
 from pathlib import Path
 
 from _common import emit, parse_args, run_tool  # type: ignore[import-not-found]
@@ -82,21 +84,52 @@ def _variants(tree: ast.Module) -> list[tuple[str | None, str, int, ast.Function
     return found
 
 
-def _target(tree: ast.Module, cls: str | None, name: str) -> ast.FunctionDef | ast.AsyncFunctionDef | None:
+def _targets(tree: ast.Module, cls: str | None, name: str) -> list[ast.FunctionDef | ast.AsyncFunctionDef]:
+    """Every ``def`` of ``name`` in the module's or the class's body, in source order."""
     body = tree.body
     if cls is not None:
         owner = next((n for n in tree.body if isinstance(n, ast.ClassDef) and n.name == cls), None)
         if owner is None:
-            return None
+            return []
         body = owner.body
-    return next((n for n in body if isinstance(n, ast.FunctionDef | ast.AsyncFunctionDef) and n.name == name), None)
+    return [n for n in body if isinstance(n, ast.FunctionDef | ast.AsyncFunctionDef) and n.name == name]
 
 
-def _renamed_dump(node: ast.FunctionDef | ast.AsyncFunctionDef, name: str) -> str:
+def _target(tree: ast.Module, cls: str | None, name: str) -> ast.FunctionDef | ast.AsyncFunctionDef | None:
+    """The ``def`` the name is bound to: the last of its definitions (an ``@overload`` stub comes before it)."""
+    found = _targets(tree, cls, name)
+    return found[-1] if found else None
+
+
+def _origin(candidates: list[ast.FunctionDef | ast.AsyncFunctionDef], variant: ast.FunctionDef | ast.AsyncFunctionDef,
+            name: str) -> int:
+    """Which of a body's definitions of one name a variant was generated from: the one whose tree is closest to the
+    variant's (a mutant differs from its original by one edit, and from an ``@overload`` stub or a property's other
+    accessor by much more); a tie goes to the later definition, the one a call reaches."""
+    if len(candidates) == 1:
+        return 0
+    shape = _renamed_dump(variant, name, indent=0).splitlines()
+    scores = [SequenceMatcher(None, _renamed_dump(c, name, indent=0).splitlines(), shape, autojunk=False).ratio()
+              for c in candidates]
+    return max(range(len(candidates)), key=lambda i: (scores[i], i))
+
+
+def splice(lines: list[str], target: ast.FunctionDef | ast.AsyncFunctionDef, base: int, text: str) -> str:
+    """The module ``lines`` with the ``def`` of ``target`` (decorators kept) replaced by a variant's ``text``,
+    renamed already: the variant's lines after the first lose the variant's own indentation ``base`` and take the
+    indentation of the original ``def`` line, characters included, so a tab-indented class keeps its tabs."""
+    indent = lines[target.lineno - 1][: target.col_offset]
+    body = text.split("\n")
+    body = [body[0].lstrip(), *(indent + line[base:] if line.strip() else "" for line in body[1:])]
+    start, end = target.lineno - 1, target.end_lineno or target.lineno
+    return "".join(lines[:start]) + indent + "\n".join(body) + "\n" + "".join(lines[end:])
+
+
+def _renamed_dump(node: ast.FunctionDef | ast.AsyncFunctionDef, name: str, indent: int | None = None) -> str:
     clone = ast.parse(ast.unparse(node)).body[0]
     clone.name = name  # type: ignore[attr-defined]
     clone.decorator_list = []  # type: ignore[attr-defined]
-    return ast.dump(clone, include_attributes=False)
+    return ast.dump(clone, include_attributes=False, indent=indent)
 
 
 def main() -> None:
@@ -136,42 +169,42 @@ def main() -> None:
                 wanted = {}
                 for raw, match in held:
                     cls, name = (match.group("cls"), match.group("meth") or match.group("func")) if match else (None, raw)
-                    target = _target(original, cls, name)
-                    if target is None or scope.overlaps(rel, target.lineno, target.end_lineno or target.lineno):
-                        wanted[raw] = target
+                    candidates = _targets(original, cls, name)
+                    if not candidates or any(scope.overlaps(rel, c.lineno, c.end_lineno or c.lineno) for c in candidates):
+                        wanted[raw] = candidates
                 if not wanted:
                     continue
                 try:
                     tree = ast.parse(chunk)
                 except SyntaxError:
-                    for raw, target in wanted.items():
+                    for raw, candidates in wanted.items():
                         match = _VARIANT.match(raw)
                         native = (f"{match.group('cls') + '.' if match and match.group('cls') else ''}"
                                   f"{(match.group('meth') or match.group('func')) if match else raw}"
                                   f"__irradiate_{match.group('n') if match else '?'}")
                         emit(fh, rel, native, "", None, status="generated_variant_does_not_parse",
-                             line=target.lineno if target is not None else None)
+                             line=candidates[-1].lineno if candidates else None)
                     continue
                 for cls, name, number, variant in _variants(tree):
                     if variant.name not in wanted:
                         continue
                     native = f"{cls + '.' if cls else ''}{name}__irradiate_{number}"
-                    target = wanted[variant.name]
-                    if target is None:
+                    candidates = wanted[variant.name]
+                    if not candidates:
                         emit(fh, rel, native, "", None, status="original_function_not_found")
+                        continue
+                    index = _origin(candidates, variant, name)
+                    target = candidates[index]
+                    if not scope.overlaps(rel, target.lineno, target.end_lineno or target.lineno):
                         continue
                     text = ast.get_source_segment(chunk, variant) or ""
                     text = re.sub(r"^((?:async\s+)?def\s+)" + re.escape(variant.name), r"\g<1>" + name, text, count=1)
-                    indent = " " * target.col_offset
-                    body = text.split("\n")
-                    base = variant.col_offset  # the variant's own indentation, shared by every line after the first
-                    body = [body[0].lstrip(), *(indent + line[base:] if line.strip() else "" for line in body[1:])]
-                    start, end = target.lineno - 1, target.end_lineno or target.lineno
-                    spliced = "".join(lines[:start]) + indent + "\n".join(body) + "\n" + "".join(lines[end:])
+                    spliced = splice(lines, target, variant.col_offset, text)
                     try:
-                        check = _target(ast.parse(spliced), cls, name)
+                        after = _targets(ast.parse(spliced), cls, name)
                     except SyntaxError:
-                        check = None
+                        after = []
+                    check = after[index] if len(after) == len(candidates) else None
                     if check is None or _renamed_dump(check, name) != _renamed_dump(variant, name):
                         # An emission of the tool all the same: its line charges it to the in-scope budget.
                         emit(fh, rel, native, "", None, status="no_faithful_text", line=target.lineno)

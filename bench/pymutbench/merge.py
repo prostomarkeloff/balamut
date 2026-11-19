@@ -12,14 +12,15 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from pymutbench.artifacts import Artifact, merge, write_jsonl  # noqa: E402
-from pymutbench.metrics import TOOLS  # noqa: E402
+from pymutbench.artifacts import Artifact, merge, write_jsonl
+from pymutbench.metrics import TOOLS
 
 
-def merge_bug(directory: Path) -> int:
-    """The union of the registered tools' artifacts (``<tool>.jsonl``); no other file of the bug is read."""
+def merge_bug(directory: Path, tools: tuple[str, ...] = TOOLS) -> int:
+    """The union of the tools' artifacts (``<tool>.jsonl``; the registered tools by default); no other file of the
+    bug is read."""
     artifacts: list[Artifact] = []
-    for tool in TOOLS:
+    for tool in tools:
         path = directory / f"{tool}.jsonl"
         if path.exists():
             artifacts += [Artifact.from_json(json.loads(line))
