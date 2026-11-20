@@ -35,8 +35,8 @@ SINK_ENTRY_POINT_GROUP = "balamut.sinks"
 # file's KINDS registers or overrides any of them (and custom ones).
 BUILTIN_KINDS: tuple[str, ...] = ("src", "concurrency", "fault", "oracle", "extreme", "db", "chain")
 
-DEFAULT_KINDS = ("src", "concurrency", "fault", "oracle")
-DEFAULT_DIFF_KINDS = (*DEFAULT_KINDS, "extreme")
+DEFAULT_KINDS = ("src", "concurrency", "fault", "oracle", "extreme")
+DEFAULT_DIFF_KINDS = DEFAULT_KINDS
 DEFAULT_TEST_PATTERNS = ("test_*.py", "*_test.py")
 DEFAULT_SUBSTRATE_INPUTS = ("pyproject.toml", "pytest.ini", "setup.cfg", "tox.ini", "conftest.py")
 DEFAULT_SEMANTIC: SemanticPatterns = (

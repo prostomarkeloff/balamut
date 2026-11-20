@@ -35,18 +35,18 @@
 <path d="M168.00,230.00 H191.93 Q195.93,230.00 195.93,234.00 V240.00 Q195.93,244.00 191.93,244.00 H168.00 Z" fill="#6b6a64"><title>mutmut: 6%</title></path>
 <text x="203.9" y="237.0" fill="#c3c2b7" font-size="12" font-weight="400" text-anchor="start" dominant-baseline="middle">6%</text>
 <text x="156.0" y="267.0" fill="#c3c2b7" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">balamut</text>
-
-<text x="176.0" y="267.0" fill="#c3c2b7" font-size="12" font-weight="400" text-anchor="start" dominant-baseline="middle">0%</text>
-<text x="156.0" y="297.0" fill="#c3c2b7" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">cosmic-ray</text>
-
-<text x="176.0" y="297.0" fill="#c3c2b7" font-size="12" font-weight="400" text-anchor="start" dominant-baseline="middle">0%</text>
-<text x="156.0" y="327.0" fill="#c3c2b7" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">poodle</text>
+<path d="M168.00,260.00 H168.00 Q169.01,260.00 169.01,261.01 V272.99 Q169.01,274.00 168.00,274.00 H168.00 Z" fill="#6b6a64"><title>balamut: 0.2%</title></path>
+<text x="177.0" y="267.0" fill="#c3c2b7" font-size="12" font-weight="400" text-anchor="start" dominant-baseline="middle">0.2%</text>
+<text x="156.0" y="297.0" fill="#c3c2b7" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">universalmutator</text>
+<path d="M168.00,290.00 H168.00 Q168.73,290.00 168.73,290.73 V303.27 Q168.73,304.00 168.00,304.00 H168.00 Z" fill="#6b6a64"><title>universalmutator: 0.2%</title></path>
+<text x="176.7" y="297.0" fill="#c3c2b7" font-size="12" font-weight="400" text-anchor="start" dominant-baseline="middle">0.2%</text>
+<text x="156.0" y="327.0" fill="#c3c2b7" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">cosmic-ray</text>
 
 <text x="176.0" y="327.0" fill="#c3c2b7" font-size="12" font-weight="400" text-anchor="start" dominant-baseline="middle">0%</text>
-<text x="156.0" y="357.0" fill="#c3c2b7" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">pytest-gremlins</text>
+<text x="156.0" y="357.0" fill="#c3c2b7" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">poodle</text>
 
 <text x="176.0" y="357.0" fill="#c3c2b7" font-size="12" font-weight="400" text-anchor="start" dominant-baseline="middle">0%</text>
-<text x="156.0" y="387.0" fill="#c3c2b7" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">universalmutator</text>
+<text x="156.0" y="387.0" fill="#c3c2b7" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">pytest-gremlins</text>
 
 <text x="176.0" y="387.0" fill="#c3c2b7" font-size="12" font-weight="400" text-anchor="start" dominant-baseline="middle">0%</text>
 </g>

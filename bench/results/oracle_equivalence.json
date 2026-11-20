@@ -1,5 +1,5 @@
 {
- "agreement": 0.998998998998999,
+ "agreement": 0.997997997997998,
  "bugs": 230,
  "discordant": [
   {
@@ -13,15 +13,26 @@
    ],
    "rejudged": "survived: not a witness",
    "rejudged_killed_by": []
+  },
+  {
+   "aid": "4b391f564c5fe6645bda6192",
+   "bug": "tomlkit@dee4dccd4530",
+   "reason": null,
+   "recorded": "survived: not a witness",
+   "recorded_code": "6dde30737b28f496",
+   "recorded_killed_by": [],
+   "rejudged": "gated_out",
+   "rejudged_killed_by": []
   }
  ],
  "outcome_by_recorded_code": {
   "6dde30737b28f496": {
+   "different": 1,
    "same": 12
   },
   "ecd9f95dcc8ee860": {
    "different": 1,
-   "same": 986,
+   "same": 985,
    "undecided in one judgement": 1
   }
  },
@@ -33,11 +44,12 @@
  "seed": 20261111,
  "transitions": {
   "equivalent_tce -> equivalent_tce": 2,
-  "gated_out -> gated_out": 15,
+  "gated_out -> gated_out": 14,
   "invalid -> invalid": 14,
   "killed -> killed": 757,
   "killed -> survived: not a witness": 1,
   "killed -> unresolved": 1,
+  "survived: not a witness -> gated_out": 1,
   "survived: not a witness -> survived: not a witness": 171,
   "survived: witness -> survived: witness": 37,
   "unresolved -> unresolved": 2

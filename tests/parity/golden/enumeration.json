@@ -32,12 +32,42 @@
     2
    ],
    [
+    2,
+    24,
+    34,
+    "n % 2 == 0",
+    "n % 2 <= 0",
+    "lang:compare:Eq->LtE",
+    2,
+    2
+   ],
+   [
+    2,
+    24,
+    34,
+    "n % 2 == 0",
+    "n % 2 >= 0",
+    "lang:compare:Eq->GtE",
+    2,
+    2
+   ],
+   [
     6,
     90,
     91,
     "0",
     "1",
     "lang:const:num:0->1",
+    6,
+    6
+   ],
+   [
+    6,
+    90,
+    91,
+    "0",
+    "-1",
+    "lang:const:num:0->-1",
     6,
     6
    ],
@@ -73,11 +103,31 @@
    ],
    [
     2,
+    33,
+    34,
+    "0",
+    "-1",
+    "lang:const:num:0->-1",
+    2,
+    2
+   ],
+   [
+    2,
     28,
     29,
     "2",
     "3",
     "lang:const:num:2->3",
+    2,
+    2
+   ],
+   [
+    2,
+    28,
+    29,
+    "2",
+    "1",
+    "lang:const:num:2->1",
     2,
     2
    ]
@@ -143,6 +193,26 @@
     5
    ],
    [
+    5,
+    110,
+    120,
+    "2 + 2 == 4",
+    "2 + 2 <= 4",
+    "lang:compare:Eq->LtE",
+    5,
+    5
+   ],
+   [
+    5,
+    110,
+    120,
+    "2 + 2 == 4",
+    "2 + 2 >= 4",
+    "lang:compare:Eq->GtE",
+    5,
+    5
+   ],
+   [
     6,
     132,
     146,
@@ -151,6 +221,46 @@
     "lang:compare:Eq->NotEq",
     6,
     6
+   ],
+   [
+    6,
+    132,
+    146,
+    "min(3, 4) == 3",
+    "min(3, 4) <= 3",
+    "lang:compare:Eq->LtE",
+    6,
+    6
+   ],
+   [
+    6,
+    132,
+    146,
+    "min(3, 4) == 3",
+    "min(3, 4) >= 3",
+    "lang:compare:Eq->GtE",
+    6,
+    6
+   ],
+   [
+    10,
+    189,
+    198,
+    "[1, 2, 3]",
+    "None",
+    "lang:assign:None",
+    10,
+    10
+   ],
+   [
+    10,
+    194,
+    197,
+    ", 3",
+    "",
+    "lang:container:drop-last",
+    10,
+    10
    ],
    [
     11,
@@ -163,12 +273,42 @@
     11
    ],
    [
+    11,
+    210,
+    226,
+    "len(values) == 3",
+    "len(values) <= 3",
+    "lang:compare:Eq->LtE",
+    11,
+    11
+   ],
+   [
+    11,
+    210,
+    226,
+    "len(values) == 3",
+    "len(values) >= 3",
+    "lang:compare:Eq->GtE",
+    11,
+    11
+   ],
+   [
     12,
     238,
     259,
     "values[0] < values[2]",
     "values[0] <= values[2]",
     "lang:compare:Lt->LtE",
+    12,
+    12
+   ],
+   [
+    12,
+    238,
+    259,
+    "values[0] < values[2]",
+    "values[0] != values[2]",
+    "lang:compare:Lt->NotEq",
     12,
     12
    ],
@@ -199,6 +339,16 @@
     "4",
     "5",
     "lang:const:num:4->5",
+    5,
+    5
+   ],
+   [
+    5,
+    119,
+    120,
+    "4",
+    "3",
+    "lang:const:num:4->3",
     5,
     5
    ],
@@ -253,12 +403,32 @@
     6
    ],
    [
+    6,
+    145,
+    146,
+    "3",
+    "2",
+    "lang:const:num:3->2",
+    6,
+    6
+   ],
+   [
     10,
     190,
     191,
     "1",
     "2",
     "lang:const:num:1->2",
+    10,
+    10
+   ],
+   [
+    10,
+    190,
+    191,
+    "1",
+    "0",
+    "lang:const:num:1->0",
     10,
     10
    ],
@@ -274,11 +444,31 @@
    ],
    [
     10,
+    193,
+    194,
+    "2",
+    "1",
+    "lang:const:num:2->1",
+    10,
+    10
+   ],
+   [
+    10,
     196,
     197,
     "3",
     "4",
     "lang:const:num:3->4",
+    10,
+    10
+   ],
+   [
+    10,
+    196,
+    197,
+    "3",
+    "2",
+    "lang:const:num:3->2",
     10,
     10
    ],
@@ -293,6 +483,36 @@
     11
    ],
    [
+    11,
+    225,
+    226,
+    "3",
+    "2",
+    "lang:const:num:3->2",
+    11,
+    11
+   ],
+   [
+    18,
+    342,
+    352,
+    "ValueError",
+    "()",
+    "lang:except:never",
+    18,
+    18
+   ],
+   [
+    18,
+    342,
+    352,
+    "ValueError",
+    "Exception",
+    "lang:except:Exception",
+    18,
+    18
+   ],
+   [
     5,
     110,
     111,
@@ -304,11 +524,31 @@
    ],
    [
     5,
+    110,
+    111,
+    "2",
+    "1",
+    "lang:const:num:2->1",
+    5,
+    5
+   ],
+   [
+    5,
     114,
     115,
     "2",
     "3",
     "lang:const:num:2->3",
+    5,
+    5
+   ],
+   [
+    5,
+    114,
+    115,
+    "2",
+    "1",
+    "lang:const:num:2->1",
     5,
     5
    ],
@@ -324,11 +564,31 @@
    ],
    [
     6,
+    136,
+    137,
+    "3",
+    "2",
+    "lang:const:num:3->2",
+    6,
+    6
+   ],
+   [
+    6,
     139,
     140,
     "4",
     "5",
     "lang:const:num:4->5",
+    6,
+    6
+   ],
+   [
+    6,
+    139,
+    140,
+    "4",
+    "3",
+    "lang:const:num:4->3",
     6,
     6
    ],
@@ -344,6 +604,16 @@
    ],
    [
     12,
+    245,
+    246,
+    "0",
+    "-1",
+    "lang:const:num:0->-1",
+    12,
+    12
+   ],
+   [
+    12,
     257,
     258,
     "2",
@@ -351,6 +621,26 @@
     "lang:const:num:2->3",
     12,
     12
+   ],
+   [
+    12,
+    257,
+    258,
+    "2",
+    "1",
+    "lang:const:num:2->1",
+    12,
+    12
+   ],
+   [
+    17,
+    323,
+    329,
+    "\"boom\"",
+    "'XXboomXX'",
+    "lang:const:str:wrap",
+    17,
+    17
    ]
   ],
   "concurrency": [],
@@ -465,12 +755,62 @@
     32
    ],
    [
+    7,
+    157,
+    163,
+    "\"0.20\"",
+    "'XX0.20XX'",
+    "lang:const:str:wrap",
+    7,
+    7
+   ],
+   [
+    8,
+    181,
+    187,
+    "\"0.01\"",
+    "'XX0.01XX'",
+    "lang:const:str:wrap",
+    8,
+    8
+   ],
+   [
     12,
     261,
     274,
     "quantity <= 0",
     "quantity < 0",
     "lang:compare:LtE->Lt",
+    12,
+    12
+   ],
+   [
+    12,
+    261,
+    274,
+    "quantity <= 0",
+    "quantity == 0",
+    "lang:compare:LtE->Eq",
+    12,
+    12
+   ],
+   [
+    12,
+    261,
+    274,
+    "quantity <= 0",
+    "True",
+    "lang:condition:True",
+    12,
+    12
+   ],
+   [
+    12,
+    261,
+    274,
+    "quantity <= 0",
+    "False",
+    "lang:condition:False",
     12,
     12
    ],
@@ -485,12 +825,62 @@
     14
    ],
    [
+    14,
+    341,
+    362,
+    "unit_price * quantity",
+    "unit_price",
+    "lang:binop:Mult->lhs",
+    14,
+    14
+   ],
+   [
+    14,
+    341,
+    362,
+    "unit_price * quantity",
+    "quantity",
+    "lang:binop:Mult->rhs",
+    14,
+    14
+   ],
+   [
     19,
     466,
     480,
     "quantity >= 40",
     "quantity > 40",
     "lang:compare:GtE->Gt",
+    19,
+    19
+   ],
+   [
+    19,
+    466,
+    480,
+    "quantity >= 40",
+    "quantity == 40",
+    "lang:compare:GtE->Eq",
+    19,
+    19
+   ],
+   [
+    19,
+    466,
+    480,
+    "quantity >= 40",
+    "True",
+    "lang:condition:True",
+    19,
+    19
+   ],
+   [
+    19,
+    466,
+    480,
+    "quantity >= 40",
+    "False",
+    "lang:condition:False",
     19,
     19
    ],
@@ -511,6 +901,36 @@
     "quantity >= 5",
     "quantity > 5",
     "lang:compare:GtE->Gt",
+    21,
+    21
+   ],
+   [
+    21,
+    520,
+    533,
+    "quantity >= 5",
+    "quantity == 5",
+    "lang:compare:GtE->Eq",
+    21,
+    21
+   ],
+   [
+    21,
+    520,
+    533,
+    "quantity >= 5",
+    "True",
+    "lang:condition:True",
+    21,
+    21
+   ],
+   [
+    21,
+    520,
+    533,
+    "quantity >= 5",
+    "False",
+    "lang:condition:False",
     21,
     21
    ],
@@ -575,12 +995,32 @@
     31
    ],
    [
+    31,
+    790,
+    822,
+    "line_total(unit_price, quantity)",
+    "None",
+    "lang:assign:None",
+    31,
+    31
+   ],
+   [
     12,
     273,
     274,
     "0",
     "1",
     "lang:const:num:0->1",
+    12,
+    12
+   ],
+   [
+    12,
+    273,
+    274,
+    "0",
+    "-1",
+    "lang:const:num:0->-1",
     12,
     12
    ],
@@ -595,12 +1035,32 @@
     19
    ],
    [
+    19,
+    478,
+    480,
+    "40",
+    "39",
+    "lang:const:num:40->39",
+    19,
+    19
+   ],
+   [
     21,
     532,
     533,
     "5",
     "6",
     "lang:const:num:5->6",
+    21,
+    21
+   ],
+   [
+    21,
+    532,
+    533,
+    "5",
+    "4",
+    "lang:const:num:5->4",
     21,
     21
    ],
@@ -615,6 +1075,16 @@
     23
    ],
    [
+    23,
+    585,
+    586,
+    "0",
+    "-1",
+    "lang:const:num:0->-1",
+    23,
+    23
+   ],
+   [
     32,
     843,
     883,
@@ -625,12 +1095,82 @@
     32
    ],
    [
+    32,
+    843,
+    883,
+    "subtotal * (1 - bulk_discount(quantity))",
+    "subtotal",
+    "lang:binop:Mult->lhs",
+    32,
+    32
+   ],
+   [
+    32,
+    843,
+    883,
+    "subtotal * (1 - bulk_discount(quantity))",
+    "(1 - bulk_discount(quantity))",
+    "lang:binop:Mult->rhs",
+    32,
+    32
+   ],
+   [
+    13,
+    301,
+    328,
+    "\"quantity must be positive\"",
+    "'XXquantity must be positiveXX'",
+    "lang:const:str:wrap",
+    13,
+    13
+   ],
+   [
+    20,
+    505,
+    511,
+    "\"0.20\"",
+    "'XX0.20XX'",
+    "lang:const:str:wrap",
+    20,
+    20
+   ],
+   [
+    22,
+    558,
+    564,
+    "\"0.10\"",
+    "'XX0.10XX'",
+    "lang:const:str:wrap",
+    22,
+    22
+   ],
+   [
     27,
     644,
     667,
     "amount * (1 + TAX_RATE)",
     "amount / (1 + TAX_RATE)",
     "lang:binop:Mult->Div",
+    27,
+    27
+   ],
+   [
+    27,
+    644,
+    667,
+    "amount * (1 + TAX_RATE)",
+    "amount",
+    "lang:binop:Mult->lhs",
+    27,
+    27
+   ],
+   [
+    27,
+    644,
+    667,
+    "amount * (1 + TAX_RATE)",
+    "(1 + TAX_RATE)",
+    "lang:binop:Mult->rhs",
     27,
     27
    ],
@@ -665,12 +1205,32 @@
     32
    ],
    [
+    32,
+    855,
+    856,
+    "1",
+    "0",
+    "lang:const:num:1->0",
+    32,
+    32
+   ],
+   [
     27,
     654,
     655,
     "1",
     "2",
     "lang:const:num:1->2",
+    27,
+    27
+   ],
+   [
+    27,
+    654,
+    655,
+    "1",
+    "0",
+    "lang:const:num:1->0",
     27,
     27
    ]
@@ -776,6 +1336,16 @@
     5
    ],
    [
+    5,
+    90,
+    92,
+    "80",
+    "79",
+    "lang:const:num:80->79",
+    5,
+    5
+   ],
+   [
     14,
     345,
     366,
@@ -804,6 +1374,66 @@
     "lang:compare:LtE->Lt",
     9,
     9
+   ],
+   [
+    9,
+    174,
+    188,
+    "weight_kg <= 0",
+    "weight_kg == 0",
+    "lang:compare:LtE->Eq",
+    9,
+    9
+   ],
+   [
+    9,
+    174,
+    188,
+    "weight_kg <= 0",
+    "True",
+    "lang:condition:True",
+    9,
+    9
+   ],
+   [
+    9,
+    174,
+    188,
+    "weight_kg <= 0",
+    "False",
+    "lang:condition:False",
+    9,
+    9
+   ],
+   [
+    11,
+    253,
+    306,
+    "5.0 if weight_kg < 2 else 5.0 + (weight_kg - 2) * 1.5",
+    "None",
+    "lang:assign:None",
+    11,
+    11
+   ],
+   [
+    12,
+    314,
+    321,
+    "express",
+    "True",
+    "lang:condition:True",
+    12,
+    12
+   ],
+   [
+    12,
+    314,
+    321,
+    "express",
+    "False",
+    "lang:condition:False",
+    12,
+    12
    ],
    [
     13,
@@ -866,12 +1496,32 @@
     18
    ],
    [
+    18,
+    427,
+    460,
+    "order_total >= FREE_SHIPPING_FROM",
+    "order_total == FREE_SHIPPING_FROM",
+    "lang:compare:GtE->Eq",
+    18,
+    18
+   ],
+   [
     9,
     187,
     188,
     "0",
     "1",
     "lang:const:num:0->1",
+    9,
+    9
+   ],
+   [
+    9,
+    187,
+    188,
+    "0",
+    "-1",
+    "lang:const:num:0->-1",
     9,
     9
    ],
@@ -887,11 +1537,51 @@
    ],
    [
     11,
+    260,
+    273,
+    "weight_kg < 2",
+    "weight_kg != 2",
+    "lang:compare:Lt->NotEq",
+    11,
+    11
+   ],
+   [
+    11,
+    260,
+    273,
+    "weight_kg < 2",
+    "True",
+    "lang:condition:True",
+    11,
+    11
+   ],
+   [
+    11,
+    260,
+    273,
+    "weight_kg < 2",
+    "False",
+    "lang:condition:False",
+    11,
+    11
+   ],
+   [
+    11,
     253,
     256,
     "5.0",
     "6.0",
     "lang:const:num:5.0->6.0",
+    11,
+    11
+   ],
+   [
+    11,
+    253,
+    256,
+    "5.0",
+    "4.0",
+    "lang:const:num:5.0->4.0",
     11,
     11
    ],
@@ -916,6 +1606,16 @@
     13
    ],
    [
+    13,
+    339,
+    340,
+    "2",
+    "1",
+    "lang:const:num:2->1",
+    13,
+    13
+   ],
+   [
     14,
     364,
     365,
@@ -924,6 +1624,26 @@
     "lang:const:num:2->3",
     14,
     14
+   ],
+   [
+    14,
+    364,
+    365,
+    "2",
+    "1",
+    "lang:const:num:2->1",
+    14,
+    14
+   ],
+   [
+    10,
+    215,
+    240,
+    "\"weight must be positive\"",
+    "'XXweight must be positiveXX'",
+    "lang:const:str:wrap",
+    10,
+    10
    ],
    [
     11,
@@ -937,11 +1657,31 @@
    ],
    [
     11,
+    272,
+    273,
+    "2",
+    "1",
+    "lang:const:num:2->1",
+    11,
+    11
+   ],
+   [
+    11,
     279,
     282,
     "5.0",
     "6.0",
     "lang:const:num:5.0->6.0",
+    11,
+    11
+   ],
+   [
+    11,
+    279,
+    282,
+    "5.0",
+    "4.0",
+    "lang:const:num:5.0->4.0",
     11,
     11
    ],
@@ -977,6 +1717,16 @@
    ],
    [
     11,
+    303,
+    306,
+    "1.5",
+    "0.5",
+    "lang:const:num:1.5->0.5",
+    11,
+    11
+   ],
+   [
+    11,
     298,
     299,
     "2",
@@ -984,6 +1734,26 @@
     "lang:const:num:2->3",
     11,
     11
+   ],
+   [
+    11,
+    298,
+    299,
+    "2",
+    "1",
+    "lang:const:num:2->1",
+    11,
+    11
+   ],
+   [
+    9,
+    150,
+    155,
+    "False",
+    "True",
+    "lang:const:bool:False->True",
+    8,
+    8
    ]
   ],
   "concurrency": [],
@@ -1087,6 +1857,16 @@
     29
    ],
    [
+    29,
+    725,
+    747,
+    "self.stock.get(sku, 0)",
+    "None",
+    "lang:assign:None",
+    29,
+    29
+   ],
+   [
     30,
     763,
     783,
@@ -1097,12 +1877,72 @@
     30
    ],
    [
+    30,
+    763,
+    783,
+    "quantity > available",
+    "quantity != available",
+    "lang:compare:Gt->NotEq",
+    30,
+    30
+   ],
+   [
+    30,
+    763,
+    783,
+    "quantity > available",
+    "True",
+    "lang:condition:True",
+    30,
+    30
+   ],
+   [
+    30,
+    763,
+    783,
+    "quantity > available",
+    "False",
+    "lang:condition:False",
+    30,
+    30
+   ],
+   [
     32,
     858,
     878,
     "available - quantity",
     "available + quantity",
     "lang:binop:Sub->Add",
+    32,
+    32
+   ],
+   [
+    32,
+    858,
+    878,
+    "available - quantity",
+    "available",
+    "lang:binop:Sub->lhs",
+    32,
+    32
+   ],
+   [
+    32,
+    858,
+    878,
+    "available - quantity",
+    "quantity",
+    "lang:binop:Sub->rhs",
+    32,
+    32
+   ],
+   [
+    32,
+    858,
+    878,
+    "available - quantity",
+    "None",
+    "lang:assign:None",
     32,
     32
    ],
@@ -1127,6 +1967,26 @@
     29
    ],
    [
+    29,
+    745,
+    746,
+    "0",
+    "-1",
+    "lang:const:num:0->-1",
+    29,
+    29
+   ],
+   [
+    35,
+    959,
+    968,
+    "Exception",
+    "()",
+    "lang:except:never",
+    35,
+    35
+   ],
+   [
     37,
     1030,
     1059,
@@ -1135,6 +1995,16 @@
     "lang:delete:call",
     37,
     37
+   ],
+   [
+    36,
+    1004,
+    1013,
+    "available",
+    "None",
+    "lang:assign:None",
+    36,
+    36
    ]
   ],
   "concurrency": [
@@ -1250,6 +2120,16 @@
     15
    ],
    [
+    15,
+    417,
+    419,
+    "30",
+    "29",
+    "lang:const:num:30->29",
+    15,
+    15
+   ],
+   [
     32,
     851,
     892,
@@ -1320,12 +2200,72 @@
     86
    ],
    [
+    13,
+    377,
+    383,
+    "\"0.01\"",
+    "'XX0.01XX'",
+    "lang:const:str:wrap",
+    13,
+    13
+   ],
+   [
+    14,
+    399,
+    405,
+    "\"1.20\"",
+    "'XX1.20XX'",
+    "lang:const:str:wrap",
+    14,
+    14
+   ],
+   [
     30,
     774,
     802,
     "value < low or value >= high",
     "value < low and value >= high",
     "lang:boolop:Or->And",
+    30,
+    30
+   ],
+   [
+    30,
+    774,
+    802,
+    "value < low or value >= high",
+    "True",
+    "lang:condition:True",
+    30,
+    30
+   ],
+   [
+    30,
+    774,
+    802,
+    "value < low or value >= high",
+    "False",
+    "lang:condition:False",
+    30,
+    30
+   ],
+   [
+    30,
+    774,
+    802,
+    "value < low or value >= high",
+    "value >= high",
+    "lang:boolop:Or-drop",
+    30,
+    30
+   ],
+   [
+    30,
+    774,
+    802,
+    "value < low or value >= high",
+    "value < low",
+    "lang:boolop:Or-drop",
     30,
     30
    ],
@@ -1340,12 +2280,72 @@
     37
    ],
    [
+    37,
+    965,
+    999,
+    "mask & 0xF | mask >> 2 ^ mask << 1",
+    "(mask & 15)",
+    "lang:binop:BitOr->lhs",
+    37,
+    37
+   ],
+   [
+    37,
+    965,
+    999,
+    "mask & 0xF | mask >> 2 ^ mask << 1",
+    "(mask >> 2 ^ mask << 1)",
+    "lang:binop:BitOr->rhs",
+    37,
+    37
+   ],
+   [
     42,
     1085,
     1109,
     "(ok and ready) or not ok",
     "(ok and ready) and (not ok)",
     "lang:boolop:Or->And",
+    42,
+    42
+   ],
+   [
+    42,
+    1085,
+    1109,
+    "(ok and ready) or not ok",
+    "True",
+    "lang:condition:True",
+    42,
+    42
+   ],
+   [
+    42,
+    1085,
+    1109,
+    "(ok and ready) or not ok",
+    "False",
+    "lang:condition:False",
+    42,
+    42
+   ],
+   [
+    42,
+    1085,
+    1109,
+    "(ok and ready) or not ok",
+    "not ok",
+    "lang:boolop:Or-drop",
+    42,
+    42
+   ],
+   [
+    42,
+    1085,
+    1109,
+    "(ok and ready) or not ok",
+    "ok and ready",
+    "lang:boolop:Or-drop",
     42,
     42
    ],
@@ -1358,6 +2358,16 @@
     "lang:return:None",
     43,
     43
+   ],
+   [
+    44,
+    1142,
+    1148,
+    "\"wait\"",
+    "'XXwaitXX'",
+    "lang:const:str:wrap",
+    44,
+    44
    ],
    [
     54,
@@ -1376,6 +2386,16 @@
     ", rounding=ROUND_HALF_UP",
     "",
     "lang:call:kwarg-drop",
+    54,
+    54
+   ],
+   [
+    54,
+    1394,
+    1440,
+    "amount.quantize(_CENT, rounding=ROUND_HALF_UP)",
+    "None",
+    "lang:assign:None",
     54,
     54
    ],
@@ -1420,12 +2440,42 @@
     55
    ],
    [
+    55,
+    1453,
+    1475,
+    "round(float(price), 2)",
+    "None",
+    "lang:assign:None",
+    55,
+    55
+   ],
+   [
+    56,
+    1487,
+    1503,
+    "int(total * 100)",
+    "(total * 100)",
+    "std:builtins:int-drop",
+    56,
+    56
+   ],
+   [
     61,
     1603,
     1604,
     "0",
     "1",
     "lang:const:num:0->1",
+    61,
+    61
+   ],
+   [
+    61,
+    1603,
+    1604,
+    "0",
+    "-1",
+    "lang:const:num:0->-1",
     61,
     61
    ],
@@ -1440,12 +2490,62 @@
     67
    ],
    [
+    81,
+    2064,
+    2079,
+    "\"héllo wörld\"",
+    "'XXhéllo wörldXX'",
+    "lang:const:str:wrap",
+    81,
+    81
+   ],
+   [
     82,
     2087,
     2134,
     "name.startswith(\"a\") and not name.endswith(\"z\")",
     "name.startswith('a') or not name.endswith('z')",
     "lang:boolop:And->Or",
+    82,
+    82
+   ],
+   [
+    82,
+    2087,
+    2134,
+    "name.startswith(\"a\") and not name.endswith(\"z\")",
+    "True",
+    "lang:condition:True",
+    82,
+    82
+   ],
+   [
+    82,
+    2087,
+    2134,
+    "name.startswith(\"a\") and not name.endswith(\"z\")",
+    "False",
+    "lang:condition:False",
+    82,
+    82
+   ],
+   [
+    82,
+    2087,
+    2134,
+    "name.startswith(\"a\") and not name.endswith(\"z\")",
+    "not name.endswith('z')",
+    "lang:boolop:And-drop",
+    82,
+    82
+   ],
+   [
+    82,
+    2087,
+    2134,
+    "name.startswith(\"a\") and not name.endswith(\"z\")",
+    "name.startswith('a')",
+    "lang:boolop:And-drop",
     82,
     82
    ],
@@ -1460,6 +2560,46 @@
     84
    ],
    [
+    84,
+    2175,
+    2195,
+    "name.find(\"x\") == -1",
+    "name.find('x') <= -1",
+    "lang:compare:Eq->LtE",
+    84,
+    84
+   ],
+   [
+    84,
+    2175,
+    2195,
+    "name.find(\"x\") == -1",
+    "name.find('x') >= -1",
+    "lang:compare:Eq->GtE",
+    84,
+    84
+   ],
+   [
+    84,
+    2175,
+    2195,
+    "name.find(\"x\") == -1",
+    "True",
+    "lang:condition:True",
+    84,
+    84
+   ],
+   [
+    84,
+    2175,
+    2195,
+    "name.find(\"x\") == -1",
+    "False",
+    "lang:condition:False",
+    84,
+    84
+   ],
+   [
     92,
     2391,
     2392,
@@ -1470,12 +2610,32 @@
     92
    ],
    [
+    92,
+    2391,
+    2392,
+    "3",
+    "2",
+    "lang:const:num:3->2",
+    92,
+    92
+   ],
+   [
     93,
     2436,
     2438,
     "60",
     "61",
     "lang:const:num:60->61",
+    93,
+    93
+   ],
+   [
+    93,
+    2436,
+    2438,
+    "60",
+    "59",
+    "lang:const:num:60->59",
     93,
     93
    ],
@@ -1591,11 +2751,31 @@
    ],
    [
     30,
+    774,
+    785,
+    "value < low",
+    "value != low",
+    "lang:compare:Lt->NotEq",
+    30,
+    30
+   ],
+   [
+    30,
     789,
     802,
     "value >= high",
     "value > high",
     "lang:compare:GtE->Gt",
+    30,
+    30
+   ],
+   [
+    30,
+    789,
+    802,
+    "value >= high",
+    "value == high",
+    "lang:compare:GtE->Eq",
     30,
     30
    ],
@@ -1640,12 +2820,62 @@
     31
    ],
    [
+    31,
+    820,
+    846,
+    "min(max(value, low), high)",
+    "None",
+    "lang:assign:None",
+    31,
+    31
+   ],
+   [
     32,
     867,
     879,
     "value != low",
     "value == low",
     "lang:compare:NotEq->Eq",
+    32,
+    32
+   ],
+   [
+    32,
+    867,
+    879,
+    "value != low",
+    "value < low",
+    "lang:compare:NotEq->Lt",
+    32,
+    32
+   ],
+   [
+    32,
+    867,
+    879,
+    "value != low",
+    "value > low",
+    "lang:compare:NotEq->Gt",
+    32,
+    32
+   ],
+   [
+    32,
+    867,
+    879,
+    "value != low",
+    "True",
+    "lang:condition:True",
+    32,
+    32
+   ],
+   [
+    32,
+    867,
+    879,
+    "value != low",
+    "False",
+    "lang:condition:False",
     32,
     32
    ],
@@ -1680,12 +2910,52 @@
     37
    ],
    [
+    37,
+    978,
+    999,
+    "mask >> 2 ^ mask << 1",
+    "(mask >> 2)",
+    "lang:binop:BitXor->lhs",
+    37,
+    37
+   ],
+   [
+    37,
+    978,
+    999,
+    "mask >> 2 ^ mask << 1",
+    "(mask << 1)",
+    "lang:binop:BitXor->rhs",
+    37,
+    37
+   ],
+   [
     42,
     1086,
     1098,
     "ok and ready",
     "ok or ready",
     "lang:boolop:And->Or",
+    42,
+    42
+   ],
+   [
+    42,
+    1086,
+    1098,
+    "ok and ready",
+    "ready",
+    "lang:boolop:And-drop",
+    42,
+    42
+   ],
+   [
+    42,
+    1086,
+    1098,
+    "ok and ready",
+    "ok",
+    "lang:boolop:And-drop",
     42,
     42
    ],
@@ -1698,6 +2968,36 @@
     "lang:unary:not-removal",
     42,
     42
+   ],
+   [
+    43,
+    1126,
+    1130,
+    "\"go\"",
+    "'XXgoXX'",
+    "lang:const:str:wrap",
+    43,
+    43
+   ],
+   [
+    49,
+    1255,
+    1261,
+    "checks",
+    "True",
+    "lang:condition:True",
+    49,
+    49
+   ],
+   [
+    49,
+    1255,
+    1261,
+    "checks",
+    "False",
+    "lang:condition:False",
+    49,
+    49
    ],
    [
     49,
@@ -1721,11 +3021,31 @@
    ],
    [
     55,
+    1459,
+    1471,
+    "float(price)",
+    "price",
+    "std:builtins:float-drop",
+    55,
+    55
+   ],
+   [
+    55,
     1473,
     1474,
     "2",
     "3",
     "lang:const:num:2->3",
+    55,
+    55
+   ],
+   [
+    55,
+    1473,
+    1474,
+    "2",
+    "1",
+    "lang:const:num:2->1",
     55,
     55
    ],
@@ -1750,6 +3070,36 @@
     63
    ],
    [
+    63,
+    1639,
+    1648,
+    "item <= 0",
+    "item == 0",
+    "lang:compare:LtE->Eq",
+    63,
+    63
+   ],
+   [
+    63,
+    1639,
+    1648,
+    "item <= 0",
+    "True",
+    "lang:condition:True",
+    63,
+    63
+   ],
+   [
+    63,
+    1639,
+    1648,
+    "item <= 0",
+    "False",
+    "lang:condition:False",
+    63,
+    63
+   ],
+   [
     64,
     1662,
     1670,
@@ -1770,6 +3120,36 @@
     65
    ],
    [
+    65,
+    1682,
+    1693,
+    "item > 1000",
+    "item != 1000",
+    "lang:compare:Gt->NotEq",
+    65,
+    65
+   ],
+   [
+    65,
+    1682,
+    1693,
+    "item > 1000",
+    "True",
+    "lang:condition:True",
+    65,
+    65
+   ],
+   [
+    65,
+    1682,
+    1693,
+    "item > 1000",
+    "False",
+    "lang:condition:False",
+    65,
+    65
+   ],
+   [
     66,
     1707,
     1712,
@@ -1786,6 +3166,36 @@
     "(big := item * 2) > 100",
     "(big := (item * 2)) >= 100",
     "lang:compare:Gt->GtE",
+    74,
+    74
+   ],
+   [
+    74,
+    1884,
+    1907,
+    "(big := item * 2) > 100",
+    "(big := (item * 2)) != 100",
+    "lang:compare:Gt->NotEq",
+    74,
+    74
+   ],
+   [
+    74,
+    1884,
+    1907,
+    "(big := item * 2) > 100",
+    "True",
+    "lang:condition:True",
+    74,
+    74
+   ],
+   [
+    74,
+    1884,
+    1907,
+    "(big := item * 2) > 100",
+    "False",
+    "lang:condition:False",
     74,
     74
    ],
@@ -1830,12 +3240,42 @@
     83
    ],
    [
+    83,
+    2151,
+    2167,
+    "text.lstrip(\"h\")",
+    "None",
+    "lang:assign:None",
+    83,
+    83
+   ],
+   [
+    83,
+    2151,
+    2167,
+    "text.lstrip(\"h\")",
+    "text",
+    "std:str:lstrip-drop",
+    83,
+    83
+   ],
+   [
     84,
     2175,
     2189,
     "name.find(\"x\")",
     "name.rfind('x')",
     "std:str:find->rfind",
+    84,
+    84
+   ],
+   [
+    84,
+    2193,
+    2194,
+    "-",
+    "",
+    "lang:unary:neg-removal",
     84,
     84
    ],
@@ -1850,12 +3290,92 @@
     85
    ],
    [
+    85,
+    2212,
+    2228,
+    "text.rstrip(\"d\")",
+    "None",
+    "lang:assign:None",
+    85,
+    85
+   ],
+   [
+    85,
+    2212,
+    2228,
+    "text.rstrip(\"d\")",
+    "text",
+    "std:str:rstrip-drop",
+    85,
+    85
+   ],
+   [
+    96,
+    2540,
+    2547,
+    "session",
+    "None",
+    "lang:assign:None",
+    96,
+    96
+   ],
+   [
+    97,
+    2568,
+    2582,
+    "asyncio.Lock()",
+    "None",
+    "lang:assign:None",
+    97,
+    97
+   ],
+   [
     101,
     2753,
     2807,
     "Task.token == token and Task.run_at <= now.timestamp()",
     "Task.token == token or Task.run_at <= now.timestamp()",
     "lang:boolop:And->Or",
+    101,
+    101
+   ],
+   [
+    101,
+    2753,
+    2807,
+    "Task.token == token and Task.run_at <= now.timestamp()",
+    "True",
+    "lang:condition:True",
+    101,
+    101
+   ],
+   [
+    101,
+    2753,
+    2807,
+    "Task.token == token and Task.run_at <= now.timestamp()",
+    "False",
+    "lang:condition:False",
+    101,
+    101
+   ],
+   [
+    101,
+    2753,
+    2807,
+    "Task.token == token and Task.run_at <= now.timestamp()",
+    "Task.run_at <= now.timestamp()",
+    "lang:boolop:And-drop",
+    101,
+    101
+   ],
+   [
+    101,
+    2753,
+    2807,
+    "Task.token == token and Task.run_at <= now.timestamp()",
+    "Task.token == token",
+    "lang:boolop:And-drop",
     101,
     101
    ],
@@ -1880,6 +3400,36 @@
     103
    ],
    [
+    103,
+    2844,
+    2872,
+    "Task.attempts < self.retries",
+    "Task.attempts != self.retries",
+    "lang:compare:Lt->NotEq",
+    103,
+    103
+   ],
+   [
+    103,
+    2844,
+    2872,
+    "Task.attempts < self.retries",
+    "True",
+    "lang:condition:True",
+    103,
+    103
+   ],
+   [
+    103,
+    2844,
+    2872,
+    "Task.attempts < self.retries",
+    "False",
+    "lang:condition:False",
+    103,
+    103
+   ],
+   [
     104,
     2886,
     2926,
@@ -1898,6 +3448,26 @@
     "lang:compare:Gt->GtE",
     105,
     105
+   ],
+   [
+    105,
+    2942,
+    2976,
+    "Task.done_at > now.timestamp() - 1",
+    "Task.done_at != now.timestamp() - 1",
+    "lang:compare:Gt->NotEq",
+    105,
+    105
+   ],
+   [
+    109,
+    3102,
+    3166,
+    "stmt.where(A, B).filter(Task.attempts > 0).order_by(Task.run_at)",
+    "None",
+    "lang:assign:None",
+    109,
+    109
    ],
    [
     110,
@@ -1930,6 +3500,16 @@
     110
    ],
    [
+    110,
+    3182,
+    3232,
+    "rows.limit(10).distinct(Task.token, Task.attempts)",
+    "None",
+    "lang:assign:None",
+    110,
+    110
+   ],
+   [
     115,
     3442,
     3481,
@@ -1950,12 +3530,52 @@
     127
    ],
    [
+    127,
+    3888,
+    3925,
+    "datetime.now(UTC) + timedelta(days=1)",
+    "datetime.now(UTC)",
+    "lang:binop:Add->lhs",
+    127,
+    127
+   ],
+   [
+    127,
+    3888,
+    3925,
+    "datetime.now(UTC) + timedelta(days=1)",
+    "timedelta(days=1)",
+    "lang:binop:Add->rhs",
+    127,
+    127
+   ],
+   [
     139,
     4326,
     4363,
     "datetime.now() + timedelta(minutes=5)",
     "datetime.now() - timedelta(minutes=5)",
     "lang:binop:Add->Sub",
+    139,
+    139
+   ],
+   [
+    139,
+    4326,
+    4363,
+    "datetime.now() + timedelta(minutes=5)",
+    "datetime.now()",
+    "lang:binop:Add->lhs",
+    139,
+    139
+   ],
+   [
+    139,
+    4326,
+    4363,
+    "datetime.now() + timedelta(minutes=5)",
+    "timedelta(minutes=5)",
+    "lang:binop:Add->rhs",
     139,
     139
    ],
@@ -2060,12 +3680,32 @@
     32
    ],
    [
+    32,
+    891,
+    892,
+    "1",
+    "0",
+    "lang:const:num:1->0",
+    32,
+    32
+   ],
+   [
     37,
     972,
     975,
     "0xF",
     "16",
     "lang:const:num:15->16",
+    37,
+    37
+   ],
+   [
+    37,
+    972,
+    975,
+    "0xF",
+    "14",
+    "lang:const:num:15->14",
     37,
     37
    ],
@@ -2100,12 +3740,32 @@
     56
    ],
    [
+    56,
+    1499,
+    1502,
+    "100",
+    "99",
+    "lang:const:num:100->99",
+    56,
+    56
+   ],
+   [
     63,
     1647,
     1648,
     "0",
     "1",
     "lang:const:num:0->1",
+    63,
+    63
+   ],
+   [
+    63,
+    1647,
+    1648,
+    "0",
+    "-1",
+    "lang:const:num:0->-1",
     63,
     63
    ],
@@ -2120,6 +3780,16 @@
     65
    ],
    [
+    65,
+    1689,
+    1693,
+    "1000",
+    "999",
+    "lang:const:num:1000->999",
+    65,
+    65
+   ],
+   [
     74,
     1904,
     1907,
@@ -2128,6 +3798,26 @@
     "lang:const:num:100->101",
     74,
     74
+   ],
+   [
+    74,
+    1904,
+    1907,
+    "100",
+    "99",
+    "lang:const:num:100->99",
+    74,
+    74
+   ],
+   [
+    82,
+    2103,
+    2106,
+    "\"a\"",
+    "'XXaXX'",
+    "lang:const:str:wrap",
+    82,
+    82
    ],
    [
     82,
@@ -2140,6 +3830,26 @@
     82
    ],
    [
+    83,
+    2163,
+    2166,
+    "\"h\"",
+    "'XXhXX'",
+    "lang:const:str:wrap",
+    83,
+    83
+   ],
+   [
+    84,
+    2185,
+    2188,
+    "\"x\"",
+    "'XXxXX'",
+    "lang:const:str:wrap",
+    84,
+    84
+   ],
+   [
     84,
     2194,
     2195,
@@ -2148,6 +3858,26 @@
     "lang:const:num:1->2",
     84,
     84
+   ],
+   [
+    84,
+    2194,
+    2195,
+    "1",
+    "0",
+    "lang:const:num:1->0",
+    84,
+    84
+   ],
+   [
+    85,
+    2224,
+    2227,
+    "\"d\"",
+    "'XXdXX'",
+    "lang:const:str:wrap",
+    85,
+    85
    ],
    [
     101,
@@ -2161,11 +3891,41 @@
    ],
    [
     101,
+    2753,
+    2772,
+    "Task.token == token",
+    "Task.token <= token",
+    "lang:compare:Eq->LtE",
+    101,
+    101
+   ],
+   [
+    101,
+    2753,
+    2772,
+    "Task.token == token",
+    "Task.token >= token",
+    "lang:compare:Eq->GtE",
+    101,
+    101
+   ],
+   [
+    101,
     2777,
     2807,
     "Task.run_at <= now.timestamp()",
     "Task.run_at < now.timestamp()",
     "lang:compare:LtE->Lt",
+    101,
+    101
+   ],
+   [
+    101,
+    2777,
+    2807,
+    "Task.run_at <= now.timestamp()",
+    "Task.run_at == now.timestamp()",
+    "lang:compare:LtE->Eq",
     101,
     101
    ],
@@ -2190,6 +3950,16 @@
     104
    ],
    [
+    104,
+    2893,
+    2926,
+    "Task.expires_at < now.timestamp()",
+    "Task.expires_at != now.timestamp()",
+    "lang:compare:Lt->NotEq",
+    104,
+    104
+   ],
+   [
     105,
     2957,
     2976,
@@ -2210,6 +3980,16 @@
     115
    ],
    [
+    115,
+    3425,
+    3442,
+    "Task.attempts > 0",
+    "Task.attempts != 0",
+    "lang:compare:Gt->NotEq",
+    115,
+    115
+   ],
+   [
     160,
     4912,
     4913,
@@ -2220,12 +4000,32 @@
     160
    ],
    [
+    160,
+    4912,
+    4913,
+    "1",
+    "0",
+    "lang:const:num:1->0",
+    160,
+    160
+   ],
+   [
     162,
     4949,
     4950,
     "0",
     "1",
     "lang:const:num:0->1",
+    162,
+    162
+   ],
+   [
+    162,
+    4949,
+    4950,
+    "0",
+    "-1",
+    "lang:const:num:0->-1",
     162,
     162
    ],
@@ -2241,11 +4041,31 @@
    ],
    [
     37,
+    986,
+    987,
+    "2",
+    "1",
+    "lang:const:num:2->1",
+    37,
+    37
+   ],
+   [
+    37,
     998,
     999,
     "1",
     "2",
     "lang:const:num:1->2",
+    37,
+    37
+   ],
+   [
+    37,
+    998,
+    999,
+    "1",
+    "0",
+    "lang:const:num:1->0",
     37,
     37
    ],
@@ -2260,12 +4080,32 @@
     74
    ],
    [
+    82,
+    2130,
+    2133,
+    "\"z\"",
+    "'XXzXX'",
+    "lang:const:str:wrap",
+    82,
+    82
+   ],
+   [
     105,
     2975,
     2976,
     "1",
     "2",
     "lang:const:num:1->2",
+    105,
+    105
+   ],
+   [
+    105,
+    2975,
+    2976,
+    "1",
+    "0",
+    "lang:const:num:1->0",
     105,
     105
    ],
@@ -2310,6 +4150,26 @@
     115
    ],
    [
+    115,
+    3441,
+    3442,
+    "0",
+    "-1",
+    "lang:const:num:0->-1",
+    115,
+    115
+   ],
+   [
+    115,
+    3465,
+    3480,
+    ", Task.attempts",
+    ",",
+    "lang:container:drop-last",
+    115,
+    115
+   ],
+   [
     123,
     3783,
     3784,
@@ -2320,12 +4180,52 @@
     123
    ],
    [
+    123,
+    3783,
+    3784,
+    "0",
+    "-1",
+    "lang:const:num:0->-1",
+    123,
+    123
+   ],
+   [
     151,
     4752,
     4757,
     "x > 0",
     "x >= 0",
     "lang:compare:Gt->GtE",
+    151,
+    151
+   ],
+   [
+    151,
+    4752,
+    4757,
+    "x > 0",
+    "x != 0",
+    "lang:compare:Gt->NotEq",
+    151,
+    151
+   ],
+   [
+    151,
+    4752,
+    4757,
+    "x > 0",
+    "True",
+    "lang:condition:True",
+    151,
+    151
+   ],
+   [
+    151,
+    4752,
+    4757,
+    "x > 0",
+    "False",
+    "lang:condition:False",
     151,
     151
    ],
@@ -2350,12 +4250,52 @@
     151
    ],
    [
+    151,
+    4763,
+    4764,
+    "0",
+    "-1",
+    "lang:const:num:0->-1",
+    151,
+    151
+   ],
+   [
+    159,
+    4882,
+    4885,
+    "\"a\"",
+    "'XXaXX'",
+    "lang:const:str:wrap",
+    159,
+    159
+   ],
+   [
+    159,
+    4888,
+    4891,
+    "\"b\"",
+    "'XXbXX'",
+    "lang:const:str:wrap",
+    159,
+    159
+   ],
+   [
     74,
     1899,
     1900,
     "2",
     "3",
     "lang:const:num:2->3",
+    74,
+    74
+   ],
+   [
+    74,
+    1899,
+    1900,
+    "2",
+    "1",
+    "lang:const:num:2->1",
     74,
     74
    ],
@@ -2370,12 +4310,32 @@
     109
    ],
    [
+    109,
+    3126,
+    3143,
+    "Task.attempts > 0",
+    "Task.attempts != 0",
+    "lang:compare:Gt->NotEq",
+    109,
+    109
+   ],
+   [
     110,
     3193,
     3195,
     "10",
     "11",
     "lang:const:num:10->11",
+    110,
+    110
+   ],
+   [
+    110,
+    3193,
+    3195,
+    "10",
+    "9",
+    "lang:const:num:10->9",
     110,
     110
    ],
@@ -2390,6 +4350,16 @@
     127
    ],
    [
+    127,
+    3923,
+    3924,
+    "1",
+    "0",
+    "lang:const:num:1->0",
+    127,
+    127
+   ],
+   [
     131,
     4042,
     4058,
@@ -2400,12 +4370,32 @@
     131
    ],
    [
+    131,
+    4042,
+    4058,
+    "Task.done_at > 0",
+    "Task.done_at != 0",
+    "lang:compare:Gt->NotEq",
+    131,
+    131
+   ],
+   [
     139,
     4361,
     4362,
     "5",
     "6",
     "lang:const:num:5->6",
+    139,
+    139
+   ],
+   [
+    139,
+    4361,
+    4362,
+    "5",
+    "4",
+    "lang:const:num:5->4",
     139,
     139
    ],
@@ -2421,11 +4411,31 @@
    ],
    [
     151,
+    4756,
+    4757,
+    "0",
+    "-1",
+    "lang:const:num:0->-1",
+    151,
+    151
+   ],
+   [
+    151,
     4747,
     4748,
     "2",
     "3",
     "lang:const:num:2->3",
+    151,
+    151
+   ],
+   [
+    151,
+    4747,
+    4748,
+    "2",
+    "1",
+    "lang:const:num:2->1",
     151,
     151
    ],
@@ -2470,12 +4480,32 @@
     109
    ],
    [
+    109,
+    3142,
+    3143,
+    "0",
+    "-1",
+    "lang:const:num:0->-1",
+    109,
+    109
+   ],
+   [
     131,
     4057,
     4058,
     "0",
     "1",
     "lang:const:num:0->1",
+    131,
+    131
+   ],
+   [
+    131,
+    4057,
+    4058,
+    "0",
+    "-1",
+    "lang:const:num:0->-1",
     131,
     131
    ],
@@ -2491,11 +4521,31 @@
    ],
    [
     30,
+    668,
+    669,
+    "0",
+    "-1",
+    "lang:const:num:0->-1",
+    28,
+    28
+   ],
+   [
+    30,
     683,
     686,
     "100",
     "101",
     "lang:const:num:100->101",
+    28,
+    28
+   ],
+   [
+    30,
+    683,
+    686,
+    "100",
+    "99",
+    "lang:const:num:100->99",
     28,
     28
    ]

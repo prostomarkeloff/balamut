@@ -32,7 +32,7 @@ from balamut.engine.daemon import (
     write_original_spec,
     write_request_spec,
 )
-from balamut.engine.partition import ResultsByIndex, Work, persist_verdict
+from balamut.engine.partition import KillRecord, ResultsByIndex, Work, persist_verdict
 from balamut.engine.progress import CampaignProgress
 from balamut.engine.results import (
     CampaignExactnessError,
@@ -43,8 +43,8 @@ from balamut.engine.results import (
     VerdictReason,
 )
 from balamut.engine.timeouts import mutant_timeout_budget
-from balamut.runtime.kill_deps import KILL_DEPS_SUFFIX, KillValidity, kill_deps_read
-from balamut.runtime.plugin import TOUCHED_MARKER_SUFFIX, UNSUPPORTED_MARKER_SUFFIX
+from balamut.runtime.kill_deps import KILL_DEPS_SUFFIX, KillDeps, KillValidity, kill_deps_read
+from balamut.runtime.plugin import STALE_MARKER_SUFFIX, TOUCHED_MARKER_SUFFIX, UNSUPPORTED_MARKER_SUFFIX
 
 type KillersByKey = dict[str, frozenset[str]]  # mutant key -> node ids of its earlier killers
 
@@ -151,6 +151,7 @@ def campaign_scope_abort(fatal_errors: queue.Queue[CampaignExactnessError] | Non
 class _Markers:
     unsupported: Path
     touched: Path
+    stale: Path
     deps: Path
 
     @classmethod
@@ -158,11 +159,12 @@ class _Markers:
         return cls(
             Path(f"{daemon.mutant_file}{UNSUPPORTED_MARKER_SUFFIX}"),
             Path(f"{daemon.mutant_file}{TOUCHED_MARKER_SUFFIX}"),
+            Path(f"{daemon.mutant_file}{STALE_MARKER_SUFFIX}"),
             Path(f"{daemon.mutant_file}{KILL_DEPS_SUFFIX}"),
         )
 
     def clear(self) -> None:
-        for marker in (self.unsupported, self.touched, self.deps):
+        for marker in (self.unsupported, self.touched, self.stale, self.deps):
             marker.unlink(missing_ok=True)
 
 
@@ -264,12 +266,12 @@ class _Lease:
     kill_validity: KillValidity | None
     semantic: SemanticPatterns
 
-    def _persist(self, item: Work, result: MutantResult, killed_by: list[str]) -> None:
+    def _persist(self, item: Work, result: MutantResult, killed_by: list[str], kill: KillRecord | None) -> None:
         if self.store is not None:
-            persist_verdict(self.store, item, result, killed_by, semantic=self.semantic)
+            persist_verdict(self.store, item, result, killed_by, kill=kill, semantic=self.semantic)
 
-    def _terminal(self, item: Work, result: MutantResult, killed_by: list[str]) -> None:
-        self._persist(item, result, killed_by)
+    def _terminal(self, item: Work, result: MutantResult, killed_by: list[str], kill: KillRecord | None = None) -> None:
+        self._persist(item, result, killed_by, kill)
         self.progress.advance(_label(item), result.status, result.key)
         self.results[item.index] = result
 
@@ -287,7 +289,7 @@ class _Lease:
         # entered: cleared before the request (left by the previous mutant on this daemon), read after it.
         markers = _Markers.of(daemon)
         markers.clear()
-        write_request_spec(daemon.mutant_file, item.spec)
+        write_request_spec(daemon.mutant_file, item.request_spec())
         t_request = clock()
         predicted = self.killers_by_key.get(item.key, _EMPTY) if self.killers_by_key is not None else _EMPTY
         budget = mutant_timeout_budget(self.mutant_timeout, item.covering, self.costs)
@@ -360,6 +362,11 @@ class _Lease:
             self._defer(item, status)
             self.timing.add(t_request - t_write, t_end - t_request, sub.durations)
             return
+        if status is MutantStatus.SURVIVED and markers.stale.exists():
+            # A covering test ran the original code at the site: a closure or a copy of the function made before the
+            # mutant (a decorator's wrapper built when a test module was imported) keeps the original body, so the
+            # green run never tested the mutant there, touched or not. A fresh fork inherits the same objects.
+            status = MutantStatus.UNSUPPORTED
         untouched_survivor = status is MutantStatus.SURVIVED and not touched and not rejected_kill
         if untouched_survivor and self.defer_untouched is not None:
             # A warm session fixture may have computed an object on the original in an earlier request: such a green
@@ -387,8 +394,9 @@ class _Lease:
             else None
         )
         # A compiled mutant carries the module name in co_filename, so the recorder never sees it: its own file (its
-        # constants and imports live in the skeleton) joins the kill dependencies explicitly.
-        kill_record = tuple(sorted({*recorded, (item.mutant.path, item.qualname)})) if recorded else None
+        # constants and imports live in the skeleton) joins the kill dependencies explicitly. Their order is free:
+        # the store's encoding and the validity hash both sort them.
+        deps = tuple({*recorded, (item.mutant.path, item.qualname)}) if recorded else None
         result = MutantResult(
             item.mutant,
             status,
@@ -397,14 +405,20 @@ class _Lease:
             item.covering,
             tuple(sub.killed_by),
             reason,
-            kill_deps=kill_record,
-            # Hashed right after the observation: an edit mid-campaign costs a re-run, never a false cache hit.
-            kill_validity=self.kill_validity.of(kill_record) if self.kill_validity is not None and kill_record else "",
         )
-        self._terminal(item, result, sub.killed_by)
+        self._terminal(item, result, sub.killed_by, self._kill_record(deps))
         self.timing.add(t_request - t_write, t_end - t_request, sub.durations)
         if self.diags is not None:
             self.diags.add(_diag(item, result, sub, request_s=t_end - t_request, write_s=t_request - t_write))
+
+    def _kill_record(self, deps: KillDeps | None) -> KillRecord | None:
+        """What the cache keeps a kill by; None without recorded dependencies, without a validity hasher (a campaign
+        without a store) or when a dependency changed during the campaign."""
+        if deps is None or self.kill_validity is None:
+            return None
+        # Hashed right after the observation: an edit mid-campaign costs a re-run, never a false cache hit.
+        validity = self.kill_validity.of(deps)
+        return KillRecord(deps, validity) if validity else None
 
     def _verify_kill(
         self, item: Work, sub: RunResult, markers: _Markers, *, predicted: frozenset[str], budget: float

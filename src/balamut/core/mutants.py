@@ -70,6 +70,8 @@ class Mutant:
     semantic: tuple[str, ...] = ()
     # The slot in ``__defaults__`` for a DEFAULTS mutant (structured; the operator string never holds it).
     default_index: int | None = None
+    # The key in ``__kwdefaults__`` for a DEFAULTS mutant of a keyword-only default; ``default_index`` is then None.
+    default_name: str | None = None
     # A size-preserving bytecode edit, declared by the producing finder; None means the plugin recompiles.
     bc: BcEdit | None = None
 

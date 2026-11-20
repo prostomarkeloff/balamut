@@ -37,6 +37,7 @@ from balamut.runtime.kill_deps import KILL_DEPS_SUFFIX
 from balamut.runtime.plugin import (
     KILL_DEPS_ENV,
     MUTANT_FILE_ENV,
+    STALE_MARKER_SUFFIX,
     TOUCHED_MARKER_SUFFIX,
     UNSUPPORTED_MARKER_SUFFIX,
     MutantSpec,
@@ -213,6 +214,7 @@ def write_request_spec(path: Path, spec: MutantSpec) -> None:
         **spec,
         "request_token": uuid.uuid4().hex,
         "touch_path": f"{path}{TOUCHED_MARKER_SUFFIX}",
+        "stale_path": f"{path}{STALE_MARKER_SUFFIX}",
         "deps_path": f"{path}{KILL_DEPS_SUFFIX}",
     }
     path.write_text(json.dumps(request_spec), encoding="utf-8")
@@ -667,7 +669,7 @@ def shutdown_pool(pool: list[Daemon]) -> None:
             killpg(daemon.proc)
         daemon.log.close()
         daemon.mutant_file.write_text("", encoding="utf-8")
-        for suffix in (UNSUPPORTED_MARKER_SUFFIX, TOUCHED_MARKER_SUFFIX, KILL_DEPS_SUFFIX):
+        for suffix in (UNSUPPORTED_MARKER_SUFFIX, TOUCHED_MARKER_SUFFIX, STALE_MARKER_SUFFIX, KILL_DEPS_SUFFIX):
             Path(f"{daemon.mutant_file}{suffix}").unlink(missing_ok=True)
         Path(daemon.address).unlink(missing_ok=True)
         Path(f"{daemon.address}.pid").unlink(missing_ok=True)

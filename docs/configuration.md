@@ -35,8 +35,8 @@ of `init`.
 | argument | default | meaning |
 |---|---|---|
 | `base` | `"origin/main"` | the ref `balamut diff` takes the diff against (through the merge base) |
-| `kinds` | `("src", "concurrency", "fault", "oracle")` | mutant kinds of `balamut mutate` |
-| `diff_kinds` | `kinds` plus `"extreme"` | mutant kinds of `balamut diff` |
+| `kinds` | `("src", "concurrency", "fault", "oracle", "extreme")` | mutant kinds of `balamut mutate` |
+| `diff_kinds` | `("src", "concurrency", "fault", "oracle", "extreme")` | mutant kinds of `balamut diff` |
 | `schedule_fuzz` | `True` | inject yield points into concurrency mutants so a race has a chance to show |
 | `mutant_timeout` | `8.0` | no-progress timeout of a mutant request, in seconds (raised to twice the slowest covering test) |
 | `daemon_ttl` | `None` (600 s) | seconds a campaign daemon may idle before it exits cleanly; a lane respawns such a daemon instead of failing |

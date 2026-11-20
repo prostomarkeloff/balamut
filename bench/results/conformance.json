@@ -2,14 +2,14 @@
  "cf_cached": {
   "balamut": {
    "agreement": {
-    "agree: killed": 4
+    "agree: killed": 9
    },
    "outcome": {
-    "correct": 2
+    "correct": 3
    },
    "result": "ran",
-   "trap_mutants_generated": 2,
-   "wall_seconds": 3.27
+   "trap_mutants_generated": 3,
+   "wall_seconds": 3.58
   },
   "cosmic-ray": {
    "agreement": {
@@ -136,7 +136,7 @@
  "cf_cov_config": {
   "balamut": {
    "agreement": {
-    "agree: killed": 7,
+    "agree: killed": 15,
     "agree: survived": 2
    },
    "outcome": {
@@ -144,7 +144,7 @@
    },
    "result": "ran",
    "trap_mutants_generated": 3,
-   "wall_seconds": 3.42
+   "wall_seconds": 3.5
   },
   "cosmic-ray": {
    "agreement": {
@@ -270,16 +270,16 @@
  "cf_decorator_closure": {
   "balamut": {
    "agreement": {
-    "agree: killed": 1,
-    "error": 2,
-    "no coverage, killable": 2
+    "agree: killed": 2,
+    "error": 5,
+    "no coverage, killable": 4
    },
    "outcome": {
-    "error (expected killed)": 2
+    "error (expected killed)": 4
    },
    "result": "ran",
-   "trap_mutants_generated": 2,
-   "wall_seconds": 3.41
+   "trap_mutants_generated": 4,
+   "wall_seconds": 3.54
   },
   "cosmic-ray": {
    "agreement": {
@@ -343,7 +343,7 @@
    "trap_mutants_generated": 0
   },
   "oracle": {
-   "ok": 18
+   "ok": 20
   },
   "poodle": {
    "agreement": {
@@ -378,7 +378,7 @@
    "trap_mutants_generated": 3,
    "wall_seconds": 0.65
   },
-  "trap_mutants": 18,
+  "trap_mutants": 20,
   "universalmutator": {
    "agreement": {
     "agree: killed": 13,
@@ -395,12 +395,14 @@
  "cf_default_arg": {
   "balamut": {
    "agreement": {
-    "agree: killed": 2
+    "agree: killed": 7
    },
-   "outcome": {},
+   "outcome": {
+    "correct": 2
+   },
    "result": "ran",
-   "trap_mutants_generated": 0,
-   "wall_seconds": 3.19
+   "trap_mutants_generated": 2,
+   "wall_seconds": 3.31
   },
   "cosmic-ray": {
    "agreement": {
@@ -515,14 +517,14 @@
  "cf_flaky": {
   "balamut": {
    "agreement": {
-    "agree: killed": 3
+    "agree: killed": 5
    },
    "outcome": {
-    "correct": 3
+    "correct": 4
    },
    "result": "ran",
-   "trap_mutants_generated": 3,
-   "wall_seconds": 3.4
+   "trap_mutants_generated": 4,
+   "wall_seconds": 3.48
   },
   "cosmic-ray": {
    "agreement": {
@@ -645,14 +647,16 @@
  "cf_hard_exit": {
   "balamut": {
    "agreement": {
-    "agree (no coverage)": 2,
-    "agree: killed": 1,
-    "agree: survived": 2
+    "agree (no coverage)": 3,
+    "agree: killed": 4,
+    "agree: survived": 4
    },
-   "outcome": {},
+   "outcome": {
+    "correct": 1
+   },
    "result": "ran",
-   "trap_mutants_generated": 0,
-   "wall_seconds": 3.2
+   "trap_mutants_generated": 1,
+   "wall_seconds": 3.32
   },
   "cosmic-ray": {
    "agreement": {
@@ -778,16 +782,16 @@
  "cf_import_time": {
   "balamut": {
    "agreement": {
-    "agree (no coverage)": 1,
-    "agree: killed": 1,
-    "no coverage, killable": 3
+    "agree (no coverage)": 2,
+    "agree: killed": 2,
+    "no coverage, killable": 5
    },
    "outcome": {
-    "no_coverage (expected killed)": 2
+    "no_coverage (expected killed)": 3
    },
    "result": "ran",
-   "trap_mutants_generated": 2,
-   "wall_seconds": 3.23
+   "trap_mutants_generated": 3,
+   "wall_seconds": 3.22
   },
   "cosmic-ray": {
    "agreement": {
@@ -909,15 +913,15 @@
  "cf_infinite_loop": {
   "balamut": {
    "agreement": {
-    "agree: killed": 4,
-    "agree: survived": 1
+    "agree: killed": 9,
+    "agree: survived": 3
    },
    "outcome": {
     "correct": 1
    },
    "result": "ran",
    "trap_mutants_generated": 1,
-   "wall_seconds": 37.29
+   "wall_seconds": 96.02
   },
   "cosmic-ray": {
    "agreement": {
@@ -1040,14 +1044,14 @@
  "cf_init_target": {
   "balamut": {
    "agreement": {
-    "agree: killed": 2
+    "agree: killed": 4
    },
    "outcome": {
-    "correct": 2
+    "correct": 3
    },
    "result": "ran",
-   "trap_mutants_generated": 2,
-   "wall_seconds": 3.3
+   "trap_mutants_generated": 3,
+   "wall_seconds": 3.52
   },
   "cosmic-ray": {
    "agreement": {
@@ -1167,14 +1171,14 @@
  "cf_nested_class": {
   "balamut": {
    "agreement": {
-    "agree: killed": 2
+    "agree: killed": 9
    },
    "outcome": {
-    "correct": 2
+    "correct": 4
    },
    "result": "ran",
-   "trap_mutants_generated": 2,
-   "wall_seconds": 3.2
+   "trap_mutants_generated": 4,
+   "wall_seconds": 3.43
   },
   "cosmic-ray": {
    "agreement": {
@@ -1238,7 +1242,7 @@
    "wall_seconds": 1.1
   },
   "oracle": {
-   "ok": 16
+   "ok": 17
   },
   "poodle": {
    "agreement": {
@@ -1273,7 +1277,7 @@
    "trap_mutants_generated": 3,
    "wall_seconds": 0.6
   },
-  "trap_mutants": 16,
+  "trap_mutants": 17,
   "universalmutator": {
    "agreement": {
     "agree: killed": 9
@@ -1289,14 +1293,14 @@
  "cf_pool": {
   "balamut": {
    "agreement": {
-    "agree: killed": 3
+    "agree: killed": 5
    },
    "outcome": {
-    "correct": 3
+    "correct": 4
    },
    "result": "ran",
-   "trap_mutants_generated": 3,
-   "wall_seconds": 3.38
+   "trap_mutants_generated": 4,
+   "wall_seconds": 3.61
   },
   "cosmic-ray": {
    "agreement": {
@@ -1416,18 +1420,18 @@
  "cf_property_setter": {
   "balamut": {
    "agreement": {
-    "agree: killed": 5,
-    "agree: survived": 2,
-    "error": 6
+    "agree: killed": 9,
+    "agree: survived": 4,
+    "error": 10
    },
    "outcome": {
-    "correct": 6,
-    "error (expected killed)": 5,
+    "correct": 7,
+    "error (expected killed)": 7,
     "error (expected survived)": 1
    },
    "result": "ran",
-   "trap_mutants_generated": 12,
-   "wall_seconds": 3.25
+   "trap_mutants_generated": 15,
+   "wall_seconds": 3.41
   },
   "cosmic-ray": {
    "agreement": {
@@ -1557,14 +1561,14 @@
  "cf_relative_import": {
   "balamut": {
    "agreement": {
-    "agree: killed": 4
+    "agree: killed": 10
    },
    "outcome": {
-    "correct": 4
+    "correct": 6
    },
    "result": "ran",
-   "trap_mutants_generated": 4,
-   "wall_seconds": 3.25
+   "trap_mutants_generated": 6,
+   "wall_seconds": 3.44
   },
   "cosmic-ray": {
    "agreement": {
@@ -1632,7 +1636,7 @@
    "wall_seconds": 1.1
   },
   "oracle": {
-   "ok": 23
+   "ok": 25
   },
   "poodle": {
    "agreement": {
@@ -1669,7 +1673,7 @@
    "trap_mutants_generated": 6,
    "wall_seconds": 0.65
   },
-  "trap_mutants": 23,
+  "trap_mutants": 25,
   "universalmutator": {
    "agreement": {
     "agree: killed": 10,
@@ -1686,14 +1690,14 @@
  "cf_session_fixture": {
   "balamut": {
    "agreement": {
-    "agree: killed": 2
+    "agree: killed": 5
    },
    "outcome": {
-    "correct": 1
+    "correct": 2
    },
    "result": "ran",
-   "trap_mutants_generated": 1,
-   "wall_seconds": 3.47
+   "trap_mutants_generated": 2,
+   "wall_seconds": 3.9
   },
   "cosmic-ray": {
    "agreement": {
@@ -1809,15 +1813,15 @@
  "cf_shapes": {
   "balamut": {
    "agreement": {
-    "agree: killed": 8,
-    "agree: survived": 2
+    "agree: killed": 18,
+    "agree: survived": 4
    },
    "outcome": {
-    "correct": 4
+    "correct": 5
    },
    "result": "ran",
-   "trap_mutants_generated": 4,
-   "wall_seconds": 4.28
+   "trap_mutants_generated": 5,
+   "wall_seconds": 4.39
   },
   "cosmic-ray": {
    "agreement": {
@@ -1946,14 +1950,14 @@
  "cf_src_pythonpath": {
   "balamut": {
    "agreement": {
-    "agree: killed": 3
+    "agree: killed": 5
    },
    "outcome": {
-    "correct": 3
+    "correct": 4
    },
    "result": "ran",
-   "trap_mutants_generated": 3,
-   "wall_seconds": 3.29
+   "trap_mutants_generated": 4,
+   "wall_seconds": 3.4
   },
   "cosmic-ray": {
    "agreement": {
@@ -2068,14 +2072,15 @@
  "cf_subprocess": {
   "balamut": {
    "agreement": {
-    "no coverage, killable": 7
+    "agree (no coverage)": 1,
+    "no coverage, killable": 15
    },
    "outcome": {
-    "no_coverage (expected killed)": 2
+    "no_coverage (expected killed)": 3
    },
    "result": "ran",
-   "trap_mutants_generated": 2,
-   "wall_seconds": 2.31
+   "trap_mutants_generated": 3,
+   "wall_seconds": 2.37
   },
   "cosmic-ray": {
    "agreement": {
@@ -2182,14 +2187,14 @@
  "cf_tabs": {
   "balamut": {
    "agreement": {
-    "agree: killed": 6
+    "agree: killed": 15
    },
    "outcome": {
-    "correct": 4
+    "correct": 8
    },
    "result": "ran",
-   "trap_mutants_generated": 4,
-   "wall_seconds": 3.33
+   "trap_mutants_generated": 8,
+   "wall_seconds": 3.56
   },
   "cosmic-ray": {
    "agreement": {
@@ -2260,7 +2265,7 @@
    "wall_seconds": 1.12
   },
   "oracle": {
-   "ok": 41
+   "ok": 43
   },
   "poodle": {
    "agreement": {
@@ -2295,7 +2300,7 @@
    "trap_mutants_generated": 5,
    "wall_seconds": 0.64
   },
-  "trap_mutants": 41,
+  "trap_mutants": 43,
   "universalmutator": {
    "agreement": {
     "agree: killed": 19
@@ -2311,14 +2316,15 @@
  "cf_unicode": {
   "balamut": {
    "agreement": {
-    "agree: killed": 7
+    "agree: killed": 20,
+    "agree: survived": 1
    },
    "outcome": {
-    "correct": 2
+    "correct": 3
    },
    "result": "ran",
-   "trap_mutants_generated": 2,
-   "wall_seconds": 3.33
+   "trap_mutants_generated": 3,
+   "wall_seconds": 3.43
   },
   "cosmic-ray": {
    "agreement": {

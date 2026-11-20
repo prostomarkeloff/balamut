@@ -67,7 +67,6 @@ def test_confirmed_kill_records_its_lease_and_the_mutated_function(
 
     layout = make_layout(tmp_path)
     assert results[0].status is MutantStatus.KILLED
-    assert results[0].kill_deps == deps
     assert cached is not None
     assert kill_deps_decode(cached["kill_deps"]) == deps
     support = partition.support_corpus_hash(layout, {})
@@ -90,11 +89,13 @@ def test_paired_original_run_adds_its_functions_to_the_kill(tmp_path: Path, monk
     )
     store = Store(tmp_path / "campaign.sqlite")
     try:
-        results = _campaign(tmp_path, [item], store)
+        _campaign(tmp_path, [item], store)
+        cached = store.get_verdict("key-0")
     finally:
         store.close()
 
-    assert results[0].kill_deps == (
+    assert cached is not None
+    assert kill_deps_decode(cached["kill_deps"]) == (
         ("src/helper.py", "only_on_the_original"),
         ("src/x.py", "f"),
         ("tests/x_test.py", "test_x"),
@@ -131,12 +132,13 @@ def test_survivor_or_unproven_kill_record_keeps_no_dependencies(
         store.close()
 
     assert results[0].status is status
-    assert results[0].kill_deps is None
     assert cached is not None
     assert (cached["kill_deps"], cached["kill_validity"]) == ("", "")
 
 
 def test_dependency_file_of_the_previous_mutant_is_not_reused(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    write_file(tmp_path / "src/x.py", "def f():\n    return 1\n")
+    write_file(tmp_path / "src/y.py", "def g():\n    return 2\n")
     first, second = mutant("src/x.py", 10), mutant("src/x.py", 20)
     stub_campaign_runtime(
         monkeypatch,
@@ -147,12 +149,15 @@ def test_dependency_file_of_the_previous_mutant_is_not_reused(tmp_path: Path, mo
     )
     store = Store(tmp_path / "campaign.sqlite")
     try:
-        results = _campaign(tmp_path, [first, second], store)
+        _campaign(tmp_path, [first, second], store)
+        cached = [store.get_verdict("key-0"), store.get_verdict("key-1")]
     finally:
         store.close()
 
-    assert results[0].kill_deps == (("src/x.py", "f"), ("src/y.py", "g"))
-    assert results[1].kill_deps is None
+    assert [(verdict["kill_deps"], verdict["kill_validity"] != "") for verdict in cached if verdict is not None] == [
+        (kill_deps_encode((("src/x.py", "f"), ("src/y.py", "g"))), True),
+        ("", False),
+    ]
 
 
 _SOURCE = (
@@ -185,7 +190,7 @@ def _kill_cached_with(tmp_path: Path, monkeypatch: pytest.MonkeyPatch, deps: Kil
         memo={},
         reexport={},
     )
-    validity = DependencyHasher(layout).validity(deps, support_hash="support") if deps else ""
+    kill = partition.KillRecord(deps, DependencyHasher(layout).validity(deps, support_hash="support")) if deps else None
     result = MutantResult(
         item,
         MutantStatus.KILLED,
@@ -193,10 +198,8 @@ def _kill_cached_with(tmp_path: Path, monkeypatch: pytest.MonkeyPatch, deps: Kil
         items[0].key,
         items[0].covering,
         ("tests/x_test.py::test_valid",),
-        kill_deps=deps,
-        kill_validity=validity,
     )
-    partition.persist_verdict(store, items[0], result, ["tests/x_test.py::test_valid"])
+    partition.persist_verdict(store, items[0], result, ["tests/x_test.py::test_valid"], kill=kill)
     return store, item
 
 

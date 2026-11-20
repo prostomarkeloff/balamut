@@ -33,7 +33,8 @@ next: fix_findings_and_rerun
   measured cost, and the request stops at the first failure. Verdicts are cached by content: a mutant is re-run
   only when the code its tests actually executed changes.
 * **Every verdict is proven.** A kill counts only when the killing test passes on the immediately restored
-  original. A warm survivor whose run never entered the mutated code is re-checked in a fresh fork. A hang is a
+  original. A warm survivor whose run never entered the mutated code is re-checked in a fresh fork; one whose tests
+  ran the original through a closure built before the mutant is unsupported. A hang is a
   kill only when the mutant ran, the hung test is known and it passes on the original in the same budget.
   Anything else stays `timeout` with a reason; an unsupported mutant is never reported as a survivor.
 * **Diffs are pinned.** The gate pins the diff against a merge base with content hashes. Editing a file of the
@@ -129,13 +130,17 @@ infrastructure failure). Options it does not know are passed on to `balamut muta
 
 | kind | mutates |
 |---|---|
-| `src` | comparisons, arithmetic, boolean logic, constants, returns, calls, dropped rounding (`round`, `.quantize`), default arguments |
+| `src` | comparisons (the sufficient relational replacements), arithmetic, boolean logic, conditions forced true or false, dropped `and`/`or` and arithmetic operands, constants (numbers, strings, booleans), signs, assigned values, exception handlers, loops, returns, calls (arguments, `**kwargs`, conversions, string normalizers, dropped rounding: `round`, `.quantize`; a library method swapped for its neighbour: `match`/`search`, `basename`/`dirname`), the last element of a list, tuple, set or dict display dropped, a variable or a `self` method replaced with a name in scope that differs in one word, positional and keyword-only default arguments |
 | `extreme` | whole statements (statement deletion), the strongest signal a test exercises behaviour |
 | `concurrency` | lock removal, `with_for_update` drops, and queue claim/settle predicates you configure |
 | `fault` | an awaited dependency call raises (commit, flush, ...) or returns the wrong value |
 | `oracle` | the tests themselves: weakened assertions, so a test that cannot fail shows up |
 | `db` | query predicates and grouping keys dropped one at a time (extra `sa`) |
 | `chain` | timezone and filter contracts of call chains (extra `sa`) |
+
+`src` does not mutate strings in docstrings, assertion messages, logging and `warnings.warn` arguments, typing
+helpers or `__all__`/`__slots__`, does not force conditions on the interpreter, the platform or
+`TYPE_CHECKING`, and drops no element of a tuple that is returned, yielded or unpacked into several targets.
 
 Third-party kinds are ordinary importable packages: the value is a tuple of operator
 facts (frozen capability values implementing the `Sites` or `Enumerates` protocol of
@@ -219,14 +224,14 @@ each tool's own campaign.
   <img alt="Share of real bugs with a pre-fix witness, per tool, with 95% intervals" src="docs/images/bench-detection.light.svg">
 </picture>
 
-The tools generate a pre-fix witness for 6.5% (pytest-gremlins) to 23.7% (mutation) of the bugs, balamut's
-default source kinds for 11.4%, with a 95% rank interval of 6–9. Judged on the fixed program alone, the rates are
-24.9% to 61.8% (balamut 40.3%), but 31% to 44% of those detections rest only on lines the fix inserted. Detection
-grows with the number of mutants a tool emits; at fixed budgets the tools are close (ten random mutants contain a
-pre-fix witness with probability 5.3% to 9.4%, balamut's 6.6%), and their order does not repeat between halves
-of the projects. In each tool's own campaign on six projects, balamut's engine agrees with the oracle on all 1,892
-comparable verdicts, as do cosmic-ray, universalmutator and pytest-gremlins on theirs, while the oracle kills up
-to 92% (fest) of the survivors other engines report.
+The tools generate a pre-fix witness for 6.5% (pytest-gremlins) to 28.6% (balamut, in its default configuration)
+of the bugs, balamut with a 95% rank interval of 1. Judged on the fixed program alone, the rates are 24.9% to 72.3%
+(balamut), but 25% to 44% of those detections rest only on lines the fix inserted. Detection grows with the number
+of mutants a tool emits; at fixed budgets the tools are close (ten random mutants contain a pre-fix witness with
+probability 5.3% to 11.4%, balamut at the top), and their order does not repeat between halves of the projects.
+In each tool's own campaign on six projects, balamut's engine agrees with the oracle on 4,741 of 4,742 comparable
+verdicts, universalmutator's on 5,443 of 5,444, while cosmic-ray and pytest-gremlins agree on all of theirs; the
+oracle kills up to 92% (fest) of the survivors other engines report.
 
 The benchmark is maintained by balamut's authors; the protocol, every judged mutant and the scripts behind every
 number are in [`bench/`](bench), and any tool's maintainers can correct its adapter or configuration.

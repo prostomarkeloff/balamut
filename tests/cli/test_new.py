@@ -113,7 +113,7 @@ def test_new_config_loads_and_registers(tmp_path: Path) -> None:
 
     overrides = load_kind_overrides(tmp_path)
     assert overrides.kinds == {}
-    assert load_profile(tmp_path).kinds == ("src", "concurrency", "fault", "oracle")
+    assert load_profile(tmp_path).kinds == ("src", "concurrency", "fault", "oracle", "extreme")
 
 
 def test_new_rejects_unknown_arguments_with_an_error(tmp_path: Path, capsys: pytest.CaptureFixture[str]) -> None:

@@ -170,6 +170,7 @@ class EnumContext:
         site_lineno: int | None = None,
         classes: tuple[str, ...] = (),
         default_index: int | None = None,
+        default_name: str | None = None,
         bc: BcEdit | None = None,
     ) -> None:
         """Append the mutant replacing ``target`` with ``mutated``; a no-op replacement is skipped.
@@ -202,6 +203,7 @@ class EnumContext:
                 family="",
                 semantic=classes,
                 default_index=default_index,
+                default_name=default_name,
                 bc=bc,
             )
         )

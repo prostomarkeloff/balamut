@@ -5,7 +5,7 @@ type: dataset
 authors:
   - name: "The PyMutBench contributors"
 version: "corpus 1.0, results 2026.11, harness 0.2.0"
-date-released: "2026-11-18"
+date-released: "2026-11-20"
 repository-code: "https://github.com/prostomarkeloff/balamut/tree/main/bench"
 license: MIT
 keywords:

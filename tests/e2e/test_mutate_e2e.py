@@ -200,7 +200,7 @@ def test_a_reload_in_one_lease_leaves_the_next_lease_the_imported_definitions(tm
     rows = _rows(_mutate(root, None, "--daemons", "1"))
 
     triple = [row for row in rows if row["lineno"] == 6]
-    assert len(triple) == 3
+    assert len(triple) == 4  # x / 3, x * 4, x * 2, return None
     assert {str(row["status"]) for row in triple} == {"killed"}
     assert {str(row["status"]) for row in rows if row["lineno"] == 2} == {"survived"}  # the reloads did run
 
@@ -228,3 +228,35 @@ def test_a_constant_argument_folded_into_its_call_is_covered_by_the_call(tmp_pat
 
     dropped = {(row["lineno"], row["status"]) for row in rows if row["mutated"] == ""}
     assert dropped == {(3, "killed"), (4, "killed"), (5, "killed"), (6, "killed")}
+
+
+def test_a_closure_built_at_collection_never_lets_its_mutant_survive(tmp_path: Path) -> None:
+    # `show` was decorated when the test module was imported, before the mutant: its wrapper keeps the original
+    # code, and the test that would kill `isinstance(...)` -> `True` runs the original. A wrapper built inside a
+    # test runs the mutant (the touch) and passes. Green covering tests therefore prove nothing about the mutant.
+    root = make_project(
+        tmp_path / "proj",
+        {
+            "src/pkg/calc.py": (
+                "def describe(fn):\n"
+                "    def wrapper(value):\n"
+                "        if isinstance(value, int):\n"
+                '            return "int " + fn(value)\n'
+                '        return "other " + fn(value)\n\n'
+                "    return wrapper\n"
+            ),
+            "tests/test_calc.py": (
+                "from pkg.calc import describe\n\n\n"
+                "@describe\ndef show(value):\n    return str(value)\n\n\n"
+                'def test_text_through_the_imported_definition():\n    assert show("a") == "other a"\n\n\n'
+                'def test_int_through_a_fresh_definition():\n    assert describe(str)(1) == "int 1"\n'
+            ),
+        },
+    )
+    subprocess.run(["git", "init", "-q"], cwd=root, check=True)
+
+    rows = _rows(_mutate(root, None))
+
+    assert _one(rows, line=3, original="isinstance(value, int)", mutated="True")["status"] == "unsupported"
+    # The fresh wrapper still kills what it reaches.
+    assert _one(rows, line=4, original='return "int " + fn(value)', mutated="return None")["status"] == "killed"

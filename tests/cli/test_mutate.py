@@ -1395,7 +1395,7 @@ def test_run_reports_the_mechanisms_line_when_cold_mutants_exist(
     ]
 
     assert mutate.main([*argv, "--address", str(tmp_path / "unused.sock"), "--no-refresh-substrate"]) == 0
-    assert "mechanisms: 0 code / 1 cold" in capsys.readouterr().err
+    assert "mechanisms: 0 code / 2 cold" in capsys.readouterr().err  # LIMIT = 4 and LIMIT = 2
 
 
 def test_run_records_a_positive_pytest_collection_timing(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
@@ -1947,7 +1947,7 @@ def test_operator_filters_by_prefix(
     ]
 
     assert mutate.main([*argv, "--address", str(tmp_path / "unused.sock"), "--no-refresh-substrate"]) == 0
-    assert "mutants: 1" in capsys.readouterr().err
+    assert "mutants: 2" in capsys.readouterr().err  # a <= b and a != b
 
 
 def test_limit_caps_the_mutants(

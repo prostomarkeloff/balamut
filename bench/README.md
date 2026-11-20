@@ -174,8 +174,9 @@ changes. For balamut: move the old wheel out of `.wheels`, name the new one in `
 
 ```console
 $ uv build --wheel -o .wheels ..
-$ python3 -m pymutbench.orchestrate refresh-tool balamut --measured balamut-0.1.5 --unpin balamut pytest-fast
+$ python3 -m pymutbench.orchestrate refresh-tool balamut --measured balamut-0.1.6 --unpin balamut pytest-fast
 $ rm -f $PMB_WORK/out/engine/*/balamut.r*.json $PMB_WORK/out/conformance/*/balamut.r1*.json
+$ rm -f $PMB_WORK/out/gen/*/*/buggy/balamut.jsonl $PMB_WORK/out/gen/*/*/buggy/balamut.ledger.json
 $ python3 -m pymutbench.pipeline generate --tools balamut --force --parallel 3
 $ python3 -m pymutbench.pipeline judge --parallel 3 --jobs 4
 $ python3 -m pymutbench.pipeline confirm --parallel 3 --jobs 4
@@ -192,8 +193,9 @@ rebuilds the image from it: the release named in `tools.toml` goes into the tool
 other installed distribution pinned to its version except those in `--unpin` (the tool's own and the
 dependencies the release moves), and the command prints each environment's change. The other environments, the
 reference one and the project trees stay as measured; a full rebuild would reinstall them all (with the versions
-of `env/`, which `snapshot-env` records again afterwards). `judge` and `confirm` judge only the artifacts a union
-did not have; `judge` also judges again an artifact the oracle gated out once a new origin lifts the gate. Every
+of `env/`, which `snapshot-env` records again afterwards). `buggy` generates a tool's mutants of a bug's buggy
+files only when the bug has no record of them, so the old release's records are removed with its campaign reports.
+`judge` and `confirm` judge only the artifacts a union did not have; `judge` also judges again an artifact the oracle gated out once a new origin lifts the gate. Every
 verdict `judge` adds can change the stage 0/1 kills the oracle-shortcut sample is drawn from, and `report` checks
 only that the recorded sample is judged: `sensitivity` draws it again from the artifacts of the current unions, and
 a sampled mutant that already has a full-suite verdict keeps it. A project or trap union that gains artifacts is

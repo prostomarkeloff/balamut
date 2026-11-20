@@ -73,7 +73,10 @@ A reload of the mutated module during a mutant's tests carries the edit to the d
 * **Touch marker.** `sys.monitoring` marks the first entry into the mutated code object. A warm verdict whose run
   never entered it (a session fixture may have computed a value on the original in an earlier request) is
   confirmed in a fresh fork with fresh isolation slots. If even the fresh run never enters it, the mutant is
-  `unsupported`, never a survivor.
+  `unsupported`, never a survivor. The marker also watches the original code object at the site: a closure or a
+  copy of the function made before the mutant (a decorator's wrapper built when a test module was imported) keeps
+  the original body, and a survivor whose tests entered it is `unsupported` at once, as a fresh fork inherits the
+  same objects.
 * **Process-level kills.** A worker that dies mid-test is a kill only when pytest-fast proves the active test item
   and it follows the complete prefix of reported results; the original must then pass in a new process.
 * **Hangs.** A request that stops reporting for longer than its budget is a hang. The first hang goes to an

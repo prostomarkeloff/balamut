@@ -7,6 +7,7 @@ and every bookkeeping mutation is observable without a full campaign.
 
 from __future__ import annotations
 
+import os
 import queue
 from pathlib import Path
 from typing import Self
@@ -16,7 +17,7 @@ import pytest
 from balamut.coverage.store import Store
 from balamut.engine import worker
 from balamut.engine.daemon import Daemon, Hang, RunResult
-from balamut.engine.partition import Work
+from balamut.engine.partition import KillRecord, Work
 from balamut.engine.progress import CampaignProgress, ProgressMode
 from balamut.engine.results import (
     CampaignExactnessError,
@@ -26,6 +27,8 @@ from balamut.engine.results import (
     MutantStatus,
     VerdictReason,
 )
+from balamut.runtime.kill_deps import KillValidity
+from bm_support import make_layout, write_file
 from bm_support.campaign import mutant, work
 from bm_support.daemons import fake_daemon
 from bm_support.modules import reloaded
@@ -79,6 +82,7 @@ def _make_lease(
     detailed: bool = False,
     store: Store | None = None,
     semantic: worker.SemanticPatterns = worker.DEFAULT_SEMANTIC,
+    kill_validity: KillValidity | None = None,
 ) -> worker._Lease:
     return worker._Lease(
         daemon=daemon,
@@ -97,7 +101,7 @@ def _make_lease(
         reject_untouched=reject_untouched,
         reject_unstable_kill=reject_unstable_kill,
         fresh_workers=fresh_workers,
-        kill_validity=None,
+        kill_validity=kill_validity,
         semantic=semantic,
     )
 
@@ -517,6 +521,50 @@ def test_reject_untouched_kill_becomes_unsupported(tmp_path: Path, monkeypatch: 
     assert results[0].killed_by == ()
 
 
+def test_survivor_whose_tests_ran_the_original_code_is_unsupported(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    item = work(0, mutant("src/x.py", 10))
+    daemon = fake_daemon(tmp_path)
+    results: dict[int, MutantResult] = {}
+    defer_untouched: queue.Queue[Work] = queue.Queue()
+    markers = worker._Markers.of(daemon)
+
+    def guarded(*_a: object, **_k: object) -> RunResult:
+        # One test entered the mutated code, another ran a closure built before the mutant.
+        markers.touched.write_text("1", encoding="utf-8")
+        markers.stale.write_text("1", encoding="utf-8")
+        return RunResult(0, {}, [])
+
+    monkeypatch.setattr(worker, "run_subset_guarded", guarded)
+
+    _make_lease(daemon, results=results, defer_untouched=defer_untouched).run(item)
+
+    assert results[0].status is MutantStatus.UNSUPPORTED
+    assert defer_untouched.empty()  # a fresh fork inherits the same closure
+
+
+def test_kill_whose_tests_also_ran_the_original_code_stands(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    item = work(0, mutant("src/x.py", 10))
+    daemon = fake_daemon(tmp_path)
+    results: dict[int, MutantResult] = {}
+    markers = worker._Markers.of(daemon)
+    responses = [RunResult(1, {}, ["tests/x_test.py::test_x"]), RunResult(0, {}, [])]
+
+    def guarded(*_a: object, **_k: object) -> RunResult:
+        # The killer entered the mutated code; another test ran a closure built before the mutant.
+        markers.touched.write_text("1", encoding="utf-8")
+        markers.stale.write_text("1", encoding="utf-8")
+        return responses.pop(0)
+
+    monkeypatch.setattr(worker, "run_subset_guarded", guarded)
+
+    _make_lease(daemon, results=results).run(item)
+
+    _assert_result_contract(results[0], item, status=MutantStatus.KILLED)
+    assert results[0].killed_by == ("tests/x_test.py::test_x",)
+
+
 def test_untouched_kill_defers_for_fresh_confirmation(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
     item = work(0, mutant("src/x.py", 10))
     daemon = fake_daemon(tmp_path)
@@ -878,6 +926,7 @@ def test_lease_persists_the_verdict_with_its_semantic_patterns(tmp_path: Path, m
         killed_by: list[str],
         *,
         semantic: object = worker.DEFAULT_SEMANTIC,
+        **_kill: object,
     ) -> None:
         persisted.append((semantic, killed_by))
 
@@ -888,3 +937,31 @@ def test_lease_persists_the_verdict_with_its_semantic_patterns(tmp_path: Path, m
 
     assert persisted == [(semantic, [])]
     assert results[0].status is MutantStatus.SURVIVED
+
+
+def test_kill_record_needs_a_validity_hasher(tmp_path: Path) -> None:
+    """A campaign without a store has no hasher: its kills keep no record."""
+    lease = _make_lease(fake_daemon(tmp_path))
+
+    assert lease._kill_record((("src/x.py", "f"),)) is None
+
+
+def test_kill_record_holds_the_dependencies_and_their_hash(tmp_path: Path) -> None:
+    write_file(tmp_path / "src/x.py", "def f():\n    return 1\n")
+    deps = (("src/x.py", "f"),)
+    validity = KillValidity(make_layout(tmp_path), support_hash="support")
+    lease = _make_lease(fake_daemon(tmp_path), kill_validity=validity)
+
+    assert lease._kill_record(deps) == KillRecord(deps, validity.of(deps))
+    assert lease._kill_record(None) is None
+
+
+def test_kill_whose_dependency_changed_during_the_campaign_keeps_no_record(tmp_path: Path) -> None:
+    """The daemon ran the version imported at the campaign start, while the hash would read the edited file."""
+    path = tmp_path / "src/x.py"
+    write_file(path, "def f():\n    return 1\n")
+    os.utime(path, (2_000, 2_000))
+    validity = KillValidity(make_layout(tmp_path), support_hash="support", since=1_000)
+    lease = _make_lease(fake_daemon(tmp_path), kill_validity=validity)
+
+    assert lease._kill_record((("src/x.py", "f"),)) is None

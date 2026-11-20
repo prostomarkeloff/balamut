@@ -22,51 +22,51 @@
 <line x1="690.0" y1="88" x2="690.0" y2="426" stroke="#e1e0d9" stroke-width="1"/>
 <text x="690.0" y="442.0" fill="#898781" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">80%</text>
 <line x1="168" y1="88" x2="168" y2="426" stroke="#c3c2b7" stroke-width="1"/>
-<text x="156.0" y="111.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">mutation</text>
-<rect x="168.00" y="103.00" width="124.48" height="16" rx="3" fill="#2a78d6"><title>mutation — code the fix did not touch: 19%</title></rect>
-<rect x="294.48" y="103.00" width="150.58" height="16" rx="3" fill="#eb6834"><title>mutation — lines the fix rewrote: 23%</title></rect>
-<rect x="447.06" y="103.00" width="124.48" height="16" rx="3" fill="#a8a69e"><title>mutation — only lines the fix inserted: 19%</title></rect>
-<text x="579.5" y="111.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="start" dominant-baseline="middle">62%</text>
-<text x="156.0" y="141.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">universalmutator</text>
-<rect x="168.00" y="133.00" width="102.39" height="16" rx="3" fill="#2a78d6"><title>universalmutator — code the fix did not touch: 16%</title></rect>
-<rect x="272.39" y="133.00" width="142.55" height="16" rx="3" fill="#eb6834"><title>universalmutator — lines the fix rewrote: 22%</title></rect>
-<rect x="416.95" y="133.00" width="120.47" height="16" rx="3" fill="#a8a69e"><title>universalmutator — only lines the fix inserted: 19%</title></rect>
-<text x="545.4" y="141.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="start" dominant-baseline="middle">57%</text>
-<text x="156.0" y="171.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">poodle</text>
-<rect x="168.00" y="163.00" width="100.38" height="16" rx="3" fill="#2a78d6"><title>poodle — code the fix did not touch: 15%</title></rect>
-<rect x="270.38" y="163.00" width="114.45" height="16" rx="3" fill="#eb6834"><title>poodle — lines the fix rewrote: 18%</title></rect>
-<rect x="386.83" y="163.00" width="138.54" height="16" rx="3" fill="#a8a69e"><title>poodle — only lines the fix inserted: 22%</title></rect>
-<text x="533.4" y="171.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="start" dominant-baseline="middle">55%</text>
-<text x="156.0" y="201.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">irradiate</text>
-<rect x="168.00" y="193.00" width="84.32" height="16" rx="3" fill="#2a78d6"><title>irradiate — code the fix did not touch: 13%</title></rect>
-<rect x="254.32" y="193.00" width="104.41" height="16" rx="3" fill="#eb6834"><title>irradiate — lines the fix rewrote: 16%</title></rect>
-<rect x="360.73" y="193.00" width="112.44" height="16" rx="3" fill="#a8a69e"><title>irradiate — only lines the fix inserted: 18%</title></rect>
-<text x="481.2" y="201.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="start" dominant-baseline="middle">47%</text>
-<text x="156.0" y="231.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">deployproof</text>
-<rect x="168.00" y="223.00" width="76.29" height="16" rx="3" fill="#2a78d6"><title>deployproof — code the fix did not touch: 12%</title></rect>
-<rect x="246.29" y="223.00" width="90.35" height="16" rx="3" fill="#eb6834"><title>deployproof — lines the fix rewrote: 14%</title></rect>
-<rect x="338.65" y="223.00" width="116.45" height="16" rx="3" fill="#a8a69e"><title>deployproof — only lines the fix inserted: 18%</title></rect>
-<text x="463.1" y="231.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="start" dominant-baseline="middle">44%</text>
-<text x="156.0" y="261.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">mutmut</text>
-<rect x="168.00" y="253.00" width="76.29" height="16" rx="3" fill="#2a78d6"><title>mutmut — code the fix did not touch: 12%</title></rect>
-<rect x="246.29" y="253.00" width="110.43" height="16" rx="3" fill="#eb6834"><title>mutmut — lines the fix rewrote: 17%</title></rect>
-<rect x="358.72" y="253.00" width="94.37" height="16" rx="3" fill="#a8a69e"><title>mutmut — only lines the fix inserted: 15%</title></rect>
-<text x="461.1" y="261.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="start" dominant-baseline="middle">44%</text>
-<text x="156.0" y="291.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">cosmic-ray</text>
-<rect x="168.00" y="283.00" width="76.29" height="16" rx="3" fill="#2a78d6"><title>cosmic-ray — code the fix did not touch: 12%</title></rect>
-<rect x="246.29" y="283.00" width="104.41" height="16" rx="3" fill="#eb6834"><title>cosmic-ray — lines the fix rewrote: 16%</title></rect>
-<rect x="352.70" y="283.00" width="94.37" height="16" rx="3" fill="#a8a69e"><title>cosmic-ray — only lines the fix inserted: 15%</title></rect>
-<text x="455.1" y="291.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="start" dominant-baseline="middle">43%</text>
-<text x="156.0" y="321.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">fest</text>
-<rect x="168.00" y="313.00" width="72.28" height="16" rx="3" fill="#2a78d6"><title>fest — code the fix did not touch: 11%</title></rect>
-<rect x="242.28" y="313.00" width="86.34" height="16" rx="3" fill="#eb6834"><title>fest — lines the fix rewrote: 14%</title></rect>
-<rect x="330.62" y="313.00" width="106.42" height="16" rx="3" fill="#a8a69e"><title>fest — only lines the fix inserted: 17%</title></rect>
-<text x="445.0" y="321.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="start" dominant-baseline="middle">41%</text>
-<text x="156.0" y="351.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">balamut</text>
-<rect x="168.00" y="343.00" width="50.19" height="16" rx="3" fill="#2a78d6"><title>balamut — code the fix did not touch: 8%</title></rect>
-<rect x="220.19" y="343.00" width="106.42" height="16" rx="3" fill="#eb6834"><title>balamut — lines the fix rewrote: 17%</title></rect>
-<rect x="328.61" y="343.00" width="102.40" height="16" rx="3" fill="#a8a69e"><title>balamut — only lines the fix inserted: 16%</title></rect>
-<text x="439.0" y="351.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="start" dominant-baseline="middle">40%</text>
+<text x="156.0" y="111.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">balamut</text>
+<rect x="168.00" y="103.00" width="152.58" height="16" rx="3" fill="#2a78d6"><title>balamut — code the fix did not touch: 23%</title></rect>
+<rect x="322.58" y="103.00" width="198.77" height="16" rx="3" fill="#eb6834"><title>balamut — lines the fix rewrote: 31%</title></rect>
+<rect x="523.35" y="103.00" width="116.45" height="16" rx="3" fill="#a8a69e"><title>balamut — only lines the fix inserted: 18%</title></rect>
+<text x="647.8" y="111.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="start" dominant-baseline="middle">72%</text>
+<text x="156.0" y="141.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">mutation</text>
+<rect x="168.00" y="133.00" width="124.48" height="16" rx="3" fill="#2a78d6"><title>mutation — code the fix did not touch: 19%</title></rect>
+<rect x="294.48" y="133.00" width="150.58" height="16" rx="3" fill="#eb6834"><title>mutation — lines the fix rewrote: 23%</title></rect>
+<rect x="447.06" y="133.00" width="124.48" height="16" rx="3" fill="#a8a69e"><title>mutation — only lines the fix inserted: 19%</title></rect>
+<text x="579.5" y="141.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="start" dominant-baseline="middle">62%</text>
+<text x="156.0" y="171.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">universalmutator</text>
+<rect x="168.00" y="163.00" width="102.39" height="16" rx="3" fill="#2a78d6"><title>universalmutator — code the fix did not touch: 16%</title></rect>
+<rect x="272.39" y="163.00" width="142.55" height="16" rx="3" fill="#eb6834"><title>universalmutator — lines the fix rewrote: 22%</title></rect>
+<rect x="416.95" y="163.00" width="120.47" height="16" rx="3" fill="#a8a69e"><title>universalmutator — only lines the fix inserted: 19%</title></rect>
+<text x="545.4" y="171.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="start" dominant-baseline="middle">57%</text>
+<text x="156.0" y="201.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">poodle</text>
+<rect x="168.00" y="193.00" width="100.38" height="16" rx="3" fill="#2a78d6"><title>poodle — code the fix did not touch: 15%</title></rect>
+<rect x="270.38" y="193.00" width="114.45" height="16" rx="3" fill="#eb6834"><title>poodle — lines the fix rewrote: 18%</title></rect>
+<rect x="386.83" y="193.00" width="138.54" height="16" rx="3" fill="#a8a69e"><title>poodle — only lines the fix inserted: 22%</title></rect>
+<text x="533.4" y="201.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="start" dominant-baseline="middle">55%</text>
+<text x="156.0" y="231.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">irradiate</text>
+<rect x="168.00" y="223.00" width="84.32" height="16" rx="3" fill="#2a78d6"><title>irradiate — code the fix did not touch: 13%</title></rect>
+<rect x="254.32" y="223.00" width="104.41" height="16" rx="3" fill="#eb6834"><title>irradiate — lines the fix rewrote: 16%</title></rect>
+<rect x="360.73" y="223.00" width="112.44" height="16" rx="3" fill="#a8a69e"><title>irradiate — only lines the fix inserted: 18%</title></rect>
+<text x="481.2" y="231.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="start" dominant-baseline="middle">47%</text>
+<text x="156.0" y="261.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">deployproof</text>
+<rect x="168.00" y="253.00" width="76.29" height="16" rx="3" fill="#2a78d6"><title>deployproof — code the fix did not touch: 12%</title></rect>
+<rect x="246.29" y="253.00" width="90.35" height="16" rx="3" fill="#eb6834"><title>deployproof — lines the fix rewrote: 14%</title></rect>
+<rect x="338.65" y="253.00" width="116.45" height="16" rx="3" fill="#a8a69e"><title>deployproof — only lines the fix inserted: 18%</title></rect>
+<text x="463.1" y="261.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="start" dominant-baseline="middle">44%</text>
+<text x="156.0" y="291.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">mutmut</text>
+<rect x="168.00" y="283.00" width="76.29" height="16" rx="3" fill="#2a78d6"><title>mutmut — code the fix did not touch: 12%</title></rect>
+<rect x="246.29" y="283.00" width="110.43" height="16" rx="3" fill="#eb6834"><title>mutmut — lines the fix rewrote: 17%</title></rect>
+<rect x="358.72" y="283.00" width="94.37" height="16" rx="3" fill="#a8a69e"><title>mutmut — only lines the fix inserted: 15%</title></rect>
+<text x="461.1" y="291.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="start" dominant-baseline="middle">44%</text>
+<text x="156.0" y="321.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">cosmic-ray</text>
+<rect x="168.00" y="313.00" width="76.29" height="16" rx="3" fill="#2a78d6"><title>cosmic-ray — code the fix did not touch: 12%</title></rect>
+<rect x="246.29" y="313.00" width="104.41" height="16" rx="3" fill="#eb6834"><title>cosmic-ray — lines the fix rewrote: 16%</title></rect>
+<rect x="352.70" y="313.00" width="94.37" height="16" rx="3" fill="#a8a69e"><title>cosmic-ray — only lines the fix inserted: 15%</title></rect>
+<text x="455.1" y="321.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="start" dominant-baseline="middle">43%</text>
+<text x="156.0" y="351.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">fest</text>
+<rect x="168.00" y="343.00" width="72.28" height="16" rx="3" fill="#2a78d6"><title>fest — code the fix did not touch: 11%</title></rect>
+<rect x="242.28" y="343.00" width="86.34" height="16" rx="3" fill="#eb6834"><title>fest — lines the fix rewrote: 14%</title></rect>
+<rect x="330.62" y="343.00" width="106.42" height="16" rx="3" fill="#a8a69e"><title>fest — only lines the fix inserted: 17%</title></rect>
+<text x="445.0" y="351.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="start" dominant-baseline="middle">41%</text>
 <text x="156.0" y="381.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">pytest-leela</text>
 <rect x="168.00" y="373.00" width="40.15" height="16" rx="3" fill="#2a78d6"><title>pytest-leela — code the fix did not touch: 6%</title></rect>
 <rect x="210.15" y="373.00" width="62.25" height="16" rx="3" fill="#eb6834"><title>pytest-leela — lines the fix rewrote: 10%</title></rect>

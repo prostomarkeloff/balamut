@@ -3,26 +3,27 @@
   "balamut": {
    "agreement": {
     "counts": {
-     "agree (no coverage)": 1,
-     "agree: killed": 273,
-     "agree: survived": 17,
-     "no coverage, killable": 3
+     "agree (no coverage)": 3,
+     "agree: killed": 563,
+     "agree: survived": 47,
+     "no coverage, killable": 4
     },
     "examples": {
      "no coverage, killable": [
       "157a82fbc195f1478383c578",
       "db3311beea9a4f2b289a8a87",
-      "ebceb3a1a6f0a856701cfed4"
+      "ebceb3a1a6f0a856701cfed4",
+      "2a2a94ca5f493ebdfb67dded"
      ]
     },
-    "total": 294
+    "total": 617
    },
    "control_run": {
     "returncode": 0,
-    "summary": "1407 passed, 4 skipped, 2 xfailed in 4.53s"
+    "summary": "1407 passed, 4 skipped, 2 xfailed in 4.54s"
    },
    "cpu_seconds": [
-    5.82
+    6.78
    ],
    "cpus": [
     [
@@ -30,19 +31,19 @@
      14
     ]
    ],
-   "mapped": 294,
+   "mapped": 617,
    "memory": {
-    "cgroup_peak_before_campaign_mib": 294.2,
-    "cgroup_peak_mib": 1119.6,
+    "cgroup_peak_before_campaign_mib": 301.0,
+    "cgroup_peak_mib": 1157.6,
     "cgroup_peak_scope": "container lifetime (control run included)",
-    "largest_process_rss_mib": 269.2
+    "largest_process_rss_mib": 268.5
    },
    "memory_limit_reached": false,
-   "native_mutants": 294,
+   "native_mutants": 617,
    "native_verdicts": {
-    "killed": 273,
-    "no_coverage": 4,
-    "survived": 17
+    "killed": 563,
+    "no_coverage": 7,
+    "survived": 47
    },
    "reason": null,
    "result": "ran",
@@ -50,7 +51,7 @@
    "tasks_peak": 53,
    "varied": {},
    "wall_seconds": [
-    13.62
+    15.22
    ]
   },
   "cosmic-ray": {
@@ -352,9 +353,9 @@
    ]
   },
   "oracle_meta": {
-   "fingerprint": "33a67b4e3a1f1650",
+   "fingerprint": "6dde30737b28f496",
    "flaky": [],
-   "suite_seconds": 5.818,
+   "suite_seconds": 5.651,
    "test_roots": [
     "tests"
    ],
@@ -533,32 +534,38 @@
   "balamut": {
    "agreement": {
     "counts": {
-     "agree (no coverage)": 1,
-     "agree: killed": 468,
-     "agree: survived": 26,
-     "error": 12,
-     "no coverage, killable": 3,
-     "timeout": 9
+     "agree (no coverage)": 8,
+     "agree: killed": 1014,
+     "agree: survived": 97,
+     "error": 19,
+     "missed kill": 1,
+     "no coverage, killable": 9,
+     "timeout": 15
     },
     "examples": {
+     "missed kill": [
+      "98e6b77a7e07eee725830f84"
+     ],
      "no coverage, killable": [
       "48ca157c5c020210747024c5",
       "efb1a30376054fb39ccf0692",
-      "d6dd561066ec33fd45e227cd"
+      "d6dd561066ec33fd45e227cd",
+      "afa7ba875f3c4bd6aa9deec5",
+      "3bd7148c79fe5978d3df5110"
      ]
     },
-    "total": 519
+    "total": 1163
    },
    "control_run": {
     "returncode": 0,
-    "summary": "391 passed, 24 subtests passed in 0.22s"
+    "summary": "391 passed, 24 subtests passed in 0.33s"
    },
    "cpu_seconds": [
-    6.49,
-    6.43,
-    6.42,
-    6.37,
-    6.42
+    16.07,
+    10.5,
+    16.33,
+    11.44,
+    10.91
    ],
    "cpus": [
     [
@@ -566,60 +573,60 @@
      14
     ]
    ],
-   "mapped": 519,
+   "mapped": 1163,
    "memory": {
-    "cgroup_peak_before_campaign_mib": 64.0,
-    "cgroup_peak_mib": 853.1,
+    "cgroup_peak_before_campaign_mib": 64.1,
+    "cgroup_peak_mib": 892.0,
     "cgroup_peak_scope": "container lifetime (control run included)",
-    "largest_process_rss_mib": 91.7
+    "largest_process_rss_mib": 119.3
    },
    "memory_limit_reached": false,
-   "native_mutants": 519,
+   "native_mutants": 1163,
    "native_verdicts": {
-    "error": 12,
-    "killed": 468,
-    "no_coverage": 4,
-    "survived": 26,
-    "timeout": 9
+    "error": 19,
+    "killed": 1014,
+    "no_coverage": 17,
+    "survived": 98,
+    "timeout": 15
    },
    "reason": null,
    "result": "ran",
    "stability": [
     {
-     "changed": 0,
-     "common": 518,
+     "changed": 2,
+     "common": 1162,
      "only_first": 0,
      "only_second": 0
     },
     {
-     "changed": 0,
-     "common": 518,
+     "changed": 2,
+     "common": 1162,
      "only_first": 0,
      "only_second": 0
     },
     {
-     "changed": 0,
-     "common": 518,
+     "changed": 2,
+     "common": 1162,
      "only_first": 0,
      "only_second": 0
     },
     {
      "changed": 1,
-     "common": 518,
+     "common": 1162,
      "only_first": 0,
      "only_second": 0
     }
    ],
-   "tasks_peak": 54,
+   "tasks_peak": 87,
    "varied": {
-    "killed/survived": 1
+    "killed/survived": 4
    },
    "wall_seconds": [
-    92.91,
-    93.18,
-    93.07,
-    93.04,
-    93.1
+    239.66,
+    231.74,
+    211.87,
+    232.67,
+    231.54
    ]
   },
   "cosmic-ray": {
@@ -1003,9 +1010,9 @@
   "mutation": {
    "agreement": {
     "counts": {
-     "agree: killed": 2621,
+     "agree: killed": 2623,
      "oracle invalid": 4,
-     "unconfirmed kill": 232,
+     "unconfirmed kill": 230,
      "unmapped": 11
     },
     "examples": {
@@ -1173,9 +1180,9 @@
    ]
   },
   "oracle_meta": {
-   "fingerprint": "33a67b4e3a1f1650",
+   "fingerprint": "6dde30737b28f496",
    "flaky": [],
-   "suite_seconds": 0.799,
+   "suite_seconds": 0.807,
    "test_roots": [
     "tests"
    ],
@@ -1430,10 +1437,15 @@
    "agreement": {
     "counts": {
      "agree: killed": 1036,
-     "agree: survived": 143,
+     "agree: survived": 142,
+     "missed kill": 1,
      "oracle unresolved": 1
     },
-    "examples": {},
+    "examples": {
+     "missed kill": [
+      "98e6b77a7e07eee725830f84"
+     ]
+    },
     "total": 1180
    },
    "control_run": {
@@ -1511,28 +1523,28 @@
   "balamut": {
    "agreement": {
     "counts": {
-     "agree (no coverage)": 21,
-     "agree: killed": 191,
-     "agree: survived": 26,
-     "no coverage, killable": 84
+     "agree (no coverage)": 85,
+     "agree: killed": 552,
+     "agree: survived": 95,
+     "no coverage, killable": 153
     },
     "examples": {
      "no coverage, killable": [
-      "0b1ba8b1b2f2865d4e898c32",
-      "d7804d9b24aea15193c634ff",
-      "d7804d9b24aea15193c634ff",
-      "ae386394b34aa4139649f077",
-      "ae386394b34aa4139649f077"
+      "5a6347817500c698b5136a7f",
+      "4ef674c1cbbcf205b8995f89",
+      "7ac99d297487fdbb4885578b",
+      "8a944c508719ad20ae726415",
+      "0b97d2573c908c7f86eba28a"
      ]
     },
-    "total": 322
+    "total": 885
    },
    "control_run": {
     "returncode": 0,
-    "summary": "\u001b[32m\u001b[32m\u001b[1m744 passed\u001b[0m, \u001b[33m134 skipped\u001b[0m\u001b[32m in 0.74s\u001b[0m\u001b[0m"
+    "summary": "\u001b[32m\u001b[32m\u001b[1m744 passed\u001b[0m, \u001b[33m134 skipped\u001b[0m\u001b[32m in 0.72s\u001b[0m\u001b[0m"
    },
    "cpu_seconds": [
-    3.54
+    5.93
    ],
    "cpus": [
     [
@@ -1540,27 +1552,27 @@
      14
     ]
    ],
-   "mapped": 322,
+   "mapped": 885,
    "memory": {
-    "cgroup_peak_before_campaign_mib": 74.7,
-    "cgroup_peak_mib": 539.3,
+    "cgroup_peak_before_campaign_mib": 75.0,
+    "cgroup_peak_mib": 905.3,
     "cgroup_peak_scope": "container lifetime (control run included)",
-    "largest_process_rss_mib": 68.7
+    "largest_process_rss_mib": 88.5
    },
    "memory_limit_reached": false,
-   "native_mutants": 322,
+   "native_mutants": 885,
    "native_verdicts": {
-    "killed": 191,
-    "no_coverage": 105,
-    "survived": 26
+    "killed": 552,
+    "no_coverage": 238,
+    "survived": 95
    },
    "reason": null,
    "result": "ran",
    "stability": [],
-   "tasks_peak": 32,
+   "tasks_peak": 54,
    "varied": {},
    "wall_seconds": [
-    5.45
+    8.25
    ]
   },
   "cosmic-ray": {
@@ -1863,9 +1875,9 @@
    ]
   },
   "oracle_meta": {
-   "fingerprint": "33a67b4e3a1f1650",
+   "fingerprint": "6dde30737b28f496",
    "flaky": [],
-   "suite_seconds": 1.498,
+   "suite_seconds": 1.515,
    "test_roots": [
     "tests"
    ],
@@ -2054,29 +2066,29 @@
   "balamut": {
    "agreement": {
     "counts": {
-     "agree (no coverage)": 9,
-     "agree: killed": 333,
-     "agree: survived": 9,
-     "error": 21,
-     "no coverage, killable": 20
+     "agree (no coverage)": 15,
+     "agree: killed": 893,
+     "agree: survived": 65,
+     "error": 58,
+     "no coverage, killable": 35
     },
     "examples": {
      "no coverage, killable": [
       "cd656daadf63081cb1575f08",
       "4ccfdc8922e8068969aa9dfc",
       "70b88d4b4f2289df3ee912a5",
-      "9c48b52b455799a7e0b9f6b8",
-      "98480de103e443699043fcf8"
+      "d95b13ba0f3341f3b1535067",
+      "9c48b52b455799a7e0b9f6b8"
      ]
     },
-    "total": 392
+    "total": 1066
    },
    "control_run": {
     "returncode": 0,
-    "summary": "508 passed, 1 skipped in 0.36s"
+    "summary": "508 passed, 1 skipped in 0.38s"
    },
    "cpu_seconds": [
-    5.15
+    10.3
    ],
    "cpus": [
     [
@@ -2084,28 +2096,28 @@
      14
     ]
    ],
-   "mapped": 392,
+   "mapped": 1066,
    "memory": {
-    "cgroup_peak_before_campaign_mib": 77.5,
-    "cgroup_peak_mib": 908.9,
+    "cgroup_peak_before_campaign_mib": 83.0,
+    "cgroup_peak_mib": 970.7,
     "cgroup_peak_scope": "container lifetime (control run included)",
-    "largest_process_rss_mib": 90.3
+    "largest_process_rss_mib": 131.2
    },
    "memory_limit_reached": false,
-   "native_mutants": 392,
+   "native_mutants": 1066,
    "native_verdicts": {
-    "error": 21,
-    "killed": 333,
-    "no_coverage": 29,
-    "survived": 9
+    "error": 58,
+    "killed": 893,
+    "no_coverage": 50,
+    "survived": 65
    },
    "reason": null,
    "result": "ran",
    "stability": [],
-   "tasks_peak": 53,
+   "tasks_peak": 54,
    "varied": {},
    "wall_seconds": [
-    9.08
+    15.58
    ]
   },
   "cosmic-ray": {
@@ -2417,9 +2429,9 @@
    ]
   },
   "oracle_meta": {
-   "fingerprint": "33a67b4e3a1f1650",
+   "fingerprint": "6dde30737b28f496",
    "flaky": [],
-   "suite_seconds": 1.058,
+   "suite_seconds": 1.113,
    "test_roots": [
     "tests"
    ],
@@ -2600,26 +2612,30 @@
   "balamut": {
    "agreement": {
     "counts": {
-     "agree (no coverage)": 6,
-     "agree: killed": 195,
-     "agree: survived": 29,
-     "error": 6,
-     "no coverage, killable": 2
+     "agree (no coverage)": 11,
+     "agree: killed": 442,
+     "agree: survived": 92,
+     "error": 8,
+     "no coverage, killable": 10,
+     "oracle unresolved": 4
     },
     "examples": {
      "no coverage, killable": [
+      "52b6d606ee09ae0f40a91061",
       "472a8221eb5db2fa832d3ad0",
-      "79fcd166f95a71a2eced3b25"
+      "0261d9b9d8c54c8684a316b2",
+      "5e2a694974292170526f9799",
+      "66d4cfe882220239365ec2fc"
      ]
     },
-    "total": 238
+    "total": 567
    },
    "control_run": {
     "returncode": 0,
-    "summary": "537 passed, 2 xfailed, 1 xpassed in 1.18s"
+    "summary": "537 passed, 2 xfailed, 1 xpassed in 1.16s"
    },
    "cpu_seconds": [
-    9.9
+    15.39
    ],
    "cpus": [
     [
@@ -2627,28 +2643,28 @@
      14
     ]
    ],
-   "mapped": 238,
+   "mapped": 567,
    "memory": {
-    "cgroup_peak_before_campaign_mib": 84.6,
-    "cgroup_peak_mib": 1491.5,
+    "cgroup_peak_before_campaign_mib": 84.5,
+    "cgroup_peak_mib": 3072.0,
     "cgroup_peak_scope": "container lifetime (control run included)",
-    "largest_process_rss_mib": 95.2
+    "largest_process_rss_mib": 107.8
    },
-   "memory_limit_reached": false,
-   "native_mutants": 238,
+   "memory_limit_reached": true,
+   "native_mutants": 567,
    "native_verdicts": {
-    "error": 6,
-    "killed": 195,
-    "no_coverage": 8,
-    "survived": 29
+    "error": 8,
+    "killed": 446,
+    "no_coverage": 21,
+    "survived": 92
    },
    "reason": null,
    "result": "ran",
    "stability": [],
-   "tasks_peak": 92,
+   "tasks_peak": 149,
    "varied": {},
    "wall_seconds": [
-    344.76
+    561.48
    ]
   },
   "cosmic-ray": {
@@ -2752,8 +2768,8 @@
      "no coverage, killable": 9,
      "oracle equivalent_tce": 6,
      "oracle invalid": 5,
-     "oracle unresolved": 1,
-     "timeout": 64
+     "oracle unresolved": 2,
+     "timeout": 63
     },
     "examples": {
      "missed kill": [
@@ -2819,8 +2835,8 @@
      "agree: survived": 85,
      "missed kill": 1,
      "no coverage, killable": 15,
-     "oracle unresolved": 4,
-     "timeout": 22
+     "oracle unresolved": 5,
+     "timeout": 21
     },
     "examples": {
      "missed kill": [
@@ -2876,10 +2892,10 @@
   "mutation": {
    "agreement": {
     "counts": {
-     "agree: killed": 465,
+     "agree: killed": 464,
      "agree: survived": 152,
      "missed kill": 638,
-     "oracle unresolved": 6,
+     "oracle unresolved": 7,
      "unmapped": 12
     },
     "examples": {
@@ -2934,8 +2950,8 @@
      "agree: killed": 264,
      "agree: survived": 62,
      "missed kill": 3,
-     "oracle unresolved": 1,
-     "timeout": 8
+     "oracle unresolved": 2,
+     "timeout": 7
     },
     "examples": {
      "missed kill": [
@@ -2983,9 +2999,9 @@
    ]
   },
   "oracle_meta": {
-   "fingerprint": "33a67b4e3a1f1650",
+   "fingerprint": "6dde30737b28f496",
    "flaky": [],
-   "suite_seconds": 1.782,
+   "suite_seconds": 1.803,
    "test_roots": [
     "tests"
    ],
@@ -2997,8 +3013,8 @@
      "agree: killed": 265,
      "agree: survived": 54,
      "oracle invalid": 3,
-     "oracle unresolved": 2,
-     "timeout": 11
+     "oracle unresolved": 3,
+     "timeout": 10
     },
     "examples": {},
     "total": 335
@@ -3117,9 +3133,9 @@
   "universalmutator": {
    "agreement": {
     "counts": {
-     "agree: killed": 472,
+     "agree: killed": 471,
      "agree: survived": 97,
-     "oracle unresolved": 6
+     "oracle unresolved": 7
     },
     "examples": {},
     "total": 575
@@ -3164,28 +3180,30 @@
   "balamut": {
    "agreement": {
     "counts": {
-     "agree: killed": 312,
-     "agree: survived": 13,
+     "agree (no coverage)": 1,
+     "agree: killed": 812,
+     "agree: survived": 69,
      "error": 2,
-     "no coverage, killable": 4,
+     "no coverage, killable": 6,
      "oracle unresolved": 1
     },
     "examples": {
      "no coverage, killable": [
+      "1aec219c0af9f97eb92d8719",
       "4ee004a2db1bc1b6dbbe54d8",
       "7cbf2751ef5e7a9bb3952c20",
       "994822c23926986f23637ebc",
       "007f366e303e3bf16e164671"
      ]
     },
-    "total": 332
+    "total": 891
    },
    "control_run": {
     "returncode": 0,
-    "summary": "188 passed in 0.41s"
+    "summary": "188 passed in 0.38s"
    },
    "cpu_seconds": [
-    6.04
+    10.13
    ],
    "cpus": [
     [
@@ -3193,28 +3211,28 @@
      14
     ]
    ],
-   "mapped": 332,
+   "mapped": 891,
    "memory": {
-    "cgroup_peak_before_campaign_mib": 73.0,
+    "cgroup_peak_before_campaign_mib": 73.2,
     "cgroup_peak_mib": 3072.0,
     "cgroup_peak_scope": "container lifetime (control run included)",
-    "largest_process_rss_mib": 87.2
+    "largest_process_rss_mib": 106.1
    },
    "memory_limit_reached": true,
-   "native_mutants": 332,
+   "native_mutants": 891,
    "native_verdicts": {
     "error": 2,
-    "killed": 313,
-    "no_coverage": 4,
-    "survived": 13
+    "killed": 813,
+    "no_coverage": 7,
+    "survived": 69
    },
    "reason": null,
    "result": "ran",
    "stability": [],
-   "tasks_peak": 54,
+   "tasks_peak": 93,
    "varied": {},
    "wall_seconds": [
-    116.71
+    285.87
    ]
   },
   "cosmic-ray": {
@@ -3369,7 +3387,8 @@
      "agree: killed": 755,
      "agree: survived": 46,
      "missed kill": 9,
-     "timeout": 13
+     "oracle unresolved": 1,
+     "timeout": 12
     },
     "examples": {
      "missed kill": [
@@ -3421,10 +3440,10 @@
   "mutation": {
    "agreement": {
     "counts": {
-     "agree: killed": 1775,
+     "agree: killed": 1774,
      "agree: survived": 105,
      "missed kill": 8,
-     "oracle unresolved": 3,
+     "oracle unresolved": 4,
      "unmapped": 40
     },
     "examples": {
@@ -3478,8 +3497,8 @@
     "counts": {
      "agree: killed": 445,
      "agree: survived": 30,
-     "oracle unresolved": 1,
-     "timeout": 5
+     "oracle unresolved": 2,
+     "timeout": 4
     },
     "examples": {},
     "total": 481
@@ -3523,7 +3542,7 @@
   "oracle_meta": {
    "fingerprint": "6dde30737b28f496",
    "flaky": [],
-   "suite_seconds": 0.962,
+   "suite_seconds": 0.94,
    "test_roots": [
     "toolz/tests"
    ],

@@ -36,30 +36,30 @@
 <line x1="178.7" y1="173.0" x2="178.7" y2="181.0" stroke="#c3c2b7" stroke-width="1"/>
 <line x1="180.5" y1="173.0" x2="180.5" y2="181.0" stroke="#c3c2b7" stroke-width="1"/>
 <text x="188.5" y="177.0" fill="#c3c2b7" font-size="12" font-weight="400" text-anchor="start" dominant-baseline="middle">38 s</text>
-<text x="156.0" y="207.0" fill="#c3c2b7" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">balamut</text>
-<path d="M168.00,200.00 H193.29 Q197.29,200.00 197.29,204.00 V210.00 Q197.29,214.00 193.29,214.00 H168.00 Z" fill="#6b6a64"><title>balamut: 93.1 s (92.91–93.18)</title></path>
-<line x1="197.2" y1="207.0" x2="197.3" y2="207.0" stroke="#c3c2b7" stroke-width="1"><title>balamut: 93.1 s (92.91–93.18)</title></line>
-<line x1="197.2" y1="203.0" x2="197.2" y2="211.0" stroke="#c3c2b7" stroke-width="1"/>
-<line x1="197.3" y1="203.0" x2="197.3" y2="211.0" stroke="#c3c2b7" stroke-width="1"/>
-<text x="205.3" y="207.0" fill="#c3c2b7" font-size="12" font-weight="400" text-anchor="start" dominant-baseline="middle">93.1 s</text>
-<text x="156.0" y="237.0" fill="#c3c2b7" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">deployproof</text>
-<path d="M168.00,230.00 H206.21 Q210.21,230.00 210.21,234.00 V240.00 Q210.21,244.00 206.21,244.00 H168.00 Z" fill="#6b6a64"><title>deployproof: 134 s (133.60–134.16)</title></path>
-<line x1="210.0" y1="237.0" x2="210.2" y2="237.0" stroke="#c3c2b7" stroke-width="1"><title>deployproof: 134 s (133.60–134.16)</title></line>
-<line x1="210.0" y1="233.0" x2="210.0" y2="241.0" stroke="#c3c2b7" stroke-width="1"/>
-<line x1="210.2" y1="233.0" x2="210.2" y2="241.0" stroke="#c3c2b7" stroke-width="1"/>
-<text x="218.2" y="237.0" fill="#c3c2b7" font-size="12" font-weight="400" text-anchor="start" dominant-baseline="middle">134 s</text>
-<text x="156.0" y="267.0" fill="#c3c2b7" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">poodle</text>
-<path d="M168.00,260.00 H211.75 Q215.75,260.00 215.75,264.00 V270.00 Q215.75,274.00 211.75,274.00 H168.00 Z" fill="#6b6a64"><title>poodle: 152 s (150.96–151.97)</title></path>
-<line x1="215.5" y1="267.0" x2="215.8" y2="267.0" stroke="#c3c2b7" stroke-width="1"><title>poodle: 152 s (150.96–151.97)</title></line>
-<line x1="215.5" y1="263.0" x2="215.5" y2="271.0" stroke="#c3c2b7" stroke-width="1"/>
-<line x1="215.8" y1="263.0" x2="215.8" y2="271.0" stroke="#c3c2b7" stroke-width="1"/>
-<text x="223.8" y="267.0" fill="#c3c2b7" font-size="12" font-weight="400" text-anchor="start" dominant-baseline="middle">152 s</text>
-<text x="156.0" y="297.0" fill="#c3c2b7" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">pytest-gremlins</text>
-<path d="M168.00,290.00 H215.79 Q219.79,290.00 219.79,294.00 V300.00 Q219.79,304.00 215.79,304.00 H168.00 Z" fill="#6b6a64"><title>pytest-gremlins: 165 s (164.25–164.72)</title></path>
-<line x1="219.7" y1="297.0" x2="219.8" y2="297.0" stroke="#c3c2b7" stroke-width="1"><title>pytest-gremlins: 165 s (164.25–164.72)</title></line>
-<line x1="219.7" y1="293.0" x2="219.7" y2="301.0" stroke="#c3c2b7" stroke-width="1"/>
-<line x1="219.8" y1="293.0" x2="219.8" y2="301.0" stroke="#c3c2b7" stroke-width="1"/>
-<text x="227.8" y="297.0" fill="#c3c2b7" font-size="12" font-weight="400" text-anchor="start" dominant-baseline="middle">165 s</text>
+<text x="156.0" y="207.0" fill="#c3c2b7" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">deployproof</text>
+<path d="M168.00,200.00 H206.21 Q210.21,200.00 210.21,204.00 V210.00 Q210.21,214.00 206.21,214.00 H168.00 Z" fill="#6b6a64"><title>deployproof: 134 s (133.60–134.16)</title></path>
+<line x1="210.0" y1="207.0" x2="210.2" y2="207.0" stroke="#c3c2b7" stroke-width="1"><title>deployproof: 134 s (133.60–134.16)</title></line>
+<line x1="210.0" y1="203.0" x2="210.0" y2="211.0" stroke="#c3c2b7" stroke-width="1"/>
+<line x1="210.2" y1="203.0" x2="210.2" y2="211.0" stroke="#c3c2b7" stroke-width="1"/>
+<text x="218.2" y="207.0" fill="#c3c2b7" font-size="12" font-weight="400" text-anchor="start" dominant-baseline="middle">134 s</text>
+<text x="156.0" y="237.0" fill="#c3c2b7" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">poodle</text>
+<path d="M168.00,230.00 H211.75 Q215.75,230.00 215.75,234.00 V240.00 Q215.75,244.00 211.75,244.00 H168.00 Z" fill="#6b6a64"><title>poodle: 152 s (150.96–151.97)</title></path>
+<line x1="215.5" y1="237.0" x2="215.8" y2="237.0" stroke="#c3c2b7" stroke-width="1"><title>poodle: 152 s (150.96–151.97)</title></line>
+<line x1="215.5" y1="233.0" x2="215.5" y2="241.0" stroke="#c3c2b7" stroke-width="1"/>
+<line x1="215.8" y1="233.0" x2="215.8" y2="241.0" stroke="#c3c2b7" stroke-width="1"/>
+<text x="223.8" y="237.0" fill="#c3c2b7" font-size="12" font-weight="400" text-anchor="start" dominant-baseline="middle">152 s</text>
+<text x="156.0" y="267.0" fill="#c3c2b7" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">pytest-gremlins</text>
+<path d="M168.00,260.00 H215.79 Q219.79,260.00 219.79,264.00 V270.00 Q219.79,274.00 215.79,274.00 H168.00 Z" fill="#6b6a64"><title>pytest-gremlins: 165 s (164.25–164.72)</title></path>
+<line x1="219.7" y1="267.0" x2="219.8" y2="267.0" stroke="#c3c2b7" stroke-width="1"><title>pytest-gremlins: 165 s (164.25–164.72)</title></line>
+<line x1="219.7" y1="263.0" x2="219.7" y2="271.0" stroke="#c3c2b7" stroke-width="1"/>
+<line x1="219.8" y1="263.0" x2="219.8" y2="271.0" stroke="#c3c2b7" stroke-width="1"/>
+<text x="227.8" y="267.0" fill="#c3c2b7" font-size="12" font-weight="400" text-anchor="start" dominant-baseline="middle">165 s</text>
+<text x="156.0" y="297.0" fill="#c3c2b7" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">balamut</text>
+<path d="M168.00,290.00 H236.92 Q240.92,290.00 240.92,294.00 V300.00 Q240.92,304.00 236.92,304.00 H168.00 Z" fill="#6b6a64"><title>balamut: 232 s (211.87–239.66)</title></path>
+<line x1="234.7" y1="297.0" x2="243.4" y2="297.0" stroke="#c3c2b7" stroke-width="1"><title>balamut: 232 s (211.87–239.66)</title></line>
+<line x1="234.7" y1="293.0" x2="234.7" y2="301.0" stroke="#c3c2b7" stroke-width="1"/>
+<line x1="243.4" y1="293.0" x2="243.4" y2="301.0" stroke="#c3c2b7" stroke-width="1"/>
+<text x="251.4" y="297.0" fill="#c3c2b7" font-size="12" font-weight="400" text-anchor="start" dominant-baseline="middle">232 s</text>
 <text x="156.0" y="327.0" fill="#c3c2b7" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">mutation</text>
 <path d="M168.00,320.00 H351.46 Q355.46,320.00 355.46,324.00 V330.00 Q355.46,334.00 351.46,334.00 H168.00 Z" fill="#6b6a64"><title>mutation: 596 s (595.01–607.87)</title></path>
 <line x1="355.2" y1="327.0" x2="359.3" y2="327.0" stroke="#c3c2b7" stroke-width="1"><title>mutation: 596 s (595.01–607.87)</title></line>

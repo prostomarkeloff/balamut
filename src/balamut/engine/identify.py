@@ -19,7 +19,7 @@ from balamut.engine.collection import CollectionError
 from balamut.operators.facts import Fuzzable, SelfCovered, mutant_mechanism
 from balamut.runtime.bytecode import bytecode_fields
 from balamut.runtime.inmemory import find_enclosing_function, inject_yields
-from balamut.runtime.plugin import MutantSpec
+from balamut.runtime.plugin import MutantSite, MutantSpec
 
 
 class Identity(TypedDict):
@@ -27,7 +27,8 @@ class Identity(TypedDict):
     func_src: str
     func_start: int
     func_start_byte: int
-    spec: MutantSpec
+    spec: MutantSite
+    fuzz_target: str | None  # the function whose await boundaries take schedule-fuzz yield points
 
 
 @dataclass(frozen=True, slots=True)
@@ -49,10 +50,10 @@ def identify(
     schedule_fuzz: bool = False,
     identity_cache: IdentityBaseCache | None = None,
 ) -> Identity | None:
-    """The qualname (patch target), the function source (content key) and the spec; None at module/class level.
+    """The qualname (patch target), the function source (content key) and the site; None at module/class level.
 
-    Under ``schedule_fuzz`` a concurrency mutant gets yield points at the await boundaries of the mutated (possibly
-    nested) function."""
+    Under ``schedule_fuzz`` the fuzz target of a concurrency mutant is the mutated (possibly nested) function: its
+    spec gets yield points at that function's await boundaries."""
     enclosing = find_enclosing_function(source, mutant.lineno)
     if enclosing is None:
         return None
@@ -73,16 +74,12 @@ def identify(
         base = IdentityBase(func_src=func_src, func_start_byte=len(source[:char_offset].encode("utf-8")))
         if identity_cache is not None:
             identity_cache[cache_key] = base
-    mutated_source = apply_mutant(source, mutant)
-    if schedule_fuzz and isinstance(mutant.fact, Fuzzable):
-        mutated_source = inject_yields(mutated_source, enclosing)
     mechanism = mutant_mechanism(mutant)
     source_bytes = source.encode("utf-8")
     line_start = source_bytes.rfind(b"\n", 0, mutant.start_byte) + 1
-    spec: MutantSpec = {
+    spec: MutantSite = {
         "module": module,
         "qualname": qualname,
-        "mutated_source": mutated_source,
         "kind": mutant.family,
         "self_covered": isinstance(mutant.fact, SelfCovered),
         "mechanism": mechanism.value,
@@ -105,17 +102,32 @@ def identify(
             spec["bc_col"] = bc["bc_col"]
             spec["bc_end_col"] = bc["bc_end_col"]
             spec["bc_mutated"] = bc["bc_mutated"]
-    if mechanism is ApplyMechanism.DEFAULTS and mutant.default_index is not None:
-        # The slot in __defaults__ travels structurally on the mutant; the new value is the mutated literal.
-        spec["default_index"] = mutant.default_index
-        spec["default_literal"] = mutant.mutated
+    if mechanism is ApplyMechanism.DEFAULTS:
+        # The slot in __defaults__ (or the key in __kwdefaults__) travels structurally on the mutant; the new value
+        # is the mutated literal.
+        if mutant.default_index is not None:
+            spec["default_index"] = mutant.default_index
+            spec["default_literal"] = mutant.mutated
+        elif mutant.default_name is not None:
+            spec["default_name"] = mutant.default_name
+            spec["default_literal"] = mutant.mutated
     return {
         "qualname": qualname,
         "func_src": base.func_src,
         "func_start": func_start,
         "func_start_byte": base.func_start_byte,
         "spec": spec,
+        "fuzz_target": enclosing if schedule_fuzz and isinstance(mutant.fact, Fuzzable) else None,
     }
+
+
+def mutant_spec(site: MutantSite, source: str, mutant: Mutant, *, fuzz_target: str | None) -> MutantSpec:
+    """The spec a daemon worker applies: ``site`` and the module text ``source`` with ``mutant`` in it, yield points
+    at the await boundaries of ``fuzz_target`` included."""
+    mutated_source = apply_mutant(source, mutant)
+    if fuzz_target is not None:
+        mutated_source = inject_yields(mutated_source, fuzz_target)
+    return {**site, "mutated_source": mutated_source}
 
 
 def oracle_nodeid(path: str, qualname: str) -> str:

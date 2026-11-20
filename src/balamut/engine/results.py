@@ -8,7 +8,6 @@ from dataclasses import dataclass
 from enum import Enum
 
 from balamut.core.mutants import Mutant
-from balamut.runtime.kill_deps import KillDeps
 
 type StatusCounts = dict[str, int]
 
@@ -49,9 +48,6 @@ class MutantResult:
     covering_tests: tuple[str, ...] = ()
     killed_by: tuple[str, ...] = ()
     reason: VerdictReason = VerdictReason.NONE
-    # The functions the killing lease entered and their hash at kill time: the cache keeps the verdict by them.
-    kill_deps: KillDeps | None = None
-    kill_validity: str = ""
 
 
 def status_counts(results: Iterable[MutantResult]) -> StatusCounts:

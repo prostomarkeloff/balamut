@@ -71,7 +71,7 @@
     0.09935897435897435
    ],
    "rank": [
-    9,
+    10,
     11
    ],
    "rate": 0.06153846153846154
@@ -83,7 +83,7 @@
     0.04838709677419355
    ],
    "rank": [
-    8,
+    9,
     11
    ],
    "rate": 0.03076923076923077
@@ -103,13 +103,13 @@
  "pairs": [
   {
    "ci": [
-    -0.07309941520467836,
-    -0.021276595744680854
+    -0.292063492063492,
+    -0.15548780487804878
    ],
-   "difference": -0.046153846153846156,
+   "difference": -0.21846153846153846,
    "other": "balamut",
-   "p": 0.0002,
-   "p_holm": 0.007200000000000001
+   "p": 0.0001,
+   "p_holm": 0.0055000000000000005
   },
   {
    "ci": [
@@ -179,7 +179,7 @@
    "difference": -0.05846153846153846,
    "other": "fest",
    "p": 0.0026,
-   "p_holm": 0.078
+   "p_holm": 0.0624
   },
   {
    "ci": [
@@ -225,7 +225,7 @@
  "statistics": {
   "clusters": 26,
   "interval": "percentile bootstrap over projects, pointwise 95%",
-  "minimum_detectable_difference": 0.050901383698811344,
+  "minimum_detectable_difference": 0.05565388397246803,
   "paired_test": "two-sided bootstrap p-value of the paired difference, Holm over all pairs",
   "replicates": 10000,
   "seed": 20261105

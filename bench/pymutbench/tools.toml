@@ -12,12 +12,11 @@
 # (bench/SUBMISSION.md); a tool in it gets a generation adapter and a campaign in native.py.
 
 [tools.balamut]
-version = "0.1.5"
+version = "0.1.6"
 url = "https://github.com/prostomarkeloff/balamut"
-install = ["/wheels/balamut-0.1.5-py3-none-any.whl"]
+install = ["/wheels/balamut-0.1.6-py3-none-any.whl"]
 venv = "balamut"
 adapter = "ad_balamut.py"
-default_drop = "extreme:"
 engine = "resident pytest workers, in-memory code patching, coverage-selected tests"
 
 [tools.mutmut]

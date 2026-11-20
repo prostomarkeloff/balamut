@@ -22,7 +22,7 @@ from typing import cast
 
 import pytest
 
-from balamut.engine.identify import identify
+from balamut.engine.identify import identify, mutant_spec
 from balamut.operators.src import enumerate_mutants
 from balamut.runtime import plugin
 from balamut.runtime.reloads import reload_log
@@ -103,7 +103,8 @@ def test_no_mutant_of_the_plugin_outlives_its_lease(
         identity = identify(mutant, source, module=_COPY)
         if identity is None:
             continue  # module or class level: a worker never applies it
-        lease = {**identity["spec"], "request_token": f"lease-{index}", "touch_path": str(tmp_path / "touched")}
+        spec = mutant_spec(identity["spec"], source, mutant, fuzz_target=identity["fuzz_target"])
+        lease = {**spec, "request_token": f"lease-{index}", "touch_path": str(tmp_path / "touched")}
         spec_file.write_text(json.dumps(lease), encoding="utf-8")
         _run_item(copy, session)
         unsupported = Path(f"{spec_file}{plugin.UNSUPPORTED_MARKER_SUFFIX}")

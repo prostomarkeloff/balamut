@@ -430,13 +430,12 @@ def test_the_hero_counts_files_and_shows_the_changes_against_the_baseline() -> N
 
 
 def test_the_progress_table_compares_each_count_and_notes_another_scope() -> None:
+    mutants = _mutants()[:3]
     before = build_summary(
-        [_result(m, MutantStatus.SURVIVED) for m in _mutants()],
+        [_result(m, MutantStatus.SURVIVED) for m in mutants],
         replace(INFO, scope=("src/other",), kinds=("src", "extreme")),
     )
-    results = [_result(m, MutantStatus.KILLED) for m in _mutants()[:2]] + [
-        _result(_mutants()[2], MutantStatus.SURVIVED)
-    ]
+    results = [_result(m, MutantStatus.KILLED) for m in mutants[:2]] + [_result(mutants[2], MutantStatus.SURVIVED)]
     page = render_html(results, {PATH: SOURCE}, info=INFO, baseline=before)
 
     assert (

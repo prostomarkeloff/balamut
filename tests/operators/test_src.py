@@ -105,7 +105,7 @@ def test_defaults_covering_line_branches() -> None:
 def test_defaults_continue_skips_nonliteral() -> None:
     # A non-literal default is skipped, the literal one is still processed (line 274).
     muts = enumerate_defaults("t.py", "def f(a=compute(), b=2):\n    return a\n")
-    assert {m.operator for m in muts} == {"lang:const:num:2->3"}
+    assert {m.operator for m in muts} == {"lang:const:num:2->3", "lang:const:num:2->1"}
 
 
 def test_enumerate_defaults_stamps_the_src_family() -> None:
@@ -128,7 +128,7 @@ def test_defaults_skips_opless_finder_yield(monkeypatch: pytest.MonkeyPatch) -> 
             yield node, "9", None, None, None
             yield node, "8", None, "lang:const:num:1->2", None
 
-    monkeypatch.setattr(src_mod, "NumberShiftSite", _OpLessFinder)
+    monkeypatch.setattr(src_mod, "_DEFAULT_FINDERS", (_OpLessFinder(),))
     muts = DefaultsFact().enumerate("t.py", "def f(x=1):\n    return x\n")
     assert [m.operator for m in muts] == ["lang:const:num:1->2"]
 
@@ -151,7 +151,7 @@ def test_src_kind_number_shift_and_const_union() -> None:
 def test_src_kind_augassign_swappable_filter() -> None:
     # ``node_is(AugAssign) & SwappableBinop`` still suppresses a zero-numeric right operand.
     ops = _ops("def f(a):\n    a += 0\n    return a\n")
-    assert not any(op.startswith("lang:augassign") for op in ops)
+    assert not {op for op in ops if op.startswith("lang:augassign")}
 
 
 def test_src_kind_delete_call_composition() -> None:

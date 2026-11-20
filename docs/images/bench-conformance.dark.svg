@@ -33,43 +33,43 @@
 <text x="675.5" y="140" fill="#c3c2b7" font-size="11" text-anchor="start" transform="rotate(-40 675.5 140)">tabs</text>
 <text x="704.5" y="140" fill="#c3c2b7" font-size="11" text-anchor="start" transform="rotate(-40 704.5 140)">unicode</text>
 <text x="156.0" y="165.0" fill="#c3c2b7" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">balamut</text>
-<rect x="169" y="151" width="27" height="28" rx="3" fill="#45443f" stroke="#2c2c2a"><title>balamut — cached: as expected (correct: 2)</title></rect>
+<rect x="169" y="151" width="27" height="28" rx="3" fill="#45443f" stroke="#2c2c2a"><title>balamut — cached: as expected (correct: 3)</title></rect>
 <text x="182.5" y="165.0" fill="#ffffff" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
 <rect x="198" y="151" width="27" height="28" rx="3" fill="#45443f" stroke="#2c2c2a"><title>balamut — cov_config: as expected (correct: 3)</title></rect>
 <text x="211.5" y="165.0" fill="#ffffff" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
-<rect x="227" y="151" width="27" height="28" rx="3" fill="#d95926" stroke="#2c2c2a"><title>balamut — decorator_closure: wrong verdict (error (expected killed): 2)</title></rect>
+<rect x="227" y="151" width="27" height="28" rx="3" fill="#d95926" stroke="#2c2c2a"><title>balamut — decorator_closure: wrong verdict (error (expected killed): 4)</title></rect>
 <text x="240.5" y="165.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✗</text>
-<rect x="256" y="151" width="27" height="28" rx="3" fill="#1a1a19" stroke="#2c2c2a"><title>balamut — default_arg: no trap mutant</title></rect>
-<text x="269.5" y="165.0" fill="#898781" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">–</text>
-<rect x="285" y="151" width="27" height="28" rx="3" fill="#45443f" stroke="#2c2c2a"><title>balamut — flaky: as expected (correct: 3)</title></rect>
+<rect x="256" y="151" width="27" height="28" rx="3" fill="#45443f" stroke="#2c2c2a"><title>balamut — default_arg: as expected (correct: 2)</title></rect>
+<text x="269.5" y="165.0" fill="#ffffff" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="285" y="151" width="27" height="28" rx="3" fill="#45443f" stroke="#2c2c2a"><title>balamut — flaky: as expected (correct: 4)</title></rect>
 <text x="298.5" y="165.0" fill="#ffffff" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
-<rect x="314" y="151" width="27" height="28" rx="3" fill="#1a1a19" stroke="#2c2c2a"><title>balamut — hard_exit: no trap mutant</title></rect>
-<text x="327.5" y="165.0" fill="#898781" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">–</text>
-<rect x="343" y="151" width="27" height="28" rx="3" fill="#d95926" stroke="#2c2c2a"><title>balamut — import_time: wrong verdict (no_coverage (expected killed): 2)</title></rect>
+<rect x="314" y="151" width="27" height="28" rx="3" fill="#45443f" stroke="#2c2c2a"><title>balamut — hard_exit: as expected (correct: 1)</title></rect>
+<text x="327.5" y="165.0" fill="#ffffff" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
+<rect x="343" y="151" width="27" height="28" rx="3" fill="#d95926" stroke="#2c2c2a"><title>balamut — import_time: wrong verdict (no_coverage (expected killed): 3)</title></rect>
 <text x="356.5" y="165.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✗</text>
 <rect x="372" y="151" width="27" height="28" rx="3" fill="#45443f" stroke="#2c2c2a"><title>balamut — infinite_loop: as expected (correct: 1)</title></rect>
 <text x="385.5" y="165.0" fill="#ffffff" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
-<rect x="401" y="151" width="27" height="28" rx="3" fill="#45443f" stroke="#2c2c2a"><title>balamut — init_target: as expected (correct: 2)</title></rect>
+<rect x="401" y="151" width="27" height="28" rx="3" fill="#45443f" stroke="#2c2c2a"><title>balamut — init_target: as expected (correct: 3)</title></rect>
 <text x="414.5" y="165.0" fill="#ffffff" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
-<rect x="430" y="151" width="27" height="28" rx="3" fill="#45443f" stroke="#2c2c2a"><title>balamut — nested_class: as expected (correct: 2)</title></rect>
+<rect x="430" y="151" width="27" height="28" rx="3" fill="#45443f" stroke="#2c2c2a"><title>balamut — nested_class: as expected (correct: 4)</title></rect>
 <text x="443.5" y="165.0" fill="#ffffff" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
-<rect x="459" y="151" width="27" height="28" rx="3" fill="#45443f" stroke="#2c2c2a"><title>balamut — pool: as expected (correct: 3)</title></rect>
+<rect x="459" y="151" width="27" height="28" rx="3" fill="#45443f" stroke="#2c2c2a"><title>balamut — pool: as expected (correct: 4)</title></rect>
 <text x="472.5" y="165.0" fill="#ffffff" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
-<rect x="488" y="151" width="27" height="28" rx="3" fill="#d95926" stroke="#2c2c2a"><title>balamut — property_setter: wrong verdict (correct: 6, error (expected killed): 5, error (expected survived): 1)</title></rect>
+<rect x="488" y="151" width="27" height="28" rx="3" fill="#d95926" stroke="#2c2c2a"><title>balamut — property_setter: wrong verdict (correct: 7, error (expected killed): 7, error (expected survived): 1)</title></rect>
 <text x="501.5" y="165.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✗</text>
-<rect x="517" y="151" width="27" height="28" rx="3" fill="#45443f" stroke="#2c2c2a"><title>balamut — relative_import: as expected (correct: 4)</title></rect>
+<rect x="517" y="151" width="27" height="28" rx="3" fill="#45443f" stroke="#2c2c2a"><title>balamut — relative_import: as expected (correct: 6)</title></rect>
 <text x="530.5" y="165.0" fill="#ffffff" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
-<rect x="546" y="151" width="27" height="28" rx="3" fill="#45443f" stroke="#2c2c2a"><title>balamut — session_fixture: as expected (correct: 1)</title></rect>
+<rect x="546" y="151" width="27" height="28" rx="3" fill="#45443f" stroke="#2c2c2a"><title>balamut — session_fixture: as expected (correct: 2)</title></rect>
 <text x="559.5" y="165.0" fill="#ffffff" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
-<rect x="575" y="151" width="27" height="28" rx="3" fill="#45443f" stroke="#2c2c2a"><title>balamut — shapes: as expected (correct: 4)</title></rect>
+<rect x="575" y="151" width="27" height="28" rx="3" fill="#45443f" stroke="#2c2c2a"><title>balamut — shapes: as expected (correct: 5)</title></rect>
 <text x="588.5" y="165.0" fill="#ffffff" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
-<rect x="604" y="151" width="27" height="28" rx="3" fill="#45443f" stroke="#2c2c2a"><title>balamut — src_pythonpath: as expected (correct: 3)</title></rect>
+<rect x="604" y="151" width="27" height="28" rx="3" fill="#45443f" stroke="#2c2c2a"><title>balamut — src_pythonpath: as expected (correct: 4)</title></rect>
 <text x="617.5" y="165.0" fill="#ffffff" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
-<rect x="633" y="151" width="27" height="28" rx="3" fill="#d95926" stroke="#2c2c2a"><title>balamut — subprocess: wrong verdict (no_coverage (expected killed): 2)</title></rect>
+<rect x="633" y="151" width="27" height="28" rx="3" fill="#d95926" stroke="#2c2c2a"><title>balamut — subprocess: wrong verdict (no_coverage (expected killed): 3)</title></rect>
 <text x="646.5" y="165.0" fill="#0b0b0b" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✗</text>
-<rect x="662" y="151" width="27" height="28" rx="3" fill="#45443f" stroke="#2c2c2a"><title>balamut — tabs: as expected (correct: 4)</title></rect>
+<rect x="662" y="151" width="27" height="28" rx="3" fill="#45443f" stroke="#2c2c2a"><title>balamut — tabs: as expected (correct: 8)</title></rect>
 <text x="675.5" y="165.0" fill="#ffffff" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
-<rect x="691" y="151" width="27" height="28" rx="3" fill="#45443f" stroke="#2c2c2a"><title>balamut — unicode: as expected (correct: 2)</title></rect>
+<rect x="691" y="151" width="27" height="28" rx="3" fill="#45443f" stroke="#2c2c2a"><title>balamut — unicode: as expected (correct: 3)</title></rect>
 <text x="704.5" y="165.0" fill="#ffffff" font-size="12" font-weight="400" text-anchor="middle" dominant-baseline="middle">✓</text>
 <text x="156.0" y="195.0" fill="#c3c2b7" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">cosmic-ray</text>
 <rect x="169" y="181" width="27" height="28" rx="3" fill="#45443f" stroke="#2c2c2a"><title>cosmic-ray — cached: as expected (correct: 2)</title></rect>

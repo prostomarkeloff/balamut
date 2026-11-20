@@ -554,7 +554,7 @@ def test_constant_type_union() -> None:
 
 
 def test_attr_name_span_guard() -> None:
-    from balamut.operators.kit import _attr_name_span
+    from balamut.operators.kit import attr_name_span
 
     attr = ast.Attribute(value=ast.Name(id="a", ctx=ast.Load()), attr="b", ctx=ast.Load())
     attr.lineno = 1
@@ -562,7 +562,7 @@ def test_attr_name_span_guard() -> None:
     attr.end_lineno = None  # only one position field is missing
     attr.end_col_offset = 5
     ctx = EnumContext("t.py", b"a.b", [0], frozenset())
-    assert _attr_name_span(attr, ctx) is None
+    assert attr_name_span(attr, ctx) is None
 
 
 def test_region_rewrite_skips_unpositioned_target() -> None:

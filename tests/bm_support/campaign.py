@@ -139,7 +139,9 @@ def work(index: int, item: Mutant, covering: tuple[str, ...] = ("tests/x_test.py
         index=index,
         mutant=item,
         covering=covering,
-        spec={"module": "x", "qualname": "f", "mutated_source": "def f():\n    return 2\n", "kind": "src"},
+        spec={"module": "x", "qualname": "f", "kind": "src"},
+        source="def f():\n    return 1\n",
+        fuzz_target=None,
         key=f"key-{index}",
         func_hash="func-hash",
         qualname="f",
@@ -304,11 +306,17 @@ def stub_campaign_runtime(
     original_persist = partition.persist_verdict
 
     def record_persist(
-        store: Store, item: partition.Work, result: MutantResult, killed_by: list[str], **kwargs: object
+        store: Store,
+        item: partition.Work,
+        result: MutantResult,
+        killed_by: list[str],
+        *,
+        kill: partition.KillRecord | None = None,
+        **kwargs: object,
     ) -> None:
         _ = kwargs
         record.persisted.append(result.status)
-        original_persist(store, item, result, killed_by)
+        original_persist(store, item, result, killed_by, kill=kill)
 
     def switch_to_fresh(pool: list[Daemon]) -> None:
         record.fresh_transitions.append([item.address for item in pool])

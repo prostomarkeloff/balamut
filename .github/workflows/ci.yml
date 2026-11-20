@@ -115,6 +115,9 @@ jobs:
           git config --global user.email ci@example.com
           git config --global user.name ci
           mkdir -p "$RUNNER_TEMP/dogfood"
+          # A mutant that makes a loop grow a list without bound fills the runner's memory before the hang budget
+          # ends; with 4 GiB of data per process its test fails with MemoryError instead.
+          ulimit -d 4194304
           uv run balamut diff \
             --base "${BASE:-$(git describe --tags --abbrev=0)}" \
             --cache .balamut/cache/ci.sqlite \

@@ -24,13 +24,14 @@ from balamut.engine.identify import (
     IdentityBaseCache,
     expand_oracle_covering,
     identify,
+    mutant_spec,
     oracle_collect_file,
     oracle_nodeid,
 )
 from balamut.engine.results import MutantResult, MutantStatus
 from balamut.operators.facts import SelfCovered
-from balamut.runtime.kill_deps import KillDep, KillValidity, kill_deps_decode, kill_deps_encode
-from balamut.runtime.plugin import MutantSpec
+from balamut.runtime.kill_deps import KillDep, KillDeps, KillValidity, kill_deps_decode, kill_deps_encode
+from balamut.runtime.plugin import MutantSite, MutantSpec
 
 type FileHashMemo = dict[str, str]
 type ResultsByIndex = dict[int, MutantResult]
@@ -69,16 +70,31 @@ def covering_tests(cov: CoverageLike, mutant: Mutant, source: str) -> set[str]:
 
 
 @dataclass(frozen=True, slots=True)
+class KillRecord:
+    """The functions a killing lease entered and their hash at kill time: the cache keeps the kill while that hash
+    holds. A kill whose dependency changed during the campaign has no hash and so no record."""
+
+    deps: KillDeps
+    validity: str
+
+
+@dataclass(frozen=True, slots=True)
 class Work:
     index: int
     mutant: Mutant
     covering: tuple[str, ...]
-    spec: MutantSpec
+    spec: MutantSite
+    source: str  # the module text the mutant applies to: one object shared by every mutant of the file
+    fuzz_target: str | None  # the function whose await boundaries take schedule-fuzz yield points
     key: str  # the content-addressed cache key
     func_hash: str
     qualname: str
     covering_hash: str
     bucket: Bucket = Bucket.REVIEW
+
+    def request_spec(self) -> MutantSpec:
+        """The spec of this mutant's request, with the mutated module text built for it."""
+        return mutant_spec(self.spec, self.source, self.mutant, fuzz_target=self.fuzz_target)
 
 
 def _memo_hash(root: Path, path: str, memo: FileHashMemo) -> str:
@@ -228,6 +244,8 @@ def partition(
                 mutant,
                 covering_sorted,
                 identity["spec"],
+                source,
+                identity["fuzz_target"],
                 key,
                 sha(identity["func_src"]),
                 identity["qualname"],
@@ -257,9 +275,12 @@ def persist_verdict(
     result: MutantResult,
     killed_by: list[str],
     *,
+    kill: KillRecord | None = None,
     semantic: SemanticPatterns = DEFAULT_SEMANTIC,
 ) -> None:
-    """Write one terminal verdict, incrementally and thread-safely."""
+    """Write one terminal verdict, incrementally and thread-safely.
+
+    Only the store holds the ``kill`` record: a campaign's results would hold one for every kill until its end."""
     store.put_verdict(
         key=item.key,
         file=item.mutant.path,
@@ -276,8 +297,8 @@ def persist_verdict(
         kind=item.mutant.family,
         killed_by=killed_by,
         semantic=semantic_classes(item.mutant, semantic),
-        kill_deps=kill_deps_encode(result.kill_deps) if result.kill_deps and result.kill_validity else "",
-        kill_validity=result.kill_validity if result.kill_deps else "",
+        kill_deps=kill_deps_encode(kill.deps) if kill is not None else "",
+        kill_validity=kill.validity if kill is not None else "",
     )
 
 

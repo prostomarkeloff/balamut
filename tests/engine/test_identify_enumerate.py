@@ -107,6 +107,29 @@ def test_identify_default_mutant_sets_defaults_mechanism_and_slot() -> None:
     assert spec["qualname"] == "f"
 
 
+def test_identify_keyword_only_default_mutant_names_its_kwdefaults_key() -> None:
+    src = "def f(a, *, flag=False):\n    return a\n"
+    mutant = next(m for m in enumerate_mutants("t.py", src) if m.default_name is not None)
+    found = identify.identify(mutant, src, module="t")
+    assert found is not None
+    spec = found["spec"]
+    assert spec.get("mechanism") == "defaults"
+    assert spec.get("default_name") == "flag"
+    assert spec.get("default_literal") == "True"
+    assert "default_index" not in spec
+
+
+def test_identify_defaults_mutant_without_a_slot_records_no_default() -> None:
+    src = "def f(a, *, flag=False):\n    return a\n"
+    mutant = next(m for m in enumerate_mutants("t.py", src) if m.default_name is not None)
+    found = identify.identify(replace(mutant, default_name=None), src, module="t")
+    assert found is not None
+    spec = found["spec"]
+    assert spec.get("mechanism") == "defaults"
+    assert "default_name" not in spec
+    assert "default_literal" not in spec
+
+
 def test_identify_carries_bytecode_fields_for_a_single_line_constant() -> None:
     src = "def f():\n    return 1\n"
     mutant = next(m for m in enumerate_mutants("t.py", src) if m.operator == "lang:const:num:1->2")
@@ -142,7 +165,7 @@ def test_identify_finds_no_identity_for_a_function_under_a_module_level_conditio
     assert identify.identify(mutant, src, module="t") is None
 
 
-def test_identify_injects_yield_points_into_concurrency_mutants_under_schedule_fuzz() -> None:
+def test_spec_of_a_concurrency_mutant_has_yield_points_under_schedule_fuzz() -> None:
     src = "import asyncio\n\nasync def f(lock):\n    async with lock:\n        await asyncio.sleep(0)\n"
     start = src.index("lock:")
     mutant = Mutant(
@@ -160,8 +183,23 @@ def test_identify_injects_yield_points_into_concurrency_mutants_under_schedule_f
     fuzzed = identify.identify(mutant, src, module="t", schedule_fuzz=True)
     assert plain is not None
     assert fuzzed is not None
-    assert "balamut_fuzz_yield" not in plain["spec"]["mutated_source"]
-    assert "balamut_fuzz_yield" in fuzzed["spec"]["mutated_source"]
+    assert plain["fuzz_target"] is None
+    assert fuzzed["fuzz_target"] == "f"
+    plain_spec = identify.mutant_spec(plain["spec"], src, mutant, fuzz_target=plain["fuzz_target"])
+    fuzzed_spec = identify.mutant_spec(fuzzed["spec"], src, mutant, fuzz_target=fuzzed["fuzz_target"])
+    assert "balamut_fuzz_yield" not in plain_spec["mutated_source"]
+    assert "balamut_fuzz_yield" in fuzzed_spec["mutated_source"]
+
+
+def test_identify_names_no_fuzz_target_for_a_mutant_outside_concurrency() -> None:
+    """Schedule fuzzing explores the interleavings of a concurrency mutant; any other mutant runs as written."""
+    src = "import asyncio\n\nasync def f(a, b):\n    await asyncio.sleep(0)\n    return a < b\n"
+    mutant = next(m for m in enumerate_mutants("t.py", src) if m.operator == "lang:compare:Lt->LtE")
+
+    found = identify.identify(mutant, src, module="t", schedule_fuzz=True)
+
+    assert found is not None
+    assert found["fuzz_target"] is None
 
 
 def test_filter_by_mechanism_code_keeps_body_cold_keeps_module_level() -> None:

@@ -11,7 +11,7 @@ from typing import ClassVar
 import pytest
 
 from balamut.core.hashing import file_hash, mutant_key, sha
-from balamut.core.mutants import Mutant
+from balamut.core.mutants import Mutant, apply_mutant
 from balamut.core.triage import Bucket
 from balamut.coverage.coverage_map import CoverageMap
 from balamut.coverage.store import Store
@@ -32,6 +32,7 @@ from balamut.operators.concurrency import LockDrop
 from balamut.operators.oracle import OracleFact
 from balamut.operators.src import enumerate_mutants
 from balamut.report.agent import records_from_store
+from balamut.runtime.kill_deps import kill_deps_encode
 from bm_support import make_layout, write_file
 from bm_support.campaign import (
     FixedCoverage,
@@ -311,7 +312,7 @@ def test_module_level_oracle_mutants_are_unsupported(tmp_path: Path, monkeypatch
     # A module-level oracle has no enclosing function to patch: it is unsupported before any collect-file lookup.
     source = "A = 30\nB = 40\n"
     oracles = _oracles(tmp_path, monkeypatch, "tests/x_test.py", source, predicate="lang:const:num:")
-    assert len(oracles) == 2
+    assert len(oracles) == 4  # each literal shifted up and down
     store = Store(tmp_path / "cache.sqlite")
     try:
         items, results, _hits = partition.partition(
@@ -327,7 +328,7 @@ def test_module_level_oracle_mutants_are_unsupported(tmp_path: Path, monkeypatch
     finally:
         store.close()
     assert items == []
-    assert len(results) == 2
+    assert len(results) == 4
     assert all(result.status is MutantStatus.UNSUPPORTED for result in results.values())
     assert all(result.covering == 0 for result in results.values())
 
@@ -837,31 +838,58 @@ def test_cache_hit_updates_a_stale_bucket(tmp_path: Path, monkeypatch: pytest.Mo
         store.close()
 
 
-def test_persist_verdict_drops_dependencies_without_a_recorded_validity(
+def test_persist_verdict_stores_a_kill_record_and_nothing_without_one(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
     source, item = _setup_source(tmp_path, monkeypatch)
     store = Store(tmp_path / "cache.sqlite")
+    deps = (("src/x.py", "valid"),)
     try:
         items, _prefilled, _hits = _partition(
             tmp_path, item, source, store, FixedCoverage({"tests/x_test.py::test_valid"}), read_cache=False
         )
-        result = MutantResult(
-            item,
-            MutantStatus.KILLED,
-            1,
-            items[0].key,
-            items[0].covering,
-            kill_deps=(("src/x.py", "valid"),),
-            kill_validity="",
-        )
+        result = MutantResult(item, MutantStatus.KILLED, 1, items[0].key, items[0].covering)
+        partition.persist_verdict(store, items[0], result, [], kill=partition.KillRecord(deps, "validity"))
+        recorded = store.get_verdict(items[0].key)
         partition.persist_verdict(store, items[0], result, [])
-        verdict = store.get_verdict(items[0].key)
-        assert verdict is not None
-        assert verdict["kill_deps"] == ""
-        assert verdict["kill_validity"] == ""
+        unrecorded = store.get_verdict(items[0].key)
     finally:
         store.close()
+
+    assert recorded is not None
+    assert (recorded["kill_deps"], recorded["kill_validity"]) == (kill_deps_encode(deps), "validity")
+    assert unrecorded is not None
+    assert (unrecorded["kill_deps"], unrecorded["kill_validity"]) == ("", "")
+
+
+def test_work_shares_the_module_text_and_only_its_request_spec_carries_the_mutant(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """A campaign holds each file once: every work item refers to the one module text, and the mutated copy exists
+    only in the spec of a request."""
+    source, _item = _setup_source(tmp_path, monkeypatch)
+    mutants = [m for m in enumerate_mutants("src/x.py", source) if m.lineno == 2][:2]
+    sources = {"src/x.py": source}
+
+    items, _prefilled, _hits = partition.partition(
+        mutants,
+        sources,
+        FixedCoverage({"tests/x_test.py::test_valid"}),
+        layout=make_layout(tmp_path),
+        store=None,
+        read_cache=False,
+        memo={},
+        reexport={},
+    )
+
+    assert len(items) == 2
+    assert all(work.source is sources["src/x.py"] for work in items)
+    assert all("mutated_source" not in work.spec for work in items)
+    specs = [work.request_spec() for work in items]
+    assert [spec["mutated_source"] for spec in specs] == [apply_mutant(source, m) for m in mutants]
+    assert [
+        {**work.spec, "mutated_source": spec["mutated_source"]} for work, spec in zip(items, specs, strict=True)
+    ] == specs
 
 
 def test_partition_passes_path_then_lineno_to_coverage(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
@@ -1165,7 +1193,7 @@ def test_partition_forwards_schedule_fuzz_to_identify(tmp_path: Path, monkeypatc
     finally:
         store.close()
     assert len(items) == 1
-    assert "balamut_fuzz_yield" in items[0].spec["mutated_source"]
+    assert "balamut_fuzz_yield" in items[0].request_spec()["mutated_source"]
 
 
 @dataclass(frozen=True, slots=True)
@@ -1209,7 +1237,7 @@ def test_partition_forwards_schedule_fuzz_to_a_self_covered_mutant(
     )
 
     assert len(items) == 1
-    assert "balamut_fuzz_yield" in items[0].spec["mutated_source"]
+    assert "balamut_fuzz_yield" in items[0].request_spec()["mutated_source"]
 
 
 def _record_function_source(monkeypatch: pytest.MonkeyPatch) -> list[str]:

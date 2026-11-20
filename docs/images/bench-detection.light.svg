@@ -16,60 +16,60 @@
 <line x1="640.0" y1="64" x2="640.0" y2="402" stroke="#e1e0d9" stroke-width="1"/>
 <text x="640.0" y="418.0" fill="#898781" font-size="11" font-weight="400" text-anchor="middle" dominant-baseline="middle">40%</text>
 <line x1="168" y1="64" x2="168" y2="402" stroke="#c3c2b7" stroke-width="1"/>
-<text x="156.0" y="87.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">mutation</text>
-<path d="M168.00,80.00 H443.57 Q447.57,80.00 447.57,84.00 V90.00 Q447.57,94.00 443.57,94.00 H168.00 Z" fill="#a8a69e"><title>mutation: 24% (95% CI 15–33%)</title></path>
-<line x1="346.3" y1="87.0" x2="557.6" y2="87.0" stroke="#52514e" stroke-width="1"><title>mutation: 24% (95% CI 15–33%)</title></line>
-<line x1="346.3" y1="83.0" x2="346.3" y2="91.0" stroke="#52514e" stroke-width="1"/>
-<line x1="557.6" y1="83.0" x2="557.6" y2="91.0" stroke="#52514e" stroke-width="1"/>
-<text x="565.6" y="87.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="start" dominant-baseline="middle">24%</text>
-<text x="156.0" y="117.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">universalmutator</text>
-<path d="M168.00,110.00 H389.11 Q393.11,110.00 393.11,114.00 V120.00 Q393.11,124.00 389.11,124.00 H168.00 Z" fill="#a8a69e"><title>universalmutator: 19% (95% CI 13–26%)</title></path>
-<line x1="321.7" y1="117.0" x2="473.6" y2="117.0" stroke="#52514e" stroke-width="1"><title>universalmutator: 19% (95% CI 13–26%)</title></line>
-<line x1="321.7" y1="113.0" x2="321.7" y2="121.0" stroke="#52514e" stroke-width="1"/>
-<line x1="473.6" y1="113.0" x2="473.6" y2="121.0" stroke="#52514e" stroke-width="1"/>
-<text x="481.6" y="117.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="start" dominant-baseline="middle">19%</text>
-<text x="156.0" y="147.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">poodle</text>
-<path d="M168.00,140.00 H367.32 Q371.32,140.00 371.32,144.00 V150.00 Q371.32,154.00 367.32,154.00 H168.00 Z" fill="#a8a69e"><title>poodle: 17% (95% CI 10–25%)</title></path>
-<line x1="287.5" y1="147.0" x2="468.1" y2="147.0" stroke="#52514e" stroke-width="1"><title>poodle: 17% (95% CI 10–25%)</title></line>
-<line x1="287.5" y1="143.0" x2="287.5" y2="151.0" stroke="#52514e" stroke-width="1"/>
-<line x1="468.1" y1="143.0" x2="468.1" y2="151.0" stroke="#52514e" stroke-width="1"/>
-<text x="476.1" y="147.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="start" dominant-baseline="middle">17%</text>
-<text x="156.0" y="177.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">irradiate</text>
-<path d="M168.00,170.00 H352.80 Q356.80,170.00 356.80,174.00 V180.00 Q356.80,184.00 352.80,184.00 H168.00 Z" fill="#a8a69e"><title>irradiate: 16% (95% CI 10–23%)</title></path>
-<line x1="281.2" y1="177.0" x2="442.3" y2="177.0" stroke="#52514e" stroke-width="1"><title>irradiate: 16% (95% CI 10–23%)</title></line>
-<line x1="281.2" y1="173.0" x2="281.2" y2="181.0" stroke="#52514e" stroke-width="1"/>
-<line x1="442.3" y1="173.0" x2="442.3" y2="181.0" stroke="#52514e" stroke-width="1"/>
-<text x="450.3" y="177.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="start" dominant-baseline="middle">16%</text>
-<text x="156.0" y="207.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">mutmut</text>
-<path d="M168.00,200.00 H349.17 Q353.17,200.00 353.17,204.00 V210.00 Q353.17,214.00 349.17,214.00 H168.00 Z" fill="#a8a69e"><title>mutmut: 16% (95% CI 10–22%)</title></path>
-<line x1="288.4" y1="207.0" x2="422.8" y2="207.0" stroke="#52514e" stroke-width="1"><title>mutmut: 16% (95% CI 10–22%)</title></line>
-<line x1="288.4" y1="203.0" x2="288.4" y2="211.0" stroke="#52514e" stroke-width="1"/>
-<line x1="422.8" y1="203.0" x2="422.8" y2="211.0" stroke="#52514e" stroke-width="1"/>
-<text x="430.8" y="207.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="start" dominant-baseline="middle">16%</text>
-<text x="156.0" y="237.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">cosmic-ray</text>
-<path d="M168.00,230.00 H331.02 Q335.02,230.00 335.02,234.00 V240.00 Q335.02,244.00 331.02,244.00 H168.00 Z" fill="#a8a69e"><title>cosmic-ray: 14% (95% CI 9–20%)</title></path>
-<line x1="274.2" y1="237.0" x2="406.4" y2="237.0" stroke="#52514e" stroke-width="1"><title>cosmic-ray: 14% (95% CI 9–20%)</title></line>
-<line x1="274.2" y1="233.0" x2="274.2" y2="241.0" stroke="#52514e" stroke-width="1"/>
-<line x1="406.4" y1="233.0" x2="406.4" y2="241.0" stroke="#52514e" stroke-width="1"/>
-<text x="414.4" y="237.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="start" dominant-baseline="middle">14%</text>
-<text x="156.0" y="267.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">deployproof</text>
-<path d="M168.00,260.00 H331.02 Q335.02,260.00 335.02,264.00 V270.00 Q335.02,274.00 331.02,274.00 H168.00 Z" fill="#a8a69e"><title>deployproof: 14% (95% CI 8–21%)</title></path>
-<line x1="266.6" y1="267.0" x2="417.1" y2="267.0" stroke="#52514e" stroke-width="1"><title>deployproof: 14% (95% CI 8–21%)</title></line>
-<line x1="266.6" y1="263.0" x2="266.6" y2="271.0" stroke="#52514e" stroke-width="1"/>
-<line x1="417.1" y1="263.0" x2="417.1" y2="271.0" stroke="#52514e" stroke-width="1"/>
-<text x="425.1" y="267.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="start" dominant-baseline="middle">14%</text>
-<text x="156.0" y="297.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">fest</text>
-<path d="M168.00,290.00 H312.86 Q316.86,290.00 316.86,294.00 V300.00 Q316.86,304.00 312.86,304.00 H168.00 Z" fill="#a8a69e"><title>fest: 13% (95% CI 7–19%)</title></path>
-<line x1="249.5" y1="297.0" x2="397.0" y2="297.0" stroke="#52514e" stroke-width="1"><title>fest: 13% (95% CI 7–19%)</title></line>
-<line x1="249.5" y1="293.0" x2="249.5" y2="301.0" stroke="#52514e" stroke-width="1"/>
-<line x1="397.0" y1="293.0" x2="397.0" y2="301.0" stroke="#52514e" stroke-width="1"/>
-<text x="405.0" y="297.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="start" dominant-baseline="middle">13%</text>
-<text x="156.0" y="327.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">balamut</text>
-<path d="M168.00,320.00 H298.34 Q302.34,320.00 302.34,324.00 V330.00 Q302.34,334.00 298.34,334.00 H168.00 Z" fill="#a8a69e"><title>balamut: 11% (95% CI 7–16%)</title></path>
-<line x1="246.7" y1="327.0" x2="361.7" y2="327.0" stroke="#52514e" stroke-width="1"><title>balamut: 11% (95% CI 7–16%)</title></line>
-<line x1="246.7" y1="323.0" x2="246.7" y2="331.0" stroke="#52514e" stroke-width="1"/>
-<line x1="361.7" y1="323.0" x2="361.7" y2="331.0" stroke="#52514e" stroke-width="1"/>
-<text x="369.7" y="327.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="start" dominant-baseline="middle">11%</text>
+<text x="156.0" y="87.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">balamut</text>
+<path d="M168.00,80.00 H501.66 Q505.66,80.00 505.66,84.00 V90.00 Q505.66,94.00 501.66,94.00 H168.00 Z" fill="#a8a69e"><title>balamut: 29% (95% CI 21–37%)</title></path>
+<line x1="412.7" y1="87.0" x2="608.2" y2="87.0" stroke="#52514e" stroke-width="1"><title>balamut: 29% (95% CI 21–37%)</title></line>
+<line x1="412.7" y1="83.0" x2="412.7" y2="91.0" stroke="#52514e" stroke-width="1"/>
+<line x1="608.2" y1="83.0" x2="608.2" y2="91.0" stroke="#52514e" stroke-width="1"/>
+<text x="616.2" y="87.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="start" dominant-baseline="middle">29%</text>
+<text x="156.0" y="117.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">mutation</text>
+<path d="M168.00,110.00 H443.57 Q447.57,110.00 447.57,114.00 V120.00 Q447.57,124.00 443.57,124.00 H168.00 Z" fill="#a8a69e"><title>mutation: 24% (95% CI 15–33%)</title></path>
+<line x1="346.3" y1="117.0" x2="557.6" y2="117.0" stroke="#52514e" stroke-width="1"><title>mutation: 24% (95% CI 15–33%)</title></line>
+<line x1="346.3" y1="113.0" x2="346.3" y2="121.0" stroke="#52514e" stroke-width="1"/>
+<line x1="557.6" y1="113.0" x2="557.6" y2="121.0" stroke="#52514e" stroke-width="1"/>
+<text x="565.6" y="117.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="start" dominant-baseline="middle">24%</text>
+<text x="156.0" y="147.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">universalmutator</text>
+<path d="M168.00,140.00 H389.11 Q393.11,140.00 393.11,144.00 V150.00 Q393.11,154.00 389.11,154.00 H168.00 Z" fill="#a8a69e"><title>universalmutator: 19% (95% CI 13–26%)</title></path>
+<line x1="321.7" y1="147.0" x2="473.6" y2="147.0" stroke="#52514e" stroke-width="1"><title>universalmutator: 19% (95% CI 13–26%)</title></line>
+<line x1="321.7" y1="143.0" x2="321.7" y2="151.0" stroke="#52514e" stroke-width="1"/>
+<line x1="473.6" y1="143.0" x2="473.6" y2="151.0" stroke="#52514e" stroke-width="1"/>
+<text x="481.6" y="147.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="start" dominant-baseline="middle">19%</text>
+<text x="156.0" y="177.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">poodle</text>
+<path d="M168.00,170.00 H367.32 Q371.32,170.00 371.32,174.00 V180.00 Q371.32,184.00 367.32,184.00 H168.00 Z" fill="#a8a69e"><title>poodle: 17% (95% CI 10–25%)</title></path>
+<line x1="287.5" y1="177.0" x2="468.1" y2="177.0" stroke="#52514e" stroke-width="1"><title>poodle: 17% (95% CI 10–25%)</title></line>
+<line x1="287.5" y1="173.0" x2="287.5" y2="181.0" stroke="#52514e" stroke-width="1"/>
+<line x1="468.1" y1="173.0" x2="468.1" y2="181.0" stroke="#52514e" stroke-width="1"/>
+<text x="476.1" y="177.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="start" dominant-baseline="middle">17%</text>
+<text x="156.0" y="207.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">irradiate</text>
+<path d="M168.00,200.00 H352.80 Q356.80,200.00 356.80,204.00 V210.00 Q356.80,214.00 352.80,214.00 H168.00 Z" fill="#a8a69e"><title>irradiate: 16% (95% CI 10–23%)</title></path>
+<line x1="281.2" y1="207.0" x2="442.3" y2="207.0" stroke="#52514e" stroke-width="1"><title>irradiate: 16% (95% CI 10–23%)</title></line>
+<line x1="281.2" y1="203.0" x2="281.2" y2="211.0" stroke="#52514e" stroke-width="1"/>
+<line x1="442.3" y1="203.0" x2="442.3" y2="211.0" stroke="#52514e" stroke-width="1"/>
+<text x="450.3" y="207.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="start" dominant-baseline="middle">16%</text>
+<text x="156.0" y="237.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">mutmut</text>
+<path d="M168.00,230.00 H349.17 Q353.17,230.00 353.17,234.00 V240.00 Q353.17,244.00 349.17,244.00 H168.00 Z" fill="#a8a69e"><title>mutmut: 16% (95% CI 10–22%)</title></path>
+<line x1="288.4" y1="237.0" x2="422.8" y2="237.0" stroke="#52514e" stroke-width="1"><title>mutmut: 16% (95% CI 10–22%)</title></line>
+<line x1="288.4" y1="233.0" x2="288.4" y2="241.0" stroke="#52514e" stroke-width="1"/>
+<line x1="422.8" y1="233.0" x2="422.8" y2="241.0" stroke="#52514e" stroke-width="1"/>
+<text x="430.8" y="237.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="start" dominant-baseline="middle">16%</text>
+<text x="156.0" y="267.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">cosmic-ray</text>
+<path d="M168.00,260.00 H331.02 Q335.02,260.00 335.02,264.00 V270.00 Q335.02,274.00 331.02,274.00 H168.00 Z" fill="#a8a69e"><title>cosmic-ray: 14% (95% CI 9–20%)</title></path>
+<line x1="274.2" y1="267.0" x2="406.4" y2="267.0" stroke="#52514e" stroke-width="1"><title>cosmic-ray: 14% (95% CI 9–20%)</title></line>
+<line x1="274.2" y1="263.0" x2="274.2" y2="271.0" stroke="#52514e" stroke-width="1"/>
+<line x1="406.4" y1="263.0" x2="406.4" y2="271.0" stroke="#52514e" stroke-width="1"/>
+<text x="414.4" y="267.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="start" dominant-baseline="middle">14%</text>
+<text x="156.0" y="297.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">deployproof</text>
+<path d="M168.00,290.00 H331.02 Q335.02,290.00 335.02,294.00 V300.00 Q335.02,304.00 331.02,304.00 H168.00 Z" fill="#a8a69e"><title>deployproof: 14% (95% CI 8–21%)</title></path>
+<line x1="266.6" y1="297.0" x2="417.1" y2="297.0" stroke="#52514e" stroke-width="1"><title>deployproof: 14% (95% CI 8–21%)</title></line>
+<line x1="266.6" y1="293.0" x2="266.6" y2="301.0" stroke="#52514e" stroke-width="1"/>
+<line x1="417.1" y1="293.0" x2="417.1" y2="301.0" stroke="#52514e" stroke-width="1"/>
+<text x="425.1" y="297.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="start" dominant-baseline="middle">14%</text>
+<text x="156.0" y="327.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">fest</text>
+<path d="M168.00,320.00 H312.86 Q316.86,320.00 316.86,324.00 V330.00 Q316.86,334.00 312.86,334.00 H168.00 Z" fill="#a8a69e"><title>fest: 13% (95% CI 7–19%)</title></path>
+<line x1="249.5" y1="327.0" x2="397.0" y2="327.0" stroke="#52514e" stroke-width="1"><title>fest: 13% (95% CI 7–19%)</title></line>
+<line x1="249.5" y1="323.0" x2="249.5" y2="331.0" stroke="#52514e" stroke-width="1"/>
+<line x1="397.0" y1="323.0" x2="397.0" y2="331.0" stroke="#52514e" stroke-width="1"/>
+<text x="405.0" y="327.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="start" dominant-baseline="middle">13%</text>
 <text x="156.0" y="357.0" fill="#52514e" font-size="12" font-weight="400" text-anchor="end" dominant-baseline="middle">pytest-leela</text>
 <path d="M168.00,350.00 H243.88 Q247.88,350.00 247.88,354.00 V360.00 Q247.88,364.00 243.88,364.00 H168.00 Z" fill="#a8a69e"><title>pytest-leela: 7% (95% CI 4–11%)</title></path>
 <line x1="210.5" y1="357.0" x2="292.2" y2="357.0" stroke="#52514e" stroke-width="1"><title>pytest-leela: 7% (95% CI 4–11%)</title></line>

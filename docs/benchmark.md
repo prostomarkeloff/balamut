@@ -17,23 +17,23 @@ configuration, and a corrected result is published as a new release.
 ## Results at a glance
 
 * On 325 real bugs from 26 projects, the eleven tools generate a pre-fix witness for 6.5% (pytest-gremlins) to
-  23.7% (mutation) of the bugs, and all tools together for 29.5%. The 95% intervals of the tools' ranks overlap:
-  mutation 1–2, universalmutator 1–5, poodle 2–6, irradiate and mutmut 2–8, deployproof 3–8, cosmic-ray 3–9, fest
-  4–9, balamut 6–9, pytest-leela and pytest-gremlins 10–11.
-* Judged on the fixed program alone (two conditions, as in Just et al. 2014), the tools witness 24.9% to 61.8% of
-  the bugs and together 69.5%; 31% (mutation) to 44% (pytest-leela, pytest-gremlins) of those detections rest
+  28.6% (balamut) of the bugs, and all tools together for 32.6%. The 95% intervals of the tools' ranks overlap:
+  balamut 1, mutation 2–3, universalmutator 2–6, poodle 3–7, irradiate and mutmut 3–9, cosmic-ray and deployproof
+  4–9, fest 5–9, pytest-leela and pytest-gremlins 10–11.
+* Judged on the fixed program alone (two conditions, as in Just et al. 2014), the tools witness 24.9% to 72.3% of
+  the bugs and together 75.1%; 25% (balamut) to 44% (pytest-leela, pytest-gremlins) of those detections rest
   only on lines the fix inserted, which no tool could have shown before the fix.
 * Line coverage alone points at 31.1% of the bugs (95% CI 25.0–37.4%): their fail-to-pass tests run a line of
   the scope that no historical test ran (retrospective; feature tests count too).
 * Detection grows with the number of mutants: the Spearman correlation of pre-fix detection with the median
-  number of in-scope emissions per bug (8 for pytest-gremlins to 130 for mutation) is 0.88. At fixed budgets the
-  tools are close: ten random in-scope emissions contain a pre-fix witness with probability 5.3% to 9.4%, three
-  random survivors 5.0% to 10.8%, and neither budget orders the tools alike in two halves of the projects.
-* A second judgement from fresh trees reproduced 5,982 of the 6,005 first-judgement candidate witnesses (99.6%);
-  the whole historical suite repeated 999 of a sample of 1,000 shortcut kills (the run of the last was killed from
-  outside the harness), and the current oracle code 998 of 1,000 sampled verdicts.
-* In each tool's own campaign on six projects, cosmic-ray, universalmutator, pytest-gremlins and balamut agree
-  with the reference oracle on every comparable verdict and poodle on all but one; of the survivors the other
+  number of in-scope emissions per bug (8 for pytest-gremlins to 130 for mutation) is 0.90. At fixed budgets the
+  tools are close: ten random in-scope emissions contain a pre-fix witness with probability 5.3% to 11.4%, three
+  random survivors 5.0% to 11.5%, and neither budget orders the tools alike in two halves of the projects.
+* A second judgement from fresh trees reproduced 6,293 of the 6,316 first-judgement candidate witnesses (99.6%);
+  the whole historical suite repeated 999 of a sample of 1,000 shortcut kills (the last survived it), and the
+  current oracle code 997 of 1,000 sampled verdicts.
+* In each tool's own campaign on six projects, cosmic-ray and pytest-gremlins agree with the reference oracle on
+  every comparable verdict and poodle, universalmutator and balamut on all but one; of the survivors the other
   engines report, the oracle kills 6% (mutmut) to 92% (fest). 11 of the 66 campaigns gave no verdicts or failed
   (mutmut 3; poodle, pytest-leela and deployproof 2; mutation and irradiate 1).
 
@@ -105,7 +105,7 @@ virtual environment, so no pytest plugin of one tool is loaded in another's run)
 
 | tool | version | how its engine runs a mutant |
 |---|---|---|
-| [balamut](https://github.com/prostomarkeloff/balamut) | 0.1.5 | resident pytest workers, in-memory code patching, coverage-selected tests |
+| [balamut](https://github.com/prostomarkeloff/balamut) | 0.1.6 | resident pytest workers, in-memory code patching, coverage-selected tests |
 | [mutmut](https://github.com/boxed/mutmut) | 3.8.1 | trampolined function variants, forked workers |
 | [cosmic-ray](https://github.com/sixty-north/cosmic-ray) | 8.7.0 | file rewrite, one test-command run per mutant |
 | [poodle](https://github.com/WiredNerd/poodle) | 1.4.0 | file rewrite in copied trial folders, parallel |
@@ -294,10 +294,8 @@ then unavailable for that bug, which counts as not detected (and 0 in `R` and `S
 and leaves only the conditional rate's denominator.
 
 Every tool is measured in its default configuration only. balamut's row uses the source kinds `balamut mutate`
-runs by default (src, concurrency, fault; its default `oracle` kind mutates tests, outside a source scope), the
-file-level default every other tool gets and the one of its engine-track campaign; its generation also emits the
-`extreme` kind, which the measures leave out ([`bench/pymutbench/tools.toml`](../bench/pymutbench/tools.toml),
-`default_drop`).
+runs by default (src, concurrency, fault, extreme; its default `oracle` kind mutates tests, outside a source
+scope), the file-level default every other tool gets and the one of its engine-track campaign.
 
 ### The reference oracle
 
@@ -469,26 +467,26 @@ track; table twins of the figures in [`results/tables.md`](../bench/results/tabl
 
 Every tool's generator succeeded on every bug, and on no bug do most of a tool's in-scope emissions lack a faithful
 source text, so the operational and conditional rates coincide. The tools generate a pre-fix witness for 6.5% to
-23.7% of the 325 bugs, and together for 29.5% (96 bugs). Judged on the fixed program alone, they witness 24.9% to
-61.8%, together 69.5% (226 bugs):
+28.6% of the 325 bugs, and together for 32.6% (106 bugs). Judged on the fixed program alone, they witness 24.9% to
+72.3%, together 75.1% (244 bugs):
 
 | tool | pre-fix witness (95% CI) | rank | fixed program (95% CI) | rank |
 |---|---|---|---|---|
-| mutation | 77 (23.7%, 15.1–33.0%) | 1–2 | 201 (61.8%, 52.6–70.8%) | 1–2 |
-| universalmutator | 62 (19.1%, 13.0–25.9%) | 1–5 | 184 (56.6%, 48.6–64.9%) | 1–3 |
-| poodle | 56 (17.2%, 10.1–25.4%) | 2–6 | 178 (54.8%, 46.6–62.9%) | 2–3 |
-| irradiate | 52 (16.0%, 9.6–23.2%) | 2–8 | 152 (46.8%, 37.8–55.8%) | 4–8 |
-| mutmut | 51 (15.7%, 10.2–21.6%) | 2–8 | 142 (43.7%, 35.3–52.7%) | 4–9 |
-| cosmic-ray | 46 (14.2%, 9.0–20.2%) | 3–9 | 139 (42.8%, 35.8–50.5%) | 4–9 |
-| deployproof | 46 (14.2%, 8.4–21.1%) | 3–8 | 143 (44.0%, 36.7–51.4%) | 4–8 |
-| fest | 41 (12.6%, 6.9–19.4%) | 4–9 | 134 (41.2%, 33.9–48.7%) | 5–9 |
-| balamut | 37 (11.4%, 6.7–16.4%) | 6–9 | 131 (40.3%, 33.1–48.0%) | 6–9 |
+| balamut | 93 (28.6%, 20.7–37.3%) | 1 | 235 (72.3%, 65.3–79.0%) | 1 |
+| mutation | 77 (23.7%, 15.1–33.0%) | 2–3 | 201 (61.8%, 52.6–70.8%) | 2–3 |
+| universalmutator | 62 (19.1%, 13.0–25.9%) | 2–6 | 184 (56.6%, 48.6–64.9%) | 2–4 |
+| poodle | 56 (17.2%, 10.1–25.4%) | 3–7 | 178 (54.8%, 46.6–62.9%) | 3–4 |
+| irradiate | 52 (16.0%, 9.6–23.2%) | 3–9 | 152 (46.8%, 37.8–55.8%) | 5–8 |
+| mutmut | 51 (15.7%, 10.2–21.6%) | 3–9 | 142 (43.7%, 35.3–52.7%) | 5–9 |
+| cosmic-ray | 46 (14.2%, 9.0–20.2%) | 4–9 | 139 (42.8%, 35.8–50.5%) | 5–9 |
+| deployproof | 46 (14.2%, 8.4–21.1%) | 4–9 | 143 (44.0%, 36.7–51.4%) | 5–9 |
+| fest | 41 (12.6%, 6.9–19.4%) | 5–9 | 134 (41.2%, 33.9–48.7%) | 6–9 |
 | pytest-leela | 22 (6.8%, 3.6–10.5%) | 10–11 | 93 (28.6%, 21.8–35.9%) | 10–11 |
 | pytest-gremlins | 21 (6.5%, 2.8–10.9%) | 10–11 | 81 (24.9%, 18.7–31.8%) | 10–11 |
 
 A rank is the 95% interval of the tool's rank over the project bootstrap, not a place. Of the 55 pairs of tools,
-the paired interval of the pre-fix difference excludes zero for 33 and Holm's adjustment over all 55 keeps 25
-below 5%; the minimum detectable difference is ±5.1 points. The intervals are pointwise, not simultaneous
+the paired interval of the pre-fix difference excludes zero for 36 and Holm's adjustment over all 55 keeps 31
+below 5%; the minimum detectable difference is ±5.6 points. The intervals are pointwise, not simultaneous
 statements about the whole ranking. Every pair, with its interval and adjusted p-value, is in
 [`results/tables.md`](../bench/results/tables.md).
 
@@ -505,20 +503,20 @@ statements about the whole ranking. Every pair, with its interval and adjusted p
 </picture>
 
 The classes of [The third condition](#the-third-condition) bound the pre-fix rate without the buggy side: a
-witness on a line that existed before the fix (rewritten or untouched) gives 13.8% (pytest-gremlins) to 42.5%
-(mutation), one in untouched code 5.5% to 19.1%. 31% (mutation) to 44% (pytest-leela, pytest-gremlins) of the
+witness on a line that existed before the fix (rewritten or untouched) gives 13.8% (pytest-gremlins) to 54.2%
+(balamut), one in untouched code 5.5% to 23.4%. 25% (balamut) to 44% (pytest-leela, pytest-gremlins) of the
 fixed-program detections rest only on witnesses on lines the fix inserted. Of the witnesses on rewritten lines,
-the tools' own generators on the buggy files make the same change for 760 (tool, witness) pairs and none for
-2,022; in untouched code, 3,459 pairs were written into the buggy file and 6 could not be.
+the tools' own generators on the buggy files make the same change for 834 (tool, witness) pairs and none for
+2,374; in untouched code, 3,985 pairs were written into the buggy file and 6 could not be.
 
 What the historical suite executes on a witness's lines separates the gaps line coverage already shows from those
 only mutants show. Of the fixed-program witnesses, a historical test executes 27% (deployproof) to 75% (mutation),
 only the import of the module or the class body executes up to 37% (deployproof), and no context executes 36%
-(deployproof) to 60% (balamut); mutation has none there, because it mutates only executed lines. The bugs a tool
+(deployproof) to 58% (mutmut); mutation has none there, because it mutates only executed lines. The bugs a tool
 detects only through never-executed witnesses are 0 (mutation) to 41% (pytest-gremlins) of its fixed-program
 detections; engines that report a mutant no test executes as "no coverage" (balamut, fest, irradiate, mutmut) show
 their users no survivor there. A pre-fix witness on a line a historical test executes exists for 3.1%
-(pytest-gremlins) to 19.1% (mutation) of the bugs, and for 21.5% with all tools together.
+(pytest-gremlins) to 20.9% (balamut) of the bugs, and for 24.0% with all tools together.
 
 ### Volume
 
@@ -528,8 +526,8 @@ their users no survivor there. A pre-fix witness on a line a historical test exe
 </picture>
 
 A tool that emits more mutants has more chances to emit a witness. The Spearman correlation between the tools'
-pre-fix detection and their median number of in-scope emissions per bug is 0.88 (0.83 for the fixed program); the
-medians range from 8 (pytest-gremlins) and 9 (pytest-leela) to 55 (universalmutator) and 130 (mutation).
+pre-fix detection and their median number of in-scope emissions per bug is 0.90 (0.86 for the fixed program); the
+medians range from 8 (pytest-gremlins) and 9 (pytest-leela) to 71 (balamut) and 130 (mutation).
 
 ### Budgets
 
@@ -543,14 +541,14 @@ medians range from 8 (pytest-gremlins) and 9 (pytest-leela) to 55 (universalmuta
   <img alt="Probability, averaged over bugs, that up to 3 random survivors of a tool include a pre-fix witness, per tool" src="images/bench-budget-s3.light.svg">
 </picture>
 
-Unrestricted pre-fix detection spans 6.5% to 23.7%; at fixed budgets `R(10)` spans 5.3% (pytest-gremlins) to
-9.4% (poodle) and `S(3)` 5.0% (pytest-gremlins) to 10.8% (mutation), and the intervals overlap widely (mutation's
-rank interval by `R(10)` is 1–11). Neither budget orders the tools reproducibly: the median Spearman correlation
-of the tools' order between two random halves of the projects is 0.10 for `R(10)` and 0.30 for `S(3)`, against
-0.71 for pre-fix detection and 0.82 for fixed-program detection, and their paired intervals separate 10 and 15 of
-the 55 pairs. Counting witnesses of the fixed program, `R(10)` spans 20% to 31% and `S(3)` 21% to 36%. `S(3)`
-over survivors on executed lines only spans 3% to 11%, over lines with a survivor 5% to 13%. The median bug gets
-130 in-scope emissions from mutation, 55 from universalmutator, 24 from balamut and 8 from pytest-gremlins, and 18
+Unrestricted pre-fix detection spans 6.5% to 28.6%; at fixed budgets `R(10)` spans 5.3% (pytest-gremlins) to
+11.4% (balamut) and `S(3)` 5.0% (pytest-gremlins) to 11.5% (balamut), and the intervals overlap widely (mutation's
+rank interval by `R(10)` is 2–11). Neither budget orders the tools reproducibly: the median Spearman correlation
+of the tools' order between two random halves of the projects is 0.31 for `R(10)` and 0.49 for `S(3)`, against
+0.76 for pre-fix detection and 0.88 for fixed-program detection, and their paired intervals separate 20 and 22 of
+the 55 pairs. Counting witnesses of the fixed program, `R(10)` spans 20% to 34% and `S(3)` 21% to 42%. `S(3)`
+over survivors on executed lines only spans 3% to 11%, over lines with a survivor 5% to 15%. The median bug gets
+130 in-scope emissions from mutation, 71 from balamut, 55 from universalmutator and 8 from pytest-gremlins, and 18
 (mutation) to 1 (pytest-leela, pytest-gremlins) survivors.
 
 ### What the mutants turned out to be
@@ -565,8 +563,8 @@ mutants. Mutants that do not compile are 3.5% of poodle's (978) and 1.0% of cosm
 the others; bytecode-equivalent ones at most 1.2% (fest, 208). Unmaterializable emissions (no faithful source
 text, or a tree equal to the original) are 1,519 of mutation's 106,243 in-scope emissions (1.4%), 2 of
 deployproof's, 1 of cosmic-ray's and 1 of pytest-gremlins's, and none of the other tools'. The tools' sets hold
-210,070 in-scope bug–artifact pairs (mutated files deduplicated across tools within each bug). 152 of them (0.07%)
-have an unresolved historical-suite outcome: the run was killed from outside the harness in both attempts, 102 of
+216,329 in-scope bug–artifact pairs (mutated files deduplicated across tools within each bug). 161 of them (0.07%)
+have an unresolved historical-suite outcome: the run was killed from outside the harness in both attempts, 110 of
 them in cattrs.
 
 ### Complementarity
@@ -576,58 +574,58 @@ them in cattrs.
   <img alt="Bugs the row tool detects with a pre-fix witness and the column tool does not" src="images/bench-overlap.light.svg">
 </picture>
 
-On this corpus, every tool of every pair detects at least one bug the other misses: from 1 (deployproof against
-poodle) to 59 (mutation against pytest-gremlins). 9 bugs have a single detecting tool (universalmutator 4,
-mutation 2, poodle, mutmut and cosmic-ray 1 each), and the union of all tools (29.5%) is 5.8 points above the best
+On this corpus, in every pair but three each tool detects at least one bug the other misses; pytest-leela,
+pytest-gremlins and deployproof detect none that balamut misses. The counts run from 1 (deployproof against poodle)
+to 72 (balamut against pytest-gremlins). 16 bugs have a single detecting tool (balamut 10,
+universalmutator 3, mutation 2, cosmic-ray 1), and the union of all tools (32.6%) is 4.0 points above the best
 single tool.
 
 ### Strata and sensitivity
 
 Pre-fix detection differs across the strata. On the 38 bugs whose fix lies only in class-body or module-level
-statements, mutation detects 37%, poodle and deployproof 26% and fest 24%, the other seven tools 0%
+statements, mutation detects 37%, balamut 34%, poodle and deployproof 26% and fest 24%, the other six tools 0%
 (pytest-gremlins) to 16% (universalmutator). The coverage strata are retrospective, and the fail-to-pass run
 includes feature tests. On 222 bugs the fail-to-pass run executes at least one changed line and the historical
-suite executed every such line; there the rates are 4% (pytest-gremlins) to 20% (mutation). On the 97 bugs with a
-changed line the historical suite never executed they are 12% (pytest-leela) to 34% (mutation), and 0% to 17% on
+suite executed every such line; there the rates are 4% (pytest-gremlins) to 23% (balamut). On the 97 bugs with a
+changed line the historical suite never executed they are 12% (pytest-leela) to 43% (balamut), and 0% to 17% on
 the 6 whose fail-to-pass run executes none of the changed lines. Fixes of 13 or more inserted or rewritten lines
-(64 bugs) are detected at 9% to 27%, fixes of 1 to 4 lines (151 bugs) at 5% to 21%. By when the fix was committed
+(64 bugs) are detected at 9% to 36%, fixes of 1 to 4 lines (151 bugs) at 5% to 22%. By when the fix was committed
 (2021–2025: 112 bugs; 2026 January–June: 48; July–November: 165) the rates move by up to 11 points and the order
 changes. Every tool detects fewer of the 27 bugs with an explicit AI-tool marker (14 of them inflect's) than of
-the others: 4% to 15% against 7% to 25%.
+the others: 4% to 15% against 7% to 30%.
 
 The sensitivity analyses fixed in advance move the absolute rates modestly: by at most 2.5 points when one
 project is left out, 1.5 with every project weighted equally and 2.5 without arrow. Close rankings can change:
-without arrow, poodle (14.8%) falls behind irradiate (16.7%) and mutmut (16.4%), and fest (10.3%) behind balamut
-(11.6%). Counting every undecided mutant (an unresolved run, a survivor without a fail-to-pass outcome, a witness
-without a re-judgement outcome or with an undecided counterpart) as a pre-fix witness raises a rate by at most 4.6
-points (universalmutator; the optimistic rates in [`results/tables.md`](../bench/results/tables.md)).
+without arrow, poodle (14.8%) falls behind irradiate (16.7%) and mutmut (16.4%). Counting every undecided mutant
+(an unresolved run, a survivor without a fail-to-pass outcome, a witness without a re-judgement outcome or with an
+undecided counterpart) as a pre-fix witness raises a rate by at most 4.6 points (universalmutator; the optimistic
+rates in [`results/tables.md`](../bench/results/tables.md)).
 
 ### Reliability of the verdicts
 
-* **Witness re-judgement.** A second oracle process from fresh trees reproduced 5,982 of the 6,005
+* **Witness re-judgement.** A second oracle process from fresh trees reproduced 6,293 of the 6,316
   first-judgement candidate witnesses (99.6%). Of the other 23, 22 were killed by the historical suite: 19 by
   rich's pipe test and 1 by a mistune CPU-time test (see [Threats to validity](#threats-to-validity)), 2 by
   ordinary tests of python-pathspec and tomlkit. The last one, a rich mutant, survived with a green fail-to-pass
   test, which failed on it in 2 of 3 later runs alone. A published witness also needs the same fail-to-pass test
   red with an outcome of its own in both judgements, and that test checking the fault. The check covers the
   candidate witnesses only; it does not estimate the accuracy of all verdicts.
-* **Oracle shortcuts.** Of 1,000 kills by a single test (866) or the covering subset (134), drawn uniformly (seed
-  20261105) from the 158,040 such kills of the current mutant sets over 210 bugs, the whole historical suite alone
-  killed 999; the run of the last, a cattrs mutant first killed by `test_self_roundtrip_namedtuple`, was killed
-  from outside the harness and stays unresolved. Over the decided outcomes the disagreement rate is below 0.3%
-  with 95% confidence (one-sided), at most about 470 of the 158,040 kills. The sample covers shortcut kills, not
-  survivors or witnesses.
+* **Oracle shortcuts.** Of 1,000 kills by a single test (861) or the covering subset (139), drawn uniformly (seed
+  20261105) from the 162,188 such kills of the current mutant sets over 200 bugs, the whole historical suite alone
+  killed 999; the last, a jinja2 mutant first killed by `test_do`, survived it. Over the decided outcomes the
+  disagreement rate is below 0.5% with 95% confidence (one-sided), at most about 770 of the 162,188 kills. The
+  sample covers shortcut kills, not survivors or witnesses.
 * **Oracle code.** A seeded sample (seed 20261111) of 1,000 of the 222,278 judged bug–artifact pairs of the
   mutant sets when it was drawn, over 230 bugs, judged again by the current oracle code `6dde30737b28f496`,
-  repeated 998 verdicts, among them all 37 witnesses and both unresolved runs: 986 of the 988 verdicts of code
-  `ecd9f95dcc8ee860` and all 12 of the current code. Of the other two, one kill became an unresolved run, and one
-  kill by rich's `test_brokenpipeerror` (see [Threats to validity](#threats-to-validity)) a survivor that is no
-  witness.
-* **Counterparts.** The buggy-side judgement covers 2,426 counterparts on the parents of 115 bugs: 2,276
-  survived the historical suite, 135 were killed, 14 of mutation's lie on lines the historical suite does not
+  repeated 997 verdicts, among them all 37 witnesses and both unresolved runs: 985 of the 987 verdicts of code
+  `ecd9f95dcc8ee860` and 12 of the 13 of the current code. Of the other three, one kill became an unresolved run,
+  one kill by rich's `test_brokenpipeerror` (see [Threats to validity](#threats-to-validity)) a survivor that is no
+  witness, and one tomlkit survivor that is no witness a gated-out mutant.
+* **Counterparts.** The buggy-side judgement covers 2,570 counterparts on the parents of 126 bugs: 2,418
+  survived the historical suite, 137 were killed, 14 of mutation's lie on lines the historical suite does not
   execute on the buggy code, and 1 is bytecode-equivalent there; none is unresolved. It is a single judgement, not
   repeated from fresh trees.
-* **Undecided.** 152 of the 210,070 in-scope bug–artifact pairs (0.07%) have an unresolved historical-suite
+* **Undecided.** 161 of the 216,329 in-scope bug–artifact pairs (0.07%) have an unresolved historical-suite
   outcome, 3 survivors have no fail-to-pass outcome (an interrupted run in click, pytest exit status 2; two
   external kills in pyparsing), and 6 witnesses have no counterpart that can be written into the buggy file: two
   of mutation's replace a dictionary across a line the fix deleted, four of universalmutator's insert a line right
@@ -652,12 +650,13 @@ points (universalmutator; the optimistic rates in [`results/tables.md`](../bench
 
 Of the 66 planned campaigns (eleven tools on six projects), 55 ran, 9 gave no verdicts and 2 failed;
 [`results/engine.md`](../bench/results/engine.md) lists every campaign with its reason, its native verdicts and
-their comparison. Where their campaigns ran, cosmic-ray, universalmutator, pytest-gremlins and balamut agree with
-the reference oracle on every comparable verdict (3,230, 5,445, 842 and 1,892). poodle agrees on 1,830 of 1,831:
-it kills a toolz mutant (`len(seq) % n` → `len(seq) - n` in `partition_all`) that the oracle and the campaigns of
-cosmic-ray, mutation and universalmutator, which generate the same mutated file, find surviving; that kill is not
-traced. The other disagreements and every campaign without verdicts trace to mechanisms of the tools, except
-where noted:
+their comparison. Where their campaigns ran, cosmic-ray and pytest-gremlins agree with the reference
+oracle on every comparable verdict (3,230 and 842). poodle agrees on 1,830 of 1,831: it kills a toolz mutant
+(`len(seq) % n` → `len(seq) - n` in `partition_all`) that the oracle and the campaigns of cosmic-ray, mutation and
+universalmutator, which generate the same mutated file, find surviving; that kill is not traced. universalmutator
+agrees on 5,443 of 5,444 and balamut on 4,741 of 4,742: both report a cachetools mutant in RRCache (line 381,
+`del self.__keys[:]` → `pass`) as surviving in their first runs, and the oracle kills it. The other disagreements
+and every campaign without verdicts trace to mechanisms of the tools, except where noted:
 
 * **fest** runs every mutant through its default backend, a pytest plugin that patches the module in a
   long-lived pytest process; 771 of its 840 comparable survivors are oracle kills. Its subprocess backend agrees
@@ -720,41 +719,42 @@ where noted:
   oracle kills break the module's import, so pytest exits with status 4 before any test runs, and deployproof
   counts a run in which no test ran as a survivor. On toolz and humanize `filterwarnings = error` turns the
   sysmon warning into an error at the first test's setup, and it gives no verdicts.
-* **balamut** reports 41 mutants as errors, all oracle kills, because it gives a verdict only to a mutant it can
-  apply in memory and see run: 33 are in functions nested in a decorator that runs at import (`_comparator`'s
-  `wrapper`, `cachedmethod`'s `make_info`, `recurse`'s `wrapped_f`), where it patches the outer function, which
-  never runs again; 5 are in property getters that share their qualified name with a setter; one removes a
-  `super()` call and so changes the function's closure; and 2, in the generator expression of toolz's
-  `sliding_window`, are not traced. A mutant of code that runs only while the module is imported has no covering
-  test and gets "no coverage": module and class bodies, which balamut marks as cold sites by design (113 oracle
-  kills, 84 of them in humanize's module-level tables `_ORDINAL_SUFFIXES`, `human_powers` and `powers`, 4 in
-  toolz's `rest = partial(drop, 1)`), and the bodies of decorators applied at import (3). Its releases 0.1.3 and
+* **balamut** reports 87 mutants as errors, 79 of them oracle kills and 8 oracle survivors, because it gives a
+  verdict only to a mutant it can apply in memory and see run: 62 are in functions nested in a decorator that runs
+  at import (`_comparator`'s `wrapper`, `cachedmethod`'s `make_info`, `recurse`'s `wrapped_f`), where it patches
+  the outer function, which never runs again; 20 are in property getters and setters that share their qualified
+  name; 2 remove a `super()` call and so change the function's closure; and 3, in the generator expressions of
+  toolz's `sliding_window` and python-semver's `Version.__repr__`, are not traced. In `make_info`, the mutant
+  `if isinstance(cache, Cache):` → `if True:` (line 792), which the oracle kills with
+  `tests/test_cachedmethod.py::DictMethodTest::test_decorator_cond_info`, is an error in all five runs. A mutant of
+  code that runs only while the module is imported has no covering test and gets "no coverage": module and class
+  bodies, which balamut marks as cold sites by design (211 oracle kills, 153 of them in humanize's module-level
+  tables `_ORDINAL_SUFFIXES`, `human_powers`, `powers`, `_SUPERSCRIPT_MAP` and `_APNUMBER_WORDS`, 5 in toolz's
+  `rest = partial(drop, 1)`), and the bodies of decorators applied at import (6). Its releases 0.1.3 and
   0.1.4 judged no mutant of attrs: the worker reset read `__module__` of every class in the loaded modules, which
   raises on a C type that has none (`_testcapi.ManualHeapType`, imported by attrs's test suite), so every test of
   every mutant failed in setup and every kill counted as failing on the original; 0.1.5 fixes it.
 
 On cachetools, the only project every campaign ran on, the median of a tool's five runs is 3.5 s (fest) to 1,289 s
-(universalmutator), balamut's 93 s. Every tool's slowest run is within 5% of its fastest except irradiate's (34 to
-40 s). The fastest campaigns are not the most
+(universalmutator), balamut's 232 s. Every tool's slowest run is within 5% of its fastest except irradiate's (34 to
+40 s) and balamut's (212 to 240 s). The fastest campaigns are not the most
 faithful: every survivor fest reports there, and 182 of pytest-leela's 195, are oracle kills. Between the runs,
 mutmut, mutation, pytest-gremlins, pytest-leela and deployproof kept every verdict (mutation on the 2,686 to 2,691
 mutated files a repetition shares with the first run: its number literals take new random values in every run).
-balamut, cosmic-ray, poodle and universalmutator changed one verdict each, all four on mutants of RRCache, which
-evicts a random item (see the oracle's repeatability below); fest's verdict
-changed between killed and survived on 7 mutants, 4 of them in RRCache, and irradiate's on 32 of its 913, 31 of
-them between a timeout and another verdict. A campaign's memory peak includes its tests and the page cache: eight campaigns reached their container's 3 GiB (see [Threats to validity](#threats-to-validity));
-balamut's peaks are 539 to 1,492 MiB and, on toolz, where mutants of `partition_all` make `test_partition_all`
-hang, its container's 3 GiB; those of pytest-gremlins, pytest-leela and deployproof are at most 338 MiB.
+cosmic-ray, poodle and universalmutator changed one verdict each, all three on mutants of RRCache, which
+evicts a random item (see the oracle's repeatability below); balamut's verdict changed on 4 mutants, 3 of them in
+RRCache, fest's between killed and survived on 7 mutants, 4 of them in RRCache, and irradiate's on 32 of its 913, 31 of
+them between a timeout and another verdict. A campaign's memory peak includes its tests and the page cache: nine campaigns reached their container's 3 GiB (see [Threats to validity](#threats-to-validity));
+balamut's peaks are 892 to 1,158 MiB, and its container's 3 GiB on sqlparse and on toolz, where mutants of
+`partition_all` make `test_partition_all` hang; those of pytest-gremlins, pytest-leela and deployproof are at most
+338 MiB.
 
 Each project's union was judged at least twice: rerunning some campaigns changed the unions, and a changed union is
-judged again whole. Of the 16,957 mutants in the first two runs, 4 changed verdict: three cachetools mutants whose
-effect depends on which item RRCache evicts at random (under the first run's verdicts, one of them is
-universalmutator's only disagreement), and one sqlparse mutant the first run left unresolved. The first cachetools
-run judged four mutants at a time; the second judged one at a time, after two attempts with four had ended when the
-out-of-memory killer took the oracle process itself. humanize's union was judged a third time, after balamut's
-campaign added 59 mutants to it: the 3,316 mutants judged before kept their verdicts. toolz's union was judged
-again whole after balamut's first campaign there added 4 mutants; the comparisons then hold fewer mutants the
-oracle left unresolved (mutmut 2 → 1, mutation 4 → 3, irradiate 1 → 0).
+judged again whole. Two whole judgements of the cachetools union differ on one mutant, the RRCache mutant
+`del self.__keys[:]` → `pass` (line 381): it survived the first and was killed in the second. balamut's five runs
+give it survived three times and killed twice, universalmutator's survived four times and killed once, and
+mutation's killed five times. toolz's union was judged one mutant at a time, after a run with four had ended when
+the out-of-memory killer took the oracle process itself.
 
 ### Execution traps
 
@@ -801,10 +801,10 @@ The other nine traps rebuild the mechanisms the engine track found:
   coverage's sysmon warning into an error.
 * **`--cov` in the pytest configuration** (`cf_cov_config`): mutation "kills" the 2 trap mutants that survive;
   irradiate stops (`No test coverage detected for the mutated functions`).
-* **Decorator applied at import** (`cf_decorator_closure`): balamut reports both its trap mutants as errors;
+* **Decorator applied at import** (`cf_decorator_closure`): balamut reports all four of its trap mutants as errors;
   mutmut finds no test for any mutant and irradiate no coverage, and both stop.
-* **Property getter and setter, name-mangled method** (`cf_property_setter`): balamut reports 6 of its 12 trap
-  mutants as errors (5 the tests kill, 1 equivalent) and irradiate 7 of its 19 as without coverage;
+* **Property getter and setter, name-mangled method** (`cf_property_setter`): balamut reports 8 of its 15 trap
+  mutants as errors (7 the tests kill, 1 equivalent) and irradiate 7 of its 19 as without coverage;
   pytest-gremlins generates no trap mutant.
 * **`multiprocessing.Pool` in a test** (`cf_pool`): every tool except fest judges its trap mutants as expected.
 * **`pythonpath` in `pytest.ini`** (`cf_src_pythonpath`): mutmut finds no test for any mutant and stops; poodle,
@@ -837,23 +837,23 @@ The other nine traps rebuild the mechanisms the engine track found:
 * **Witness strength.** A witness establishes a test-detection relationship, not reproduction of the failure
   mechanism, and it is a retrospective opportunity, not a measured developer benefit.
 * **The fixed program.** The tools mutate the fixed program, so the two-condition measure credits mutants of code
-  that did not exist before the fix: 31% to 44% of its detections rest only on lines the fix inserted. The third
+  that did not exist before the fix: 25% to 44% of its detections rest only on lines the fix inserted. The third
   condition is judged with counterparts built by rule: a witness in untouched code is written into the buggy file
   at the lines the diff maps it to, one on rewritten lines is matched with the mutants the tool's own generator
   makes on the buggy files by the tokens it removes and adds (and, among several, by the neighbouring tokens). A
   rewritten witness without such a mutant counts as absent before the fix, 6 witnesses without a writable
   counterpart stay undecided, and the buggy side is judged once.
-* **Coverage.** Of every tool's fixed-program witnesses but mutation's, 36% to 60% lie on lines no context of the
+* **Coverage.** Of every tool's fixed-program witnesses but mutation's, 36% to 58% lie on lines no context of the
   historical suite executes: gaps line coverage already shows. Line coverage alone points at 31.1% of the bugs
   (retrospectively, with every fail-to-pass test), more than any tool's pre-fix detection; the coverage strata
   ([Strata and sensitivity](#strata-and-sensitivity)) give the rates where the historical suite executed every
   changed line.
-* **Volume.** Detection grows with the number of mutants (Spearman 0.88 between pre-fix detection and the median
+* **Volume.** Detection grows with the number of mutants (Spearman 0.90 between pre-fix detection and the median
   emissions per bug), and the budgeted measures that control for it do not order the tools reproducibly: part of
   every difference between two tools' rates is a difference in how many mutants they emit.
 * **Oracle contexts.** Kills by a single test or the covering subset are paired, single-context kills: a
   state-dependent test can fail alone and pass in the canonical suite. On a sample of 1,000 such kills the whole
-  suite repeated all 1,000; unsampled kills are not re-checked. A process inside a test killed by the
+  suite repeated 999; unsampled kills are not re-checked. A process inside a test killed by the
   out-of-memory killer looks like a red test; witnesses are re-judged from fresh trees, kills are not.
 * **Flakiness.** Three green historical runs and the paired baselines do not establish the absence of flakiness.
   Some historical suites assert CPU-time bounds (mistune's `*_are_near_linear` tests); under the judging load
@@ -903,9 +903,9 @@ The other nine traps rebuild the mechanisms the engine track found:
   so the corpus may lack that one.
 * **Memory.** A campaign's container has 3 GiB without swap, and its peak includes the test processes: where a
   mutant made a test allocate without bound, the peak is the limit and measures that test, not the tool.
-  Eight campaigns reached it: cosmic-ray, mutation, poodle and universalmutator on sqlparse, mutation, poodle
-  and balamut on toolz, and universalmutator on cachetools; in five of them a single process the campaign waited for
-  grew to 2.4–3.0 GiB.
+  Nine campaigns reached it: cosmic-ray, mutation, poodle, universalmutator and balamut on sqlparse, mutation,
+  poodle and balamut on toolz, and universalmutator on cachetools; in five of them a single process the campaign
+  waited for grew to 2.4–3.0 GiB.
 * **Timing.** Campaigns ran on 4 dedicated vCPUs of a Docker Desktop VM (14 vCPUs, 7.65 GiB) on one laptop
   (Apple M3 Max); memory bandwidth, disk and the host's other work were shared, and each tool chose its own
   default parallelism from the 14 CPUs `os.cpu_count()` reports, not the 4 it could use (mutation starts 13
@@ -913,7 +913,7 @@ The other nine traps rebuild the mechanisms the engine track found:
   vCPUs beside two campaigns only: pytest-leela on sqlparse, which failed at its 2-hour limit, and, for the first
   4 of its 10 minutes, mutation's first run on cachetools. Only the cachetools campaigns, the project the time
   comparison uses, were repeated, on 2026-11-12, three to five days after their first runs, in the same VM
-  configuration; balamut's campaigns, all five on cachetools included, ran on 2026-11-18 with 0.1.5. The other
+  configuration; balamut's campaigns, all five on cachetools included, ran on 2026-11-20 with 0.1.6. The other
   projects' campaigns ran once, and a single run carries no measure of spread. A VM sized
   to the campaign's CPUs, or a host without one, and repetitions on every project remain to be done.
 

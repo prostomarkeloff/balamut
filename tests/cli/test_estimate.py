@@ -84,7 +84,7 @@ def test_main_with_no_covered_mutants_prints_no_estimate(
 
     assert estimate.main(["src/pkg/only.py", "--coverage", str(coverage)]) == 0
 
-    assert capsys.readouterr().out == "3 mutants, none covered: nothing to run\n"
+    assert capsys.readouterr().out == "5 mutants, none covered: nothing to run\n"
 
 
 def test_main_probe_costs_an_unmeasured_test_at_the_median(
@@ -293,10 +293,10 @@ def test_covered_counts_mutants_and_unions_covering_tests(tmp_path: Path) -> Non
 
     total, by_file, union = estimate._covered(["src/pkg/a.py", "src/pkg/b.py"], layout, cov)
 
-    assert total == 6  # three src mutants per single-comparison function
+    assert total == 10  # five src mutants per single-comparison function
     assert by_file == {
-        "src/pkg/a.py": [("tests/test_a.py::test_f",)] * 3,
-        "src/pkg/b.py": [("tests/test_b.py::test_g",)] * 3,
+        "src/pkg/a.py": [("tests/test_a.py::test_f",)] * 5,
+        "src/pkg/b.py": [("tests/test_b.py::test_g",)] * 5,
     }
     assert union == {"tests/test_a.py::test_f", "tests/test_b.py::test_g"}
 

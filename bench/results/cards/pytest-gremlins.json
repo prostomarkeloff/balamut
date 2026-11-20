@@ -103,10 +103,10 @@
  "pairs": [
   {
    "ci": [
-    -0.07954545454545454,
-    -0.02295081967213114
+    -0.3008356545961003,
+    -0.15384615384615385
    ],
-   "difference": -0.04923076923076923,
+   "difference": -0.22153846153846155,
    "other": "balamut",
    "p": 0.0001,
    "p_holm": 0.0055000000000000005
@@ -179,7 +179,7 @@
    "difference": -0.06153846153846154,
    "other": "fest",
    "p": 0.004,
-   "p_holm": 0.116
+   "p_holm": 0.092
   },
   {
    "ci": [
@@ -199,7 +199,7 @@
    "difference": -0.07692307692307693,
    "other": "deployproof",
    "p": 0.0002,
-   "p_holm": 0.007200000000000001
+   "p_holm": 0.0058000000000000005
   }
  ],
  "primary": "prefix",
@@ -225,7 +225,7 @@
  "statistics": {
   "clusters": 26,
   "interval": "percentile bootstrap over projects, pointwise 95%",
-  "minimum_detectable_difference": 0.050901383698811344,
+  "minimum_detectable_difference": 0.05565388397246803,
   "paired_test": "two-sided bootstrap p-value of the paired difference, Holm over all pairs",
   "replicates": 10000,
   "seed": 20261105
