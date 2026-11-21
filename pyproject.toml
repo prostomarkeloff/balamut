@@ -5,7 +5,7 @@ description = "The Python mutator for the AI era: fast, verdict-exact mutation t
 readme = "README.md"
 license = "MIT"
 requires-python = ">=3.14"
-authors = [{ name = "prostomarkeloff" }]
+authors = [{ name = "prostomarkeloff" }, { name = "kesha1225" } ]
 keywords = ["mutation-testing", "pytest", "test-quality", "coverage"]
 classifiers = [
     "Development Status :: 3 - Alpha",
