@@ -1,6 +1,8 @@
 [project]
 name = "balamut"
-dynamic = ["version"]
+# The version source of truth. CI releases exactly this value; a commit that leaves it at the last released
+# version gets the next patch version committed to main automatically.
+version = "0.1.2"
 description = "The Python mutator for the AI era: fast, verdict-exact mutation testing for pytest suites"
 readme = "README.md"
 license = "MIT"
@@ -48,12 +50,8 @@ dev = [
 ]
 
 [build-system]
-requires = ["hatchling>=1.27", "hatch-vcs>=0.5"]
+requires = ["hatchling>=1.27"]
 build-backend = "hatchling.build"
-
-# The version is the release tag: CI tags the commit it releases, and a build reads the tag from git.
-[tool.hatch.version]
-source = "vcs"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/balamut"]

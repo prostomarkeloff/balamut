@@ -4,13 +4,9 @@ on:
   push:
     branches: [main]
   pull_request:
+  # A manual run of main releases its head: the version the commit sets, or the next patch version if it left the
+  # released version unchanged.
   workflow_dispatch:
-    inputs:
-      bump:
-        description: The version part a manual release of main increments
-        type: choice
-        options: [patch, minor, major]
-        default: patch
 
 # A newer commit of a pull request supersedes the run of the older one. Every run of main is its own group: none
 # waits for or cancels another, and a release in flight finishes.
@@ -137,10 +133,11 @@ jobs:
           path: ${{ runner.temp }}/dogfood
           if-no-files-found: ignore
 
-  # Every green commit of main that changes the installed package becomes a release: the next patch version as a
-  # tag on that commit, the distributions on PyPI (trusted publishing through the `pypi` environment) and a GitHub
-  # release. The version exists only as the tag; the build reads it from git. A manual run of the workflow on main
-  # releases its head with the chosen increment.
+  # A green commit of main releases: the version its pyproject.toml sets, as a tag on the commit, the distributions
+  # on PyPI (trusted publishing through the `pypi` environment) and a GitHub release. A commit that leaves the
+  # version at the last released one gets the next patch version committed to main, and the run of that bump
+  # commit releases it; a commit that sets its own version releases exactly that. A manual run of the workflow
+  # releases the head under the same rule.
   release:
     needs: [check, dogfood]
     if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request' && !github.event.repository.fork
@@ -158,8 +155,6 @@ jobs:
       - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
       - name: Decide the version
         id: version
-        env:
-          BUMP: ${{ inputs.bump }}
         run: |
           # Only the head of main is released: when main has moved on, the run of the newer commit releases it.
           git fetch --quiet origin main
@@ -167,21 +162,35 @@ jobs:
             echo "main has moved past $(git rev-parse --short HEAD): nothing to release here"
             exit 0
           fi
-          # A tag already on this commit is a release interrupted half-way: finish it under the same version.
-          version=$(git tag --points-at HEAD --list '[0-9]*.[0-9]*.[0-9]*' --sort=-v:refname | head -n 1)
+          # The version is whatever the commit says in pyproject.toml; CI never invents a release version, it only
+          # bumps the patch of the version a commit left unchanged. A commit that sets its own version releases
+          # exactly that.
+          latest=$(git tag --merged HEAD --list '[0-9]*.[0-9]*.[0-9]*' --sort=-v:refname | head -n 1)
+          version=$(sed -n 's/^version = "\([^"]*\)"$/\1/p' pyproject.toml)
           if [ -z "$version" ]; then
-            latest=$(git tag --merged HEAD --list '[0-9]*.[0-9]*.[0-9]*' --sort=-v:refname | head -n 1)
-            if [ -z "$BUMP" ] && git diff --quiet "$latest" HEAD -- src pyproject.toml README.md LICENSE; then
-              echo "the installed package is unchanged since $latest: nothing to release"
+            echo "pyproject.toml has no version: nothing to release"
+            exit 1
+          fi
+          if [ "$version" = "$latest" ]; then
+            if [ -n "$(git tag --points-at HEAD --list "$version")" ]; then
+              # A tag already on this commit is a release interrupted half-way: finish it under the same version.
+              echo "version $version was tagged half-way through its release: finishing it"
+            else
+              # No version change in this commit: the next patch version goes to main, and the run of that bump
+              # commit releases it. Only the patch part ever increments; anything else is a change in the commit.
+              IFS=. read -r major minor patch <<< "$version"
+              next="$major.$minor.$((patch + 1))"
+              sed -i "s/^version = \"$version\"$/version = \"$next\"/" pyproject.toml
+              git config user.name 'github-actions[bot]'
+              git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+              git commit -m "chore: bump version to $next" pyproject.toml
+              git push origin main
+              echo "bumped $version to $next: the run of the bump commit releases it"
               exit 0
             fi
-            IFS=. read -r major minor patch <<< "$latest"
-            case "${BUMP:-patch}" in
-              major) version="$((major + 1)).0.0" ;;
-              minor) version="$major.$((minor + 1)).0" ;;
-              patch) version="$major.$minor.$((patch + 1))" ;;
-            esac
-            git tag "$version"
+          elif [ -n "$(git tag --list "$version")" ]; then
+            echo "version $version is already released: nothing to do"
+            exit 0
           fi
           echo "version=$version" >> "$GITHUB_OUTPUT"
       - name: Build
@@ -198,6 +207,7 @@ jobs:
           VERSION: ${{ steps.version.outputs.version }}
           GH_TOKEN: ${{ github.token }}
         run: |
+          [ -z "$(git tag --list "$VERSION")" ] && git tag "$VERSION"
           git push origin "refs/tags/$VERSION"
           uv publish --check-url https://pypi.org/simple/
           gh release view "$VERSION" > /dev/null 2>&1 ||
